@@ -56,7 +56,7 @@ import PokemonInfoContainer from './ui/pokemon-info-container';
 import { biomeDepths } from './data/biomes';
 import { initTouchControls } from './touch-controls';
 
-export const bypassLogin = false;
+export const bypassLogin = import.meta.env.VITE_BYPASS_LOGIN === "1";
 
 export const STARTING_LEVEL_OVERRIDE = 0;
 export const STARTING_WAVE_OVERRIDE = 0;
