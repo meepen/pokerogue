@@ -60,6 +60,8 @@ export class EscapeMenuComponent extends MenuItemSelectComponent {
         },
       ]
     });
+
+    console.log('EscapeMenuComponent');
   }
 
   get visible() {

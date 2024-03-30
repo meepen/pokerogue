@@ -29,7 +29,7 @@ export class MenuItemSelectComponent extends SceneComponent<MenuItemSelectCompon
   private get optionsHeight() {
     return this.optionsText
       .map(text => text.displayHeight)
-      .reduce((acc, height) => acc + height + this.scaleSize(1), 0) - this.scaleSize(getTextPadding(TextStyle.WINDOW));
+      .reduce((acc, height) => acc + height + this.scaleSize(1), 0) - this.scaleSize(getTextPadding(TextStyle.WINDOW)) - this.scaleSize(2);
   }
 
   private get optionsWidth() {

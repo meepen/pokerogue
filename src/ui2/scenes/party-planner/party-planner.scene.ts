@@ -7,10 +7,14 @@ export class PartyPlannerScene extends GameScene {
   }
 
   public preload(): void {
+    super.preload();
+
     this.preloadImage('starter_select_bg', 'ui');
   }
 
   public create(): void {
+    super.create();
+
     this.add.rectangle(0, 0, this.game.canvas.width, this.game.canvas.height, 0x006860).setOrigin(0, 0);
 
     const image = this.add.image(0, 0, 'starter_select_bg');
