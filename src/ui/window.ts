@@ -24,7 +24,7 @@ const windowTypeControlColors = {
   3: [ '#2068d0', '#80b0e0', '#104888' ]
 };
 
-export function addWindow(scene: BattleScene, x: number, y: number, width: number, height: number, mergeMaskTop?: boolean, mergeMaskLeft?: boolean, maskOffsetX?: number, maskOffsetY?: number, windowVariant?: WindowVariant): Phaser.GameObjects.NineSlice {
+export function addWindow(scene: Scene, x: number, y: number, width: number, height: number, mergeMaskTop?: boolean, mergeMaskLeft?: boolean, maskOffsetX?: number, maskOffsetY?: number, windowVariant?: WindowVariant): Phaser.GameObjects.NineSlice {
   if (windowVariant === undefined)
     windowVariant = WindowVariant.NORMAL;
     

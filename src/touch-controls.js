@@ -2,6 +2,10 @@ export const keys = new Map();
 export const keysDown = new Map();
 let lastTouchedId;
 
+/**
+ * Initialize touch controls for the game
+ * @param {Map} buttonMap 
+ */
 export function initTouchControls(buttonMap) {
   for (const button of document.querySelectorAll('[data-key]')) {
     // @ts-ignore
@@ -27,10 +31,10 @@ export function isMobile() {
  *
  * @param {string} eventType Type of the keyboard event
  * @param {string} button Button to simulate
- * @param {object} buttonMap Map of buttons to key objects
+ * @param {Map} buttonMap Map of buttons to key objects
  */
 function simulateKeyboardEvent(eventType, button, buttonMap) {
-  const key = buttonMap[button];
+  const key = buttonMap.get(button);
   
   switch (eventType) {
     case 'keydown':
@@ -43,24 +47,11 @@ function simulateKeyboardEvent(eventType, button, buttonMap) {
 }
 
 /**
- * Simulate a keyboard input from 'keydown' to 'keyup'
- *
- * @param {string} key Key to simulate
- * @param {object} buttonMap Map of buttons to key objects
- */
-function simulateKeyboardInput(key, buttonMap) {
-  simulateKeyboardEvent('keydown', key, buttonMap);
-  window.setTimeout(() => {
-    simulateKeyboardEvent('keyup', key, buttonMap);
-  }, 100);
-}
-
-/**
  * Bind a node by a specific key to simulate on touch
  *
  * @param {*} node The node to bind a key to
  * @param {string} key Key to simulate
- * @param {object} buttonMap Map of buttons to key objects
+ * @param {Map} buttonMap Map of buttons to key objects
  */
 function bindKey(node, key, buttonMap) {
   keys.set(node.id, key);

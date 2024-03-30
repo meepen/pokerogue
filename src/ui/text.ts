@@ -25,7 +25,6 @@ export function addTextObject(scene: Phaser.Scene, x: number, y: number, content
   const [ styleOptions, shadowColor, shadowSize ] = getTextStyleOptions(style, extraStyleOptions);
 
   const ret = scene.add.text(x, y, content, styleOptions);
-  ret.setScale(0.1666666667);
   ret.setShadow(shadowSize, shadowSize, shadowColor);
   if (!(styleOptions as Phaser.Types.GameObjects.Text.TextStyle).lineSpacing)
     ret.setLineSpacing(5);
@@ -38,7 +37,6 @@ export function addBBCodeTextObject(scene: Phaser.Scene, x: number, y: number, c
 
   const ret = new BBCodeText(scene, x, y, content, styleOptions as BBCodeText.TextStyle);
   scene.add.existing(ret);
-  ret.setScale(0.1666666667);
   ret.setShadow(shadowSize, shadowSize, shadowColor);
   if (!(styleOptions as BBCodeText.TextStyle).lineSpacing)
     ret.setLineSpacing(10);
@@ -56,19 +54,13 @@ export function addTextInputObject(scene: Phaser.Scene, x: number, y: number, wi
   return ret;
 }
 
-function getTextStyleOptions(style: TextStyle, extraStyleOptions?: Phaser.Types.GameObjects.Text.TextStyle): [ Phaser.Types.GameObjects.Text.TextStyle | InputText.IConfig, string, integer ] {
-  let shadowColor: string;
-  let shadowSize = 6;
+interface TextStyleInfo {
+  size: integer;
+  shadowSize: number;
+  fontFamily: string;
+}
 
-  let styleOptions: Phaser.Types.GameObjects.Text.TextStyle = {
-    fontFamily: 'emerald',
-    fontSize: '96px',
-    color: getTextColor(style, false),
-    padding: {
-      bottom: 6
-    }
-  };
-
+export function getTextStyle(style: TextStyle): TextStyleInfo {
   switch (style) {
     case TextStyle.SUMMARY:
     case TextStyle.SUMMARY_RED:
@@ -78,26 +70,60 @@ function getTextStyleOptions(style: TextStyle, extraStyleOptions?: Phaser.Types.
     case TextStyle.MESSAGE:
     case TextStyle.SETTINGS_LABEL:
     case TextStyle.SETTINGS_SELECTED:
-      styleOptions.fontSize = '96px';
-      break;
+      return {
+        size: 96,
+        shadowSize: 6,
+        fontFamily: 'emerald'
+      };
+
     case TextStyle.BATTLE_INFO:
     case TextStyle.MONEY:
     case TextStyle.TOOLTIP_TITLE:
-      styleOptions.fontSize = '72px';
-      shadowSize = 4.5;
-      break;
+      return {
+        size: 72,
+        shadowSize: 4.5,
+        fontFamily: 'emerald'
+      };
     case TextStyle.PARTY:
     case TextStyle.PARTY_RED:
-      styleOptions.fontFamily = 'pkmnems';
-      styleOptions.fontSize = '66px';
-      break;
+      return {
+        size: 66,
+        shadowSize: 6,
+        fontFamily: 'pkmnems'
+      };
     case TextStyle.TOOLTIP_CONTENT:
-      styleOptions.fontSize = '64px';
-      shadowSize = 4;
-      break;
+      return {
+        size: 64,
+        shadowSize: 4,
+        fontFamily: 'emerald'
+      };
+    default:
+      return {
+        size: 96,
+        shadowSize: 6,
+        fontFamily: 'emerald'
+      };
   }
+}
 
-  shadowColor = getTextColor(style, true);
+export function getTextPadding(_style: TextStyle) {
+  return 6;
+}
+
+function getTextStyleOptions(style: TextStyle, extraStyleOptions?: Phaser.Types.GameObjects.Text.TextStyle): [ Phaser.Types.GameObjects.Text.TextStyle | InputText.IConfig, string, integer ] {
+  const shadowColor = getTextColor(style, true);
+  const textStyle = getTextStyle(style);
+  
+  let shadowSize = textStyle.shadowSize;
+
+  let styleOptions: Phaser.Types.GameObjects.Text.TextStyle = {
+    fontFamily: textStyle.fontFamily,
+    fontSize: `${textStyle.size}px`,
+    color: getTextColor(style, false),
+    padding: {
+      bottom: getTextPadding(style),
+    }
+  };
 
   if (extraStyleOptions) {
     if (extraStyleOptions.fontSize) {

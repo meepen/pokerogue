@@ -18,6 +18,7 @@ import { TimeOfDay } from "../data/enums/time-of-day";
 import { Terrain, TerrainType } from "../data/terrain";
 import { PostTerrainChangeAbAttr, PostWeatherChangeAbAttr, applyPostTerrainChangeAbAttrs, applyPostWeatherChangeAbAttrs } from "../data/ability";
 import { PartyMemberStrength } from "../data/enums/party-member-strength";
+import { getBiomeHasProps } from "../game-info/biomes/biome";
 
 const WEATHER_OVERRIDE = WeatherType.NONE;
 
@@ -373,80 +374,6 @@ export class Arena {
     }
   }
 
-  getTimeOfDay(): TimeOfDay {
-    switch (this.biomeType) {
-      case Biome.ABYSS:
-        return TimeOfDay.NIGHT;
-    }
-
-    const waveCycle = ((this.scene.currentBattle?.waveIndex || 0) + this.scene.waveCycleOffset) % 40;
-
-    if (waveCycle < 15)
-      return TimeOfDay.DAY;
-
-    if (waveCycle < 20)
-      return TimeOfDay.DUSK;
-
-    if (waveCycle < 35)
-      return TimeOfDay.NIGHT;
-
-    return TimeOfDay.DAWN;
-  }
-
-  isOutside(): boolean {
-    switch (this.biomeType) {
-      case Biome.SEABED:
-      case Biome.CAVE:
-      case Biome.ICE_CAVE:
-      case Biome.POWER_PLANT:
-      case Biome.DOJO:
-      case Biome.FACTORY:
-      case Biome.ABYSS:
-      case Biome.FAIRY_CAVE:
-      case Biome.TEMPLE:
-      case Biome.LABORATORY:
-        return false;
-      default:
-        return true;
-    }
-  }
-
-  getDayTint(): [integer, integer, integer] {
-    switch (this.biomeType) {
-      case Biome.ABYSS:
-        return [ 64, 64, 64 ];
-      default:
-        return [ 128, 128, 128 ];
-    }
-  }
-
-  getDuskTint(): [integer, integer, integer] {
-    if (!this.isOutside())
-      return [ 0, 0, 0 ];
-
-    switch (this.biomeType) {
-      default:
-        return [ 98, 48, 73 ].map(c => Math.round((c + 128) / 2)) as [integer, integer, integer];
-    }
-  }
-
-  getNightTint(): [integer, integer, integer] {
-    switch (this.biomeType) {
-      case Biome.ABYSS:
-      case Biome.SPACE:
-      case Biome.END:
-        return this.getDayTint();
-    }
-
-    if (!this.isOutside())
-      return [ 64, 64, 64 ];
-
-    switch (this.biomeType) {
-      default:
-        return [ 48, 48, 98 ];
-    }
-  }
-
   setIgnoreAbilities(ignoreAbilities: boolean = true): void {
     this.ignoreAbilities = ignoreAbilities;
   }
@@ -600,35 +527,6 @@ export function getBiomeKey(biome: Biome): string {
       return 'beach';
   }
   return Biome[biome].toLowerCase();
-}
-
-export function getBiomeHasProps(biomeType: Biome): boolean {
-  switch (biomeType) {
-    case Biome.BEACH:
-    case Biome.LAKE:
-    case Biome.SEABED:
-    case Biome.MOUNTAIN:
-    case Biome.BADLANDS:
-    case Biome.CAVE:
-    case Biome.DESERT:
-    case Biome.ICE_CAVE:
-    case Biome.MEADOW:
-    case Biome.POWER_PLANT:
-    case Biome.VOLCANO:
-    case Biome.GRAVEYARD:
-    case Biome.FACTORY:
-    case Biome.RUINS:
-    case Biome.WASTELAND:
-    case Biome.ABYSS:
-    case Biome.CONSTRUCTION_SITE:
-    case Biome.FAIRY_CAVE:
-    case Biome.TEMPLE:
-    case Biome.LABORATORY:
-    case Biome.END:
-      return true;
-  }
-
-  return false;
 }
 
 export class ArenaBase extends Phaser.GameObjects.Container {

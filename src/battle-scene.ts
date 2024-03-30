@@ -10,12 +10,11 @@ import { initCommonAnims, initMoveAnim, loadCommonAnimAssets, loadMoveAnimAssets
 import { Phase } from './phase';
 import { initGameSpeed } from './system/game-speed';
 import { Biome } from "./data/enums/biome";
-import { Arena, ArenaBase, getBiomeHasProps, getBiomeKey } from './field/arena';
+import { Arena, ArenaBase, getBiomeKey } from './field/arena';
 import { GameData, PlayerGender } from './system/game-data';
 import StarterSelectUiHandler from './ui/starter-select-ui-handler';
 import { TextStyle, addTextObject } from './ui/text';
 import { Moves } from "./data/enums/moves";
-import { } from "./data/move";
 import { initMoves } from './data/move';
 import { ModifierPoolType, getDefaultModifierTypeForTier, getEnemyModifierTypesForWave } from './modifier/modifier-type';
 import AbilityBar from './ui/ability-bar';
@@ -55,6 +54,7 @@ import DamageNumberHandler from './field/damage-number-handler';
 import PokemonInfoContainer from './ui/pokemon-info-container';
 import { biomeDepths } from './data/biomes';
 import { initTouchControls } from './touch-controls';
+import { getBiomeHasProps } from './game-info/biomes/biome';
 
 export const bypassLogin = import.meta.env.VITE_BYPASS_LOGIN === "1";
 

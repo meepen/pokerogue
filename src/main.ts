@@ -1,11 +1,13 @@
 import Phaser from 'phaser';
-import BattleScene from './battle-scene';
 import InvertPostFX from './pipelines/invert';
 import { version } from '../package.json';
 import UIPlugin from 'phaser3-rex-plugins/templates/ui/ui-plugin';
 import BBCodeTextPlugin from 'phaser3-rex-plugins/plugins/bbcodetext-plugin';
 import InputTextPlugin from 'phaser3-rex-plugins/plugins/inputtext-plugin.js';
 import BBCodeText from 'phaser3-rex-plugins/plugins/bbcodetext';
+import { LoadGameScene } from './ui2/scenes/load-game/load-game.scene';
+import { MainMenuScene } from './ui2/scenes/main-menu/main-menu.scene';
+import { PartyPlannerScene } from './ui2/scenes/party-planner/party-planner.scene';
 
 const config: Phaser.Types.Core.GameConfig = {
 	type: Phaser.WEBGL,
@@ -44,7 +46,7 @@ const config: Phaser.Types.Core.GameConfig = {
 	},
 	pixelArt: true,
 	pipeline: [ InvertPostFX ] as unknown as Phaser.Types.Core.PipelineConfig,
-	scene: [ BattleScene ],
+	scene: [ LoadGameScene, MainMenuScene, PartyPlannerScene ],
 	version: version
 };
 

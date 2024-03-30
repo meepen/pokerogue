@@ -1,4 +1,3 @@
-import BattleScene from "../battle-scene";
 import { TextStyle, addTextObject } from "./text";
 import { WindowVariant, addWindow } from "./window";
 import * as Utils from "../utils";
@@ -168,7 +167,3 @@ export class DailyRunScoreboard extends Phaser.GameObjects.Container {
     });
   }
 }
-
-export interface DailyRunScoreboard {
-  scene: BattleScene
-};

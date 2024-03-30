@@ -264,7 +264,7 @@ export class FixedInt extends IntegerHolder {
 }
 
 export function fixedInt(value: integer): integer {
-  return new FixedInt(value) as unknown as integer;
+  return new FixedInt(value).value;
 }
 
 export function rgbToHsv(r: integer, g: integer, b: integer) {
