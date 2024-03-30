@@ -1,5 +1,5 @@
 import { CommandPhase } from "../phases";
-import BattleScene, { Button } from "../battle-scene";
+import BattleScene from "../battle-scene";
 import { PlayerPokemon, PokemonMove } from "../field/pokemon";
 import { addTextObject, TextStyle } from "./text";
 import { Command } from "./command-ui-handler";
@@ -15,6 +15,7 @@ import PokemonIconAnimHandler, { PokemonIconAnimMode } from "./pokemon-icon-anim
 import { pokemonEvolutions } from "../data/pokemon-evolutions";
 import { addWindow } from "./window";
 import { SpeciesFormChangeItemTrigger } from "../data/pokemon-forms";
+import { Button } from "../controls/controls-handler";
 
 const defaultMessage = 'Choose a Pokémon.';
 

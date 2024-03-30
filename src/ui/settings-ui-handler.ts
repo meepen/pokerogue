@@ -1,4 +1,5 @@
-import BattleScene, { Button } from "../battle-scene";
+import BattleScene from "../battle-scene";
+import { Button } from "../controls/controls-handler";
 import { Setting, settingDefaults, settingOptions } from "../system/settings";
 import { hasTouchscreen, isMobile } from "../touch-controls";
 import { TextStyle, addTextObject, getTextColor } from "./text";

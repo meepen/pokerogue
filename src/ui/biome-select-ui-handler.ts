@@ -1,4 +1,4 @@
-import BattleScene, { Button } from "../battle-scene";
+import BattleScene from "../battle-scene";
 import { biomeLinks, getBiomeName } from "../data/biomes";
 import { Biome } from "../data/enums/biome";
 import { addTextObject, TextStyle } from "./text";
@@ -6,6 +6,7 @@ import { Mode } from "./ui";
 import UiHandler from "./ui-handler";
 import * as Utils from "../utils";
 import { addWindow } from "./window";
+import { Button } from "../controls/controls-handler";
 
 export default class BiomeSelectUiHandler extends UiHandler {
   private biomeSelectContainer: Phaser.GameObjects.Container;

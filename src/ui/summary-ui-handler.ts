@@ -1,4 +1,4 @@
-import BattleScene, { Button } from "../battle-scene";
+import BattleScene from "../battle-scene";
 import { Mode } from "./ui";
 import UiHandler from "./ui-handler";
 import * as Utils from "../utils";
@@ -16,6 +16,7 @@ import { getBiomeName } from "../data/biomes";
 import { Nature, getNatureStatMultiplier } from "../data/nature";
 import { loggedInUser } from "../account";
 import { PlayerGender } from "../system/game-data";
+import { Button } from "../controls/controls-handler";
 
 enum Page {
   PROFILE,

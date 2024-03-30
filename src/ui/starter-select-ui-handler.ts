@@ -1,4 +1,4 @@
-import BattleScene, { Button } from "../battle-scene";
+import BattleScene from "../battle-scene";
 import PokemonSpecies, { allSpecies, getPokemonSpecies, speciesStarters } from "../data/pokemon-species";
 import { Species } from "../data/enums/species";
 import { TextStyle, addBBCodeTextObject, addTextObject, getTextColor } from "./text";
@@ -24,6 +24,7 @@ import { Type } from "../data/type";
 import { Moves } from "../data/enums/moves";
 import { speciesEggMoves } from "../data/egg-moves";
 import { TitlePhase } from "../phases";
+import { Button } from "../controls/controls-handler";
 
 export type StarterSelectCallback = (starters: Starter[]) => void;
 

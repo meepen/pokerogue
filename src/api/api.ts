@@ -1,10 +1,18 @@
 import EventEmitter from "phaser3-rex-plugins/plugins/utils/eventemitter/EventEmitter";
+import { SystemSaveDataDto } from "./system-save-data.dto";
 
 export class ApiError extends Error {
   constructor(message: string, public response: Response) {
     super(`ApiError ${response.statusText}: ${message}`);
   }
 }
+
+export interface LoginDetails {
+  username: string;
+  password: string;
+}
+
+export interface AccountInfo {}
 
 export class PokeRogueApi extends EventEmitter {
   private baseUrl: URL;
@@ -14,20 +22,15 @@ export class PokeRogueApi extends EventEmitter {
     this.baseUrl = new URL(apiBaseUrl);
   }
 
-  private authenticationToken?: string;
+  private _authenticationToken: string | null = null;
+  
+  public set authenticationToken(token: string | null) {
+    this.emit('authChanged', token);
+    this._authenticationToken = token;
+  }
 
-  /**
-   * Authenticates with the server, if necessary.
-   * @returns The authentication token.
-   */
-  private async authenticate() {
-    if (!this.authenticationToken) {
-      // TODO: Implement authentication
-      return null;
-    }
-    else {
-      return this.authenticationToken;
-    }
+  public get authenticationToken() {
+    return this._authenticationToken;
   }
 
   /**
@@ -35,14 +38,16 @@ export class PokeRogueApi extends EventEmitter {
    * @param init The request init object.
    * @returns The request init object with the authentication headers.
    */
-  private async initAuthenticated(init: RequestInit) {
-    const auth = await this.authenticate();
+  private initAuthenticated(init: RequestInit = {}) {
+    if (!this.authenticationToken) {
+      throw new Error('No authentication token set');
+    }
 
     return {
       ...init,
       headers: {
         ...init.headers ?? {},
-        'Authorization': auth
+        'Authorization': this.authenticationToken
       },
     };
   }
@@ -65,5 +70,80 @@ export class PokeRogueApi extends EventEmitter {
     }
 
     throw new ApiError('Failed to fetch player count', response);
+  }
+
+  /**
+   * Registers a new account with the server.
+   * @param details The login details.
+   * @throws ApiError if the request fails.
+   */
+  public async register(details: LoginDetails): Promise<void> {
+    const response = await fetch(new URL('account/register', this.baseUrl).toString(), {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        password: details.password,
+        username: details.username,
+      }),
+    });
+
+    if (response.status === 400) {
+      throw new Error((await response.text()).trim());
+    }
+
+    if (!response.ok) {
+      throw new ApiError('Failed to register', response);
+    }
+  }
+
+  /**
+   * Logs in to the server.
+   * @param details The login details.
+   * @returns The authentication token.
+   * @throws ApiError if the request fails.
+   */
+  public async login(details: LoginDetails): Promise<void> {
+    const response = await fetch(new URL('account/login', this.baseUrl).toString(), {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        password: details.password,
+        username: details.username,
+      }),
+    });
+
+    if (response.status === 400) {
+      throw new Error((await response.text()).trim());
+    }
+
+    if (!response.ok) {
+      throw new ApiError('Failed to login', response);
+    }
+
+    const resp = await response.json();
+    if (typeof resp !== 'object') {
+      throw new ApiError('Invalid response', response);
+    }
+
+    if (typeof resp['token'] !== 'string') {
+      throw new ApiError('Invalid response: no token', response);
+    }
+
+    this.authenticationToken = resp['token'];
+  }
+
+  public async retrieveAccountInfo(): Promise<SystemSaveDataDto> {
+    const response = await fetch(new URL('account/info', this.baseUrl).toString(), this.initAuthenticated());
+
+    if (!response.ok) {
+      throw new ApiError('Failed to retrieve account info', response);
+    }
+
+    const resp = await response.json();
+    return resp as SystemSaveDataDto;
   }
 }

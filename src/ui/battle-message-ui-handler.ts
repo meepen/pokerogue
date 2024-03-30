@@ -1,10 +1,11 @@
-import BattleScene, { Button } from "../battle-scene";
+import BattleScene from "../battle-scene";
 import { addTextObject, TextStyle } from "./text";
 import { Mode } from "./ui";
 import * as Utils from "../utils";
 import MessageUiHandler from "./message-ui-handler";
 import { getStatName, Stat } from "../data/pokemon-stat";
 import { addWindow } from "./window";
+import { Button } from "../controls/controls-handler";
 
 export default class BattleMessageUiHandler extends MessageUiHandler {
   private levelUpStatsContainer: Phaser.GameObjects.Container;

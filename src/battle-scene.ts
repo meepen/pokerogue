@@ -55,6 +55,9 @@ import PokemonInfoContainer from './ui/pokemon-info-container';
 import { biomeDepths } from './data/biomes';
 import { initTouchControls } from './touch-controls';
 import { getBiomeHasProps } from './game-info/biomes/biome';
+import { Button } from './controls/controls-handler';
+
+export { Button } from './controls/controls-handler';
 
 export const bypassLogin = import.meta.env.VITE_BYPASS_LOGIN === "1";
 
@@ -66,24 +69,6 @@ export const STARTING_MONEY_OVERRIDE = 0;
 export const startingWave = STARTING_WAVE_OVERRIDE || 1;
 
 const expSpriteKeys: string[] = [];
-
-export enum Button {
-	UP,
-	DOWN,
-	LEFT,
-	RIGHT,
-	SUBMIT,
-	ACTION,
-	CANCEL,
-	MENU,
-	CYCLE_SHINY,
-	CYCLE_FORM,
-	CYCLE_GENDER,
-	CYCLE_ABILITY,
-	CYCLE_NATURE,
-	SPEED_UP,
-	SLOW_DOWN
-}
 
 export interface PokeballCounts {
 	[pb: string]: integer;

@@ -49,7 +49,6 @@ export function addTextInputObject(scene: Phaser.Scene, x: number, y: number, wi
 
   const ret = new InputText(scene, x, y, width, height, styleOptions as InputText.IConfig);
   scene.add.existing(ret);
-  ret.setScale(0.1666666667);
 
   return ret;
 }

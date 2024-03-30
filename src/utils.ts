@@ -197,17 +197,17 @@ export function setCookie(cName: string, cValue: string): void {
   document.cookie = `${cName}=${cValue};SameSite=Strict;path=/`;
 }
 
-export function getCookie(cName: string): string {
-  const name = `${cName}=`;
-  const ca = document.cookie.split(';');
-  for (let i = 0; i < ca.length; i++) {
-    let c = ca[i];
-    while (c.charAt(0) === ' ')
-      c = c.substring(1);
-    if (c.indexOf(name) === 0)
-      return c.substring(name.length, c.length);
-  }
-  return '';
+export function getCookie(cookieName: string): string | null {
+  const ca = document.cookie
+    .split(';')
+    .map(c => c.trimStart())
+    .map(c => c.split('='))
+    .find(c => c[0] === cookieName);
+  return ca ? ca[1] : null;
+}
+
+export function getSessionToken() {
+  return getCookie(sessionIdKey);
 }
 
 export function apiFetch(path: string): Promise<Response> {

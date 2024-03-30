@@ -1,7 +1,24 @@
-import { Button } from "../battle-scene";
 import { initTouchControls } from '#app/touch-controls';
 
 const keyCodes = Phaser.Input.Keyboard.KeyCodes;
+
+export enum Button {
+	UP,
+	DOWN,
+	LEFT,
+	RIGHT,
+	SUBMIT,
+	ACTION,
+	CANCEL,
+	MENU,
+	CYCLE_SHINY,
+	CYCLE_FORM,
+	CYCLE_GENDER,
+	CYCLE_ABILITY,
+	CYCLE_NATURE,
+	SPEED_UP,
+	SLOW_DOWN
+}
 
 export class ControlsHandler extends Phaser.Events.EventEmitter {
   private readonly buttonMap = new Map<Button, number[]>([
@@ -54,7 +71,7 @@ export class ControlsHandler extends Phaser.Events.EventEmitter {
 	private initKeyboard(keyboard: Phaser.Input.Keyboard.KeyboardPlugin) {
 		for (const [button, keys] of this.buttonMap.entries()) {
 			for (const key of keys) {
-				const keyButton = keyboard.addKey(key);
+				const keyButton = keyboard.addKey(key, false);
 				if (!keyButton) {
 					console.log('Failed to add key', key);
 					continue;

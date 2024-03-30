@@ -1,9 +1,10 @@
-import BattleScene, { Button } from "../battle-scene";
+import BattleScene from "../battle-scene";
 import { ModalConfig, ModalUiHandler } from "./modal-ui-handler";
 import { Mode } from "./ui";
 import { TextStyle, addTextInputObject, addTextObject, getTextColor } from "./text";
 import { WindowVariant, addWindow } from "./window";
 import InputText from "phaser3-rex-plugins/plugins/inputtext";
+import { Button } from "../controls/controls-handler";
 
 export interface FormModalConfig extends ModalConfig {
   errorMessage?: string;

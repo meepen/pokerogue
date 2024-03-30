@@ -1,7 +1,6 @@
 import { Biome, getBiomeHasProps } from "#app/game-info/biomes/biome";
 import FieldSpritePipeline from "../../pipelines/field-sprite";
 import { getEnumValues } from "../../utils";
-import { GameScene } from "../scene";
 import { SceneComponent } from "../scene.component";
 
 interface ArenaBackgroundComponentConfig {

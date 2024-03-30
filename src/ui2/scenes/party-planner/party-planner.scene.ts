@@ -1,3 +1,4 @@
+import { globalScale } from "../../constants";
 import { GameScene } from "../../scene";
 
 export class PartyPlannerScene extends GameScene {
@@ -14,6 +15,6 @@ export class PartyPlannerScene extends GameScene {
 
     const image = this.add.image(0, 0, 'starter_select_bg');
     image.setOrigin(0, 0);
-    image.scale = GameScene.globalScale;
+    image.scale = globalScale;
   }
 }

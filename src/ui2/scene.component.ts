@@ -1,10 +1,13 @@
-import { Button } from "../battle-scene";
-import { GameScene } from "./scene";
+import { WindowStyle } from "./constants";
+import { ISceneComponent } from "./scene-component.interface";
+import { IGameScene } from "./scene.interface";
 
-export abstract class SceneComponent<T = void> {
-  constructor(protected scene: GameScene, protected data: T) {}
+export abstract class SceneComponent<T = void> extends ISceneComponent {
+  constructor(protected scene: IGameScene, protected data: T) {
+    super();
+  }
 
-  protected preloadImage(...args: Parameters<GameScene['preloadImage']>) {
+  protected preloadImage(...args: Parameters<IGameScene['preloadImage']>) {
     this.scene.preloadImage(...args);
   }
 
@@ -40,9 +43,11 @@ export abstract class SceneComponent<T = void> {
     return this.scene.getUnscaled(width);
   }
 
-  preload?(): void;
-  create?(): void;
-  init?(): void;
-  buttonPressed?(button: Button): void;
-  buttonReleased?(button: Button): void;
+  protected createWindowNineslice(x: number, y: number, width: number, height: number, style = WindowStyle.Normal) {
+    return this.scene.createWindowNineslice(x, y, width, height, style);
+  }
+
+  protected getWindowBorderSize(style = WindowStyle.Normal) {
+    return this.scene.getWindowBorderSize(style);
+  }
 }

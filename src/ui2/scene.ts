@@ -1,35 +1,46 @@
-import { Button } from "../battle-scene";
-import { ControlsHandler } from "../controls/controls-handler";
+import { Button, ControlsHandler } from "../controls/controls-handler";
 import { GameInfo } from "../game-info/game-info";
 import { addTextObject } from "../ui/text";
-import { SceneComponent } from "./scene.component";
+import { EscapeMenuComponent } from "./components/escape-menu.component";
+import { WindowStyle, globalScale } from "./constants";
+import { ISceneComponent } from "./scene-component.interface";
+import { IGameScene } from "./scene.interface";
 
-type ParametersExceptFirst<T> = T extends (first: any, ...rest: infer U) => any ? U : never;
 type ConstructorParametersExceptFirst<T> = T extends new (first: any, ...rest: infer U) => any ? U : never;
 type Constructor<T> = new (...args: any[]) => T;
+type SwapArguments<T extends GameScene<unknown>> =
+  T extends GameScene<infer U>
+    ? U extends void ? [Constructor<T>] : [Constructor<T>, U]
+    : [Constructor<T>];
 
-export abstract class GameScene extends Phaser.Scene {
-  public static globalScale = 6;
+export interface InitSceneData<T = void> {
+  gameData: GameInfo;
+  swapData: T;
+}
 
-  private readonly components = new Map<object, SceneComponent<unknown>>();
+export abstract class GameScene<SwapData = void> extends IGameScene {
+  private components = new Map<object, ISceneComponent>();
 
   protected gameData!: GameInfo;
+  protected swapData!: SwapData;
 
   protected controls!: ControlsHandler;
 
   private isInitializing = false;
 
-  public init(gameData: GameInfo) {
+  private escapeMenu = this.addComponent(EscapeMenuComponent);
+
+  public init(info: InitSceneData<SwapData>) {
     this.isInitializing = true;
     this.controls = new ControlsHandler(this.input);
-    this.controls.on('buttondown', (button) => {
+    this.controls.on('buttondown', (button: Button) => {
       this.onButtonDown(button);
     });
-    this.controls.on('buttonup', (button) => {
+    this.controls.on('buttonup', (button: Button) => {
       this.onButtonUp(button);
     });
-    this.gameData = gameData;
-    console.log(gameData);
+    this.gameData = info.gameData;
+    this.swapData = info.swapData;
 
     for (const component of this.components.values()) {
       if (component.init) {
@@ -39,12 +50,26 @@ export abstract class GameScene extends Phaser.Scene {
   }
 
   private onButtonDown(button: Button) {
+    if (button == Button.MENU) {
+      this.escapeMenu.visible = !this.escapeMenu.visible;
+      if (this.escapeMenu.visible) {
+        this.pushFocus(this.escapeMenu);
+      } else {
+        this.popFocus();
+      }
+
+      return;
+    }
     if (this.focus?.buttonPressed) {
       this.focus.buttonPressed(button);
     }
   }
 
   private onButtonUp(button: Button) {
+    if (button == Button.MENU) {
+      return;
+    }
+
     if (this.focus?.buttonReleased) {
       this.focus.buttonReleased(button);
     }
@@ -56,6 +81,10 @@ export abstract class GameScene extends Phaser.Scene {
         component.preload();
       }
     }
+
+    this.preloadImage(this.getWindowTexture(WindowStyle.Normal), 'ui/windows');
+    this.preloadImage(this.getWindowTexture(WindowStyle.Thin), 'ui/windows');
+    this.preloadImage(this.getWindowTexture(WindowStyle.XThin), 'ui/windows');
   }
 
   public create() {
@@ -67,9 +96,9 @@ export abstract class GameScene extends Phaser.Scene {
     }
   }
 
-  protected addComponent<ComponentType extends Constructor<SceneComponent<unknown>>>(component: ComponentType, ...data: ConstructorParametersExceptFirst<ComponentType>) {
+  protected addComponent<ComponentType extends ISceneComponent>(component: Constructor<ComponentType>, ...data: ConstructorParametersExceptFirst<Constructor<ComponentType>>) {
     if (this.components.has(component)) {
-      return;
+      return this.components.get(component) as ComponentType;
     }
 
     const componentInstance = new component(this, ...data);
@@ -79,67 +108,40 @@ export abstract class GameScene extends Phaser.Scene {
     if (this.isInitializing && componentInstance.init) {
       componentInstance.init();
     }
+
+    return componentInstance as ComponentType;
   }
 
-  protected getComponent<ComponentType extends Constructor<SceneComponent<unknown>>>(component: ComponentType): InstanceType<ComponentType> {
+  protected getComponent<ComponentType extends Constructor<ISceneComponent>>(component: ComponentType): InstanceType<ComponentType> {
     return this.components.get(component) as InstanceType<ComponentType>;
   }
 
-  get isActive() {
-    return this.game.scene.isActive(this.constructor.name);
+  protected swapScene<T extends GameScene<unknown>>(...args: SwapArguments<T>) {
+    const scene = args[0];
+    const swapData = args[1];
+    console.log('swapScene', scene.name);
+
+    const sceneData = {
+      gameData: this.gameData,
+      swapData: swapData,
+    };
+
+    this.scene.add(scene.name, scene, false);
+    this.scene.launch(scene.name, sceneData);
+    this.scene.sendToBack(scene.name);
+
+    const newScene = this.scene.get(scene.name);
+    if (!newScene) {
+      throw new Error(`Scene ${scene.name} not found`);
+    }
+
+    newScene.events.on('create', () => {
+      this.scene.stop();
+      this.scene.remove(this.constructor.name);
+    });
   }
 
-  scaleSize(size: number) {
-    return size * GameScene.globalScale;
+  get focus() {
+    return this.focusArray[this.focusArray.length - 1];
   }
-
-  gameWidth() {
-    return this.game.canvas.width;
-  }
-
-  gameHeight() {
-    return this.game.canvas.height;
-  }
-
-  gameSize() {
-    return [this.gameWidth(), this.gameHeight()];
-  }
-
-  setObjectAbsoluteSize(gameObject: Phaser.GameObjects.Components.Size & Phaser.GameObjects.Components.Transform, width: number, height: number) {
-    const scale = gameObject.scale;
-    gameObject.width = width / scale;
-    gameObject.height = height / scale;
-  }
-
-  getUnscaled(num: number) {
-    return num / GameScene.globalScale;
-  }
-
-  preloadImage(key: string, folder: string, filename?: string) {
-    if (!filename)
-      filename = `${key}.png`;
-    this.load.image(key, `images/${folder}/${filename}`);
-  }
-
-	preloadAtlas(key: string, folder: string, filenameRoot?: string) {
-		if (!filenameRoot)
-			filenameRoot = key;
-		if (folder)
-			folder += '/';
-		this.load.atlas(key, `images/${folder}${filenameRoot}.png`, `images/${folder}/${filenameRoot}.json`);
-	}
-
-  addPipeline(pipeline: Phaser.Renderer.WebGL.WebGLPipeline) {
-		(this.renderer as Phaser.Renderer.WebGL.WebGLRenderer).pipelines.add('FieldSprite', pipeline);
-  }
-
-  addText(...args: ParametersExceptFirst<typeof addTextObject>) {
-    return addTextObject(this, ...args);
-  }
-
-  protected swapScene(scene: Constructor<GameScene>) {
-    this.scene.start(scene.name, this.gameData);
-  }
-  
-  protected focus?: SceneComponent<unknown>;
 }

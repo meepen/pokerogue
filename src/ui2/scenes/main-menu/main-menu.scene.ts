@@ -5,7 +5,7 @@ import { TextStyle, addTextObject } from '../../../ui/text';
 import { fixedInt, randItem } from '../../../utils';
 import { ArenaBackgroundComponent } from '../../components/arena-background.component';
 import { MenuItemSelectComponent } from '../../components/menu-item-select.component';
-import { GameScene } from '../../scene';
+import { GameScene, InitSceneData } from '../../scene';
 import { PartyPlannerScene } from '../party-planner/party-planner.scene';
 
 export class MainMenuScene extends GameScene {
@@ -13,7 +13,7 @@ export class MainMenuScene extends GameScene {
     super(MainMenuScene.name);
   }
 
-  public init(gameData: GameInfo): void {
+  public init(gameData: InitSceneData): void {
     super.init(gameData);
     
     this.addComponent(ArenaBackgroundComponent, {
@@ -62,8 +62,7 @@ export class MainMenuScene extends GameScene {
     arena.adjustSize(this.game.canvas.width, this.game.canvas.height);
 
     const menu = this.getComponent(MenuItemSelectComponent);
-    this.focus = menu;
-    console.log('focus', this.focus);
+    this.pushFocus(menu);
 
     const logo = this.add.image(this.game.canvas.width / 2, 8, 'logo');
     logo.scale = 6;
@@ -75,7 +74,6 @@ export class MainMenuScene extends GameScene {
 
     this.playerCountLabel = addTextObject(this, menu.x + menu.width, menu.y - this.scaleSize(1), 'Loading...', TextStyle.MESSAGE, { fontSize: '54px' });
     this.playerCountLabel.setOrigin(1);
-    console.log('playerCountLabel', this.playerCountLabel);
 
     // this.dailyRunScoreboard = new DailyRunScoreboard(this, 1, 44);
 		// this.dailyRunScoreboard.setup();
@@ -98,7 +96,7 @@ export class MainMenuScene extends GameScene {
   }
 
   updatePlayerCount() {
-    this.gameData.api.getPlayerCount()
+    this.gameData.getPlayerCount()
       .then((count) => {
         this.playerCountLabel.setText(`${count} Players Online`);
       })

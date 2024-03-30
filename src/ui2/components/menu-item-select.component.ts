@@ -1,6 +1,6 @@
 import { Button } from "../../battle-scene";
 import { TextStyle, addTextObject, getTextPadding, getTextStyle } from "../../ui/text";
-import { GameScene } from "../scene";
+import { globalScale } from "../constants";
 import { SceneComponent } from "../scene.component";
 
 export interface MenuItemSelectComponentItem {
@@ -13,10 +13,12 @@ interface MenuItemSelectComponentOptions {
 }
 
 export class MenuItemSelectComponent extends SceneComponent<MenuItemSelectComponentOptions> {
-  private readonly borderSize = this.scaleSize(6);
+  private get borderSize() {
+    return this.getWindowBorderSize();
+  }
 
   private border!: Phaser.GameObjects.NineSlice;
-  private container!: Phaser.GameObjects.Container;
+  protected container!: Phaser.GameObjects.Container;
   private optionsText: Phaser.GameObjects.Text[] = [];
   private cursor!: Phaser.GameObjects.Image;
 
@@ -27,7 +29,7 @@ export class MenuItemSelectComponent extends SceneComponent<MenuItemSelectCompon
   private get optionsHeight() {
     return this.optionsText
       .map(text => text.displayHeight)
-      .reduce((acc, height) => acc + height, 0) - this.scaleSize(getTextPadding(TextStyle.WINDOW)) + this.scaleSize(1);
+      .reduce((acc, height) => acc + height + this.scaleSize(1), 0) - this.scaleSize(getTextPadding(TextStyle.WINDOW));
   }
 
   private get optionsWidth() {
@@ -55,7 +57,7 @@ export class MenuItemSelectComponent extends SceneComponent<MenuItemSelectCompon
     const offsetY = -this.scaleSize(1);
     
     this.cursor = this.scene.add.image(0, 0, 'cursor');
-    this.cursor.scale = GameScene.globalScale;
+    this.cursor.scale = globalScale;
     this.cursor.setOrigin(0);
 
     for (const item of this.data.items) {
@@ -63,19 +65,13 @@ export class MenuItemSelectComponent extends SceneComponent<MenuItemSelectCompon
       this.optionsText.push(text);
     }
 
-    this.border = this.scene.add.nineslice(
+    this.border = this.createWindowNineslice(
       this.gameWidth() + offsetX,
       this.gameHeight() + offsetY,
-      'window_1',
-      null,
-      this.getUnscaled(this.optionsWidth + this.cursor.displayWidth + this.borderSize * 3),
-      this.getUnscaled(this.optionsHeight + this.borderSize * 4),
-      this.getUnscaled(this.borderSize),
-      this.getUnscaled(this.borderSize),
-      this.getUnscaled(this.borderSize),
-      this.getUnscaled(this.borderSize)
+      this.optionsWidth + this.cursor.displayWidth + this.borderSize * 3,
+      this.optionsHeight + this.borderSize * 4,
     );
-    this.border.scale = GameScene.globalScale;
+    this.border.scale = globalScale;
     this.border.setOrigin(1);
 
     this.container = this.scene.add.container(0, 0, [
@@ -112,7 +108,6 @@ export class MenuItemSelectComponent extends SceneComponent<MenuItemSelectCompon
   }
 
   preload() {
-    this.preloadImage('window_1', 'ui/windows');
     this.preloadImage('cursor', 'ui');
   }
 
