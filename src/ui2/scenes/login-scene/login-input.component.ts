@@ -143,7 +143,7 @@ export class LoginInputComponent extends SceneComponent<LoginInputComponentConfi
       children.push(errorMessageLabel);
     }
 
-    const buttonContainerWidth = windowBackground.displayWidth / 2;
+    const buttonContainerWidth = windowBackground.displayWidth * 3 / 5;
 
     for (const [index, button] of (this.data.buttons ?? []).entries()) {
       const buttonLabel = 

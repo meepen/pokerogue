@@ -35,26 +35,32 @@ export class LoginLoadingScene extends GameScene<LoginDetailsWithMethod> {
 
     loginDialogue.y = dialogue.y / 2;
 
-    let prom: Promise<unknown>;
-
     if (this.swapData.method === 'register') {
-      prom = this.gameData.register(this.swapData);
+      this.gameData.register(this.swapData)
+        .then(() => this.login())
+        .catch((err) => this.onIssue(err));
     } else {
-      prom = this.gameData.login(this.swapData);
+      this.login();
     }
+  }
 
-    prom
+  private onIssue(err: Error) {
+    this.swapScene<GameScene<LoginSceneMessage>>(
+      this.swapData.method === 'register' ? RegisterScene : LoginScene,
+      {
+        error: err.message,
+      }
+    );
+  }
+
+  private login() {
+    this.gameData.login(this.swapData)
+      .then(() => this.gameData.accountInfo())
       .then(() => {
         this.swapScene(MainMenuScene);
       })
       .catch((err) => {
-        this.swapScene<GameScene<LoginSceneMessage>>(
-          this.swapData.method === 'register' ? RegisterScene : LoginScene,
-          {
-            error: err.message,
-          }
-        );
+        this.onIssue(err);
       });
   }
-
 }
