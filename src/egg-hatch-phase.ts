@@ -5,7 +5,7 @@ import * as Utils from "./utils";
 import { Mode } from "./ui/ui";
 import { EGG_SEED, Egg, GachaType, getLegendaryGachaSpeciesForTimestamp } from "./data/egg";
 import EggHatchSceneHandler from "./ui/egg-hatch-scene-handler";
-import { Species } from "./data/enums/species";
+import { Species } from "./game-info/species/species";
 import { PlayerPokemon } from "./field/pokemon";
 import { getPokemonSpecies, speciesStarters } from "./data/pokemon-species";
 import { achvs } from "./system/achv";

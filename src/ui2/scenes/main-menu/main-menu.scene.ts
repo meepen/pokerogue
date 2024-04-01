@@ -1,12 +1,11 @@
-import { splashMessages } from '../../../data/splash-messages';
-import { Biome } from '../../../game-info/biomes/biome';
-import { GameInfo } from '../../../game-info/game-info';
-import { TextStyle, addTextObject } from '../../../ui/text';
+import { TextStyle, addTextObject } from "../../text/text";
 import { fixedInt, randItem } from '../../../utils';
 import { ArenaBackgroundComponent } from '../../components/arena-background.component';
 import { MenuItemSelectComponent } from '../../components/menu-item-select.component';
 import { GameScene, InitSceneData } from '../../scene';
 import { PartyPlannerScene } from '../party-planner/party-planner.scene';
+import { Biome } from "../../../game-info/biomes/biome";
+import { splashMessages } from "../../../game-info/data/splash-messages";
 
 export class MainMenuScene extends GameScene {
   constructor() {

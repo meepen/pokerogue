@@ -1,7 +1,7 @@
 import { fixedBattles } from "./battle";
 import BattleScene, { STARTING_BIOME_OVERRIDE, STARTING_LEVEL_OVERRIDE, STARTING_MONEY_OVERRIDE } from "./battle-scene";
 import { Biome } from "./data/enums/biome";
-import { Species } from "./data/enums/species";
+import { Species } from "./game-info/species/species";
 import PokemonSpecies, { allSpecies } from "./data/pokemon-species";
 import { Arena } from "./field/arena";
 import * as Utils from "./utils";

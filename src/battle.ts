@@ -3,7 +3,7 @@ import { EnemyPokemon, PlayerPokemon, QueuedMove } from "./field/pokemon";
 import { Command } from "./ui/command-ui-handler";
 import * as Utils from "./utils";
 import Trainer, { TrainerVariant } from "./field/trainer";
-import { Species } from "./data/enums/species";
+import { Species } from "./game-info/species/species";
 import { Moves } from "./data/enums/moves";
 import { TrainerType } from "./data/enums/trainer-type";
 import { GameMode } from "./game-mode";

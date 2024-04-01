@@ -1,8 +1,7 @@
-import BattleScene from "../battle-scene";
-import { TimeOfDay } from "../data/enums/time-of-day";
-import { TerrainType, getTerrainColor } from "../data/terrain";
 import { Biome } from "../game-info/biomes/biome";
-import * as Utils from "../utils";
+import { TerrainType, getTerrainColor } from "../game-info/terrain/terrain";
+import { TimeOfDay } from "../game-info/time-of-day";
+import { getCurrentTime } from "../utils";
 
 const spriteFragShader = `
 #ifdef GL_FRAGMENT_PRECISION_HIGH
@@ -208,7 +207,7 @@ export default class FieldSpritePipeline extends Phaser.Renderer.WebGL.Pipelines
   constructor(game: Phaser.Game, config?: Phaser.Types.Renderer.WebGL.WebGLPipelineConfig) {
     super(config || {
       game: game,
-      name: 'field-sprite',
+      name: FieldSpritePipeline.name,
       fragShader: spriteFragShader,
       vertShader: spriteVertShader
     });
@@ -237,7 +236,7 @@ export default class FieldSpritePipeline extends Phaser.Renderer.WebGL.Pipelines
       return ((this.waveIndex + this.waveCycleOffset) % 40) / 40;
     }
     else {
-      return Utils.getCurrentTime();
+      return getCurrentTime();
     }
   }
 

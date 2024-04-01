@@ -1,11 +1,24 @@
-import { addTextObject } from "../ui/text";
 import { WindowStyle, globalScale } from "./constants";
 import { ISceneComponent } from "./scene-component.interface";
+import { addTextObject } from "#ui/text/text";
 
 type ParametersExceptFirst<T> = T extends (first: any, ...rest: infer U) => any ? U : never;
 
+type Constructor<T> = new (...args: any[]) => T;
+export type GameScenePipelines = Map<string, Phaser.Renderer.WebGL.WebGLPipeline>;
+
 export abstract class IGameScene extends Phaser.Scene {
   protected focusArray: ISceneComponent[] = [];
+  protected pipelines!: GameScenePipelines;
+  
+  getPipeline<T extends Constructor<Phaser.Renderer.WebGL.WebGLPipeline>>(pipeline: T): InstanceType<T> {
+    const instance = this.pipelines.get(pipeline.name);
+    if (!instance) {
+      throw new Error(`Pipeline ${pipeline.name} not found`);
+    }
+
+    return instance as InstanceType<T>;
+  }
 
   pushFocus(component: ISceneComponent) {
     this.focusArray.push(component);
@@ -19,10 +32,6 @@ export abstract class IGameScene extends Phaser.Scene {
     if (!filename)
       filename = `${key}.png`;
     this.load.image(key, `images/${folder}/${filename}`);
-  }
-
-  addPipeline(pipeline: Phaser.Renderer.WebGL.WebGLPipeline) {
-		(this.renderer as Phaser.Renderer.WebGL.WebGLRenderer).pipelines.add('FieldSprite', pipeline);
   }
 
   addText(...args: ParametersExceptFirst<typeof addTextObject>) {
@@ -84,7 +93,7 @@ export abstract class IGameScene extends Phaser.Scene {
         x,
         y,
         this.getWindowTexture(style),
-        null,
+        undefined,
         this.getUnscaled(width),
         this.getUnscaled(height),
         6,

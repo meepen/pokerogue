@@ -1,5 +1,5 @@
 import InputText from "phaser3-rex-plugins/plugins/inputtext";
-import { TextStyle, addTextInputObject, addTextObject, getTextColor, getTextPadding, getTextStyle } from "../../../ui/text";
+import { TextStyle, addTextInputObject, addTextObject, getTextColor, getTextPadding, getTextStyle } from "#ui/text/text";
 import { SceneComponent } from "../../scene.component";
 import { WindowStyle } from "../../constants";
 
@@ -65,7 +65,11 @@ export class LoginInputComponent extends SceneComponent<LoginInputComponentConfi
   }
 
   getInput(name: string) {
-    return this.fieldInputs.get(name)?.text
+    const input = this.fieldInputs.get(name);
+    if (input === undefined) {
+      throw new Error(`Input ${name} not found`);
+    }
+    return input.text;
   }
 
   create(): void {

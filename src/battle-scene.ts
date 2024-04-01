@@ -34,7 +34,7 @@ import PokeballTray from './ui/pokeball-tray';
 import { Setting, settingOptions } from './system/settings';
 import SettingsUiHandler from './ui/settings-ui-handler';
 import MessageUiHandler from './ui/message-ui-handler';
-import { Species } from './data/enums/species';
+import { Species } from './game-info/species/species';
 import InvertPostFX from './pipelines/invert';
 import { Achv, ModifierAchv, achvs } from './system/achv';
 import { GachaType } from './data/egg';

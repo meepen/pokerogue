@@ -1,4 +1,4 @@
-import { TextStyle, addTextObject } from "../../ui/text";
+import { TextStyle, addTextObject } from "#ui/text/text";
 import { globalScale } from "../constants";
 import { SceneComponent } from "../scene.component";
 

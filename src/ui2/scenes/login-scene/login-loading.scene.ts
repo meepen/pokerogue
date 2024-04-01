@@ -1,5 +1,5 @@
 import { LoginDetails } from "../../../api/api";
-import { Biome } from "../../../data/enums/biome";
+import { Biome } from "#gameinfo/biomes/biome";
 import { ArenaBackgroundComponent } from "../../components/arena-background.component";
 import { DialogueComponent } from "../../components/dialogue.component";
 import { GameScene } from "../../scene";

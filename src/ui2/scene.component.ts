@@ -15,10 +15,6 @@ export abstract class SceneComponent<T = void> extends ISceneComponent {
     this.scene.preloadAtlas(key, folder);
   }
 
-  protected addPipeline(pipeline: Phaser.Renderer.WebGL.WebGLPipeline) {
-    this.scene.addPipeline(pipeline);
-  }
-
   protected scaleSize(size: number) {
     return this.scene.scaleSize(size);
   }

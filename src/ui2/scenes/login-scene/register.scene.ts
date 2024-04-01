@@ -1,7 +1,7 @@
-import { Biome } from "../../../data/enums/biome";
-import { ArenaBackgroundComponent } from "../../components/arena-background.component";
-import { DialogueComponent } from "../../components/dialogue.component";
-import { GameScene, InitSceneData } from "../../scene";
+import { Biome } from "#app/game-info/biomes/biome";
+import { ArenaBackgroundComponent } from "#ui/components/arena-background.component";
+import { DialogueComponent } from "#ui/components/dialogue.component";
+import { GameScene, InitSceneData } from "#ui/scene";
 import { LoginInputComponent } from "./login-input.component";
 import { LoginLoadingScene } from "./login-loading.scene";
 import { LoginScene, LoginSceneMessage, readableLoginSceneMessage } from "./login.scene";
@@ -39,7 +39,7 @@ export class RegisterScene extends GameScene<LoginSceneMessage> {
         },
       ],
       title: "Register",
-      errorMessage: readableLoginSceneMessage(this.swapData.error),
+      errorMessage: this.swapData.error ? readableLoginSceneMessage(this.swapData.error) : undefined,
     });
   }
 

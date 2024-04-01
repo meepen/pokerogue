@@ -1,7 +1,7 @@
-import { Button } from "../../battle-scene";
-import { TextStyle, addTextObject, getTextPadding, getTextStyle } from "../../ui/text";
-import { globalScale } from "../constants";
+import { TextStyle, addTextObject, getTextPadding, getTextStyle } from "#ui/text/text";
+import { globalScale } from "#ui/constants";
 import { SceneComponent } from "../scene.component";
+import { Button } from "#app/controls/controls-handler";
 
 export interface MenuItemSelectComponentItem {
   text: string;

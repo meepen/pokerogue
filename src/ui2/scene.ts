@@ -1,10 +1,9 @@
 import { Button, ControlsHandler } from "../controls/controls-handler";
 import { GameInfo } from "../game-info/game-info";
-import { addTextObject } from "../ui/text";
 import { EscapeMenuComponent } from "./components/escape-menu.component";
-import { WindowStyle, globalScale } from "./constants";
+import { WindowStyle } from "./constants";
 import { ISceneComponent } from "./scene-component.interface";
-import { IGameScene } from "./scene.interface";
+import { GameScenePipelines, IGameScene } from "./scene.interface";
 
 type ConstructorParametersExceptFirst<T> = T extends new (first: any, ...rest: infer U) => any ? U : never;
 type Constructor<T> = new (...args: any[]) => T;
@@ -16,6 +15,7 @@ type SwapArguments<T extends GameScene<unknown>> =
 export interface InitSceneData<T = void> {
   gameData: GameInfo;
   swapData: T;
+  pipelines: GameScenePipelines;
 }
 
 export abstract class GameScene<SwapData = void> extends IGameScene {
@@ -41,6 +41,7 @@ export abstract class GameScene<SwapData = void> extends IGameScene {
     });
     this.gameData = info.gameData;
     this.swapData = info.swapData;
+    this.pipelines = info.pipelines;
 
     for (const component of this.components.values()) {
       if (component.init) {
@@ -121,9 +122,10 @@ export abstract class GameScene<SwapData = void> extends IGameScene {
     const swapData = args[1];
     console.log('swapScene', scene.name);
 
-    const sceneData = {
+    const sceneData: InitSceneData<unknown> = {
       gameData: this.gameData,
       swapData: swapData,
+      pipelines: this.pipelines,
     };
 
     this.scene.add(scene.name, scene, false);

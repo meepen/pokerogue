@@ -38,7 +38,8 @@
 		"node": ">=18.0.0"
 	},
 	"imports": {
-		"#app": "./src/main.js",
+		"#gameinfo/*": "./src/game-info/*",
+		"#ui/*": "./src/ui2/*",
 		"#app/*": "./src/*"
 	}
 }

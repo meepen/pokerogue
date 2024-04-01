@@ -35,7 +35,7 @@ import { Unlockables, getUnlockableName } from "./system/unlockables";
 import { getBiomeKey } from "./field/arena";
 import { BattleType, BattlerIndex, TurnCommand } from "./battle";
 import { BattleSpec } from "./enums/battle-spec";
-import { Species } from "./data/enums/species";
+import { Species } from "./game-info/species/species";
 import { HealAchv, LevelAchv, MoneyAchv, achvs } from "./system/achv";
 import { TrainerSlot, trainerConfigs } from "./data/trainer-config";
 import { TrainerType } from "./data/enums/trainer-type";

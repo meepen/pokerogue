@@ -1,5 +1,5 @@
 import { Biome, getBiomeHasProps } from "#app/game-info/biomes/biome";
-import FieldSpritePipeline from "../../pipelines/field-sprite";
+import FieldSpritePipeline from "#app/pipelines/field-sprite";
 import { getEnumValues } from "../../utils";
 import { SceneComponent } from "../scene.component";
 
@@ -12,7 +12,6 @@ export class ArenaBackgroundComponent extends SceneComponent<ArenaBackgroundComp
     return Biome[biome].toLowerCase();
   }
 
-  protected fieldSpritePipeline: FieldSpritePipeline;
   protected arenaBg: Phaser.GameObjects.Image | Phaser.GameObjects.NineSlice;
   protected arenaBgTransition: Phaser.GameObjects.Image | Phaser.GameObjects.NineSlice;
 
@@ -48,21 +47,18 @@ export class ArenaBackgroundComponent extends SceneComponent<ArenaBackgroundComp
   }
 
   override create() {
-    this.fieldSpritePipeline = new FieldSpritePipeline(this.scene.game);
-    this.addPipeline(this.fieldSpritePipeline);
-
     if (this.data.useNineslice) {
-  		this.arenaBg = this.scene.add.nineslice(0, 0, 'plains_bg', null, 320, 180, 0, 0, 132, 0);
+  		this.arenaBg = this.scene.add.nineslice(0, 0, 'plains_bg', undefined, 320, 180, 0, 0, 132, 0);
     } else {
       this.arenaBg = this.scene.add.image(0, 0, 'plains_bg');
     }
     this.arenaBg.scale = 6;
     this.arenaBg.setOrigin(0, 0);
     this.arenaBg.setDepth(-1);
-    this.arenaBg.setPipeline(this.fieldSpritePipeline);
+    this.arenaBg.setPipeline(this.scene.getPipeline(FieldSpritePipeline));
 
     if (this.data.useNineslice) {
-  		this.arenaBgTransition = this.scene.add.nineslice(0, 0, 'plains_bg', null, 320, 180, 0, 0, 132, 0);
+  		this.arenaBgTransition = this.scene.add.nineslice(0, 0, 'plains_bg', undefined, 320, 180, 0, 0, 132, 0);
     } else {
       this.arenaBgTransition = this.scene.add.image(0, 0, 'end_bg');
     }
@@ -70,7 +66,7 @@ export class ArenaBackgroundComponent extends SceneComponent<ArenaBackgroundComp
     this.arenaBgTransition.setOrigin(0, 0);
     this.arenaBgTransition.setDepth(-1);
     this.arenaBgTransition.setAlpha(0);
-    this.arenaBgTransition.setPipeline(this.fieldSpritePipeline);
+    this.arenaBgTransition.setPipeline(this.scene.getPipeline(FieldSpritePipeline));
 
     this.swapBackgrounds(Biome.PLAINS);
   }
@@ -86,7 +82,7 @@ export class ArenaBackgroundComponent extends SceneComponent<ArenaBackgroundComp
   }
 
   swapBackgrounds(to: Biome) {
-    this.fieldSpritePipeline.biomeType = to;
+    this.scene.getPipeline(FieldSpritePipeline).biomeType = to;
     this.arenaBg.setTexture(`${this.getBiomeImageName(to)}_bg`);
     this.arenaBg.pipelineData['terrainColorRatio'] = this.getBgTerrainColorRatioForBiome(to);
   }
