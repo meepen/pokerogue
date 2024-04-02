@@ -1,15 +1,15 @@
 // AUTO GENERATED FILE
 import { IPokemonSpecies } from "#pokeapi/pokemon-species.interface.ts";
 import { PokemonSpecies } from "#pokeapi/generated/species.enum.ts";
-import { PokemonVariety } from "#pokeapi/generated/varities.enum.ts";
+import { PokemonVariety } from "#pokeapi/generated/varieties.enum.ts";
 
 export const speciesList = new Map<PokemonSpecies, IPokemonSpecies>();
 class Species extends IPokemonSpecies {
   constructor(
-    protected readonly species: PokemonSpecies,
-    protected readonly varieties: PokemonVariety[],
+    species: PokemonSpecies,
+    varieties: PokemonVariety[],
   ) {
-    super();
+    super(species, varieties);
     speciesList.set(species, this);
   }
 }

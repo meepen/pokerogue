@@ -68,13 +68,6 @@ class PokemonClientLocalCache {
 const client = new PokemonClientLocalCache();
 
 
-function apiNameToFileName(apiName: string) {
-  return apiName
-    .split(/[_ ]/g)
-    .join('-')
-    .toLowerCase();
-}
-
 function apiNameToClassName(apiName: string) {
   return apiName
     .split(/[\-_ ]/g)
@@ -135,15 +128,15 @@ async function fetchSpeciesInfo(speciesName: string) {
   const species = await client.fetch('getPokemonSpeciesByName', speciesName);
   console.log('processing species:', species.name);
 
-  const varities = await runInParallel(
+  const varieties = await runInParallel(
     species.varieties
       .map((variety) => () => client.fetch('getPokemonByName', variety.pokemon.name)),
   );
 
-  console.log('varieties:', species.name, varities.length);
+  console.log('varieties:', species.name, varieties.length);
 
   const forms = await runInParallel(
-    varities.flatMap(
+    varieties.flatMap(
       (pokemon) => pokemon.forms.map(
         (form) => () => client.fetch('getPokemonFormByName', form.name),
       ),
@@ -155,7 +148,7 @@ async function fetchSpeciesInfo(speciesName: string) {
   return {
     species,
     forms,
-    varities,
+    varieties,
   };
 }
 
@@ -185,10 +178,10 @@ async function processAllPokemon() {
   )
 
   await writeFile(
-    join(generatedDir, 'varities.enum.ts'),
+    join(generatedDir, 'varieties.enum.ts'),
     `// AUTO GENERATED FILE\nexport enum PokemonVariety {\n`
       + allPokemon
-        .map((pokemon) => pokemon.varities.map((variety) => `${tabs(1)}${apiNameToClassName(variety.name)},\n`))
+        .map((pokemon) => pokemon.varieties.map((variety) => `${tabs(1)}${apiNameToClassName(variety.name)},\n`))
         .flat()
         .join('')
       + '}\n',
@@ -209,15 +202,15 @@ async function processAllPokemon() {
     `// AUTO GENERATED FILE
 import { IPokemonSpecies } from "#pokeapi/pokemon-species.interface.ts";
 import { PokemonSpecies } from "#pokeapi/generated/species.enum.ts";
-import { PokemonVariety } from "#pokeapi/generated/varities.enum.ts";
+import { PokemonVariety } from "#pokeapi/generated/varieties.enum.ts";
 
 export const speciesList = new Map<PokemonSpecies, IPokemonSpecies>();
 class Species extends IPokemonSpecies {
 ${tabs(1)}constructor(
-${tabs(2)}protected readonly species: PokemonSpecies,
-${tabs(2)}protected readonly varieties: PokemonVariety[],
+${tabs(2)}species: PokemonSpecies,
+${tabs(2)}varieties: PokemonVariety[],
 ${tabs(1)}) {
-${tabs(2)}super();
+${tabs(2)}super(species, varieties);
 ${tabs(2)}speciesList.set(species, this);
 ${tabs(1)}}
 }\n\n`
@@ -233,9 +226,39 @@ ${tabs(1)}[${species.varieties.map((v) => `PokemonVariety.${apiNameToClassName(v
         .join('\n')
   );
 
+  allPokemon[0].varieties[0].forms
+
   await writeFile(
-    join(generatedDir, 'varities-list.ts'),
-    `// AUTO GENERATED FILE\nimport { PokemonVariety } from "#pokeapi/pokemon-species-variety.interface.ts";\n`
+    join(generatedDir, 'varieties-list.ts'),
+`// AUTO GENERATED FILE\nimport { IPokemonVariety } from "#pokeapi/pokemon-variety.interface.ts";
+import { PokemonSpecies } from "#pokeapi/generated/species.enum.ts";
+import { PokemonForm } from "#pokeapi/generated/forms.enum.ts";
+import { PokemonVariety } from "#pokeapi/generated/varieties.enum.ts";
+
+export const varietiesList = new Map<PokemonVariety, IPokemonVariety>();
+
+class Variety extends IPokemonVariety {
+  constructor(
+    variety: PokemonVariety,
+    species: PokemonSpecies,
+    forms: PokemonForm[],
+  ) {
+    super(variety, species, forms);
+    varietiesList.set(variety, this);
+  }
+}\n\n`
+      + allPokemon
+        .map((pokemon) => pokemon.varieties)
+        .flat()
+        .map(
+          (variety) => 
+`new class ${apiNameToClassName(variety.name)}Variety extends Variety {}(
+${tabs(1)}PokemonVariety.${apiNameToClassName(variety.name)},
+${tabs(1)}PokemonSpecies.${apiNameToClassName(variety.species.name)},
+${tabs(1)}[${variety.forms.map((f) => `PokemonForm.${apiNameToClassName(f.name)}`).join(', ')}],
+);`
+        )
+        .join('\n')
   )
 }
 
