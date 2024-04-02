@@ -138,7 +138,10 @@ async function fetchSpeciesInfo(speciesName: string) {
   const forms = await runInParallel(
     varieties.flatMap(
       (pokemon) => pokemon.forms.map(
-        (form) => () => client.fetch('getPokemonFormByName', form.name),
+        (form) => async () => ({
+          variety: pokemon,
+          form: await client.fetch('getPokemonFormByName', form.name),
+        })
       ),
     ),
   );
@@ -191,7 +194,7 @@ async function processAllPokemon() {
     join(generatedDir, 'forms.enum.ts'),
     `// AUTO GENERATED FILE\nexport enum PokemonForm {\n`
       + allPokemon
-        .map((pokemon) => pokemon.forms.map((form) => `${tabs(1)}${apiNameToClassName(form.name)},\n`))
+        .map((pokemon) => pokemon.forms.map(({ form }) => `${tabs(1)}${apiNameToClassName(form.name)},\n`))
         .flat()
         .join('')
       + '}\n',
@@ -200,9 +203,9 @@ async function processAllPokemon() {
   await writeFile(
     join(generatedDir, 'species-list.ts'),
     `// AUTO GENERATED FILE
-import { IPokemonSpecies } from "#pokeapi/pokemon-species.interface.ts";
-import { PokemonSpecies } from "#pokeapi/generated/species.enum.ts";
-import { PokemonVariety } from "#pokeapi/generated/varieties.enum.ts";
+import { IPokemonSpecies } from "#pokeapi/pokemon-species.interface";
+import { PokemonSpecies } from "#pokeapi/generated/species.enums";
+import { PokemonVariety } from "#pokeapi/generated/varieties.enum";
 
 export const speciesList = new Map<PokemonSpecies, IPokemonSpecies>();
 class Species extends IPokemonSpecies {
@@ -218,7 +221,7 @@ ${tabs(1)}}
         .map((pokemon) => pokemon.species)
         .map(
           (species) => 
-  `new class ${apiNameToClassName(species.name)}Species extends Species {}(
+`new class ${apiNameToClassName(species.name)}Species extends Species {}(
 ${tabs(1)}PokemonSpecies.${apiNameToClassName(species.name)},
 ${tabs(1)}[${species.varieties.map((v) => `PokemonVariety.${apiNameToClassName(v.pokemon.name)}`).join(', ')}],
 );`
@@ -230,10 +233,10 @@ ${tabs(1)}[${species.varieties.map((v) => `PokemonVariety.${apiNameToClassName(v
 
   await writeFile(
     join(generatedDir, 'varieties-list.ts'),
-`// AUTO GENERATED FILE\nimport { IPokemonVariety } from "#pokeapi/pokemon-variety.interface.ts";
-import { PokemonSpecies } from "#pokeapi/generated/species.enum.ts";
-import { PokemonForm } from "#pokeapi/generated/forms.enum.ts";
-import { PokemonVariety } from "#pokeapi/generated/varieties.enum.ts";
+`// AUTO GENERATED FILE\nimport { IPokemonVariety } from "#pokeapi/pokemon-variety.interface";
+import { PokemonSpecies } from "#pokeapi/generated/species.enum";
+import { PokemonForm } from "#pokeapi/generated/forms.enum";
+import { PokemonVariety } from "#pokeapi/generated/varieties.enum";
 
 export const varietiesList = new Map<PokemonVariety, IPokemonVariety>();
 
@@ -259,7 +262,40 @@ ${tabs(1)}[${variety.forms.map((f) => `PokemonForm.${apiNameToClassName(f.name)}
 );`
         )
         .join('\n')
-  )
+  );
+
+  await writeFile(
+    join(generatedDir, 'forms-list.ts'),
+`// AUTO GENERATED FILE\nimport { IPokemonForm } from "#pokeapi/pokemon-form.interface";
+import { PokemonSpecies } from "#pokeapi/generated/species.enum";
+import { PokemonForm } from "#pokeapi/generated/forms.enum";
+import { PokemonVariety } from "#pokeapi/generated/varieties.enum";
+
+export const formsList = new Map<PokemonForm, IPokemonForm>();
+
+class Form extends IPokemonForm {
+  constructor(
+    form: PokemonForm,
+    variety: PokemonVariety,
+    species: PokemonSpecies,
+  ) {
+    super(form, variety, species);
+    formsList.set(form, this);
+  }
+}\n\n`
+      + allPokemon
+        .map((pokemon) => pokemon.forms)
+        .flat()
+        .map(
+          ({ variety, form }) =>
+`new class ${apiNameToClassName(form.name)}Form extends Form {}(
+${tabs(1)}PokemonForm.${apiNameToClassName(form.name)},
+${tabs(1)}PokemonVariety.${apiNameToClassName(variety.name)},
+${tabs(1)}PokemonSpecies.${apiNameToClassName(variety.species.name)},
+);`
+        )
+        .join('\n')
+  );
 }
 
 async function run() {
