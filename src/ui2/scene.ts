@@ -117,7 +117,15 @@ export abstract class GameScene<SwapData = void> extends IGameScene {
     return this.components.get(component) as InstanceType<ComponentType>;
   }
 
+  private sceneSwapGuard = false;
+
   protected swapScene<T extends GameScene<unknown>>(...args: SwapArguments<T>) {
+    if (this.sceneSwapGuard) {
+      throw new Error('Scene swap already in progress');
+    }
+
+    this.sceneSwapGuard = true;
+  
     const scene = args[0];
     const swapData = args[1];
     console.log('swapScene', scene.name);
@@ -129,17 +137,20 @@ export abstract class GameScene<SwapData = void> extends IGameScene {
     };
 
     this.scene.add(scene.name, scene, false);
-    this.scene.launch(scene.name, sceneData);
-    this.scene.sendToBack(scene.name);
 
-    const newScene = this.scene.get(scene.name);
+    const newScene = this.scene.get(scene.name) as GameScene<unknown>;
     if (!newScene) {
       throw new Error(`Scene ${scene.name} not found`);
     }
 
-    newScene.events.on('create', () => {
-      this.scene.stop();
-      this.scene.remove(this.constructor.name);
+    newScene.preInitialize().then(() => {
+      this.scene.launch(scene.name, sceneData);
+      this.scene.sendToBack(scene.name);
+
+      newScene.events.on('create', () => {
+        this.scene.stop();
+        this.scene.remove(this.constructor.name);
+      });
     });
   }
 

@@ -11,6 +11,14 @@
 		{
 			"files": ["src/**/*.ts"],
 			"extends": "eslint:recommended"
+		},
+		{
+			"files": [
+				"src/**.*.nodejs.ts"
+			],
+			"env": {
+				"node": true
+			}
 		}
 	],
 	"rules": {}

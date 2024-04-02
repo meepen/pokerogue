@@ -16,9 +16,12 @@
 			"#ui/*": [
 				"./ui2/*.ts"
 			],
+			"#pokeapi/*": [
+				"./generated/pokeapi/*.ts"
+			],
 			"#app/*": [
 				"*.ts"
-			],
+			]
 		},
 		"outDir": "./build",
 		"noEmit": true

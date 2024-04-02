@@ -10,6 +10,11 @@ export type GameScenePipelines = Map<string, Phaser.Renderer.WebGL.WebGLPipeline
 export abstract class IGameScene extends Phaser.Scene {
   protected focusArray: ISceneComponent[] = [];
   protected pipelines!: GameScenePipelines;
+
+  /**
+   * Called before scene is shown
+   */
+  async preInitialize() {}
   
   getPipeline<T extends Constructor<Phaser.Renderer.WebGL.WebGLPipeline>>(pipeline: T): InstanceType<T> {
     const instance = this.pipelines.get(pipeline.name);

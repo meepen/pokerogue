@@ -1,7 +1,10 @@
+import { Generation } from "#gameinfo/species/generation";
 import { AccountInfo, LoginDetails, PokeRogueApi } from "../api/api";
 import { getSessionToken, setSessionToken } from "./local-cookies";
+import { NamedAPIResourceList, PokemonClient } from "pokenode-ts";
 
 export abstract class GameInfo {
+  protected readonly pokeApi = new PokemonClient();
   constructor() {}
 
   abstract isLoggedIn(): Promise<boolean>;
@@ -10,6 +13,16 @@ export abstract class GameInfo {
   abstract register(details: LoginDetails): Promise<void>;
   abstract logOut(): Promise<void>;
   abstract accountInfo(): Promise<AccountInfo>;
+
+  private allPokemons: Promise<NamedAPIResourceList>;
+  private async getAllPokemon() {
+    return this.pokeApi.listPokemons();
+  }
+
+  private evolutionInfo
+  getEvolutions(generation: Generation) {
+    this.pokeApi.listPokemons()
+  }
 }
 
 class GameInfoLocal extends GameInfo {

@@ -31,17 +31,11 @@ import { SceneComponent } from "../../scene.component";
 export class StarterLayoutComponent extends SceneComponent {
   public preload(): void {
     super.preload();
-
-    this.preloadImage('starter_select_bg', 'ui');
   }
 
   public create(): void {
     super.create();
 
-    this.scene.add.rectangle(0, 0, this.gameWidth(), this.gameHeight(), 0x006860).setOrigin(0, 0);
 
-    const image = this.scene.add.image(0, 0, 'starter_select_bg');
-    image.setOrigin(0, 0);
-    image.scale = globalScale;
   }
 }
