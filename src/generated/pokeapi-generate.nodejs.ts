@@ -367,8 +367,9 @@ export const typesList = new Map<PokemonType, IPokemonType>();
 class Type extends IPokemonType {
   constructor(
     type: PokemonType,
+    damageToMultipliers: Map<PokemonType, number>,
   ) {
-    super(type);
+    super(type, damageToMultipliers);
     typesList.set(type, this);
   }
 }\n\n`
@@ -377,6 +378,19 @@ class Type extends IPokemonType {
           (type) =>
 `new class ${apiNameToClassName(type.name)}Type extends Type {}(
 ${tabs(1)}PokemonType.${apiNameToClassName(type.name)},
+${tabs(1)}new Map<PokemonType, number>([
+${
+  [
+    ...type.damage_relations.double_damage_to
+      .map<[string, number]>((t) => [ t.name, 2 ]),
+    ...type.damage_relations.half_damage_to
+      .map<[string, number]>((t) => [ t.name, 0.5 ]),
+    ...type.damage_relations.no_damage_to
+      .map<[string, number]>((t) => [ t.name, 0 ]),
+  ]
+    .map(([typeName, multiplier]) => `${tabs(2)}[ PokemonType.${apiNameToClassName(typeName)}, ${multiplier} ],\n`)
+    .join('')
+}${tabs(1)}]),
 );`
         )
         .join('\n')
