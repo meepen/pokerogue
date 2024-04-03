@@ -1,4 +1,4 @@
-import { MoveClient, NamedAPIResource, NamedAPIResourceList, PokemonClient } from "pokenode-ts";
+import { MoveClient, NamedAPIResourceList, PokemonClient } from "pokenode-ts";
 import { readFile, stat, writeFile } from "fs/promises";
 import { fileURLToPath } from "url";
 import { dirname, join } from "path";
@@ -253,8 +253,9 @@ class Species extends IPokemonSpecies {
 ${tabs(1)}constructor(
 ${tabs(2)}species: PokemonSpecies,
 ${tabs(2)}varieties: PokemonVariety[],
+${tabs(2)}name: string,
 ${tabs(1)}) {
-${tabs(2)}super(species, varieties);
+${tabs(2)}super(species, varieties, name);
 ${tabs(2)}speciesList.set(species, this);
 ${tabs(1)}}
 }\n\n`
@@ -265,6 +266,7 @@ ${tabs(1)}}
 `new class ${apiNameToClassName(species.name)}Species extends Species {}(
 ${tabs(1)}PokemonSpecies.${apiNameToClassName(species.name)},
 ${tabs(1)}[${species.varieties.map((v) => `PokemonVariety.${apiNameToClassName(v.pokemon.name)}`).join(', ')}],
+${tabs(1)}${JSON.stringify(species.names.find((n) => n.language.name === 'en')?.name ?? null)},
 );`
         )
         .join('\n')
@@ -319,8 +321,9 @@ class Form extends IPokemonForm {
     form: PokemonForm,
     variety: PokemonVariety,
     species: PokemonSpecies,
+    name: string | null,
   ) {
-    super(form, variety, species);
+    super(form, variety, species, name);
     formsList.set(form, this);
   }
 }\n\n`
@@ -333,6 +336,7 @@ class Form extends IPokemonForm {
 ${tabs(1)}PokemonForm.${apiNameToClassName(form.name)},
 ${tabs(1)}PokemonVariety.${apiNameToClassName(variety.name)},
 ${tabs(1)}PokemonSpecies.${apiNameToClassName(variety.species.name)},
+${tabs(1)}${JSON.stringify(form.form_names.find((n) => n.language.name === 'en')?.name ?? null)},
 );`
         )
         .join('\n')

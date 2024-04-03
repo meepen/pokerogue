@@ -7,5 +7,6 @@ export abstract class IPokemonForm {
     protected readonly form: PokemonForm,
     protected readonly variety: PokemonVariety,
     protected readonly species: PokemonSpecies,
+    protected readonly name: string | null,
   ) {}
 }

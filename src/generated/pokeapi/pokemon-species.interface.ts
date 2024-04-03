@@ -5,5 +5,6 @@ export abstract class IPokemonSpecies {
   constructor(
     protected readonly species: PokemonSpecies,
     protected readonly varieties: PokemonVariety[],
+    protected readonly name: string,
   ) {}
 }
