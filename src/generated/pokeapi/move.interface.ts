@@ -1,4 +1,4 @@
-import { PokemonMove } from '#pokeapi/generated/moves.enum';
+import { PokemonMove } from '#pokeapi/generated/move.enum';
 
 export abstract class IMove {
   constructor(

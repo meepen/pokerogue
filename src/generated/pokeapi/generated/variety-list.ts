@@ -1,8 +1,8 @@
 // AUTO GENERATED FILE
 import { IPokemonVariety } from "#pokeapi/pokemon-variety.interface";
 import { PokemonSpecies } from "#pokeapi/generated/species.enum";
-import { PokemonForm } from "#pokeapi/generated/forms.enum";
-import { PokemonVariety } from "#pokeapi/generated/varieties.enum";
+import { PokemonForm } from "#pokeapi/generated/form.enum";
+import { PokemonVariety } from "#pokeapi/generated/variety.enum";
 
 export const varietiesList = new Map<PokemonVariety, IPokemonVariety>();
 

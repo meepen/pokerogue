@@ -1,4 +1,4 @@
-import { PokemonVariety } from "#pokeapi/generated/varieties.enum";
+import { PokemonVariety } from "#pokeapi/generated/variety.enum";
 import { PokemonSpecies } from "#pokeapi/generated/species.enum";
 
 export abstract class IPokemonSpecies {

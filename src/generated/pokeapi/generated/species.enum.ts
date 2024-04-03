@@ -1,6 +1,6 @@
 // AUTO GENERATED FILE
 export enum PokemonSpecies {
-  Bulbasaur,
+  Bulbasaur = 1,
   Ivysaur,
   Venusaur,
   Charmander,

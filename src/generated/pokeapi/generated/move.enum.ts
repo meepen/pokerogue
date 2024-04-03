@@ -1,6 +1,6 @@
 // AUTO GENERATED FILE
 export enum PokemonMove {
-  Pound,
+  Pound = 1,
   KarateChop,
   DoubleSlap,
   CometPunch,
@@ -919,7 +919,7 @@ export enum PokemonMove {
   PsychicNoise,
   UpperHand,
   MalignantChain,
-  ShadowRush,
+  ShadowRush = 10001,
   ShadowBlast,
   ShadowBlitz,
   ShadowBolt,

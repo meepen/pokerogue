@@ -143,6 +143,35 @@ async function collectResources<T>(
   ];
 }
 
+function createEnumData<T extends { id: number; name: string }[]>(data: T): string[] {
+  return data
+    .sort((a, b) => a.id - b.id)
+    .map((item, i) => {
+      const last = data[i - 1];
+      if (!last || last.id + 1 !== item.id) {
+        return `${apiNameToClassName(item.name)} = ${item.id}`;
+      } else {
+        return apiNameToClassName(item.name);
+      }
+    });
+}
+
+/**
+ * Write an enum file to the generated directory
+ * @param enumName The enum name, without the `.enum.ts` extension or the `Pokemon` prefix
+ * @param data The data to write to the file
+ */
+async function writeEnumFile<T extends { id: number; name: string }[]>(enumName: string, data: T) {
+  await writeFile(
+    join(generatedDir, `${enumName.toLowerCase()}.enum.ts`),
+    `// AUTO GENERATED FILE\nexport enum Pokemon${enumName[0].toUpperCase()}${enumName.slice(1)} {\n`
+      + createEnumData(data)
+        .map((line) => `${tabs(1)}${line},\n`)
+        .join('')
+      + '}\n',
+  );
+}
+
 async function retrievePokemonInfo() {
   let speciesInfo = await collectResources(
     (offset, count) => client.fetch('listPokemonSpecies', offset, count)
@@ -194,33 +223,22 @@ async function processAllPokemon() {
     50,
   );
 
-  await writeFile(
-    join(generatedDir, 'species.enum.ts'),
-    `// AUTO GENERATED FILE\nexport enum PokemonSpecies {\n`
-      + allPokemon
-        .map((pokemon) => `${tabs(1)}${apiNameToClassName(pokemon.species.name)},\n`)
-        .join('')
-      + '}\n',
-  )
-
-  await writeFile(
-    join(generatedDir, 'varieties.enum.ts'),
-    `// AUTO GENERATED FILE\nexport enum PokemonVariety {\n`
-      + allPokemon
-        .map((pokemon) => pokemon.varieties.map((variety) => `${tabs(1)}${apiNameToClassName(variety.name)},\n`))
-        .flat()
-        .join('')
-      + '}\n',
+  await writeEnumFile(
+    'Species', 
+    allPokemon
+      .map((pokemon) => pokemon.species)
   );
 
-  await writeFile(
-    join(generatedDir, 'forms.enum.ts'),
-    `// AUTO GENERATED FILE\nexport enum PokemonForm {\n`
-      + allPokemon
-        .map((pokemon) => pokemon.forms.map(({ form }) => `${tabs(1)}${apiNameToClassName(form.name)},\n`))
-        .flat()
-        .join('')
-      + '}\n',
+  await writeEnumFile(
+    'Variety',
+    allPokemon
+      .flatMap((pokemon) => pokemon.varieties)
+  );
+
+  await writeEnumFile(
+    'Form',
+    allPokemon
+      .flatMap((pokemon) => pokemon.forms.map(({ form }) => form))
   )
 
   await writeFile(
@@ -228,7 +246,7 @@ async function processAllPokemon() {
     `// AUTO GENERATED FILE
 import { IPokemonSpecies } from "#pokeapi/pokemon-species.interface";
 import { PokemonSpecies } from "#pokeapi/generated/species.enum";
-import { PokemonVariety } from "#pokeapi/generated/varieties.enum";
+import { PokemonVariety } from "#pokeapi/generated/variety.enum";
 
 export const speciesList = new Map<PokemonSpecies, IPokemonSpecies>();
 class Species extends IPokemonSpecies {
@@ -253,11 +271,11 @@ ${tabs(1)}[${species.varieties.map((v) => `PokemonVariety.${apiNameToClassName(v
   );
 
   await writeFile(
-    join(generatedDir, 'varieties-list.ts'),
+    join(generatedDir, 'variety-list.ts'),
 `// AUTO GENERATED FILE\nimport { IPokemonVariety } from "#pokeapi/pokemon-variety.interface";
 import { PokemonSpecies } from "#pokeapi/generated/species.enum";
-import { PokemonForm } from "#pokeapi/generated/forms.enum";
-import { PokemonVariety } from "#pokeapi/generated/varieties.enum";
+import { PokemonForm } from "#pokeapi/generated/form.enum";
+import { PokemonVariety } from "#pokeapi/generated/variety.enum";
 
 export const varietiesList = new Map<PokemonVariety, IPokemonVariety>();
 
@@ -286,11 +304,11 @@ ${tabs(1)}[${variety.forms.map((f) => `PokemonForm.${apiNameToClassName(f.name)}
   );
 
   await writeFile(
-    join(generatedDir, 'forms-list.ts'),
+    join(generatedDir, 'form-list.ts'),
 `// AUTO GENERATED FILE\nimport { IPokemonForm } from "#pokeapi/pokemon-form.interface";
 import { PokemonSpecies } from "#pokeapi/generated/species.enum";
-import { PokemonForm } from "#pokeapi/generated/forms.enum";
-import { PokemonVariety } from "#pokeapi/generated/varieties.enum";
+import { PokemonForm } from "#pokeapi/generated/form.enum";
+import { PokemonVariety } from "#pokeapi/generated/variety.enum";
 
 export const formsList = new Map<PokemonForm, IPokemonForm>();
 
@@ -321,21 +339,29 @@ ${tabs(1)}PokemonSpecies.${apiNameToClassName(variety.species.name)},
   return allPokemon;
 }
 
+async function processTypes() {
+  const types = await collectResources(
+    (offset, count) => client.fetch('listTypes', offset, count),
+  );
+
+  console.log('types:', types.length);
+
+  const typeData = await runInParallel(
+    types.map(
+      (type) => () => client.fetch('getTypeByName', type.name),
+    ),
+  );
+
+  await writeEnumFile('Type', typeData);
+
+  return types;
+}
+
 async function processAllMoves() {
   const allMoves = await collectResources(
     (offset, count) => client.fetchMoves('listMoves', offset, count),
   );
-
   console.log('moves count:', allMoves.length);
-
-  await writeFile(
-    join(generatedDir, 'moves.enum.ts'),
-    `// AUTO GENERATED FILE\nexport enum PokemonMove {\n`
-      + allMoves
-        .map((move) => `${tabs(1)}${apiNameToClassName(move.name)},\n`)
-        .join('')
-      + '}\n',
-  );
 
   const moveData = await runInParallel(
     allMoves.map(
@@ -344,8 +370,10 @@ async function processAllMoves() {
     ),
   );
 
+  await writeEnumFile('Move', moveData);
+
   await writeFile(
-    join(generatedDir, 'moves-list.ts'),
+    join(generatedDir, 'move-list.ts'),
 `// AUTO GENERATED FILE\nimport { IMove } from "#pokeapi/move.interface";
 import { PokemonMove } from "#pokeapi/generated/moves.enum";
 
@@ -380,6 +408,9 @@ async function run() {
 
   console.log('processing pokemon');
   await processAllPokemon();
+
+  console.log('processing types');
+  await processTypes();
 
   console.log('processing moves');
   await processAllMoves();
