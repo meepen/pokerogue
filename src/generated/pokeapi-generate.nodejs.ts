@@ -272,7 +272,8 @@ ${tabs(1)}[${species.varieties.map((v) => `PokemonVariety.${apiNameToClassName(v
 
   await writeFile(
     join(generatedDir, 'variety-list.ts'),
-`// AUTO GENERATED FILE\nimport { IPokemonVariety } from "#pokeapi/pokemon-variety.interface";
+`// AUTO GENERATED FILE
+import { IPokemonVariety } from "#pokeapi/pokemon-variety.interface";
 import { PokemonSpecies } from "#pokeapi/generated/species.enum";
 import { PokemonForm } from "#pokeapi/generated/form.enum";
 import { PokemonVariety } from "#pokeapi/generated/variety.enum";
@@ -305,7 +306,8 @@ ${tabs(1)}[${variety.forms.map((f) => `PokemonForm.${apiNameToClassName(f.name)}
 
   await writeFile(
     join(generatedDir, 'form-list.ts'),
-`// AUTO GENERATED FILE\nimport { IPokemonForm } from "#pokeapi/pokemon-form.interface";
+`// AUTO GENERATED FILE
+import { IPokemonForm } from "#pokeapi/pokemon-form.interface";
 import { PokemonSpecies } from "#pokeapi/generated/species.enum";
 import { PokemonForm } from "#pokeapi/generated/form.enum";
 import { PokemonVariety } from "#pokeapi/generated/variety.enum";
@@ -354,6 +356,32 @@ async function processTypes() {
 
   await writeEnumFile('Type', typeData);
 
+  await writeFile(
+    join(generatedDir, 'type-list.ts'),
+`// AUTO GENERATED FILE
+import { IPokemonType } from "#pokeapi/pokemon-type.interface";
+import { PokemonType } from "#pokeapi/generated/type.enum";
+
+export const typesList = new Map<PokemonType, IPokemonType>();
+
+class Type extends IPokemonType {
+  constructor(
+    type: PokemonType,
+  ) {
+    super(type);
+    typesList.set(type, this);
+  }
+}\n\n`
+      + typeData
+        .map(
+          (type) =>
+`new class ${apiNameToClassName(type.name)}Type extends Type {}(
+${tabs(1)}PokemonType.${apiNameToClassName(type.name)},
+);`
+        )
+        .join('\n')
+  );
+
   return types;
 }
 
@@ -374,7 +402,8 @@ async function processAllMoves() {
 
   await writeFile(
     join(generatedDir, 'move-list.ts'),
-`// AUTO GENERATED FILE\nimport { IMove } from "#pokeapi/move.interface";
+`// AUTO GENERATED FILE
+import { IMove } from "#pokeapi/move.interface";
 import { PokemonMove } from "#pokeapi/generated/moves.enum";
 
 export const movesList = new Map<PokemonMove, IMove>();
