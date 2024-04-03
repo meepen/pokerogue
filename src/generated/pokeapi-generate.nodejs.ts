@@ -279,6 +279,7 @@ import { IPokemonVariety } from "#pokeapi/pokemon-variety.interface";
 import { PokemonSpecies } from "#pokeapi/generated/species.enum";
 import { PokemonForm } from "#pokeapi/generated/form.enum";
 import { PokemonVariety } from "#pokeapi/generated/variety.enum";
+import { PokemonType } from "#pokeapi/generated/type.enum";
 
 export const varietiesList = new Map<PokemonVariety, IPokemonVariety>();
 
@@ -287,8 +288,9 @@ class Variety extends IPokemonVariety {
     variety: PokemonVariety,
     species: PokemonSpecies,
     forms: PokemonForm[],
+    types: PokemonType[],
   ) {
-    super(variety, species, forms);
+    super(variety, species, forms, types);
     varietiesList.set(variety, this);
   }
 }\n\n`
@@ -300,7 +302,8 @@ class Variety extends IPokemonVariety {
 `new class ${apiNameToClassName(variety.name)}Variety extends Variety {}(
 ${tabs(1)}PokemonVariety.${apiNameToClassName(variety.name)},
 ${tabs(1)}PokemonSpecies.${apiNameToClassName(variety.species.name)},
-${tabs(1)}[${variety.forms.map((f) => `PokemonForm.${apiNameToClassName(f.name)}`).join(', ')}],
+${tabs(1)}[ ${variety.forms.map((f) => `PokemonForm.${apiNameToClassName(f.name)}`).join(', ')} ],
+${tabs(1)}[ ${variety.types.map((n) => `PokemonType.${apiNameToClassName(n.type.name)}`).join(', ')} ],
 );`
         )
         .join('\n')
@@ -313,6 +316,7 @@ import { IPokemonForm } from "#pokeapi/pokemon-form.interface";
 import { PokemonSpecies } from "#pokeapi/generated/species.enum";
 import { PokemonForm } from "#pokeapi/generated/form.enum";
 import { PokemonVariety } from "#pokeapi/generated/variety.enum";
+import { PokemonType } from "#pokeapi/generated/type.enum";
 
 export const formsList = new Map<PokemonForm, IPokemonForm>();
 
@@ -322,6 +326,7 @@ class Form extends IPokemonForm {
     variety: PokemonVariety,
     species: PokemonSpecies,
     name: string | null,
+    types: PokemonType[],
   ) {
     super(form, variety, species, name);
     formsList.set(form, this);
@@ -336,7 +341,8 @@ class Form extends IPokemonForm {
 ${tabs(1)}PokemonForm.${apiNameToClassName(form.name)},
 ${tabs(1)}PokemonVariety.${apiNameToClassName(variety.name)},
 ${tabs(1)}PokemonSpecies.${apiNameToClassName(variety.species.name)},
-${tabs(1)}${JSON.stringify(form.form_names.find((n) => n.language.name === 'en')?.name ?? null)},
+${tabs(1)}${JSON.stringify(form.names.find((n) => n.language.name === 'en')?.name ?? null)},
+${tabs(1)}[ ${form.types.map((n) => `PokemonType.${apiNameToClassName(n.type.name)}`).join(', ')} ],
 );`
         )
         .join('\n')
