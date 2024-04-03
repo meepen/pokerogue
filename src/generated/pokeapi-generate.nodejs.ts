@@ -1,4 +1,4 @@
-import { NamedAPIResource, PokemonClient } from "pokenode-ts";
+import { MoveClient, NamedAPIResource, NamedAPIResourceList, PokemonClient } from "pokenode-ts";
 import { readFile, stat, writeFile } from "fs/promises";
 import { fileURLToPath } from "url";
 import { dirname, join } from "path";
@@ -23,6 +23,7 @@ const generatedDir = join(baseDir, 'pokeapi/generated');
 class PokemonClientLocalCache {
   private cache = new Map<string, object>();
   private client = new PokemonClient();
+  private movesClient = new MoveClient();
 
   private async readFile(fileName: string) {
     try {
@@ -34,16 +35,22 @@ class PokemonClientLocalCache {
     return JSON.parse(await readFile(fileName, 'utf8'));
   }
 
-  async fetch<Key extends keyof PokemonClient>(
+  private async fetchFrom<
+    T extends { constructor: Function },
+    Key extends keyof T,
+    MethodType extends (...args: any[]) => any = T[Key] extends (...args: any[]) => Promise<object> ? T[Key] : never,
+    RetType extends Awaited<ReturnType<MethodType>> = Awaited<ReturnType<MethodType>>,
+  >(
+    client: T,
     key: Key,
-    ...args: Parameters<PokemonClient[Key]>
-  ): Promise<Awaited<ReturnType<PokemonClient[Key]>>> {
-    const arg = [key, ...args].map(String).join('-');
+    ...args: Parameters<MethodType>
+  ): Promise<RetType> {
+    const arg = [client.constructor.name, key, ...args].map(String).join('-');
     const cachePath = join(cacheDir, `${arg}.json`);
 
     let cachedData = this.cache.get(arg);
     if (cachedData) {
-      return cachedData as Awaited<ReturnType<PokemonClient[Key]>>;
+      return cachedData as RetType;
     }
 
     const fileData = await this.readFile(cachePath);
@@ -52,8 +59,8 @@ class PokemonClientLocalCache {
       return fileData;
     }
 
-    const f = this.client[key];
-    const res = await f.apply(this.client, args);
+    const f = client[key] as MethodType;
+    const res = await f.apply(this.client, args) as RetType;
     
     this.cache.set(arg, res);
     await writeFile(
@@ -61,7 +68,21 @@ class PokemonClientLocalCache {
       JSON.stringify(res, null, 2),
     );
 
-    return res as Awaited<ReturnType<PokemonClient[Key]>>;
+    return res;
+  }
+
+  fetch<Key extends keyof PokemonClient>(
+    key: Key,
+    ...args: Parameters<PokemonClient[Key]>
+  ) {
+    return this.fetchFrom(this.client, key, ...args);
+  }
+
+  fetchMoves<Key extends keyof MoveClient>(
+    key: Key,
+    ...args: Parameters<MoveClient[Key]>
+  ) {
+    return this.fetchFrom(this.movesClient, key, ...args);
   }
 }
 
@@ -71,7 +92,7 @@ const client = new PokemonClientLocalCache();
 function apiNameToClassName(apiName: string) {
   return apiName
     .split(/[\-_ ]/g)
-    .map((part) => part[0].toUpperCase() + part.slice(1))
+    .map((part) => part.length === 0 ? '_' : part[0].toUpperCase() + part.slice(1))
     .join('')
     .replace(/[^a-zA-Z0-9]/g, '_')
     .replace(/^[^a-zA-Z]/, '_$&');
@@ -99,41 +120,45 @@ async function runInParallel<T>(jobs: (() => Promise<T>)[], maxParallelism = 10)
   return results;
 }
 
+async function collectResources<T>(
+  fetch: (offset: number, count: number) => Promise<NamedAPIResourceList>,
+) {
+  console.log('collecting resources');
+  const fetchPer = 100;
+
+  const firstResources = await fetch(0, fetchPer);
+  console.log('resource count: ', firstResources.count);
+  
+  const results = await runInParallel(
+    new Array(
+      Math.ceil(firstResources.count / fetchPer)
+    ).fill(null).map(
+      (_, i) => () => fetch((i + 1) * fetchPer, fetchPer)
+    ),
+  );
+
+  return [
+    ...firstResources.results,
+    ...results.flatMap((r) => r.results),
+  ];
+}
+
 async function retrievePokemonInfo() {
-  let speciesInfo: NamedAPIResource[] = [];
-
-  let offset = 0;
-  let count = 100;
-  while (true) {
-    const pokemon = await client.fetch('listPokemonSpecies', offset, count);
-    console.log('pokemon offset @', offset)
-
-    speciesInfo.push(...pokemon.results);
-
-    if (pokemon.count < offset) {
-      break;
-    }
-
-    offset += count;
-  }
+  let speciesInfo = await collectResources(
+    (offset, count) => client.fetch('listPokemonSpecies', offset, count)
+  );
 
   console.log('species info:', speciesInfo.length);
-
   return speciesInfo;
 }
 
 async function fetchSpeciesInfo(speciesName: string) {
-  console.log('fetching species:', speciesName);
-
   const species = await client.fetch('getPokemonSpeciesByName', speciesName);
-  console.log('processing species:', species.name);
 
   const varieties = await runInParallel(
     species.varieties
       .map((variety) => () => client.fetch('getPokemonByName', variety.pokemon.name)),
   );
-
-  console.log('varieties:', species.name, varieties.length);
 
   const forms = await runInParallel(
     varieties.flatMap(
@@ -145,8 +170,6 @@ async function fetchSpeciesInfo(speciesName: string) {
       ),
     ),
   );
-
-  console.log('forms:', species.name, forms.length);
 
   return {
     species,
@@ -204,7 +227,7 @@ async function processAllPokemon() {
     join(generatedDir, 'species-list.ts'),
     `// AUTO GENERATED FILE
 import { IPokemonSpecies } from "#pokeapi/pokemon-species.interface";
-import { PokemonSpecies } from "#pokeapi/generated/species.enums";
+import { PokemonSpecies } from "#pokeapi/generated/species.enum";
 import { PokemonVariety } from "#pokeapi/generated/varieties.enum";
 
 export const speciesList = new Map<PokemonSpecies, IPokemonSpecies>();
@@ -228,8 +251,6 @@ ${tabs(1)}[${species.varieties.map((v) => `PokemonVariety.${apiNameToClassName(v
         )
         .join('\n')
   );
-
-  allPokemon[0].varieties[0].forms
 
   await writeFile(
     join(generatedDir, 'varieties-list.ts'),
@@ -296,6 +317,59 @@ ${tabs(1)}PokemonSpecies.${apiNameToClassName(variety.species.name)},
         )
         .join('\n')
   );
+
+  return allPokemon;
+}
+
+async function processAllMoves() {
+  const allMoves = await collectResources(
+    (offset, count) => client.fetchMoves('listMoves', offset, count),
+  );
+
+  console.log('moves count:', allMoves.length);
+
+  await writeFile(
+    join(generatedDir, 'moves.enum.ts'),
+    `// AUTO GENERATED FILE\nexport enum PokemonMove {\n`
+      + allMoves
+        .map((move) => `${tabs(1)}${apiNameToClassName(move.name)},\n`)
+        .join('')
+      + '}\n',
+  );
+
+  const moveData = await runInParallel(
+    allMoves.map(
+      (move) => () => 
+        client.fetchMoves('getMoveByName', move.name),
+    ),
+  );
+
+  await writeFile(
+    join(generatedDir, 'moves-list.ts'),
+`// AUTO GENERATED FILE\nimport { IMove } from "#pokeapi/move.interface";
+import { PokemonMove } from "#pokeapi/generated/moves.enum";
+
+export const movesList = new Map<PokemonMove, IMove>();
+
+class Move extends IMove {
+  constructor(
+    move: PokemonMove,
+  ) {
+    super(move);
+    movesList.set(move, this);
+  }
+}\n\n`
+      + moveData
+        .map(
+          (move) =>
+`new class ${apiNameToClassName(move.name)}Move extends Move {}(
+${tabs(1)}PokemonMove.${apiNameToClassName(move.name)},
+);`
+        )
+        .join('\n')
+  );
+
+  return moveData;
 }
 
 async function run() {
@@ -306,6 +380,9 @@ async function run() {
 
   console.log('processing pokemon');
   await processAllPokemon();
+
+  console.log('processing moves');
+  await processAllMoves();
 }
 
 run()
