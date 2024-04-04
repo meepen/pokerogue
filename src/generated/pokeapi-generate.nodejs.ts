@@ -409,7 +409,7 @@ ${
   return types;
 }
 
-async function processAllMoves() {
+async function processAllMoves(allPokemon: Awaited<ReturnType<typeof processAllPokemon>>) {
   const allMoves = await collectResources(
     (offset, count) => client.fetchMoves('listMoves', offset, count),
   );
@@ -422,21 +422,40 @@ async function processAllMoves() {
     ),
   );
 
+  const pokemonMoveLearnTypes = await runInParallel(
+    Array.from(
+      new Set(
+        allPokemon
+          .flatMap((pokemon) => pokemon.varieties)
+          .flatMap((variety) => variety.moves)
+          .flatMap((move) => move.version_group_details)
+          .map((detail) => detail.move_learn_method.name)
+      )
+    ).map((moveLearnType) => () => client.fetchMoves('getMoveLearnMethodByName', moveLearnType)),
+  );
+  
+  await writeEnumFile('MoveLearnType', pokemonMoveLearnTypes);
   await writeEnumFile('Move', moveData);
 
   await writeFile(
     join(generatedDir, 'move-list.ts'),
 `// AUTO GENERATED FILE
 import { IMove } from "#pokeapi/move.interface";
-import { PokemonMove } from "#pokeapi/generated/moves.enum";
+import { PokemonMove } from "#pokeapi/generated/move.enum";
+import { PokemonType } from "#pokeapi/generated/type.enum";
 
 export const movesList = new Map<PokemonMove, IMove>();
 
 class Move extends IMove {
   constructor(
     move: PokemonMove,
+    accuracy: number | null,
+    power: number | null,
+    pp: number | null,
+    priority: number,
+    type: PokemonType,
   ) {
-    super(move);
+    super(move, accuracy, power, pp, priority, type);
     movesList.set(move, this);
   }
 }\n\n`
@@ -445,6 +464,11 @@ class Move extends IMove {
           (move) =>
 `new class ${apiNameToClassName(move.name)}Move extends Move {}(
 ${tabs(1)}PokemonMove.${apiNameToClassName(move.name)},
+${tabs(1)}${move.accuracy ?? null},
+${tabs(1)}${move.power ?? null},
+${tabs(1)}${move.pp},
+${tabs(1)}${move.priority},
+${tabs(1)}PokemonType.${apiNameToClassName(move.type.name)},
 );`
         )
         .join('\n')
@@ -460,13 +484,13 @@ async function run() {
   );
 
   console.log('processing pokemon');
-  await processAllPokemon();
+  const allPokemon = await processAllPokemon();
 
   console.log('processing types');
   await processTypes();
 
   console.log('processing moves');
-  await processAllMoves();
+  await processAllMoves(allPokemon);
 }
 
 run()
