@@ -1,4 +1,4 @@
-import { ChainLink, EvolutionClient, GameClient, Generation, ItemClient, MoveClient, NamedAPIResourceList, PokemonClient, PokemonMove, PokemonSpecies } from "pokenode-ts";
+import { ChainLink, EvolutionClient, GameClient, Generation, ItemClient, MachineClient, MoveClient, NamedAPIResourceList, PokemonClient, PokemonMove, PokemonSpecies } from "pokenode-ts";
 import { writeFile } from "fs/promises";
 import { fileURLToPath } from "url";
 import { dirname, join } from "path";
@@ -28,6 +28,7 @@ class PokemonClientLocalCache {
   private readonly gameClient = new GameClient();
   private readonly evolutionClient = new EvolutionClient();
   private readonly itemClient = new ItemClient();
+  private readonly machineClient = new MachineClient();
   
   constructor(protected readonly database: Database) {}
   
@@ -73,7 +74,7 @@ class PokemonClientLocalCache {
     return new PokemonClientLocalCache(db);
   }
 
-  readKey<T extends object>(key: string) {
+  private readKey<T extends object>(key: string) {
     return new Promise<T | null>((res, rej) => {
       this.database.get(
         `SELECT value FROM cache WHERE key = ?`,
@@ -93,7 +94,7 @@ class PokemonClientLocalCache {
     });
   }
 
-  writeKey(key: string, value: object) {
+  private writeKey(key: string, value: object) {
     return new Promise<void>((res, rej) => {
       this.database.run(
         `INSERT INTO cache (key, value) VALUES (?, ?)`,
@@ -174,6 +175,13 @@ class PokemonClientLocalCache {
     ...args: Parameters<ItemClient[Key]>
   ) {
     return this.fetchFrom(this.itemClient, key, ...args);
+  }
+
+  fetchMachine<Key extends keyof MachineClient>(
+    key: Key,
+    ...args: Parameters<MachineClient[Key]>
+  ) {
+    return this.fetchFrom(this.machineClient, key, ...args);
   }
 }
 
@@ -714,7 +722,6 @@ async function processItems() {
 
   await writeEnumFile('Item', itemData);
 
-
   await writeFile(
     join(generatedDir, 'item-list.ts'),
     `// AUTO GENERATED FILE
@@ -729,6 +736,41 @@ ${itemData
 `new class ${apiNameToClassName(item.name)}Item extends Item {}(
 ${tabs(1)}PokemonItem.${apiNameToClassName(item.name)},
 ${tabs(1)}PokemonItemCategory.${apiNameToClassName(item.category.name)},
+);`)
+  .join('\n')}`
+  );
+
+  const machines = await collectResources(
+    (offset, count) => client.fetchMachine('listMachines', offset, count),
+  );
+
+  console.log('machines:', machines.length);
+
+  const machineData = await runInParallel(
+    machines.map(
+      (machine) => () => client.fetchMachine('getMachineById', urlToId(machine.url)),
+    ),
+  );
+
+  await writeEnumFile('Machine', machineData.map((machine) => ({
+    id: machine.id,
+    name: `${machine.item.name}-${machine.version_group.name}`,
+  })));
+
+  await writeFile(
+    join(generatedDir, 'machine-list.ts'),
+    `// AUTO GENERATED FILE
+import { IPokemonMachine } from "#pokeapi/pokemon-machine.interface";
+import { PokemonMachine } from "#pokeapi/generated/machine.enum";
+import { PokemonMove } from "#pokeapi/generated/move.enum";
+
+class Machine extends IPokemonMachine {}
+
+${machineData
+  .map((machine) =>
+`new class ${apiNameToClassName(`${machine.item.name}-${machine.version_group.name}`)}Machine extends Machine {}(
+${tabs(1)}PokemonMachine.${apiNameToClassName(`${machine.item.name}-${machine.version_group.name}`)},
+${tabs(1)}PokemonMove.${apiNameToClassName(machine.move.name)},
 );`)
   .join('\n')}`
   );
