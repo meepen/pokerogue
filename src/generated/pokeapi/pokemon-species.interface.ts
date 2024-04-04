@@ -24,4 +24,20 @@ export abstract class IPokemonSpecies {
      */
     protected readonly genderRate: number,
   ) {}
+
+  public get isMythical() {
+    return (this.speciesFlags & PokemonSpeciesFlags.Mythical) === PokemonSpeciesFlags.Mythical;
+  }
+
+  public get isLegendary() {
+    return (this.speciesFlags & PokemonSpeciesFlags.Legendary) === PokemonSpeciesFlags.Legendary;
+  }
+
+  public get isBaby() {
+    return (this.speciesFlags & PokemonSpeciesFlags.Baby) === PokemonSpeciesFlags.Baby;
+  }
+
+  public get isGenderless() {
+    return this.genderRate === -1;
+  }
 }
