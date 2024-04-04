@@ -1,6 +1,9 @@
 export * from './generated/evolutiontrigger.enum';
 export * from './generated/form.enum';
 export * from './generated/generation.enum';
+export * from './generated/item.enum';
+export * from './generated/itemcategory.enum';
+export * from './generated/machine.enum';
 export * from './generated/move.enum';
 export * from './generated/movelearntype.enum';
 export * from './generated/species.enum';
@@ -17,6 +20,8 @@ import './generated/variety-list';
 
 export * from './pokemon-evolution.interface';
 export * from './pokemon-form.interface';
+export * from './pokemon-item.interface';
+export * from './pokemon-machine.interface';
 export * from './pokemon-move.interface';
 export * from './pokemon-species.interface';
 export * from './pokemon-type.interface';
