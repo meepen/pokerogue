@@ -1,4 +1,4 @@
-import { MoveClient, NamedAPIResourceList, PokemonClient } from "pokenode-ts";
+import { GameClient, Generation, MoveClient, NamedAPIResourceList, PokemonClient, PokemonMove } from "pokenode-ts";
 import { readFile, stat, writeFile } from "fs/promises";
 import { fileURLToPath } from "url";
 import { dirname, join } from "path";
@@ -21,9 +21,10 @@ const cacheDir = join(baseDir, 'pokeapi/cache');
 const generatedDir = join(baseDir, 'pokeapi/generated');
 
 class PokemonClientLocalCache {
-  private cache = new Map<string, object>();
-  private client = new PokemonClient();
-  private movesClient = new MoveClient();
+  private readonly cache = new Map<string, object>();
+  private readonly client = new PokemonClient();
+  private readonly movesClient = new MoveClient();
+  private readonly gameClient = new GameClient();
 
   private async readFile(fileName: string) {
     try {
@@ -84,18 +85,29 @@ class PokemonClientLocalCache {
   ) {
     return this.fetchFrom(this.movesClient, key, ...args);
   }
+
+  fetchGame<Key extends keyof GameClient>(
+    key: Key,
+    ...args: Parameters<GameClient[Key]>
+  ) {
+    return this.fetchFrom(this.gameClient, key, ...args);
+  }
 }
 
 const client = new PokemonClientLocalCache();
 
 
 function apiNameToClassName(apiName: string) {
-  return apiName
+  const className = apiName
     .split(/[\-_ ]/g)
     .map((part) => part.length === 0 ? '_' : part[0].toUpperCase() + part.slice(1))
     .join('')
     .replace(/[^a-zA-Z0-9]/g, '_')
     .replace(/^[^a-zA-Z]/, '_$&');
+  
+  return className.startsWith('Generation')
+    ? 'Generation' + className.slice('Generation'.length).toUpperCase()
+    : className;
 }
 
 
@@ -212,7 +224,31 @@ function tabs(n: number) {
   return tab.repeat(n);
 }
 
-async function processAllPokemon() {
+async function processAllGenerations() {
+  const generations = await collectResources(
+    (offset, count) => client.fetchGame('listGenerations', offset, count)
+  );
+
+  console.log('generations:', generations.length);
+  const generationData = await runInParallel(
+    generations.map(
+      (generation) => () => client.fetchGame('getGenerationByName', generation.name),
+    ),
+  );
+
+  await writeEnumFile('Generation', generationData);
+
+  return {
+    versionGroups: new Map<string, Generation>(
+      generationData.flatMap((gen) => 
+        gen.version_groups.map((group) => [group.name, gen] as const)
+      ),
+    ),
+    latestGeneration: generationData.sort((a, b) => b.id - a.id)[0],
+  };
+}
+
+async function processAllPokemon(generations: Awaited<ReturnType<typeof processAllGenerations>>) {
   const allSpeciesData = await retrievePokemonInfo();
   console.log('all species data:', allSpeciesData.length);
 
@@ -272,14 +308,80 @@ ${tabs(1)}${JSON.stringify(species.names.find((n) => n.language.name === 'en')?.
         .join('\n')
   );
 
+  /**
+   * Creates a list of active learnable moves for a pokemon variety based on the latest generation moveset
+   * @param moves The moves from the pokemon variety
+   * @param baseTabs The number of tabs to use for the output string
+   * @returns The list of active learnable moves, formatted as a string
+   */
+  function getActiveLearnableMoves(moves: PokemonMove[], baseTabs: number): string {
+    const allowedMoves = moves
+      .flatMap((move) =>
+        move.version_group_details
+          .filter(
+            (version) => generations.versionGroups.get(version.version_group.name) === generations.latestGeneration,
+          )
+          .map((version) => ({
+            move: move.move,
+            version_group_details: version,
+          })),
+      );
+
+    const learnTypes = Array.from(
+      new Set(
+        allowedMoves.map((move) => move.version_group_details.move_learn_method.name)
+      ),
+    );
+
+    const movesByLearnType = new Map<string, string[]>(
+      learnTypes
+        .map((learnType) => 
+          [
+            learnType,
+            allowedMoves
+              .filter(({ move, version_group_details }) =>
+                version_group_details.move_learn_method.name === learnType
+              )
+              .sort((a, b) => {
+                const learnSorted = learnType === 'level-up'
+                  ? a.version_group_details.level_learned_at - b.version_group_details.level_learned_at
+                  : 0;
+                return learnSorted === 0
+                  ? a.move.name.localeCompare(b.move.name)
+                  : learnSorted;
+              })
+              .map(({ move, version_group_details }) =>
+                learnType === 'level-up'
+                  ? `[ PokemonMove.${apiNameToClassName(move.name)}, ${version_group_details.level_learned_at} ]`
+                  : `PokemonMove.${apiNameToClassName(move.name)}`),
+          ]
+        ),
+    );
+
+    return `new Map([
+${learnTypes
+      .map(
+        (learnType) =>
+`${tabs(baseTabs + 1)}[
+${tabs(baseTabs + 2)}PokemonMoveLearnType.${apiNameToClassName(learnType)},
+${tabs(baseTabs + 2)}[
+${movesByLearnType.get(learnType)!.map((move) => `${tabs(baseTabs + 3)}${move},\n`).join('')}${tabs(baseTabs + 2)}],
+${tabs(baseTabs + 1)}],`
+      )
+      .join('\n')}
+${tabs(baseTabs)}]) as LearnableMoves`;
+  }
+
   await writeFile(
     join(generatedDir, 'variety-list.ts'),
 `// AUTO GENERATED FILE
-import { IPokemonVariety } from "#pokeapi/pokemon-variety.interface";
+import { IPokemonVariety, LearnableMoves } from "#pokeapi/pokemon-variety.interface";
 import { PokemonSpecies } from "#pokeapi/generated/species.enum";
 import { PokemonForm } from "#pokeapi/generated/form.enum";
 import { PokemonVariety } from "#pokeapi/generated/variety.enum";
 import { PokemonType } from "#pokeapi/generated/type.enum";
+import { PokemonMove } from "#pokeapi/generated/move.enum";
+import { PokemonMoveLearnType } from "#pokeapi/generated/movelearntype.enum";
 
 export const varietiesList = new Map<PokemonVariety, IPokemonVariety>();
 
@@ -289,8 +391,9 @@ class Variety extends IPokemonVariety {
     species: PokemonSpecies,
     forms: PokemonForm[],
     types: PokemonType[],
+    learnableMoves: LearnableMoves,
   ) {
-    super(variety, species, forms, types);
+    super(variety, species, forms, types, learnableMoves);
     varietiesList.set(variety, this);
   }
 }\n\n`
@@ -304,6 +407,7 @@ ${tabs(1)}PokemonVariety.${apiNameToClassName(variety.name)},
 ${tabs(1)}PokemonSpecies.${apiNameToClassName(variety.species.name)},
 ${tabs(1)}[ ${variety.forms.map((f) => `PokemonForm.${apiNameToClassName(f.name)}`).join(', ')} ],
 ${tabs(1)}[ ${variety.types.map((n) => `PokemonType.${apiNameToClassName(n.type.name)}`).join(', ')} ],
+${tabs(1)}${getActiveLearnableMoves(variety.moves, 1)},
 );`
         )
         .join('\n')
@@ -483,8 +587,11 @@ async function run() {
       .map((dir) => mkdir(dir, { recursive: true })),
   );
 
+  console.log('processing generations');
+  const allGenerations = await processAllGenerations();
+
   console.log('processing pokemon');
-  const allPokemon = await processAllPokemon();
+  const allPokemon = await processAllPokemon(allGenerations);
 
   console.log('processing types');
   await processTypes();
