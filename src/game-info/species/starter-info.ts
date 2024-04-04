@@ -1,4 +1,4 @@
-import { PokemonVariety as Species } from "#pokeapi/raw-data";
+import { PokemonVariety as Species } from "#pokeapi";
 
 export const speciesStarters = new Map<Species, number>([
   [ Species.Bulbasaur, 3 ],

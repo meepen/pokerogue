@@ -16,6 +16,9 @@
 			"#ui/*": [
 				"./ui2/*.ts"
 			],
+			"#pokeapi": [
+				"./generated/pokeapi/index.ts"
+			],
 			"#pokeapi/*": [
 				"./generated/pokeapi/*.ts"
 			],

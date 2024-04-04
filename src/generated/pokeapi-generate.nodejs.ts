@@ -1,8 +1,10 @@
-import { ChainLink, EvolutionChain, EvolutionClient, GameClient, Generation, MoveClient, NamedAPIResourceList, PokemonClient, PokemonMove, PokemonSpecies } from "pokenode-ts";
-import { readFile, stat, writeFile } from "fs/promises";
+import { ChainLink, EvolutionClient, GameClient, Generation, ItemClient, MoveClient, NamedAPIResourceList, PokemonClient, PokemonMove, PokemonSpecies } from "pokenode-ts";
+import { writeFile } from "fs/promises";
 import { fileURLToPath } from "url";
 import { dirname, join } from "path";
 import { mkdir as mkdirCallback } from "fs";
+
+import sqlite3, { Database, RunResult } from "sqlite3";
 
 async function mkdir(path: string, options?: any): Promise<void> {
   return new Promise((res, rej) => {
@@ -17,7 +19,6 @@ async function mkdir(path: string, options?: any): Promise<void> {
 }
 
 const baseDir = dirname(fileURLToPath(import.meta.url));
-const cacheDir = join(baseDir, 'pokeapi/cache');
 const generatedDir = join(baseDir, 'pokeapi/generated');
 
 class PokemonClientLocalCache {
@@ -26,15 +27,86 @@ class PokemonClientLocalCache {
   private readonly movesClient = new MoveClient();
   private readonly gameClient = new GameClient();
   private readonly evolutionClient = new EvolutionClient();
+  private readonly itemClient = new ItemClient();
+  
+  constructor(protected readonly database: Database) {}
+  
+  static async create() {
+    await mkdir(join(baseDir, 'cache'), { recursive: true });
+    const db = await new Promise<Database>((res, rej) => {
+      let datab = new sqlite3.Database(join(baseDir, 'cache/pokeapi.db'), (err) => {
+        if (err) {
+          rej(err);
+        } else {
+          res(datab);
+        }
+      });
+    });
 
-  private async readFile(fileName: string) {
-    try {
-      await stat(fileName);
-    } catch (err) {
-      return null;
+    function run(sql: string) {
+      return new Promise((res, rej) => {
+        db.run(sql, function(err) {
+          if (err) {
+            rej(err);
+          } else {
+            res(null);
+          }
+        });
+      });
     }
 
-    return JSON.parse(await readFile(fileName, 'utf8'));
+    await run(
+      `CREATE TABLE IF NOT EXISTS cache (
+        key TEXT PRIMARY KEY,
+        value BLOB NOT NULL
+      );`
+    );
+
+    await run(
+      'PRAGMA journal_mode = WAL',
+    );
+    
+    await run(
+      `PRAGMA synchronous = NORMAL`,
+    );
+
+    return new PokemonClientLocalCache(db);
+  }
+
+  readKey<T extends object>(key: string) {
+    return new Promise<T | null>((res, rej) => {
+      this.database.get(
+        `SELECT value FROM cache WHERE key = ?`,
+        [ key ],
+        (err, row) => {
+          if (err) {
+            rej(err);
+          } else {
+            if (!row) {
+              res(null);
+            } else {
+              res(JSON.parse((row as { value: string } ).value) as T);
+            }
+          }
+        }
+      );
+    });
+  }
+
+  writeKey(key: string, value: object) {
+    return new Promise<void>((res, rej) => {
+      this.database.run(
+        `INSERT INTO cache (key, value) VALUES (?, ?)`,
+        [ key, JSON.stringify(value) ],
+        (err) => {
+          if (err) {
+            rej(err);
+          } else {
+            res(undefined);
+          }
+        },
+      );
+    });
   }
 
   private async fetchFrom<
@@ -48,14 +120,13 @@ class PokemonClientLocalCache {
     ...args: Parameters<MethodType>
   ): Promise<RetType> {
     const arg = [client.constructor.name, key, ...args].map(String).join('-');
-    const cachePath = join(cacheDir, `${arg}.json`);
 
     let cachedData = this.cache.get(arg);
     if (cachedData) {
       return cachedData as RetType;
     }
 
-    const fileData = await this.readFile(cachePath);
+    const fileData = await this.readKey<RetType>(arg);
     if (fileData !== null) {
       this.cache.set(arg, fileData);
       return fileData;
@@ -65,10 +136,7 @@ class PokemonClientLocalCache {
     const res = await f.apply(this.client, args) as RetType;
     
     this.cache.set(arg, res);
-    await writeFile(
-      cachePath,
-      JSON.stringify(res, null, 2),
-    );
+    await this.writeKey(arg, res);
 
     return res;
   }
@@ -100,10 +168,16 @@ class PokemonClientLocalCache {
   ) {
     return this.fetchFrom(this.evolutionClient, key, ...args);
   }
+
+  fetchItem<Key extends keyof ItemClient>(
+    key: Key,
+    ...args: Parameters<ItemClient[Key]>
+  ) {
+    return this.fetchFrom(this.itemClient, key, ...args);
+  }
 }
 
-const client = new PokemonClientLocalCache();
-
+let client: PokemonClientLocalCache;
 
 function apiNameToClassName(apiName: string) {
   const className = apiName
@@ -118,6 +192,9 @@ function apiNameToClassName(apiName: string) {
     : className;
 }
 
+function urlToId(url: string) {
+  return parseInt(url.match(/\/(\d+)\/$/)?.[1] ?? '');
+}
 
 async function runInParallel<T>(jobs: (() => Promise<T>)[], maxParallelism = 10) {
   let index = 0;
@@ -140,7 +217,7 @@ async function runInParallel<T>(jobs: (() => Promise<T>)[], maxParallelism = 10)
   return results;
 }
 
-async function collectResources<T>(
+async function collectResources(
   fetch: (offset: number, count: number) => Promise<NamedAPIResourceList>,
 ) {
   console.log('collecting resources');
@@ -569,7 +646,7 @@ async function processEvolutionChains() {
 
   const evolutionChainData = await runInParallel(
     evolutionChains.map(
-      (chain) => () => client.fetchEvolution('getEvolutionChainById', parseInt(chain.url.match(/\/(\d+)\/$/)?.[1] ?? '')),
+      (chain) => () => client.fetchEvolution('getEvolutionChainById', urlToId(chain.url)),
     ),
   );
   console.log('evolution data:', evolutionChainData.length);
@@ -603,11 +680,51 @@ ${tabs(1)}PokemonEvolutionTrigger.${apiNameToClassName(evolutionDetails.trigger.
   );
 }
 
+async function processItems() {
+  const itemCategories = await collectResources(
+    (offset, count) => client.fetchItem('listItemCategories', offset, count),
+  );
+
+  console.log('item categories:', itemCategories.length);
+
+  const itemCategoryData = await runInParallel(
+    itemCategories.map(
+      (category) => () => client.fetchItem('getItemCategoryByName', category.name),
+    ),
+  );
+
+  await writeEnumFile('ItemCategory', itemCategoryData);
+
+  const items = await collectResources(
+    (offset, count) => client.fetchItem('listItems', offset, count),
+  );
+
+  console.log('items:', items.length);
+  const itemData = 
+    (
+      await runInParallel(
+        items.map(
+          (item) => () => client.fetchItem('getItemById', urlToId(item.url)),
+        ),
+      )
+    )
+    .filter((item) => item.game_indices.length !== 0);
+
+  console.log('item data:', itemData.length);
+
+  await writeEnumFile('Item', itemData);
+}
+
 async function run() {
   await Promise.all(
-    [cacheDir]
+    [generatedDir]
       .map((dir) => mkdir(dir, { recursive: true })),
   );
+
+  client = await PokemonClientLocalCache.create();
+
+  console.log('processing items');
+  await processItems();
 
   console.log('processing generations');
   const allGenerations = await processAllGenerations();
