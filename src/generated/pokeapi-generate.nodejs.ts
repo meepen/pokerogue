@@ -1,4 +1,4 @@
-import { GameClient, Generation, MoveClient, NamedAPIResourceList, PokemonClient, PokemonMove, PokemonSpecies } from "pokenode-ts";
+import { ChainLink, EvolutionChain, EvolutionClient, GameClient, Generation, MoveClient, NamedAPIResourceList, PokemonClient, PokemonMove, PokemonSpecies } from "pokenode-ts";
 import { readFile, stat, writeFile } from "fs/promises";
 import { fileURLToPath } from "url";
 import { dirname, join } from "path";
@@ -25,6 +25,7 @@ class PokemonClientLocalCache {
   private readonly client = new PokemonClient();
   private readonly movesClient = new MoveClient();
   private readonly gameClient = new GameClient();
+  private readonly evolutionClient = new EvolutionClient();
 
   private async readFile(fileName: string) {
     try {
@@ -91,6 +92,13 @@ class PokemonClientLocalCache {
     ...args: Parameters<GameClient[Key]>
   ) {
     return this.fetchFrom(this.gameClient, key, ...args);
+  }
+
+  fetchEvolution<Key extends keyof EvolutionClient>(
+    key: Key,
+    ...args: Parameters<EvolutionClient[Key]>
+  ) {
+    return this.fetchFrom(this.evolutionClient, key, ...args);
   }
 }
 
@@ -299,21 +307,7 @@ import { IPokemonSpecies, PokemonSpeciesFlags } from "#pokeapi/pokemon-species.i
 import { PokemonSpecies } from "#pokeapi/generated/species.enum";
 import { PokemonVariety } from "#pokeapi/generated/variety.enum";
 
-export const speciesList = new Map<PokemonSpecies, IPokemonSpecies>();
-class Species extends IPokemonSpecies {
-${tabs(1)}constructor(
-${tabs(2)}species: PokemonSpecies,
-${tabs(2)}varieties: PokemonVariety[],
-${tabs(2)}name: string,
-${tabs(2)}captureRate: number,
-${tabs(2)}baseHappiness: number | null,
-${tabs(2)}speciesFlags: PokemonSpeciesFlags,
-${tabs(2)}genderRate: number,
-${tabs(1)}) {
-${tabs(2)}super(species, varieties, name, captureRate, baseHappiness, speciesFlags, genderRate);
-${tabs(2)}speciesList.set(species, this);
-${tabs(1)}}
-}\n\n`
+class Species extends IPokemonSpecies {}\n\n`
       + allPokemon
         .map((pokemon) => pokemon.species)
         .map(
@@ -406,20 +400,7 @@ import { PokemonType } from "#pokeapi/generated/type.enum";
 import { PokemonMove } from "#pokeapi/generated/move.enum";
 import { PokemonMoveLearnType } from "#pokeapi/generated/movelearntype.enum";
 
-export const varietiesList = new Map<PokemonVariety, IPokemonVariety>();
-
-class Variety extends IPokemonVariety {
-  constructor(
-    variety: PokemonVariety,
-    species: PokemonSpecies,
-    forms: PokemonForm[],
-    types: PokemonType[],
-    learnableMoves: LearnableMoves,
-  ) {
-    super(variety, species, forms, types, learnableMoves);
-    varietiesList.set(variety, this);
-  }
-}\n\n`
+class Variety extends IPokemonVariety {}\n\n`
       + allPokemon
         .map((pokemon) => pokemon.varieties)
         .flat()
@@ -445,20 +426,7 @@ import { PokemonForm } from "#pokeapi/generated/form.enum";
 import { PokemonVariety } from "#pokeapi/generated/variety.enum";
 import { PokemonType } from "#pokeapi/generated/type.enum";
 
-export const formsList = new Map<PokemonForm, IPokemonForm>();
-
-class Form extends IPokemonForm {
-  constructor(
-    form: PokemonForm,
-    variety: PokemonVariety,
-    species: PokemonSpecies,
-    name: string | null,
-    types: PokemonType[],
-  ) {
-    super(form, variety, species, name);
-    formsList.set(form, this);
-  }
-}\n\n`
+class Form extends IPokemonForm {}\n\n`
       + allPokemon
         .map((pokemon) => pokemon.forms)
         .flat()
@@ -499,17 +467,7 @@ async function processTypes() {
 import { IPokemonType } from "#pokeapi/pokemon-type.interface";
 import { PokemonType } from "#pokeapi/generated/type.enum";
 
-export const typesList = new Map<PokemonType, IPokemonType>();
-
-class Type extends IPokemonType {
-  constructor(
-    type: PokemonType,
-    damageToMultipliers: Map<PokemonType, number>,
-  ) {
-    super(type, damageToMultipliers);
-    typesList.set(type, this);
-  }
-}\n\n`
+class Type extends IPokemonType {}\n\n`
       + typeData
         .map(
           (type) =>
@@ -567,25 +525,11 @@ async function processAllMoves(allPokemon: Awaited<ReturnType<typeof processAllP
   await writeFile(
     join(generatedDir, 'move-list.ts'),
 `// AUTO GENERATED FILE
-import { IMove } from "#pokeapi/move.interface";
+import { IPokemonMove } from "#pokeapi/pokemon-move.interface";
 import { PokemonMove } from "#pokeapi/generated/move.enum";
 import { PokemonType } from "#pokeapi/generated/type.enum";
 
-export const movesList = new Map<PokemonMove, IMove>();
-
-class Move extends IMove {
-  constructor(
-    move: PokemonMove,
-    accuracy: number | null,
-    power: number | null,
-    pp: number | null,
-    priority: number,
-    type: PokemonType,
-  ) {
-    super(move, accuracy, power, pp, priority, type);
-    movesList.set(move, this);
-  }
-}\n\n`
+class Move extends IPokemonMove {}\n\n`
       + moveData
         .map(
           (move) =>
@@ -604,6 +548,61 @@ ${tabs(1)}PokemonType.${apiNameToClassName(move.type.name)},
   return moveData;
 }
 
+async function processEvolutionChains() {
+  const evolutionTriggers = await collectResources(
+    (offset, count) => client.fetchEvolution('listEvolutionTriggers', offset, count),
+  );
+  console.log('evolution triggers:', evolutionTriggers.length);
+
+  const evolutionTriggerData = await runInParallel(
+    evolutionTriggers.map(
+      (trigger) => () => client.fetchEvolution('getEvolutionTriggerByName', trigger.name),
+    ),
+  );
+  console.log('evolution trigger data:', evolutionTriggerData.length);
+  await writeEnumFile('EvolutionTrigger', evolutionTriggerData);
+
+  const evolutionChains = await collectResources(
+    (offset, count) => client.fetchEvolution('listEvolutionChains', offset, count),
+  );
+  console.log('evolution chains:', evolutionChains.length);
+
+  const evolutionChainData = await runInParallel(
+    evolutionChains.map(
+      (chain) => () => client.fetchEvolution('getEvolutionChainById', parseInt(chain.url.match(/\/(\d+)\/$/)?.[1] ?? '')),
+    ),
+  );
+  console.log('evolution data:', evolutionChainData.length);
+
+  function getAllEvolutionParts(
+    chain: ChainLink[] = evolutionChainData.map((chain) => chain.chain),
+  ): ChainLink[] {
+    return chain
+      .flatMap((link) => [ link, ...getAllEvolutionParts(link.evolves_to) ])
+      .filter((link) => link.evolves_to.length !== 0);
+  }
+
+  await writeFile(
+    join(generatedDir, 'evolution-list.ts'),
+    `// AUTO GENERATED FILE
+import { IPokemonEvolution } from "#pokeapi/pokemon-evolution.interface";
+import { PokemonSpecies } from "#pokeapi/generated/species.enum";
+import { PokemonEvolutionTrigger } from "#pokeapi/generated/evolutiontrigger.enum";
+
+class Evolution extends IPokemonEvolution {}
+
+${getAllEvolutionParts()
+  .flatMap((chain) => chain.evolves_to.map((toSpecies) => ({ toSpecies, fromSpecies: chain.species })))
+  .flatMap((evolution) => evolution.toSpecies.evolution_details.map((detail) => ({ toSpecies: evolution.toSpecies, fromSpecies: evolution.fromSpecies, evolutionDetails: detail })))
+  .map(({ toSpecies, fromSpecies, evolutionDetails }) =>
+`new class ${apiNameToClassName(fromSpecies.name)}To${apiNameToClassName(toSpecies.species.name)}Via${apiNameToClassName(evolutionDetails.trigger.name)}Evolution extends Evolution {}(
+${tabs(1)}PokemonSpecies.${apiNameToClassName(fromSpecies.name)},
+${tabs(1)}PokemonSpecies.${apiNameToClassName(toSpecies.species.name)},
+${tabs(1)}PokemonEvolutionTrigger.${apiNameToClassName(evolutionDetails.trigger.name)},
+);\n`).join("")}`
+  );
+}
+
 async function run() {
   await Promise.all(
     [cacheDir]
@@ -612,6 +611,8 @@ async function run() {
 
   console.log('processing generations');
   const allGenerations = await processAllGenerations();
+
+  const allEvolutionChains = await processEvolutionChains();
 
   console.log('processing pokemon');
   const allPokemon = await processAllPokemon(allGenerations);

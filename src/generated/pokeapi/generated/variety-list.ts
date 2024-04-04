@@ -7,20 +7,7 @@ import { PokemonType } from "#pokeapi/generated/type.enum";
 import { PokemonMove } from "#pokeapi/generated/move.enum";
 import { PokemonMoveLearnType } from "#pokeapi/generated/movelearntype.enum";
 
-export const varietiesList = new Map<PokemonVariety, IPokemonVariety>();
-
-class Variety extends IPokemonVariety {
-  constructor(
-    variety: PokemonVariety,
-    species: PokemonSpecies,
-    forms: PokemonForm[],
-    types: PokemonType[],
-    learnableMoves: LearnableMoves,
-  ) {
-    super(variety, species, forms, types, learnableMoves);
-    varietiesList.set(variety, this);
-  }
-}
+class Variety extends IPokemonVariety {}
 
 new class BulbasaurVariety extends Variety {}(
   PokemonVariety.Bulbasaur,

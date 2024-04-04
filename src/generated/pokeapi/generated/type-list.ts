@@ -2,17 +2,7 @@
 import { IPokemonType } from "#pokeapi/pokemon-type.interface";
 import { PokemonType } from "#pokeapi/generated/type.enum";
 
-export const typesList = new Map<PokemonType, IPokemonType>();
-
-class Type extends IPokemonType {
-  constructor(
-    type: PokemonType,
-    damageToMultipliers: Map<PokemonType, number>,
-  ) {
-    super(type, damageToMultipliers);
-    typesList.set(type, this);
-  }
-}
+class Type extends IPokemonType {}
 
 new class NormalType extends Type {}(
   PokemonType.Normal,

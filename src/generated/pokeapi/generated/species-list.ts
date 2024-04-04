@@ -3,21 +3,7 @@ import { IPokemonSpecies, PokemonSpeciesFlags } from "#pokeapi/pokemon-species.i
 import { PokemonSpecies } from "#pokeapi/generated/species.enum";
 import { PokemonVariety } from "#pokeapi/generated/variety.enum";
 
-export const speciesList = new Map<PokemonSpecies, IPokemonSpecies>();
-class Species extends IPokemonSpecies {
-  constructor(
-    species: PokemonSpecies,
-    varieties: PokemonVariety[],
-    name: string,
-    captureRate: number,
-    baseHappiness: number | null,
-    speciesFlags: PokemonSpeciesFlags,
-    genderRate: number,
-  ) {
-    super(species, varieties, name, captureRate, baseHappiness, speciesFlags, genderRate);
-    speciesList.set(species, this);
-  }
-}
+class Species extends IPokemonSpecies {}
 
 new class BulbasaurSpecies extends Species {}(
   PokemonSpecies.Bulbasaur,

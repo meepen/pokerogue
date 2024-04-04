@@ -4,7 +4,9 @@ export abstract class IPokemonType {
   constructor(
     protected readonly type: PokemonType,
     protected readonly damageToMultipliers: Map<PokemonType, number>,
-  ) {}
+  ) {
+    typesList.set(type, this);
+  }
 
   public getDamageToMultiplier(type: PokemonType | PokemonType[]): number {
     if (Array.isArray(type)) {
@@ -14,3 +16,5 @@ export abstract class IPokemonType {
     return this.damageToMultipliers.get(type) ?? 1;
   }
 }
+
+export const typesList = new Map<PokemonType, IPokemonType>();

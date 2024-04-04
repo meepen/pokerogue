@@ -16,5 +16,9 @@ export abstract class IPokemonVariety {
     protected readonly forms: PokemonForm[],
     protected readonly types: PokemonType[],
     protected readonly learnableMoves: LearnableMoves,
-  ) {}
+  ) {
+    varietiesList.set(variety, this);
+  }
 }
+
+export const varietiesList = new Map<PokemonVariety, IPokemonVariety>();

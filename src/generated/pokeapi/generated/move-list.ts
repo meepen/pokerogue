@@ -1,23 +1,9 @@
 // AUTO GENERATED FILE
-import { IMove } from "#pokeapi/move.interface";
+import { IPokemonMove } from "#pokeapi/pokemon-move.interface";
 import { PokemonMove } from "#pokeapi/generated/move.enum";
 import { PokemonType } from "#pokeapi/generated/type.enum";
 
-export const movesList = new Map<PokemonMove, IMove>();
-
-class Move extends IMove {
-  constructor(
-    move: PokemonMove,
-    accuracy: number | null,
-    power: number | null,
-    pp: number | null,
-    priority: number,
-    type: PokemonType,
-  ) {
-    super(move, accuracy, power, pp, priority, type);
-    movesList.set(move, this);
-  }
-}
+class Move extends IPokemonMove {}
 
 new class PoundMove extends Move {}(
   PokemonMove.Pound,

@@ -23,7 +23,9 @@ export abstract class IPokemonSpecies {
      * You can calculate the chance of being female as genderRate / 8
      */
     protected readonly genderRate: number,
-  ) {}
+  ) {
+    speciesList.set(species, this);
+  }
 
   public get isMythical() {
     return (this.speciesFlags & PokemonSpeciesFlags.Mythical) === PokemonSpeciesFlags.Mythical;
@@ -41,3 +43,5 @@ export abstract class IPokemonSpecies {
     return this.genderRate === -1;
   }
 }
+
+export const speciesList = new Map<PokemonSpecies, IPokemonSpecies>();

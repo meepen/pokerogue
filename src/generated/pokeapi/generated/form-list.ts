@@ -5,20 +5,7 @@ import { PokemonForm } from "#pokeapi/generated/form.enum";
 import { PokemonVariety } from "#pokeapi/generated/variety.enum";
 import { PokemonType } from "#pokeapi/generated/type.enum";
 
-export const formsList = new Map<PokemonForm, IPokemonForm>();
-
-class Form extends IPokemonForm {
-  constructor(
-    form: PokemonForm,
-    variety: PokemonVariety,
-    species: PokemonSpecies,
-    name: string | null,
-    types: PokemonType[],
-  ) {
-    super(form, variety, species, name);
-    formsList.set(form, this);
-  }
-}
+class Form extends IPokemonForm {}
 
 new class BulbasaurForm extends Form {}(
   PokemonForm.Bulbasaur,
