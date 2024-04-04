@@ -1,4 +1,4 @@
-import { GameClient, Generation, MoveClient, NamedAPIResourceList, PokemonClient, PokemonMove } from "pokenode-ts";
+import { GameClient, Generation, MoveClient, NamedAPIResourceList, PokemonClient, PokemonMove, PokemonSpecies } from "pokenode-ts";
 import { readFile, stat, writeFile } from "fs/promises";
 import { fileURLToPath } from "url";
 import { dirname, join } from "path";
@@ -275,12 +275,27 @@ async function processAllPokemon(generations: Awaited<ReturnType<typeof processA
     'Form',
     allPokemon
       .flatMap((pokemon) => pokemon.forms.map(({ form }) => form))
-  )
+  );
+
+  function createSpeciesFlags(species: PokemonSpecies) {
+    const speciesFlags = [
+      species.is_baby ? 'Baby' : null,
+      species.is_legendary ? 'Legendary' : null,
+      species.is_mythical ? 'Mythical' : null,
+    ]
+      .filter((f) => f !== null)
+      .map((x) => `PokemonSpeciesFlags.${x}`)
+      .join(' | ');
+
+    return speciesFlags.length === 0
+      ? 'PokemonSpeciesFlags.None'
+      : speciesFlags;
+  }
 
   await writeFile(
     join(generatedDir, 'species-list.ts'),
     `// AUTO GENERATED FILE
-import { IPokemonSpecies } from "#pokeapi/pokemon-species.interface";
+import { IPokemonSpecies, PokemonSpeciesFlags } from "#pokeapi/pokemon-species.interface";
 import { PokemonSpecies } from "#pokeapi/generated/species.enum";
 import { PokemonVariety } from "#pokeapi/generated/variety.enum";
 
@@ -290,8 +305,11 @@ ${tabs(1)}constructor(
 ${tabs(2)}species: PokemonSpecies,
 ${tabs(2)}varieties: PokemonVariety[],
 ${tabs(2)}name: string,
+${tabs(2)}captureRate: number,
+${tabs(2)}baseHappiness: number | null,
+${tabs(2)}speciesFlags: PokemonSpeciesFlags,
 ${tabs(1)}) {
-${tabs(2)}super(species, varieties, name);
+${tabs(2)}super(species, varieties, name, captureRate, baseHappiness, speciesFlags);
 ${tabs(2)}speciesList.set(species, this);
 ${tabs(1)}}
 }\n\n`
@@ -303,6 +321,9 @@ ${tabs(1)}}
 ${tabs(1)}PokemonSpecies.${apiNameToClassName(species.name)},
 ${tabs(1)}[${species.varieties.map((v) => `PokemonVariety.${apiNameToClassName(v.pokemon.name)}`).join(', ')}],
 ${tabs(1)}${JSON.stringify(species.names.find((n) => n.language.name === 'en')?.name ?? null)},
+${tabs(1)}${species.capture_rate},
+${tabs(1)}${species.base_happiness},
+${tabs(1)}${createSpeciesFlags(species)},
 );`
         )
         .join('\n')
