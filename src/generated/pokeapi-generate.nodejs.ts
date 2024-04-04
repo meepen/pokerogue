@@ -713,6 +713,25 @@ async function processItems() {
   console.log('item data:', itemData.length);
 
   await writeEnumFile('Item', itemData);
+
+
+  await writeFile(
+    join(generatedDir, 'item-list.ts'),
+    `// AUTO GENERATED FILE
+import { IPokemonItem } from "#pokeapi/pokemon-item.interface";
+import { PokemonItem } from "#pokeapi/generated/item.enum";
+import { PokemonItemCategory } from "#pokeapi/generated/itemcategory.enum";
+
+class Item extends IPokemonItem {}
+
+${itemData
+  .map((item) => 
+`new class ${apiNameToClassName(item.name)}Item extends Item {}(
+${tabs(1)}PokemonItem.${apiNameToClassName(item.name)},
+${tabs(1)}PokemonItemCategory.${apiNameToClassName(item.category.name)},
+);`)
+  .join('\n')}`
+  );
 }
 
 async function run() {
