@@ -16,5 +16,12 @@ export abstract class IPokemonSpecies {
     protected readonly captureRate: number,
     protected readonly baseHappiness: number | null,
     protected readonly speciesFlags: PokemonSpeciesFlags,
+    /**
+     * If genderRate = -1, the species is genderless
+     * If genderRate = 0, the species is always male
+     * If genderRate = 8, the species is always female
+     * You can calculate the chance of being female as genderRate / 8
+     */
+    protected readonly genderRate: number,
   ) {}
 }

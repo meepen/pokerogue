@@ -308,8 +308,9 @@ ${tabs(2)}name: string,
 ${tabs(2)}captureRate: number,
 ${tabs(2)}baseHappiness: number | null,
 ${tabs(2)}speciesFlags: PokemonSpeciesFlags,
+${tabs(2)}genderRate: number,
 ${tabs(1)}) {
-${tabs(2)}super(species, varieties, name, captureRate, baseHappiness, speciesFlags);
+${tabs(2)}super(species, varieties, name, captureRate, baseHappiness, speciesFlags, genderRate);
 ${tabs(2)}speciesList.set(species, this);
 ${tabs(1)}}
 }\n\n`
@@ -324,6 +325,7 @@ ${tabs(1)}${JSON.stringify(species.names.find((n) => n.language.name === 'en')?.
 ${tabs(1)}${species.capture_rate},
 ${tabs(1)}${species.base_happiness},
 ${tabs(1)}${createSpeciesFlags(species)},
+${tabs(1)}${species.gender_rate},
 );`
         )
         .join('\n')

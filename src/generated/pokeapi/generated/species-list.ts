@@ -12,8 +12,9 @@ class Species extends IPokemonSpecies {
     captureRate: number,
     baseHappiness: number | null,
     speciesFlags: PokemonSpeciesFlags,
+    genderRate: number,
   ) {
-    super(species, varieties, name, captureRate, baseHappiness, speciesFlags);
+    super(species, varieties, name, captureRate, baseHappiness, speciesFlags, genderRate);
     speciesList.set(species, this);
   }
 }
@@ -25,6 +26,7 @@ new class BulbasaurSpecies extends Species {}(
   45,
   50,
   PokemonSpeciesFlags.None,
+  1,
 );
 new class IvysaurSpecies extends Species {}(
   PokemonSpecies.Ivysaur,
@@ -33,6 +35,7 @@ new class IvysaurSpecies extends Species {}(
   45,
   50,
   PokemonSpeciesFlags.None,
+  1,
 );
 new class VenusaurSpecies extends Species {}(
   PokemonSpecies.Venusaur,
@@ -41,6 +44,7 @@ new class VenusaurSpecies extends Species {}(
   45,
   50,
   PokemonSpeciesFlags.None,
+  1,
 );
 new class CharmanderSpecies extends Species {}(
   PokemonSpecies.Charmander,
@@ -49,6 +53,7 @@ new class CharmanderSpecies extends Species {}(
   45,
   50,
   PokemonSpeciesFlags.None,
+  1,
 );
 new class CharmeleonSpecies extends Species {}(
   PokemonSpecies.Charmeleon,
@@ -57,6 +62,7 @@ new class CharmeleonSpecies extends Species {}(
   45,
   50,
   PokemonSpeciesFlags.None,
+  1,
 );
 new class CharizardSpecies extends Species {}(
   PokemonSpecies.Charizard,
@@ -65,6 +71,7 @@ new class CharizardSpecies extends Species {}(
   45,
   50,
   PokemonSpeciesFlags.None,
+  1,
 );
 new class SquirtleSpecies extends Species {}(
   PokemonSpecies.Squirtle,
@@ -73,6 +80,7 @@ new class SquirtleSpecies extends Species {}(
   45,
   50,
   PokemonSpeciesFlags.None,
+  1,
 );
 new class WartortleSpecies extends Species {}(
   PokemonSpecies.Wartortle,
@@ -81,6 +89,7 @@ new class WartortleSpecies extends Species {}(
   45,
   50,
   PokemonSpeciesFlags.None,
+  1,
 );
 new class BlastoiseSpecies extends Species {}(
   PokemonSpecies.Blastoise,
@@ -89,6 +98,7 @@ new class BlastoiseSpecies extends Species {}(
   45,
   50,
   PokemonSpeciesFlags.None,
+  1,
 );
 new class CaterpieSpecies extends Species {}(
   PokemonSpecies.Caterpie,
@@ -97,6 +107,7 @@ new class CaterpieSpecies extends Species {}(
   255,
   50,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class MetapodSpecies extends Species {}(
   PokemonSpecies.Metapod,
@@ -105,6 +116,7 @@ new class MetapodSpecies extends Species {}(
   120,
   50,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class ButterfreeSpecies extends Species {}(
   PokemonSpecies.Butterfree,
@@ -113,6 +125,7 @@ new class ButterfreeSpecies extends Species {}(
   45,
   50,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class WeedleSpecies extends Species {}(
   PokemonSpecies.Weedle,
@@ -121,6 +134,7 @@ new class WeedleSpecies extends Species {}(
   255,
   70,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class KakunaSpecies extends Species {}(
   PokemonSpecies.Kakuna,
@@ -129,6 +143,7 @@ new class KakunaSpecies extends Species {}(
   120,
   70,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class BeedrillSpecies extends Species {}(
   PokemonSpecies.Beedrill,
@@ -137,6 +152,7 @@ new class BeedrillSpecies extends Species {}(
   45,
   70,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class PidgeySpecies extends Species {}(
   PokemonSpecies.Pidgey,
@@ -145,6 +161,7 @@ new class PidgeySpecies extends Species {}(
   255,
   70,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class PidgeottoSpecies extends Species {}(
   PokemonSpecies.Pidgeotto,
@@ -153,6 +170,7 @@ new class PidgeottoSpecies extends Species {}(
   120,
   70,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class PidgeotSpecies extends Species {}(
   PokemonSpecies.Pidgeot,
@@ -161,6 +179,7 @@ new class PidgeotSpecies extends Species {}(
   45,
   70,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class RattataSpecies extends Species {}(
   PokemonSpecies.Rattata,
@@ -169,6 +188,7 @@ new class RattataSpecies extends Species {}(
   255,
   70,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class RaticateSpecies extends Species {}(
   PokemonSpecies.Raticate,
@@ -177,6 +197,7 @@ new class RaticateSpecies extends Species {}(
   127,
   70,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class SpearowSpecies extends Species {}(
   PokemonSpecies.Spearow,
@@ -185,6 +206,7 @@ new class SpearowSpecies extends Species {}(
   255,
   70,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class FearowSpecies extends Species {}(
   PokemonSpecies.Fearow,
@@ -193,6 +215,7 @@ new class FearowSpecies extends Species {}(
   90,
   70,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class EkansSpecies extends Species {}(
   PokemonSpecies.Ekans,
@@ -201,6 +224,7 @@ new class EkansSpecies extends Species {}(
   255,
   70,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class ArbokSpecies extends Species {}(
   PokemonSpecies.Arbok,
@@ -209,6 +233,7 @@ new class ArbokSpecies extends Species {}(
   90,
   70,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class PikachuSpecies extends Species {}(
   PokemonSpecies.Pikachu,
@@ -217,6 +242,7 @@ new class PikachuSpecies extends Species {}(
   190,
   50,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class RaichuSpecies extends Species {}(
   PokemonSpecies.Raichu,
@@ -225,6 +251,7 @@ new class RaichuSpecies extends Species {}(
   75,
   50,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class SandshrewSpecies extends Species {}(
   PokemonSpecies.Sandshrew,
@@ -233,6 +260,7 @@ new class SandshrewSpecies extends Species {}(
   255,
   50,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class SandslashSpecies extends Species {}(
   PokemonSpecies.Sandslash,
@@ -241,6 +269,7 @@ new class SandslashSpecies extends Species {}(
   90,
   50,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class NidoranFSpecies extends Species {}(
   PokemonSpecies.NidoranF,
@@ -249,6 +278,7 @@ new class NidoranFSpecies extends Species {}(
   235,
   50,
   PokemonSpeciesFlags.None,
+  8,
 );
 new class NidorinaSpecies extends Species {}(
   PokemonSpecies.Nidorina,
@@ -257,6 +287,7 @@ new class NidorinaSpecies extends Species {}(
   120,
   50,
   PokemonSpeciesFlags.None,
+  8,
 );
 new class NidoqueenSpecies extends Species {}(
   PokemonSpecies.Nidoqueen,
@@ -265,6 +296,7 @@ new class NidoqueenSpecies extends Species {}(
   45,
   50,
   PokemonSpeciesFlags.None,
+  8,
 );
 new class NidoranMSpecies extends Species {}(
   PokemonSpecies.NidoranM,
@@ -273,6 +305,7 @@ new class NidoranMSpecies extends Species {}(
   235,
   50,
   PokemonSpeciesFlags.None,
+  0,
 );
 new class NidorinoSpecies extends Species {}(
   PokemonSpecies.Nidorino,
@@ -281,6 +314,7 @@ new class NidorinoSpecies extends Species {}(
   120,
   50,
   PokemonSpeciesFlags.None,
+  0,
 );
 new class NidokingSpecies extends Species {}(
   PokemonSpecies.Nidoking,
@@ -289,6 +323,7 @@ new class NidokingSpecies extends Species {}(
   45,
   50,
   PokemonSpeciesFlags.None,
+  0,
 );
 new class ClefairySpecies extends Species {}(
   PokemonSpecies.Clefairy,
@@ -297,6 +332,7 @@ new class ClefairySpecies extends Species {}(
   150,
   140,
   PokemonSpeciesFlags.None,
+  6,
 );
 new class ClefableSpecies extends Species {}(
   PokemonSpecies.Clefable,
@@ -305,6 +341,7 @@ new class ClefableSpecies extends Species {}(
   25,
   140,
   PokemonSpeciesFlags.None,
+  6,
 );
 new class VulpixSpecies extends Species {}(
   PokemonSpecies.Vulpix,
@@ -313,6 +350,7 @@ new class VulpixSpecies extends Species {}(
   190,
   50,
   PokemonSpeciesFlags.None,
+  6,
 );
 new class NinetalesSpecies extends Species {}(
   PokemonSpecies.Ninetales,
@@ -321,6 +359,7 @@ new class NinetalesSpecies extends Species {}(
   75,
   50,
   PokemonSpeciesFlags.None,
+  6,
 );
 new class JigglypuffSpecies extends Species {}(
   PokemonSpecies.Jigglypuff,
@@ -329,6 +368,7 @@ new class JigglypuffSpecies extends Species {}(
   170,
   50,
   PokemonSpeciesFlags.None,
+  6,
 );
 new class WigglytuffSpecies extends Species {}(
   PokemonSpecies.Wigglytuff,
@@ -337,6 +377,7 @@ new class WigglytuffSpecies extends Species {}(
   50,
   50,
   PokemonSpeciesFlags.None,
+  6,
 );
 new class ZubatSpecies extends Species {}(
   PokemonSpecies.Zubat,
@@ -345,6 +386,7 @@ new class ZubatSpecies extends Species {}(
   255,
   50,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class GolbatSpecies extends Species {}(
   PokemonSpecies.Golbat,
@@ -353,6 +395,7 @@ new class GolbatSpecies extends Species {}(
   90,
   50,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class OddishSpecies extends Species {}(
   PokemonSpecies.Oddish,
@@ -361,6 +404,7 @@ new class OddishSpecies extends Species {}(
   255,
   50,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class GloomSpecies extends Species {}(
   PokemonSpecies.Gloom,
@@ -369,6 +413,7 @@ new class GloomSpecies extends Species {}(
   120,
   50,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class VileplumeSpecies extends Species {}(
   PokemonSpecies.Vileplume,
@@ -377,6 +422,7 @@ new class VileplumeSpecies extends Species {}(
   45,
   50,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class ParasSpecies extends Species {}(
   PokemonSpecies.Paras,
@@ -385,6 +431,7 @@ new class ParasSpecies extends Species {}(
   190,
   70,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class ParasectSpecies extends Species {}(
   PokemonSpecies.Parasect,
@@ -393,6 +440,7 @@ new class ParasectSpecies extends Species {}(
   75,
   70,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class VenonatSpecies extends Species {}(
   PokemonSpecies.Venonat,
@@ -401,6 +449,7 @@ new class VenonatSpecies extends Species {}(
   190,
   70,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class VenomothSpecies extends Species {}(
   PokemonSpecies.Venomoth,
@@ -409,6 +458,7 @@ new class VenomothSpecies extends Species {}(
   75,
   70,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class DiglettSpecies extends Species {}(
   PokemonSpecies.Diglett,
@@ -417,6 +467,7 @@ new class DiglettSpecies extends Species {}(
   255,
   50,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class DugtrioSpecies extends Species {}(
   PokemonSpecies.Dugtrio,
@@ -425,6 +476,7 @@ new class DugtrioSpecies extends Species {}(
   50,
   50,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class MeowthSpecies extends Species {}(
   PokemonSpecies.Meowth,
@@ -433,6 +485,7 @@ new class MeowthSpecies extends Species {}(
   255,
   50,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class PersianSpecies extends Species {}(
   PokemonSpecies.Persian,
@@ -441,6 +494,7 @@ new class PersianSpecies extends Species {}(
   90,
   50,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class PsyduckSpecies extends Species {}(
   PokemonSpecies.Psyduck,
@@ -449,6 +503,7 @@ new class PsyduckSpecies extends Species {}(
   190,
   50,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class GolduckSpecies extends Species {}(
   PokemonSpecies.Golduck,
@@ -457,6 +512,7 @@ new class GolduckSpecies extends Species {}(
   75,
   50,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class MankeySpecies extends Species {}(
   PokemonSpecies.Mankey,
@@ -465,6 +521,7 @@ new class MankeySpecies extends Species {}(
   190,
   70,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class PrimeapeSpecies extends Species {}(
   PokemonSpecies.Primeape,
@@ -473,6 +530,7 @@ new class PrimeapeSpecies extends Species {}(
   75,
   70,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class GrowlitheSpecies extends Species {}(
   PokemonSpecies.Growlithe,
@@ -481,6 +539,7 @@ new class GrowlitheSpecies extends Species {}(
   190,
   50,
   PokemonSpeciesFlags.None,
+  2,
 );
 new class ArcanineSpecies extends Species {}(
   PokemonSpecies.Arcanine,
@@ -489,6 +548,7 @@ new class ArcanineSpecies extends Species {}(
   75,
   50,
   PokemonSpeciesFlags.None,
+  2,
 );
 new class PoliwagSpecies extends Species {}(
   PokemonSpecies.Poliwag,
@@ -497,6 +557,7 @@ new class PoliwagSpecies extends Species {}(
   255,
   50,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class PoliwhirlSpecies extends Species {}(
   PokemonSpecies.Poliwhirl,
@@ -505,6 +566,7 @@ new class PoliwhirlSpecies extends Species {}(
   120,
   50,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class PoliwrathSpecies extends Species {}(
   PokemonSpecies.Poliwrath,
@@ -513,6 +575,7 @@ new class PoliwrathSpecies extends Species {}(
   45,
   50,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class AbraSpecies extends Species {}(
   PokemonSpecies.Abra,
@@ -521,6 +584,7 @@ new class AbraSpecies extends Species {}(
   200,
   50,
   PokemonSpeciesFlags.None,
+  2,
 );
 new class KadabraSpecies extends Species {}(
   PokemonSpecies.Kadabra,
@@ -529,6 +593,7 @@ new class KadabraSpecies extends Species {}(
   100,
   50,
   PokemonSpeciesFlags.None,
+  2,
 );
 new class AlakazamSpecies extends Species {}(
   PokemonSpecies.Alakazam,
@@ -537,6 +602,7 @@ new class AlakazamSpecies extends Species {}(
   50,
   50,
   PokemonSpeciesFlags.None,
+  2,
 );
 new class MachopSpecies extends Species {}(
   PokemonSpecies.Machop,
@@ -545,6 +611,7 @@ new class MachopSpecies extends Species {}(
   180,
   50,
   PokemonSpeciesFlags.None,
+  2,
 );
 new class MachokeSpecies extends Species {}(
   PokemonSpecies.Machoke,
@@ -553,6 +620,7 @@ new class MachokeSpecies extends Species {}(
   90,
   50,
   PokemonSpeciesFlags.None,
+  2,
 );
 new class MachampSpecies extends Species {}(
   PokemonSpecies.Machamp,
@@ -561,6 +629,7 @@ new class MachampSpecies extends Species {}(
   45,
   50,
   PokemonSpeciesFlags.None,
+  2,
 );
 new class BellsproutSpecies extends Species {}(
   PokemonSpecies.Bellsprout,
@@ -569,6 +638,7 @@ new class BellsproutSpecies extends Species {}(
   255,
   70,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class WeepinbellSpecies extends Species {}(
   PokemonSpecies.Weepinbell,
@@ -577,6 +647,7 @@ new class WeepinbellSpecies extends Species {}(
   120,
   70,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class VictreebelSpecies extends Species {}(
   PokemonSpecies.Victreebel,
@@ -585,6 +656,7 @@ new class VictreebelSpecies extends Species {}(
   45,
   70,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class TentacoolSpecies extends Species {}(
   PokemonSpecies.Tentacool,
@@ -593,6 +665,7 @@ new class TentacoolSpecies extends Species {}(
   190,
   50,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class TentacruelSpecies extends Species {}(
   PokemonSpecies.Tentacruel,
@@ -601,6 +674,7 @@ new class TentacruelSpecies extends Species {}(
   60,
   50,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class GeodudeSpecies extends Species {}(
   PokemonSpecies.Geodude,
@@ -609,6 +683,7 @@ new class GeodudeSpecies extends Species {}(
   255,
   70,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class GravelerSpecies extends Species {}(
   PokemonSpecies.Graveler,
@@ -617,6 +692,7 @@ new class GravelerSpecies extends Species {}(
   120,
   70,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class GolemSpecies extends Species {}(
   PokemonSpecies.Golem,
@@ -625,6 +701,7 @@ new class GolemSpecies extends Species {}(
   45,
   70,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class PonytaSpecies extends Species {}(
   PokemonSpecies.Ponyta,
@@ -633,6 +710,7 @@ new class PonytaSpecies extends Species {}(
   190,
   50,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class RapidashSpecies extends Species {}(
   PokemonSpecies.Rapidash,
@@ -641,6 +719,7 @@ new class RapidashSpecies extends Species {}(
   60,
   50,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class SlowpokeSpecies extends Species {}(
   PokemonSpecies.Slowpoke,
@@ -649,6 +728,7 @@ new class SlowpokeSpecies extends Species {}(
   190,
   50,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class SlowbroSpecies extends Species {}(
   PokemonSpecies.Slowbro,
@@ -657,6 +737,7 @@ new class SlowbroSpecies extends Species {}(
   75,
   50,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class MagnemiteSpecies extends Species {}(
   PokemonSpecies.Magnemite,
@@ -665,6 +746,7 @@ new class MagnemiteSpecies extends Species {}(
   190,
   50,
   PokemonSpeciesFlags.None,
+  -1,
 );
 new class MagnetonSpecies extends Species {}(
   PokemonSpecies.Magneton,
@@ -673,6 +755,7 @@ new class MagnetonSpecies extends Species {}(
   60,
   50,
   PokemonSpeciesFlags.None,
+  -1,
 );
 new class FarfetchdSpecies extends Species {}(
   PokemonSpecies.Farfetchd,
@@ -681,6 +764,7 @@ new class FarfetchdSpecies extends Species {}(
   45,
   50,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class DoduoSpecies extends Species {}(
   PokemonSpecies.Doduo,
@@ -689,6 +773,7 @@ new class DoduoSpecies extends Species {}(
   190,
   70,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class DodrioSpecies extends Species {}(
   PokemonSpecies.Dodrio,
@@ -697,6 +782,7 @@ new class DodrioSpecies extends Species {}(
   45,
   70,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class SeelSpecies extends Species {}(
   PokemonSpecies.Seel,
@@ -705,6 +791,7 @@ new class SeelSpecies extends Species {}(
   190,
   70,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class DewgongSpecies extends Species {}(
   PokemonSpecies.Dewgong,
@@ -713,6 +800,7 @@ new class DewgongSpecies extends Species {}(
   75,
   70,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class GrimerSpecies extends Species {}(
   PokemonSpecies.Grimer,
@@ -721,6 +809,7 @@ new class GrimerSpecies extends Species {}(
   190,
   70,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class MukSpecies extends Species {}(
   PokemonSpecies.Muk,
@@ -729,6 +818,7 @@ new class MukSpecies extends Species {}(
   75,
   70,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class ShellderSpecies extends Species {}(
   PokemonSpecies.Shellder,
@@ -737,6 +827,7 @@ new class ShellderSpecies extends Species {}(
   190,
   50,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class CloysterSpecies extends Species {}(
   PokemonSpecies.Cloyster,
@@ -745,6 +836,7 @@ new class CloysterSpecies extends Species {}(
   60,
   50,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class GastlySpecies extends Species {}(
   PokemonSpecies.Gastly,
@@ -753,6 +845,7 @@ new class GastlySpecies extends Species {}(
   190,
   50,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class HaunterSpecies extends Species {}(
   PokemonSpecies.Haunter,
@@ -761,6 +854,7 @@ new class HaunterSpecies extends Species {}(
   90,
   50,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class GengarSpecies extends Species {}(
   PokemonSpecies.Gengar,
@@ -769,6 +863,7 @@ new class GengarSpecies extends Species {}(
   45,
   50,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class OnixSpecies extends Species {}(
   PokemonSpecies.Onix,
@@ -777,6 +872,7 @@ new class OnixSpecies extends Species {}(
   45,
   50,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class DrowzeeSpecies extends Species {}(
   PokemonSpecies.Drowzee,
@@ -785,6 +881,7 @@ new class DrowzeeSpecies extends Species {}(
   190,
   70,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class HypnoSpecies extends Species {}(
   PokemonSpecies.Hypno,
@@ -793,6 +890,7 @@ new class HypnoSpecies extends Species {}(
   75,
   70,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class KrabbySpecies extends Species {}(
   PokemonSpecies.Krabby,
@@ -801,6 +899,7 @@ new class KrabbySpecies extends Species {}(
   225,
   50,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class KinglerSpecies extends Species {}(
   PokemonSpecies.Kingler,
@@ -809,6 +908,7 @@ new class KinglerSpecies extends Species {}(
   60,
   50,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class VoltorbSpecies extends Species {}(
   PokemonSpecies.Voltorb,
@@ -817,6 +917,7 @@ new class VoltorbSpecies extends Species {}(
   190,
   70,
   PokemonSpeciesFlags.None,
+  -1,
 );
 new class ElectrodeSpecies extends Species {}(
   PokemonSpecies.Electrode,
@@ -825,6 +926,7 @@ new class ElectrodeSpecies extends Species {}(
   60,
   70,
   PokemonSpeciesFlags.None,
+  -1,
 );
 new class ExeggcuteSpecies extends Species {}(
   PokemonSpecies.Exeggcute,
@@ -833,6 +935,7 @@ new class ExeggcuteSpecies extends Species {}(
   90,
   50,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class ExeggutorSpecies extends Species {}(
   PokemonSpecies.Exeggutor,
@@ -841,6 +944,7 @@ new class ExeggutorSpecies extends Species {}(
   45,
   50,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class CuboneSpecies extends Species {}(
   PokemonSpecies.Cubone,
@@ -849,6 +953,7 @@ new class CuboneSpecies extends Species {}(
   190,
   50,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class MarowakSpecies extends Species {}(
   PokemonSpecies.Marowak,
@@ -857,6 +962,7 @@ new class MarowakSpecies extends Species {}(
   75,
   50,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class HitmonleeSpecies extends Species {}(
   PokemonSpecies.Hitmonlee,
@@ -865,6 +971,7 @@ new class HitmonleeSpecies extends Species {}(
   45,
   50,
   PokemonSpeciesFlags.None,
+  0,
 );
 new class HitmonchanSpecies extends Species {}(
   PokemonSpecies.Hitmonchan,
@@ -873,6 +980,7 @@ new class HitmonchanSpecies extends Species {}(
   45,
   50,
   PokemonSpeciesFlags.None,
+  0,
 );
 new class LickitungSpecies extends Species {}(
   PokemonSpecies.Lickitung,
@@ -881,6 +989,7 @@ new class LickitungSpecies extends Species {}(
   45,
   50,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class KoffingSpecies extends Species {}(
   PokemonSpecies.Koffing,
@@ -889,6 +998,7 @@ new class KoffingSpecies extends Species {}(
   190,
   50,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class WeezingSpecies extends Species {}(
   PokemonSpecies.Weezing,
@@ -897,6 +1007,7 @@ new class WeezingSpecies extends Species {}(
   60,
   50,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class RhyhornSpecies extends Species {}(
   PokemonSpecies.Rhyhorn,
@@ -905,6 +1016,7 @@ new class RhyhornSpecies extends Species {}(
   120,
   50,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class RhydonSpecies extends Species {}(
   PokemonSpecies.Rhydon,
@@ -913,6 +1025,7 @@ new class RhydonSpecies extends Species {}(
   60,
   50,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class ChanseySpecies extends Species {}(
   PokemonSpecies.Chansey,
@@ -921,6 +1034,7 @@ new class ChanseySpecies extends Species {}(
   30,
   140,
   PokemonSpeciesFlags.None,
+  8,
 );
 new class TangelaSpecies extends Species {}(
   PokemonSpecies.Tangela,
@@ -929,6 +1043,7 @@ new class TangelaSpecies extends Species {}(
   45,
   50,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class KangaskhanSpecies extends Species {}(
   PokemonSpecies.Kangaskhan,
@@ -937,6 +1052,7 @@ new class KangaskhanSpecies extends Species {}(
   45,
   50,
   PokemonSpeciesFlags.None,
+  8,
 );
 new class HorseaSpecies extends Species {}(
   PokemonSpecies.Horsea,
@@ -945,6 +1061,7 @@ new class HorseaSpecies extends Species {}(
   225,
   50,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class SeadraSpecies extends Species {}(
   PokemonSpecies.Seadra,
@@ -953,6 +1070,7 @@ new class SeadraSpecies extends Species {}(
   75,
   50,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class GoldeenSpecies extends Species {}(
   PokemonSpecies.Goldeen,
@@ -961,6 +1079,7 @@ new class GoldeenSpecies extends Species {}(
   225,
   50,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class SeakingSpecies extends Species {}(
   PokemonSpecies.Seaking,
@@ -969,6 +1088,7 @@ new class SeakingSpecies extends Species {}(
   60,
   50,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class StaryuSpecies extends Species {}(
   PokemonSpecies.Staryu,
@@ -977,6 +1097,7 @@ new class StaryuSpecies extends Species {}(
   225,
   50,
   PokemonSpeciesFlags.None,
+  -1,
 );
 new class StarmieSpecies extends Species {}(
   PokemonSpecies.Starmie,
@@ -985,6 +1106,7 @@ new class StarmieSpecies extends Species {}(
   60,
   50,
   PokemonSpeciesFlags.None,
+  -1,
 );
 new class MrMimeSpecies extends Species {}(
   PokemonSpecies.MrMime,
@@ -993,6 +1115,7 @@ new class MrMimeSpecies extends Species {}(
   45,
   50,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class ScytherSpecies extends Species {}(
   PokemonSpecies.Scyther,
@@ -1001,6 +1124,7 @@ new class ScytherSpecies extends Species {}(
   45,
   50,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class JynxSpecies extends Species {}(
   PokemonSpecies.Jynx,
@@ -1009,6 +1133,7 @@ new class JynxSpecies extends Species {}(
   45,
   50,
   PokemonSpeciesFlags.None,
+  8,
 );
 new class ElectabuzzSpecies extends Species {}(
   PokemonSpecies.Electabuzz,
@@ -1017,6 +1142,7 @@ new class ElectabuzzSpecies extends Species {}(
   45,
   50,
   PokemonSpeciesFlags.None,
+  2,
 );
 new class MagmarSpecies extends Species {}(
   PokemonSpecies.Magmar,
@@ -1025,6 +1151,7 @@ new class MagmarSpecies extends Species {}(
   45,
   50,
   PokemonSpeciesFlags.None,
+  2,
 );
 new class PinsirSpecies extends Species {}(
   PokemonSpecies.Pinsir,
@@ -1033,6 +1160,7 @@ new class PinsirSpecies extends Species {}(
   45,
   50,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class TaurosSpecies extends Species {}(
   PokemonSpecies.Tauros,
@@ -1041,6 +1169,7 @@ new class TaurosSpecies extends Species {}(
   45,
   50,
   PokemonSpeciesFlags.None,
+  0,
 );
 new class MagikarpSpecies extends Species {}(
   PokemonSpecies.Magikarp,
@@ -1049,6 +1178,7 @@ new class MagikarpSpecies extends Species {}(
   255,
   50,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class GyaradosSpecies extends Species {}(
   PokemonSpecies.Gyarados,
@@ -1057,6 +1187,7 @@ new class GyaradosSpecies extends Species {}(
   45,
   50,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class LaprasSpecies extends Species {}(
   PokemonSpecies.Lapras,
@@ -1065,6 +1196,7 @@ new class LaprasSpecies extends Species {}(
   45,
   50,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class DittoSpecies extends Species {}(
   PokemonSpecies.Ditto,
@@ -1073,6 +1205,7 @@ new class DittoSpecies extends Species {}(
   35,
   50,
   PokemonSpeciesFlags.None,
+  -1,
 );
 new class EeveeSpecies extends Species {}(
   PokemonSpecies.Eevee,
@@ -1081,6 +1214,7 @@ new class EeveeSpecies extends Species {}(
   45,
   50,
   PokemonSpeciesFlags.None,
+  1,
 );
 new class VaporeonSpecies extends Species {}(
   PokemonSpecies.Vaporeon,
@@ -1089,6 +1223,7 @@ new class VaporeonSpecies extends Species {}(
   45,
   50,
   PokemonSpeciesFlags.None,
+  1,
 );
 new class JolteonSpecies extends Species {}(
   PokemonSpecies.Jolteon,
@@ -1097,6 +1232,7 @@ new class JolteonSpecies extends Species {}(
   45,
   50,
   PokemonSpeciesFlags.None,
+  1,
 );
 new class FlareonSpecies extends Species {}(
   PokemonSpecies.Flareon,
@@ -1105,6 +1241,7 @@ new class FlareonSpecies extends Species {}(
   45,
   50,
   PokemonSpeciesFlags.None,
+  1,
 );
 new class PorygonSpecies extends Species {}(
   PokemonSpecies.Porygon,
@@ -1113,6 +1250,7 @@ new class PorygonSpecies extends Species {}(
   45,
   50,
   PokemonSpeciesFlags.None,
+  -1,
 );
 new class OmanyteSpecies extends Species {}(
   PokemonSpecies.Omanyte,
@@ -1121,6 +1259,7 @@ new class OmanyteSpecies extends Species {}(
   45,
   50,
   PokemonSpeciesFlags.None,
+  1,
 );
 new class OmastarSpecies extends Species {}(
   PokemonSpecies.Omastar,
@@ -1129,6 +1268,7 @@ new class OmastarSpecies extends Species {}(
   45,
   50,
   PokemonSpeciesFlags.None,
+  1,
 );
 new class KabutoSpecies extends Species {}(
   PokemonSpecies.Kabuto,
@@ -1137,6 +1277,7 @@ new class KabutoSpecies extends Species {}(
   45,
   50,
   PokemonSpeciesFlags.None,
+  1,
 );
 new class KabutopsSpecies extends Species {}(
   PokemonSpecies.Kabutops,
@@ -1145,6 +1286,7 @@ new class KabutopsSpecies extends Species {}(
   45,
   50,
   PokemonSpeciesFlags.None,
+  1,
 );
 new class AerodactylSpecies extends Species {}(
   PokemonSpecies.Aerodactyl,
@@ -1153,6 +1295,7 @@ new class AerodactylSpecies extends Species {}(
   45,
   50,
   PokemonSpeciesFlags.None,
+  1,
 );
 new class SnorlaxSpecies extends Species {}(
   PokemonSpecies.Snorlax,
@@ -1161,6 +1304,7 @@ new class SnorlaxSpecies extends Species {}(
   25,
   50,
   PokemonSpeciesFlags.None,
+  1,
 );
 new class ArticunoSpecies extends Species {}(
   PokemonSpecies.Articuno,
@@ -1169,6 +1313,7 @@ new class ArticunoSpecies extends Species {}(
   3,
   35,
   PokemonSpeciesFlags.Legendary,
+  -1,
 );
 new class ZapdosSpecies extends Species {}(
   PokemonSpecies.Zapdos,
@@ -1177,6 +1322,7 @@ new class ZapdosSpecies extends Species {}(
   3,
   35,
   PokemonSpeciesFlags.Legendary,
+  -1,
 );
 new class MoltresSpecies extends Species {}(
   PokemonSpecies.Moltres,
@@ -1185,6 +1331,7 @@ new class MoltresSpecies extends Species {}(
   3,
   35,
   PokemonSpeciesFlags.Legendary,
+  -1,
 );
 new class DratiniSpecies extends Species {}(
   PokemonSpecies.Dratini,
@@ -1193,6 +1340,7 @@ new class DratiniSpecies extends Species {}(
   45,
   35,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class DragonairSpecies extends Species {}(
   PokemonSpecies.Dragonair,
@@ -1201,6 +1349,7 @@ new class DragonairSpecies extends Species {}(
   45,
   35,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class DragoniteSpecies extends Species {}(
   PokemonSpecies.Dragonite,
@@ -1209,6 +1358,7 @@ new class DragoniteSpecies extends Species {}(
   45,
   35,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class MewtwoSpecies extends Species {}(
   PokemonSpecies.Mewtwo,
@@ -1217,6 +1367,7 @@ new class MewtwoSpecies extends Species {}(
   3,
   0,
   PokemonSpeciesFlags.Legendary,
+  -1,
 );
 new class MewSpecies extends Species {}(
   PokemonSpecies.Mew,
@@ -1225,6 +1376,7 @@ new class MewSpecies extends Species {}(
   45,
   100,
   PokemonSpeciesFlags.Mythical,
+  -1,
 );
 new class ChikoritaSpecies extends Species {}(
   PokemonSpecies.Chikorita,
@@ -1233,6 +1385,7 @@ new class ChikoritaSpecies extends Species {}(
   45,
   70,
   PokemonSpeciesFlags.None,
+  1,
 );
 new class BayleefSpecies extends Species {}(
   PokemonSpecies.Bayleef,
@@ -1241,6 +1394,7 @@ new class BayleefSpecies extends Species {}(
   45,
   70,
   PokemonSpeciesFlags.None,
+  1,
 );
 new class MeganiumSpecies extends Species {}(
   PokemonSpecies.Meganium,
@@ -1249,6 +1403,7 @@ new class MeganiumSpecies extends Species {}(
   45,
   70,
   PokemonSpeciesFlags.None,
+  1,
 );
 new class CyndaquilSpecies extends Species {}(
   PokemonSpecies.Cyndaquil,
@@ -1257,6 +1412,7 @@ new class CyndaquilSpecies extends Species {}(
   45,
   70,
   PokemonSpeciesFlags.None,
+  1,
 );
 new class QuilavaSpecies extends Species {}(
   PokemonSpecies.Quilava,
@@ -1265,6 +1421,7 @@ new class QuilavaSpecies extends Species {}(
   45,
   70,
   PokemonSpeciesFlags.None,
+  1,
 );
 new class TyphlosionSpecies extends Species {}(
   PokemonSpecies.Typhlosion,
@@ -1273,6 +1430,7 @@ new class TyphlosionSpecies extends Species {}(
   45,
   70,
   PokemonSpeciesFlags.None,
+  1,
 );
 new class TotodileSpecies extends Species {}(
   PokemonSpecies.Totodile,
@@ -1281,6 +1439,7 @@ new class TotodileSpecies extends Species {}(
   45,
   70,
   PokemonSpeciesFlags.None,
+  1,
 );
 new class CroconawSpecies extends Species {}(
   PokemonSpecies.Croconaw,
@@ -1289,6 +1448,7 @@ new class CroconawSpecies extends Species {}(
   45,
   70,
   PokemonSpeciesFlags.None,
+  1,
 );
 new class FeraligatrSpecies extends Species {}(
   PokemonSpecies.Feraligatr,
@@ -1297,6 +1457,7 @@ new class FeraligatrSpecies extends Species {}(
   45,
   70,
   PokemonSpeciesFlags.None,
+  1,
 );
 new class SentretSpecies extends Species {}(
   PokemonSpecies.Sentret,
@@ -1305,6 +1466,7 @@ new class SentretSpecies extends Species {}(
   255,
   70,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class FurretSpecies extends Species {}(
   PokemonSpecies.Furret,
@@ -1313,6 +1475,7 @@ new class FurretSpecies extends Species {}(
   90,
   70,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class HoothootSpecies extends Species {}(
   PokemonSpecies.Hoothoot,
@@ -1321,6 +1484,7 @@ new class HoothootSpecies extends Species {}(
   255,
   50,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class NoctowlSpecies extends Species {}(
   PokemonSpecies.Noctowl,
@@ -1329,6 +1493,7 @@ new class NoctowlSpecies extends Species {}(
   90,
   50,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class LedybaSpecies extends Species {}(
   PokemonSpecies.Ledyba,
@@ -1337,6 +1502,7 @@ new class LedybaSpecies extends Species {}(
   255,
   70,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class LedianSpecies extends Species {}(
   PokemonSpecies.Ledian,
@@ -1345,6 +1511,7 @@ new class LedianSpecies extends Species {}(
   90,
   70,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class SpinarakSpecies extends Species {}(
   PokemonSpecies.Spinarak,
@@ -1353,6 +1520,7 @@ new class SpinarakSpecies extends Species {}(
   255,
   70,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class AriadosSpecies extends Species {}(
   PokemonSpecies.Ariados,
@@ -1361,6 +1529,7 @@ new class AriadosSpecies extends Species {}(
   90,
   70,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class CrobatSpecies extends Species {}(
   PokemonSpecies.Crobat,
@@ -1369,6 +1538,7 @@ new class CrobatSpecies extends Species {}(
   90,
   50,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class ChinchouSpecies extends Species {}(
   PokemonSpecies.Chinchou,
@@ -1377,6 +1547,7 @@ new class ChinchouSpecies extends Species {}(
   190,
   50,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class LanturnSpecies extends Species {}(
   PokemonSpecies.Lanturn,
@@ -1385,6 +1556,7 @@ new class LanturnSpecies extends Species {}(
   75,
   50,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class PichuSpecies extends Species {}(
   PokemonSpecies.Pichu,
@@ -1393,6 +1565,7 @@ new class PichuSpecies extends Species {}(
   190,
   50,
   PokemonSpeciesFlags.Baby,
+  4,
 );
 new class CleffaSpecies extends Species {}(
   PokemonSpecies.Cleffa,
@@ -1401,6 +1574,7 @@ new class CleffaSpecies extends Species {}(
   150,
   140,
   PokemonSpeciesFlags.Baby,
+  6,
 );
 new class IgglybuffSpecies extends Species {}(
   PokemonSpecies.Igglybuff,
@@ -1409,6 +1583,7 @@ new class IgglybuffSpecies extends Species {}(
   170,
   50,
   PokemonSpeciesFlags.Baby,
+  6,
 );
 new class TogepiSpecies extends Species {}(
   PokemonSpecies.Togepi,
@@ -1417,6 +1592,7 @@ new class TogepiSpecies extends Species {}(
   190,
   50,
   PokemonSpeciesFlags.Baby,
+  1,
 );
 new class TogeticSpecies extends Species {}(
   PokemonSpecies.Togetic,
@@ -1425,6 +1601,7 @@ new class TogeticSpecies extends Species {}(
   75,
   50,
   PokemonSpeciesFlags.None,
+  1,
 );
 new class NatuSpecies extends Species {}(
   PokemonSpecies.Natu,
@@ -1433,6 +1610,7 @@ new class NatuSpecies extends Species {}(
   190,
   50,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class XatuSpecies extends Species {}(
   PokemonSpecies.Xatu,
@@ -1441,6 +1619,7 @@ new class XatuSpecies extends Species {}(
   75,
   50,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class MareepSpecies extends Species {}(
   PokemonSpecies.Mareep,
@@ -1449,6 +1628,7 @@ new class MareepSpecies extends Species {}(
   235,
   70,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class FlaaffySpecies extends Species {}(
   PokemonSpecies.Flaaffy,
@@ -1457,6 +1637,7 @@ new class FlaaffySpecies extends Species {}(
   120,
   70,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class AmpharosSpecies extends Species {}(
   PokemonSpecies.Ampharos,
@@ -1465,6 +1646,7 @@ new class AmpharosSpecies extends Species {}(
   45,
   70,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class BellossomSpecies extends Species {}(
   PokemonSpecies.Bellossom,
@@ -1473,6 +1655,7 @@ new class BellossomSpecies extends Species {}(
   45,
   50,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class MarillSpecies extends Species {}(
   PokemonSpecies.Marill,
@@ -1481,6 +1664,7 @@ new class MarillSpecies extends Species {}(
   190,
   50,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class AzumarillSpecies extends Species {}(
   PokemonSpecies.Azumarill,
@@ -1489,6 +1673,7 @@ new class AzumarillSpecies extends Species {}(
   75,
   50,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class SudowoodoSpecies extends Species {}(
   PokemonSpecies.Sudowoodo,
@@ -1497,6 +1682,7 @@ new class SudowoodoSpecies extends Species {}(
   65,
   50,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class PolitoedSpecies extends Species {}(
   PokemonSpecies.Politoed,
@@ -1505,6 +1691,7 @@ new class PolitoedSpecies extends Species {}(
   45,
   50,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class HoppipSpecies extends Species {}(
   PokemonSpecies.Hoppip,
@@ -1513,6 +1700,7 @@ new class HoppipSpecies extends Species {}(
   255,
   70,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class SkiploomSpecies extends Species {}(
   PokemonSpecies.Skiploom,
@@ -1521,6 +1709,7 @@ new class SkiploomSpecies extends Species {}(
   120,
   70,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class JumpluffSpecies extends Species {}(
   PokemonSpecies.Jumpluff,
@@ -1529,6 +1718,7 @@ new class JumpluffSpecies extends Species {}(
   45,
   70,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class AipomSpecies extends Species {}(
   PokemonSpecies.Aipom,
@@ -1537,6 +1727,7 @@ new class AipomSpecies extends Species {}(
   45,
   70,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class SunkernSpecies extends Species {}(
   PokemonSpecies.Sunkern,
@@ -1545,6 +1736,7 @@ new class SunkernSpecies extends Species {}(
   235,
   70,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class SunfloraSpecies extends Species {}(
   PokemonSpecies.Sunflora,
@@ -1553,6 +1745,7 @@ new class SunfloraSpecies extends Species {}(
   120,
   70,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class YanmaSpecies extends Species {}(
   PokemonSpecies.Yanma,
@@ -1561,6 +1754,7 @@ new class YanmaSpecies extends Species {}(
   75,
   70,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class WooperSpecies extends Species {}(
   PokemonSpecies.Wooper,
@@ -1569,6 +1763,7 @@ new class WooperSpecies extends Species {}(
   255,
   50,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class QuagsireSpecies extends Species {}(
   PokemonSpecies.Quagsire,
@@ -1577,6 +1772,7 @@ new class QuagsireSpecies extends Species {}(
   90,
   50,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class EspeonSpecies extends Species {}(
   PokemonSpecies.Espeon,
@@ -1585,6 +1781,7 @@ new class EspeonSpecies extends Species {}(
   45,
   50,
   PokemonSpeciesFlags.None,
+  1,
 );
 new class UmbreonSpecies extends Species {}(
   PokemonSpecies.Umbreon,
@@ -1593,6 +1790,7 @@ new class UmbreonSpecies extends Species {}(
   45,
   35,
   PokemonSpeciesFlags.None,
+  1,
 );
 new class MurkrowSpecies extends Species {}(
   PokemonSpecies.Murkrow,
@@ -1601,6 +1799,7 @@ new class MurkrowSpecies extends Species {}(
   30,
   35,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class SlowkingSpecies extends Species {}(
   PokemonSpecies.Slowking,
@@ -1609,6 +1808,7 @@ new class SlowkingSpecies extends Species {}(
   70,
   50,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class MisdreavusSpecies extends Species {}(
   PokemonSpecies.Misdreavus,
@@ -1617,6 +1817,7 @@ new class MisdreavusSpecies extends Species {}(
   45,
   35,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class UnownSpecies extends Species {}(
   PokemonSpecies.Unown,
@@ -1625,6 +1826,7 @@ new class UnownSpecies extends Species {}(
   225,
   70,
   PokemonSpeciesFlags.None,
+  -1,
 );
 new class WobbuffetSpecies extends Species {}(
   PokemonSpecies.Wobbuffet,
@@ -1633,6 +1835,7 @@ new class WobbuffetSpecies extends Species {}(
   45,
   50,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class GirafarigSpecies extends Species {}(
   PokemonSpecies.Girafarig,
@@ -1641,6 +1844,7 @@ new class GirafarigSpecies extends Species {}(
   60,
   70,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class PinecoSpecies extends Species {}(
   PokemonSpecies.Pineco,
@@ -1649,6 +1853,7 @@ new class PinecoSpecies extends Species {}(
   190,
   70,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class ForretressSpecies extends Species {}(
   PokemonSpecies.Forretress,
@@ -1657,6 +1862,7 @@ new class ForretressSpecies extends Species {}(
   75,
   70,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class DunsparceSpecies extends Species {}(
   PokemonSpecies.Dunsparce,
@@ -1665,6 +1871,7 @@ new class DunsparceSpecies extends Species {}(
   190,
   50,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class GligarSpecies extends Species {}(
   PokemonSpecies.Gligar,
@@ -1673,6 +1880,7 @@ new class GligarSpecies extends Species {}(
   60,
   70,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class SteelixSpecies extends Species {}(
   PokemonSpecies.Steelix,
@@ -1681,6 +1889,7 @@ new class SteelixSpecies extends Species {}(
   25,
   50,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class SnubbullSpecies extends Species {}(
   PokemonSpecies.Snubbull,
@@ -1689,6 +1898,7 @@ new class SnubbullSpecies extends Species {}(
   190,
   70,
   PokemonSpeciesFlags.None,
+  6,
 );
 new class GranbullSpecies extends Species {}(
   PokemonSpecies.Granbull,
@@ -1697,6 +1907,7 @@ new class GranbullSpecies extends Species {}(
   75,
   70,
   PokemonSpeciesFlags.None,
+  6,
 );
 new class QwilfishSpecies extends Species {}(
   PokemonSpecies.Qwilfish,
@@ -1705,6 +1916,7 @@ new class QwilfishSpecies extends Species {}(
   45,
   50,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class ScizorSpecies extends Species {}(
   PokemonSpecies.Scizor,
@@ -1713,6 +1925,7 @@ new class ScizorSpecies extends Species {}(
   25,
   50,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class ShuckleSpecies extends Species {}(
   PokemonSpecies.Shuckle,
@@ -1721,6 +1934,7 @@ new class ShuckleSpecies extends Species {}(
   190,
   50,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class HeracrossSpecies extends Species {}(
   PokemonSpecies.Heracross,
@@ -1729,6 +1943,7 @@ new class HeracrossSpecies extends Species {}(
   45,
   50,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class SneaselSpecies extends Species {}(
   PokemonSpecies.Sneasel,
@@ -1737,6 +1952,7 @@ new class SneaselSpecies extends Species {}(
   60,
   35,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class TeddiursaSpecies extends Species {}(
   PokemonSpecies.Teddiursa,
@@ -1745,6 +1961,7 @@ new class TeddiursaSpecies extends Species {}(
   120,
   70,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class UrsaringSpecies extends Species {}(
   PokemonSpecies.Ursaring,
@@ -1753,6 +1970,7 @@ new class UrsaringSpecies extends Species {}(
   60,
   70,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class SlugmaSpecies extends Species {}(
   PokemonSpecies.Slugma,
@@ -1761,6 +1979,7 @@ new class SlugmaSpecies extends Species {}(
   190,
   70,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class MagcargoSpecies extends Species {}(
   PokemonSpecies.Magcargo,
@@ -1769,6 +1988,7 @@ new class MagcargoSpecies extends Species {}(
   75,
   70,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class SwinubSpecies extends Species {}(
   PokemonSpecies.Swinub,
@@ -1777,6 +1997,7 @@ new class SwinubSpecies extends Species {}(
   225,
   50,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class PiloswineSpecies extends Species {}(
   PokemonSpecies.Piloswine,
@@ -1785,6 +2006,7 @@ new class PiloswineSpecies extends Species {}(
   75,
   50,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class CorsolaSpecies extends Species {}(
   PokemonSpecies.Corsola,
@@ -1793,6 +2015,7 @@ new class CorsolaSpecies extends Species {}(
   60,
   50,
   PokemonSpeciesFlags.None,
+  6,
 );
 new class RemoraidSpecies extends Species {}(
   PokemonSpecies.Remoraid,
@@ -1801,6 +2024,7 @@ new class RemoraidSpecies extends Species {}(
   190,
   50,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class OctillerySpecies extends Species {}(
   PokemonSpecies.Octillery,
@@ -1809,6 +2033,7 @@ new class OctillerySpecies extends Species {}(
   75,
   50,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class DelibirdSpecies extends Species {}(
   PokemonSpecies.Delibird,
@@ -1817,6 +2042,7 @@ new class DelibirdSpecies extends Species {}(
   45,
   50,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class MantineSpecies extends Species {}(
   PokemonSpecies.Mantine,
@@ -1825,6 +2051,7 @@ new class MantineSpecies extends Species {}(
   25,
   50,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class SkarmorySpecies extends Species {}(
   PokemonSpecies.Skarmory,
@@ -1833,6 +2060,7 @@ new class SkarmorySpecies extends Species {}(
   25,
   50,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class HoundourSpecies extends Species {}(
   PokemonSpecies.Houndour,
@@ -1841,6 +2069,7 @@ new class HoundourSpecies extends Species {}(
   120,
   35,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class HoundoomSpecies extends Species {}(
   PokemonSpecies.Houndoom,
@@ -1849,6 +2078,7 @@ new class HoundoomSpecies extends Species {}(
   45,
   35,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class KingdraSpecies extends Species {}(
   PokemonSpecies.Kingdra,
@@ -1857,6 +2087,7 @@ new class KingdraSpecies extends Species {}(
   45,
   50,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class PhanpySpecies extends Species {}(
   PokemonSpecies.Phanpy,
@@ -1865,6 +2096,7 @@ new class PhanpySpecies extends Species {}(
   120,
   70,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class DonphanSpecies extends Species {}(
   PokemonSpecies.Donphan,
@@ -1873,6 +2105,7 @@ new class DonphanSpecies extends Species {}(
   60,
   70,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class Porygon2Species extends Species {}(
   PokemonSpecies.Porygon2,
@@ -1881,6 +2114,7 @@ new class Porygon2Species extends Species {}(
   45,
   50,
   PokemonSpeciesFlags.None,
+  -1,
 );
 new class StantlerSpecies extends Species {}(
   PokemonSpecies.Stantler,
@@ -1889,6 +2123,7 @@ new class StantlerSpecies extends Species {}(
   45,
   70,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class SmeargleSpecies extends Species {}(
   PokemonSpecies.Smeargle,
@@ -1897,6 +2132,7 @@ new class SmeargleSpecies extends Species {}(
   45,
   70,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class TyrogueSpecies extends Species {}(
   PokemonSpecies.Tyrogue,
@@ -1905,6 +2141,7 @@ new class TyrogueSpecies extends Species {}(
   75,
   50,
   PokemonSpeciesFlags.Baby,
+  0,
 );
 new class HitmontopSpecies extends Species {}(
   PokemonSpecies.Hitmontop,
@@ -1913,6 +2150,7 @@ new class HitmontopSpecies extends Species {}(
   45,
   50,
   PokemonSpeciesFlags.None,
+  0,
 );
 new class SmoochumSpecies extends Species {}(
   PokemonSpecies.Smoochum,
@@ -1921,6 +2159,7 @@ new class SmoochumSpecies extends Species {}(
   45,
   50,
   PokemonSpeciesFlags.Baby,
+  8,
 );
 new class ElekidSpecies extends Species {}(
   PokemonSpecies.Elekid,
@@ -1929,6 +2168,7 @@ new class ElekidSpecies extends Species {}(
   45,
   50,
   PokemonSpeciesFlags.Baby,
+  2,
 );
 new class MagbySpecies extends Species {}(
   PokemonSpecies.Magby,
@@ -1937,6 +2177,7 @@ new class MagbySpecies extends Species {}(
   45,
   50,
   PokemonSpeciesFlags.Baby,
+  2,
 );
 new class MiltankSpecies extends Species {}(
   PokemonSpecies.Miltank,
@@ -1945,6 +2186,7 @@ new class MiltankSpecies extends Species {}(
   45,
   50,
   PokemonSpeciesFlags.None,
+  8,
 );
 new class BlisseySpecies extends Species {}(
   PokemonSpecies.Blissey,
@@ -1953,6 +2195,7 @@ new class BlisseySpecies extends Species {}(
   30,
   140,
   PokemonSpeciesFlags.None,
+  8,
 );
 new class RaikouSpecies extends Species {}(
   PokemonSpecies.Raikou,
@@ -1961,6 +2204,7 @@ new class RaikouSpecies extends Species {}(
   3,
   35,
   PokemonSpeciesFlags.Legendary,
+  -1,
 );
 new class EnteiSpecies extends Species {}(
   PokemonSpecies.Entei,
@@ -1969,6 +2213,7 @@ new class EnteiSpecies extends Species {}(
   3,
   35,
   PokemonSpeciesFlags.Legendary,
+  -1,
 );
 new class SuicuneSpecies extends Species {}(
   PokemonSpecies.Suicune,
@@ -1977,6 +2222,7 @@ new class SuicuneSpecies extends Species {}(
   3,
   35,
   PokemonSpeciesFlags.Legendary,
+  -1,
 );
 new class LarvitarSpecies extends Species {}(
   PokemonSpecies.Larvitar,
@@ -1985,6 +2231,7 @@ new class LarvitarSpecies extends Species {}(
   45,
   35,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class PupitarSpecies extends Species {}(
   PokemonSpecies.Pupitar,
@@ -1993,6 +2240,7 @@ new class PupitarSpecies extends Species {}(
   45,
   35,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class TyranitarSpecies extends Species {}(
   PokemonSpecies.Tyranitar,
@@ -2001,6 +2249,7 @@ new class TyranitarSpecies extends Species {}(
   45,
   35,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class LugiaSpecies extends Species {}(
   PokemonSpecies.Lugia,
@@ -2009,6 +2258,7 @@ new class LugiaSpecies extends Species {}(
   3,
   0,
   PokemonSpeciesFlags.Legendary,
+  -1,
 );
 new class HoOhSpecies extends Species {}(
   PokemonSpecies.HoOh,
@@ -2017,6 +2267,7 @@ new class HoOhSpecies extends Species {}(
   3,
   0,
   PokemonSpeciesFlags.Legendary,
+  -1,
 );
 new class CelebiSpecies extends Species {}(
   PokemonSpecies.Celebi,
@@ -2025,6 +2276,7 @@ new class CelebiSpecies extends Species {}(
   45,
   100,
   PokemonSpeciesFlags.Mythical,
+  -1,
 );
 new class TreeckoSpecies extends Species {}(
   PokemonSpecies.Treecko,
@@ -2033,6 +2285,7 @@ new class TreeckoSpecies extends Species {}(
   45,
   50,
   PokemonSpeciesFlags.None,
+  1,
 );
 new class GrovyleSpecies extends Species {}(
   PokemonSpecies.Grovyle,
@@ -2041,6 +2294,7 @@ new class GrovyleSpecies extends Species {}(
   45,
   50,
   PokemonSpeciesFlags.None,
+  1,
 );
 new class SceptileSpecies extends Species {}(
   PokemonSpecies.Sceptile,
@@ -2049,6 +2303,7 @@ new class SceptileSpecies extends Species {}(
   45,
   50,
   PokemonSpeciesFlags.None,
+  1,
 );
 new class TorchicSpecies extends Species {}(
   PokemonSpecies.Torchic,
@@ -2057,6 +2312,7 @@ new class TorchicSpecies extends Species {}(
   45,
   50,
   PokemonSpeciesFlags.None,
+  1,
 );
 new class CombuskenSpecies extends Species {}(
   PokemonSpecies.Combusken,
@@ -2065,6 +2321,7 @@ new class CombuskenSpecies extends Species {}(
   45,
   50,
   PokemonSpeciesFlags.None,
+  1,
 );
 new class BlazikenSpecies extends Species {}(
   PokemonSpecies.Blaziken,
@@ -2073,6 +2330,7 @@ new class BlazikenSpecies extends Species {}(
   45,
   50,
   PokemonSpeciesFlags.None,
+  1,
 );
 new class MudkipSpecies extends Species {}(
   PokemonSpecies.Mudkip,
@@ -2081,6 +2339,7 @@ new class MudkipSpecies extends Species {}(
   45,
   50,
   PokemonSpeciesFlags.None,
+  1,
 );
 new class MarshtompSpecies extends Species {}(
   PokemonSpecies.Marshtomp,
@@ -2089,6 +2348,7 @@ new class MarshtompSpecies extends Species {}(
   45,
   50,
   PokemonSpeciesFlags.None,
+  1,
 );
 new class SwampertSpecies extends Species {}(
   PokemonSpecies.Swampert,
@@ -2097,6 +2357,7 @@ new class SwampertSpecies extends Species {}(
   45,
   50,
   PokemonSpeciesFlags.None,
+  1,
 );
 new class PoochyenaSpecies extends Species {}(
   PokemonSpecies.Poochyena,
@@ -2105,6 +2366,7 @@ new class PoochyenaSpecies extends Species {}(
   255,
   70,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class MightyenaSpecies extends Species {}(
   PokemonSpecies.Mightyena,
@@ -2113,6 +2375,7 @@ new class MightyenaSpecies extends Species {}(
   127,
   70,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class ZigzagoonSpecies extends Species {}(
   PokemonSpecies.Zigzagoon,
@@ -2121,6 +2384,7 @@ new class ZigzagoonSpecies extends Species {}(
   255,
   50,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class LinooneSpecies extends Species {}(
   PokemonSpecies.Linoone,
@@ -2129,6 +2393,7 @@ new class LinooneSpecies extends Species {}(
   90,
   50,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class WurmpleSpecies extends Species {}(
   PokemonSpecies.Wurmple,
@@ -2137,6 +2402,7 @@ new class WurmpleSpecies extends Species {}(
   255,
   70,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class SilcoonSpecies extends Species {}(
   PokemonSpecies.Silcoon,
@@ -2145,6 +2411,7 @@ new class SilcoonSpecies extends Species {}(
   120,
   70,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class BeautiflySpecies extends Species {}(
   PokemonSpecies.Beautifly,
@@ -2153,6 +2420,7 @@ new class BeautiflySpecies extends Species {}(
   45,
   70,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class CascoonSpecies extends Species {}(
   PokemonSpecies.Cascoon,
@@ -2161,6 +2429,7 @@ new class CascoonSpecies extends Species {}(
   120,
   70,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class DustoxSpecies extends Species {}(
   PokemonSpecies.Dustox,
@@ -2169,6 +2438,7 @@ new class DustoxSpecies extends Species {}(
   45,
   70,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class LotadSpecies extends Species {}(
   PokemonSpecies.Lotad,
@@ -2177,6 +2447,7 @@ new class LotadSpecies extends Species {}(
   255,
   50,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class LombreSpecies extends Species {}(
   PokemonSpecies.Lombre,
@@ -2185,6 +2456,7 @@ new class LombreSpecies extends Species {}(
   120,
   50,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class LudicoloSpecies extends Species {}(
   PokemonSpecies.Ludicolo,
@@ -2193,6 +2465,7 @@ new class LudicoloSpecies extends Species {}(
   45,
   50,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class SeedotSpecies extends Species {}(
   PokemonSpecies.Seedot,
@@ -2201,6 +2474,7 @@ new class SeedotSpecies extends Species {}(
   255,
   50,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class NuzleafSpecies extends Species {}(
   PokemonSpecies.Nuzleaf,
@@ -2209,6 +2483,7 @@ new class NuzleafSpecies extends Species {}(
   120,
   50,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class ShiftrySpecies extends Species {}(
   PokemonSpecies.Shiftry,
@@ -2217,6 +2492,7 @@ new class ShiftrySpecies extends Species {}(
   45,
   50,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class TaillowSpecies extends Species {}(
   PokemonSpecies.Taillow,
@@ -2225,6 +2501,7 @@ new class TaillowSpecies extends Species {}(
   200,
   70,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class SwellowSpecies extends Species {}(
   PokemonSpecies.Swellow,
@@ -2233,6 +2510,7 @@ new class SwellowSpecies extends Species {}(
   45,
   70,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class WingullSpecies extends Species {}(
   PokemonSpecies.Wingull,
@@ -2241,6 +2519,7 @@ new class WingullSpecies extends Species {}(
   190,
   50,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class PelipperSpecies extends Species {}(
   PokemonSpecies.Pelipper,
@@ -2249,6 +2528,7 @@ new class PelipperSpecies extends Species {}(
   45,
   50,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class RaltsSpecies extends Species {}(
   PokemonSpecies.Ralts,
@@ -2257,6 +2537,7 @@ new class RaltsSpecies extends Species {}(
   235,
   35,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class KirliaSpecies extends Species {}(
   PokemonSpecies.Kirlia,
@@ -2265,6 +2546,7 @@ new class KirliaSpecies extends Species {}(
   120,
   35,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class GardevoirSpecies extends Species {}(
   PokemonSpecies.Gardevoir,
@@ -2273,6 +2555,7 @@ new class GardevoirSpecies extends Species {}(
   45,
   35,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class SurskitSpecies extends Species {}(
   PokemonSpecies.Surskit,
@@ -2281,6 +2564,7 @@ new class SurskitSpecies extends Species {}(
   200,
   70,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class MasquerainSpecies extends Species {}(
   PokemonSpecies.Masquerain,
@@ -2289,6 +2573,7 @@ new class MasquerainSpecies extends Species {}(
   75,
   70,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class ShroomishSpecies extends Species {}(
   PokemonSpecies.Shroomish,
@@ -2297,6 +2582,7 @@ new class ShroomishSpecies extends Species {}(
   255,
   70,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class BreloomSpecies extends Species {}(
   PokemonSpecies.Breloom,
@@ -2305,6 +2591,7 @@ new class BreloomSpecies extends Species {}(
   90,
   70,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class SlakothSpecies extends Species {}(
   PokemonSpecies.Slakoth,
@@ -2313,6 +2600,7 @@ new class SlakothSpecies extends Species {}(
   255,
   70,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class VigorothSpecies extends Species {}(
   PokemonSpecies.Vigoroth,
@@ -2321,6 +2609,7 @@ new class VigorothSpecies extends Species {}(
   120,
   70,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class SlakingSpecies extends Species {}(
   PokemonSpecies.Slaking,
@@ -2329,6 +2618,7 @@ new class SlakingSpecies extends Species {}(
   45,
   70,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class NincadaSpecies extends Species {}(
   PokemonSpecies.Nincada,
@@ -2337,6 +2627,7 @@ new class NincadaSpecies extends Species {}(
   255,
   50,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class NinjaskSpecies extends Species {}(
   PokemonSpecies.Ninjask,
@@ -2345,6 +2636,7 @@ new class NinjaskSpecies extends Species {}(
   120,
   50,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class ShedinjaSpecies extends Species {}(
   PokemonSpecies.Shedinja,
@@ -2353,6 +2645,7 @@ new class ShedinjaSpecies extends Species {}(
   45,
   50,
   PokemonSpeciesFlags.None,
+  -1,
 );
 new class WhismurSpecies extends Species {}(
   PokemonSpecies.Whismur,
@@ -2361,6 +2654,7 @@ new class WhismurSpecies extends Species {}(
   190,
   50,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class LoudredSpecies extends Species {}(
   PokemonSpecies.Loudred,
@@ -2369,6 +2663,7 @@ new class LoudredSpecies extends Species {}(
   120,
   50,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class ExploudSpecies extends Species {}(
   PokemonSpecies.Exploud,
@@ -2377,6 +2672,7 @@ new class ExploudSpecies extends Species {}(
   45,
   50,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class MakuhitaSpecies extends Species {}(
   PokemonSpecies.Makuhita,
@@ -2385,6 +2681,7 @@ new class MakuhitaSpecies extends Species {}(
   180,
   70,
   PokemonSpeciesFlags.None,
+  2,
 );
 new class HariyamaSpecies extends Species {}(
   PokemonSpecies.Hariyama,
@@ -2393,6 +2690,7 @@ new class HariyamaSpecies extends Species {}(
   200,
   70,
   PokemonSpeciesFlags.None,
+  2,
 );
 new class AzurillSpecies extends Species {}(
   PokemonSpecies.Azurill,
@@ -2401,6 +2699,7 @@ new class AzurillSpecies extends Species {}(
   150,
   50,
   PokemonSpeciesFlags.Baby,
+  6,
 );
 new class NosepassSpecies extends Species {}(
   PokemonSpecies.Nosepass,
@@ -2409,6 +2708,7 @@ new class NosepassSpecies extends Species {}(
   255,
   70,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class SkittySpecies extends Species {}(
   PokemonSpecies.Skitty,
@@ -2417,6 +2717,7 @@ new class SkittySpecies extends Species {}(
   255,
   70,
   PokemonSpeciesFlags.None,
+  6,
 );
 new class DelcattySpecies extends Species {}(
   PokemonSpecies.Delcatty,
@@ -2425,6 +2726,7 @@ new class DelcattySpecies extends Species {}(
   60,
   70,
   PokemonSpeciesFlags.None,
+  6,
 );
 new class SableyeSpecies extends Species {}(
   PokemonSpecies.Sableye,
@@ -2433,6 +2735,7 @@ new class SableyeSpecies extends Species {}(
   45,
   35,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class MawileSpecies extends Species {}(
   PokemonSpecies.Mawile,
@@ -2441,6 +2744,7 @@ new class MawileSpecies extends Species {}(
   45,
   50,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class AronSpecies extends Species {}(
   PokemonSpecies.Aron,
@@ -2449,6 +2753,7 @@ new class AronSpecies extends Species {}(
   180,
   35,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class LaironSpecies extends Species {}(
   PokemonSpecies.Lairon,
@@ -2457,6 +2762,7 @@ new class LaironSpecies extends Species {}(
   90,
   35,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class AggronSpecies extends Species {}(
   PokemonSpecies.Aggron,
@@ -2465,6 +2771,7 @@ new class AggronSpecies extends Species {}(
   45,
   35,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class MedititeSpecies extends Species {}(
   PokemonSpecies.Meditite,
@@ -2473,6 +2780,7 @@ new class MedititeSpecies extends Species {}(
   180,
   70,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class MedichamSpecies extends Species {}(
   PokemonSpecies.Medicham,
@@ -2481,6 +2789,7 @@ new class MedichamSpecies extends Species {}(
   90,
   70,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class ElectrikeSpecies extends Species {}(
   PokemonSpecies.Electrike,
@@ -2489,6 +2798,7 @@ new class ElectrikeSpecies extends Species {}(
   120,
   50,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class ManectricSpecies extends Species {}(
   PokemonSpecies.Manectric,
@@ -2497,6 +2807,7 @@ new class ManectricSpecies extends Species {}(
   45,
   50,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class PlusleSpecies extends Species {}(
   PokemonSpecies.Plusle,
@@ -2505,6 +2816,7 @@ new class PlusleSpecies extends Species {}(
   200,
   70,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class MinunSpecies extends Species {}(
   PokemonSpecies.Minun,
@@ -2513,6 +2825,7 @@ new class MinunSpecies extends Species {}(
   200,
   70,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class VolbeatSpecies extends Species {}(
   PokemonSpecies.Volbeat,
@@ -2521,6 +2834,7 @@ new class VolbeatSpecies extends Species {}(
   150,
   70,
   PokemonSpeciesFlags.None,
+  0,
 );
 new class IllumiseSpecies extends Species {}(
   PokemonSpecies.Illumise,
@@ -2529,6 +2843,7 @@ new class IllumiseSpecies extends Species {}(
   150,
   70,
   PokemonSpeciesFlags.None,
+  8,
 );
 new class RoseliaSpecies extends Species {}(
   PokemonSpecies.Roselia,
@@ -2537,6 +2852,7 @@ new class RoseliaSpecies extends Species {}(
   150,
   50,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class GulpinSpecies extends Species {}(
   PokemonSpecies.Gulpin,
@@ -2545,6 +2861,7 @@ new class GulpinSpecies extends Species {}(
   225,
   70,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class SwalotSpecies extends Species {}(
   PokemonSpecies.Swalot,
@@ -2553,6 +2870,7 @@ new class SwalotSpecies extends Species {}(
   75,
   70,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class CarvanhaSpecies extends Species {}(
   PokemonSpecies.Carvanha,
@@ -2561,6 +2879,7 @@ new class CarvanhaSpecies extends Species {}(
   225,
   35,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class SharpedoSpecies extends Species {}(
   PokemonSpecies.Sharpedo,
@@ -2569,6 +2888,7 @@ new class SharpedoSpecies extends Species {}(
   60,
   35,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class WailmerSpecies extends Species {}(
   PokemonSpecies.Wailmer,
@@ -2577,6 +2897,7 @@ new class WailmerSpecies extends Species {}(
   125,
   50,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class WailordSpecies extends Species {}(
   PokemonSpecies.Wailord,
@@ -2585,6 +2906,7 @@ new class WailordSpecies extends Species {}(
   60,
   50,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class NumelSpecies extends Species {}(
   PokemonSpecies.Numel,
@@ -2593,6 +2915,7 @@ new class NumelSpecies extends Species {}(
   255,
   70,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class CameruptSpecies extends Species {}(
   PokemonSpecies.Camerupt,
@@ -2601,6 +2924,7 @@ new class CameruptSpecies extends Species {}(
   150,
   70,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class TorkoalSpecies extends Species {}(
   PokemonSpecies.Torkoal,
@@ -2609,6 +2933,7 @@ new class TorkoalSpecies extends Species {}(
   90,
   50,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class SpoinkSpecies extends Species {}(
   PokemonSpecies.Spoink,
@@ -2617,6 +2942,7 @@ new class SpoinkSpecies extends Species {}(
   255,
   70,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class GrumpigSpecies extends Species {}(
   PokemonSpecies.Grumpig,
@@ -2625,6 +2951,7 @@ new class GrumpigSpecies extends Species {}(
   60,
   70,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class SpindaSpecies extends Species {}(
   PokemonSpecies.Spinda,
@@ -2633,6 +2960,7 @@ new class SpindaSpecies extends Species {}(
   255,
   70,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class TrapinchSpecies extends Species {}(
   PokemonSpecies.Trapinch,
@@ -2641,6 +2969,7 @@ new class TrapinchSpecies extends Species {}(
   255,
   50,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class VibravaSpecies extends Species {}(
   PokemonSpecies.Vibrava,
@@ -2649,6 +2978,7 @@ new class VibravaSpecies extends Species {}(
   120,
   50,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class FlygonSpecies extends Species {}(
   PokemonSpecies.Flygon,
@@ -2657,6 +2987,7 @@ new class FlygonSpecies extends Species {}(
   45,
   50,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class CacneaSpecies extends Species {}(
   PokemonSpecies.Cacnea,
@@ -2665,6 +2996,7 @@ new class CacneaSpecies extends Species {}(
   190,
   35,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class CacturneSpecies extends Species {}(
   PokemonSpecies.Cacturne,
@@ -2673,6 +3005,7 @@ new class CacturneSpecies extends Species {}(
   60,
   35,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class SwabluSpecies extends Species {}(
   PokemonSpecies.Swablu,
@@ -2681,6 +3014,7 @@ new class SwabluSpecies extends Species {}(
   255,
   50,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class AltariaSpecies extends Species {}(
   PokemonSpecies.Altaria,
@@ -2689,6 +3023,7 @@ new class AltariaSpecies extends Species {}(
   45,
   50,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class ZangooseSpecies extends Species {}(
   PokemonSpecies.Zangoose,
@@ -2697,6 +3032,7 @@ new class ZangooseSpecies extends Species {}(
   90,
   70,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class SeviperSpecies extends Species {}(
   PokemonSpecies.Seviper,
@@ -2705,6 +3041,7 @@ new class SeviperSpecies extends Species {}(
   90,
   70,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class LunatoneSpecies extends Species {}(
   PokemonSpecies.Lunatone,
@@ -2713,6 +3050,7 @@ new class LunatoneSpecies extends Species {}(
   45,
   50,
   PokemonSpeciesFlags.None,
+  -1,
 );
 new class SolrockSpecies extends Species {}(
   PokemonSpecies.Solrock,
@@ -2721,6 +3059,7 @@ new class SolrockSpecies extends Species {}(
   45,
   50,
   PokemonSpeciesFlags.None,
+  -1,
 );
 new class BarboachSpecies extends Species {}(
   PokemonSpecies.Barboach,
@@ -2729,6 +3068,7 @@ new class BarboachSpecies extends Species {}(
   190,
   50,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class WhiscashSpecies extends Species {}(
   PokemonSpecies.Whiscash,
@@ -2737,6 +3077,7 @@ new class WhiscashSpecies extends Species {}(
   75,
   50,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class CorphishSpecies extends Species {}(
   PokemonSpecies.Corphish,
@@ -2745,6 +3086,7 @@ new class CorphishSpecies extends Species {}(
   205,
   50,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class CrawdauntSpecies extends Species {}(
   PokemonSpecies.Crawdaunt,
@@ -2753,6 +3095,7 @@ new class CrawdauntSpecies extends Species {}(
   155,
   50,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class BaltoySpecies extends Species {}(
   PokemonSpecies.Baltoy,
@@ -2761,6 +3104,7 @@ new class BaltoySpecies extends Species {}(
   255,
   50,
   PokemonSpeciesFlags.None,
+  -1,
 );
 new class ClaydolSpecies extends Species {}(
   PokemonSpecies.Claydol,
@@ -2769,6 +3113,7 @@ new class ClaydolSpecies extends Species {}(
   90,
   50,
   PokemonSpeciesFlags.None,
+  -1,
 );
 new class LileepSpecies extends Species {}(
   PokemonSpecies.Lileep,
@@ -2777,6 +3122,7 @@ new class LileepSpecies extends Species {}(
   45,
   50,
   PokemonSpeciesFlags.None,
+  1,
 );
 new class CradilySpecies extends Species {}(
   PokemonSpecies.Cradily,
@@ -2785,6 +3131,7 @@ new class CradilySpecies extends Species {}(
   45,
   50,
   PokemonSpeciesFlags.None,
+  1,
 );
 new class AnorithSpecies extends Species {}(
   PokemonSpecies.Anorith,
@@ -2793,6 +3140,7 @@ new class AnorithSpecies extends Species {}(
   45,
   50,
   PokemonSpeciesFlags.None,
+  1,
 );
 new class ArmaldoSpecies extends Species {}(
   PokemonSpecies.Armaldo,
@@ -2801,6 +3149,7 @@ new class ArmaldoSpecies extends Species {}(
   45,
   50,
   PokemonSpeciesFlags.None,
+  1,
 );
 new class FeebasSpecies extends Species {}(
   PokemonSpecies.Feebas,
@@ -2809,6 +3158,7 @@ new class FeebasSpecies extends Species {}(
   255,
   50,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class MiloticSpecies extends Species {}(
   PokemonSpecies.Milotic,
@@ -2817,6 +3167,7 @@ new class MiloticSpecies extends Species {}(
   60,
   50,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class CastformSpecies extends Species {}(
   PokemonSpecies.Castform,
@@ -2825,6 +3176,7 @@ new class CastformSpecies extends Species {}(
   45,
   70,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class KecleonSpecies extends Species {}(
   PokemonSpecies.Kecleon,
@@ -2833,6 +3185,7 @@ new class KecleonSpecies extends Species {}(
   200,
   70,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class ShuppetSpecies extends Species {}(
   PokemonSpecies.Shuppet,
@@ -2841,6 +3194,7 @@ new class ShuppetSpecies extends Species {}(
   225,
   35,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class BanetteSpecies extends Species {}(
   PokemonSpecies.Banette,
@@ -2849,6 +3203,7 @@ new class BanetteSpecies extends Species {}(
   45,
   35,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class DuskullSpecies extends Species {}(
   PokemonSpecies.Duskull,
@@ -2857,6 +3212,7 @@ new class DuskullSpecies extends Species {}(
   190,
   35,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class DusclopsSpecies extends Species {}(
   PokemonSpecies.Dusclops,
@@ -2865,6 +3221,7 @@ new class DusclopsSpecies extends Species {}(
   90,
   35,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class TropiusSpecies extends Species {}(
   PokemonSpecies.Tropius,
@@ -2873,6 +3230,7 @@ new class TropiusSpecies extends Species {}(
   200,
   70,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class ChimechoSpecies extends Species {}(
   PokemonSpecies.Chimecho,
@@ -2881,6 +3239,7 @@ new class ChimechoSpecies extends Species {}(
   45,
   70,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class AbsolSpecies extends Species {}(
   PokemonSpecies.Absol,
@@ -2889,6 +3248,7 @@ new class AbsolSpecies extends Species {}(
   30,
   35,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class WynautSpecies extends Species {}(
   PokemonSpecies.Wynaut,
@@ -2897,6 +3257,7 @@ new class WynautSpecies extends Species {}(
   125,
   50,
   PokemonSpeciesFlags.Baby,
+  4,
 );
 new class SnoruntSpecies extends Species {}(
   PokemonSpecies.Snorunt,
@@ -2905,6 +3266,7 @@ new class SnoruntSpecies extends Species {}(
   190,
   50,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class GlalieSpecies extends Species {}(
   PokemonSpecies.Glalie,
@@ -2913,6 +3275,7 @@ new class GlalieSpecies extends Species {}(
   75,
   50,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class SphealSpecies extends Species {}(
   PokemonSpecies.Spheal,
@@ -2921,6 +3284,7 @@ new class SphealSpecies extends Species {}(
   255,
   50,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class SealeoSpecies extends Species {}(
   PokemonSpecies.Sealeo,
@@ -2929,6 +3293,7 @@ new class SealeoSpecies extends Species {}(
   120,
   50,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class WalreinSpecies extends Species {}(
   PokemonSpecies.Walrein,
@@ -2937,6 +3302,7 @@ new class WalreinSpecies extends Species {}(
   45,
   50,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class ClamperlSpecies extends Species {}(
   PokemonSpecies.Clamperl,
@@ -2945,6 +3311,7 @@ new class ClamperlSpecies extends Species {}(
   255,
   70,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class HuntailSpecies extends Species {}(
   PokemonSpecies.Huntail,
@@ -2953,6 +3320,7 @@ new class HuntailSpecies extends Species {}(
   60,
   70,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class GorebyssSpecies extends Species {}(
   PokemonSpecies.Gorebyss,
@@ -2961,6 +3329,7 @@ new class GorebyssSpecies extends Species {}(
   60,
   70,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class RelicanthSpecies extends Species {}(
   PokemonSpecies.Relicanth,
@@ -2969,6 +3338,7 @@ new class RelicanthSpecies extends Species {}(
   25,
   50,
   PokemonSpeciesFlags.None,
+  1,
 );
 new class LuvdiscSpecies extends Species {}(
   PokemonSpecies.Luvdisc,
@@ -2977,6 +3347,7 @@ new class LuvdiscSpecies extends Species {}(
   225,
   70,
   PokemonSpeciesFlags.None,
+  6,
 );
 new class BagonSpecies extends Species {}(
   PokemonSpecies.Bagon,
@@ -2985,6 +3356,7 @@ new class BagonSpecies extends Species {}(
   45,
   35,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class ShelgonSpecies extends Species {}(
   PokemonSpecies.Shelgon,
@@ -2993,6 +3365,7 @@ new class ShelgonSpecies extends Species {}(
   45,
   35,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class SalamenceSpecies extends Species {}(
   PokemonSpecies.Salamence,
@@ -3001,6 +3374,7 @@ new class SalamenceSpecies extends Species {}(
   45,
   35,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class BeldumSpecies extends Species {}(
   PokemonSpecies.Beldum,
@@ -3009,6 +3383,7 @@ new class BeldumSpecies extends Species {}(
   3,
   35,
   PokemonSpeciesFlags.None,
+  -1,
 );
 new class MetangSpecies extends Species {}(
   PokemonSpecies.Metang,
@@ -3017,6 +3392,7 @@ new class MetangSpecies extends Species {}(
   3,
   35,
   PokemonSpeciesFlags.None,
+  -1,
 );
 new class MetagrossSpecies extends Species {}(
   PokemonSpecies.Metagross,
@@ -3025,6 +3401,7 @@ new class MetagrossSpecies extends Species {}(
   3,
   35,
   PokemonSpeciesFlags.None,
+  -1,
 );
 new class RegirockSpecies extends Species {}(
   PokemonSpecies.Regirock,
@@ -3033,6 +3410,7 @@ new class RegirockSpecies extends Species {}(
   3,
   35,
   PokemonSpeciesFlags.Legendary,
+  -1,
 );
 new class RegiceSpecies extends Species {}(
   PokemonSpecies.Regice,
@@ -3041,6 +3419,7 @@ new class RegiceSpecies extends Species {}(
   3,
   35,
   PokemonSpeciesFlags.Legendary,
+  -1,
 );
 new class RegisteelSpecies extends Species {}(
   PokemonSpecies.Registeel,
@@ -3049,6 +3428,7 @@ new class RegisteelSpecies extends Species {}(
   3,
   35,
   PokemonSpeciesFlags.Legendary,
+  -1,
 );
 new class LatiasSpecies extends Species {}(
   PokemonSpecies.Latias,
@@ -3057,6 +3437,7 @@ new class LatiasSpecies extends Species {}(
   3,
   90,
   PokemonSpeciesFlags.Legendary,
+  8,
 );
 new class LatiosSpecies extends Species {}(
   PokemonSpecies.Latios,
@@ -3065,6 +3446,7 @@ new class LatiosSpecies extends Species {}(
   3,
   90,
   PokemonSpeciesFlags.Legendary,
+  0,
 );
 new class KyogreSpecies extends Species {}(
   PokemonSpecies.Kyogre,
@@ -3073,6 +3455,7 @@ new class KyogreSpecies extends Species {}(
   3,
   0,
   PokemonSpeciesFlags.Legendary,
+  -1,
 );
 new class GroudonSpecies extends Species {}(
   PokemonSpecies.Groudon,
@@ -3081,6 +3464,7 @@ new class GroudonSpecies extends Species {}(
   3,
   0,
   PokemonSpeciesFlags.Legendary,
+  -1,
 );
 new class RayquazaSpecies extends Species {}(
   PokemonSpecies.Rayquaza,
@@ -3089,6 +3473,7 @@ new class RayquazaSpecies extends Species {}(
   45,
   0,
   PokemonSpeciesFlags.Legendary,
+  -1,
 );
 new class JirachiSpecies extends Species {}(
   PokemonSpecies.Jirachi,
@@ -3097,6 +3482,7 @@ new class JirachiSpecies extends Species {}(
   3,
   100,
   PokemonSpeciesFlags.Mythical,
+  -1,
 );
 new class DeoxysSpecies extends Species {}(
   PokemonSpecies.Deoxys,
@@ -3105,6 +3491,7 @@ new class DeoxysSpecies extends Species {}(
   3,
   0,
   PokemonSpeciesFlags.Mythical,
+  -1,
 );
 new class TurtwigSpecies extends Species {}(
   PokemonSpecies.Turtwig,
@@ -3113,6 +3500,7 @@ new class TurtwigSpecies extends Species {}(
   45,
   70,
   PokemonSpeciesFlags.None,
+  1,
 );
 new class GrotleSpecies extends Species {}(
   PokemonSpecies.Grotle,
@@ -3121,6 +3509,7 @@ new class GrotleSpecies extends Species {}(
   45,
   70,
   PokemonSpeciesFlags.None,
+  1,
 );
 new class TorterraSpecies extends Species {}(
   PokemonSpecies.Torterra,
@@ -3129,6 +3518,7 @@ new class TorterraSpecies extends Species {}(
   45,
   70,
   PokemonSpeciesFlags.None,
+  1,
 );
 new class ChimcharSpecies extends Species {}(
   PokemonSpecies.Chimchar,
@@ -3137,6 +3527,7 @@ new class ChimcharSpecies extends Species {}(
   45,
   70,
   PokemonSpeciesFlags.None,
+  1,
 );
 new class MonfernoSpecies extends Species {}(
   PokemonSpecies.Monferno,
@@ -3145,6 +3536,7 @@ new class MonfernoSpecies extends Species {}(
   45,
   70,
   PokemonSpeciesFlags.None,
+  1,
 );
 new class InfernapeSpecies extends Species {}(
   PokemonSpecies.Infernape,
@@ -3153,6 +3545,7 @@ new class InfernapeSpecies extends Species {}(
   45,
   70,
   PokemonSpeciesFlags.None,
+  1,
 );
 new class PiplupSpecies extends Species {}(
   PokemonSpecies.Piplup,
@@ -3161,6 +3554,7 @@ new class PiplupSpecies extends Species {}(
   45,
   70,
   PokemonSpeciesFlags.None,
+  1,
 );
 new class PrinplupSpecies extends Species {}(
   PokemonSpecies.Prinplup,
@@ -3169,6 +3563,7 @@ new class PrinplupSpecies extends Species {}(
   45,
   70,
   PokemonSpeciesFlags.None,
+  1,
 );
 new class EmpoleonSpecies extends Species {}(
   PokemonSpecies.Empoleon,
@@ -3177,6 +3572,7 @@ new class EmpoleonSpecies extends Species {}(
   45,
   70,
   PokemonSpeciesFlags.None,
+  1,
 );
 new class StarlySpecies extends Species {}(
   PokemonSpecies.Starly,
@@ -3185,6 +3581,7 @@ new class StarlySpecies extends Species {}(
   255,
   70,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class StaraviaSpecies extends Species {}(
   PokemonSpecies.Staravia,
@@ -3193,6 +3590,7 @@ new class StaraviaSpecies extends Species {}(
   120,
   70,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class StaraptorSpecies extends Species {}(
   PokemonSpecies.Staraptor,
@@ -3201,6 +3599,7 @@ new class StaraptorSpecies extends Species {}(
   45,
   70,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class BidoofSpecies extends Species {}(
   PokemonSpecies.Bidoof,
@@ -3209,6 +3608,7 @@ new class BidoofSpecies extends Species {}(
   255,
   70,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class BibarelSpecies extends Species {}(
   PokemonSpecies.Bibarel,
@@ -3217,6 +3617,7 @@ new class BibarelSpecies extends Species {}(
   127,
   70,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class KricketotSpecies extends Species {}(
   PokemonSpecies.Kricketot,
@@ -3225,6 +3626,7 @@ new class KricketotSpecies extends Species {}(
   255,
   70,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class KricketuneSpecies extends Species {}(
   PokemonSpecies.Kricketune,
@@ -3233,6 +3635,7 @@ new class KricketuneSpecies extends Species {}(
   45,
   70,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class ShinxSpecies extends Species {}(
   PokemonSpecies.Shinx,
@@ -3241,6 +3644,7 @@ new class ShinxSpecies extends Species {}(
   235,
   50,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class LuxioSpecies extends Species {}(
   PokemonSpecies.Luxio,
@@ -3249,6 +3653,7 @@ new class LuxioSpecies extends Species {}(
   120,
   100,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class LuxraySpecies extends Species {}(
   PokemonSpecies.Luxray,
@@ -3257,6 +3662,7 @@ new class LuxraySpecies extends Species {}(
   45,
   50,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class BudewSpecies extends Species {}(
   PokemonSpecies.Budew,
@@ -3265,6 +3671,7 @@ new class BudewSpecies extends Species {}(
   255,
   50,
   PokemonSpeciesFlags.Baby,
+  4,
 );
 new class RoseradeSpecies extends Species {}(
   PokemonSpecies.Roserade,
@@ -3273,6 +3680,7 @@ new class RoseradeSpecies extends Species {}(
   75,
   50,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class CranidosSpecies extends Species {}(
   PokemonSpecies.Cranidos,
@@ -3281,6 +3689,7 @@ new class CranidosSpecies extends Species {}(
   45,
   70,
   PokemonSpeciesFlags.None,
+  1,
 );
 new class RampardosSpecies extends Species {}(
   PokemonSpecies.Rampardos,
@@ -3289,6 +3698,7 @@ new class RampardosSpecies extends Species {}(
   45,
   70,
   PokemonSpeciesFlags.None,
+  1,
 );
 new class ShieldonSpecies extends Species {}(
   PokemonSpecies.Shieldon,
@@ -3297,6 +3707,7 @@ new class ShieldonSpecies extends Species {}(
   45,
   70,
   PokemonSpeciesFlags.None,
+  1,
 );
 new class BastiodonSpecies extends Species {}(
   PokemonSpecies.Bastiodon,
@@ -3305,6 +3716,7 @@ new class BastiodonSpecies extends Species {}(
   45,
   70,
   PokemonSpeciesFlags.None,
+  1,
 );
 new class BurmySpecies extends Species {}(
   PokemonSpecies.Burmy,
@@ -3313,6 +3725,7 @@ new class BurmySpecies extends Species {}(
   120,
   70,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class WormadamSpecies extends Species {}(
   PokemonSpecies.Wormadam,
@@ -3321,6 +3734,7 @@ new class WormadamSpecies extends Species {}(
   45,
   70,
   PokemonSpeciesFlags.None,
+  8,
 );
 new class MothimSpecies extends Species {}(
   PokemonSpecies.Mothim,
@@ -3329,6 +3743,7 @@ new class MothimSpecies extends Species {}(
   45,
   70,
   PokemonSpeciesFlags.None,
+  0,
 );
 new class CombeeSpecies extends Species {}(
   PokemonSpecies.Combee,
@@ -3337,6 +3752,7 @@ new class CombeeSpecies extends Species {}(
   120,
   50,
   PokemonSpeciesFlags.None,
+  1,
 );
 new class VespiquenSpecies extends Species {}(
   PokemonSpecies.Vespiquen,
@@ -3345,6 +3761,7 @@ new class VespiquenSpecies extends Species {}(
   45,
   50,
   PokemonSpeciesFlags.None,
+  8,
 );
 new class PachirisuSpecies extends Species {}(
   PokemonSpecies.Pachirisu,
@@ -3353,6 +3770,7 @@ new class PachirisuSpecies extends Species {}(
   200,
   100,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class BuizelSpecies extends Species {}(
   PokemonSpecies.Buizel,
@@ -3361,6 +3779,7 @@ new class BuizelSpecies extends Species {}(
   190,
   70,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class FloatzelSpecies extends Species {}(
   PokemonSpecies.Floatzel,
@@ -3369,6 +3788,7 @@ new class FloatzelSpecies extends Species {}(
   75,
   70,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class CherubiSpecies extends Species {}(
   PokemonSpecies.Cherubi,
@@ -3377,6 +3797,7 @@ new class CherubiSpecies extends Species {}(
   190,
   50,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class CherrimSpecies extends Species {}(
   PokemonSpecies.Cherrim,
@@ -3385,6 +3806,7 @@ new class CherrimSpecies extends Species {}(
   75,
   50,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class ShellosSpecies extends Species {}(
   PokemonSpecies.Shellos,
@@ -3393,6 +3815,7 @@ new class ShellosSpecies extends Species {}(
   190,
   50,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class GastrodonSpecies extends Species {}(
   PokemonSpecies.Gastrodon,
@@ -3401,6 +3824,7 @@ new class GastrodonSpecies extends Species {}(
   75,
   50,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class AmbipomSpecies extends Species {}(
   PokemonSpecies.Ambipom,
@@ -3409,6 +3833,7 @@ new class AmbipomSpecies extends Species {}(
   45,
   100,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class DrifloonSpecies extends Species {}(
   PokemonSpecies.Drifloon,
@@ -3417,6 +3842,7 @@ new class DrifloonSpecies extends Species {}(
   125,
   50,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class DrifblimSpecies extends Species {}(
   PokemonSpecies.Drifblim,
@@ -3425,6 +3851,7 @@ new class DrifblimSpecies extends Species {}(
   60,
   50,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class BunearySpecies extends Species {}(
   PokemonSpecies.Buneary,
@@ -3433,6 +3860,7 @@ new class BunearySpecies extends Species {}(
   190,
   0,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class LopunnySpecies extends Species {}(
   PokemonSpecies.Lopunny,
@@ -3441,6 +3869,7 @@ new class LopunnySpecies extends Species {}(
   60,
   140,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class MismagiusSpecies extends Species {}(
   PokemonSpecies.Mismagius,
@@ -3449,6 +3878,7 @@ new class MismagiusSpecies extends Species {}(
   45,
   35,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class HonchkrowSpecies extends Species {}(
   PokemonSpecies.Honchkrow,
@@ -3457,6 +3887,7 @@ new class HonchkrowSpecies extends Species {}(
   30,
   35,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class GlameowSpecies extends Species {}(
   PokemonSpecies.Glameow,
@@ -3465,6 +3896,7 @@ new class GlameowSpecies extends Species {}(
   190,
   70,
   PokemonSpeciesFlags.None,
+  6,
 );
 new class PuruglySpecies extends Species {}(
   PokemonSpecies.Purugly,
@@ -3473,6 +3905,7 @@ new class PuruglySpecies extends Species {}(
   75,
   70,
   PokemonSpeciesFlags.None,
+  6,
 );
 new class ChinglingSpecies extends Species {}(
   PokemonSpecies.Chingling,
@@ -3481,6 +3914,7 @@ new class ChinglingSpecies extends Species {}(
   120,
   70,
   PokemonSpeciesFlags.Baby,
+  4,
 );
 new class StunkySpecies extends Species {}(
   PokemonSpecies.Stunky,
@@ -3489,6 +3923,7 @@ new class StunkySpecies extends Species {}(
   225,
   50,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class SkuntankSpecies extends Species {}(
   PokemonSpecies.Skuntank,
@@ -3497,6 +3932,7 @@ new class SkuntankSpecies extends Species {}(
   60,
   50,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class BronzorSpecies extends Species {}(
   PokemonSpecies.Bronzor,
@@ -3505,6 +3941,7 @@ new class BronzorSpecies extends Species {}(
   255,
   50,
   PokemonSpeciesFlags.None,
+  -1,
 );
 new class BronzongSpecies extends Species {}(
   PokemonSpecies.Bronzong,
@@ -3513,6 +3950,7 @@ new class BronzongSpecies extends Species {}(
   90,
   50,
   PokemonSpeciesFlags.None,
+  -1,
 );
 new class BonslySpecies extends Species {}(
   PokemonSpecies.Bonsly,
@@ -3521,6 +3959,7 @@ new class BonslySpecies extends Species {}(
   255,
   50,
   PokemonSpeciesFlags.Baby,
+  4,
 );
 new class MimeJrSpecies extends Species {}(
   PokemonSpecies.MimeJr,
@@ -3529,6 +3968,7 @@ new class MimeJrSpecies extends Species {}(
   145,
   50,
   PokemonSpeciesFlags.Baby,
+  4,
 );
 new class HappinySpecies extends Species {}(
   PokemonSpecies.Happiny,
@@ -3537,6 +3977,7 @@ new class HappinySpecies extends Species {}(
   130,
   140,
   PokemonSpeciesFlags.Baby,
+  8,
 );
 new class ChatotSpecies extends Species {}(
   PokemonSpecies.Chatot,
@@ -3545,6 +3986,7 @@ new class ChatotSpecies extends Species {}(
   30,
   35,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class SpiritombSpecies extends Species {}(
   PokemonSpecies.Spiritomb,
@@ -3553,6 +3995,7 @@ new class SpiritombSpecies extends Species {}(
   100,
   50,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class GibleSpecies extends Species {}(
   PokemonSpecies.Gible,
@@ -3561,6 +4004,7 @@ new class GibleSpecies extends Species {}(
   45,
   50,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class GabiteSpecies extends Species {}(
   PokemonSpecies.Gabite,
@@ -3569,6 +4013,7 @@ new class GabiteSpecies extends Species {}(
   45,
   50,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class GarchompSpecies extends Species {}(
   PokemonSpecies.Garchomp,
@@ -3577,6 +4022,7 @@ new class GarchompSpecies extends Species {}(
   45,
   50,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class MunchlaxSpecies extends Species {}(
   PokemonSpecies.Munchlax,
@@ -3585,6 +4031,7 @@ new class MunchlaxSpecies extends Species {}(
   50,
   50,
   PokemonSpeciesFlags.Baby,
+  1,
 );
 new class RioluSpecies extends Species {}(
   PokemonSpecies.Riolu,
@@ -3593,6 +4040,7 @@ new class RioluSpecies extends Species {}(
   75,
   50,
   PokemonSpeciesFlags.Baby,
+  1,
 );
 new class LucarioSpecies extends Species {}(
   PokemonSpecies.Lucario,
@@ -3601,6 +4049,7 @@ new class LucarioSpecies extends Species {}(
   45,
   50,
   PokemonSpeciesFlags.None,
+  1,
 );
 new class HippopotasSpecies extends Species {}(
   PokemonSpecies.Hippopotas,
@@ -3609,6 +4058,7 @@ new class HippopotasSpecies extends Species {}(
   140,
   50,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class HippowdonSpecies extends Species {}(
   PokemonSpecies.Hippowdon,
@@ -3617,6 +4067,7 @@ new class HippowdonSpecies extends Species {}(
   60,
   50,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class SkorupiSpecies extends Species {}(
   PokemonSpecies.Skorupi,
@@ -3625,6 +4076,7 @@ new class SkorupiSpecies extends Species {}(
   120,
   50,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class DrapionSpecies extends Species {}(
   PokemonSpecies.Drapion,
@@ -3633,6 +4085,7 @@ new class DrapionSpecies extends Species {}(
   45,
   50,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class CroagunkSpecies extends Species {}(
   PokemonSpecies.Croagunk,
@@ -3641,6 +4094,7 @@ new class CroagunkSpecies extends Species {}(
   140,
   100,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class ToxicroakSpecies extends Species {}(
   PokemonSpecies.Toxicroak,
@@ -3649,6 +4103,7 @@ new class ToxicroakSpecies extends Species {}(
   75,
   50,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class CarnivineSpecies extends Species {}(
   PokemonSpecies.Carnivine,
@@ -3657,6 +4112,7 @@ new class CarnivineSpecies extends Species {}(
   200,
   70,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class FinneonSpecies extends Species {}(
   PokemonSpecies.Finneon,
@@ -3665,6 +4121,7 @@ new class FinneonSpecies extends Species {}(
   190,
   70,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class LumineonSpecies extends Species {}(
   PokemonSpecies.Lumineon,
@@ -3673,6 +4130,7 @@ new class LumineonSpecies extends Species {}(
   75,
   70,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class MantykeSpecies extends Species {}(
   PokemonSpecies.Mantyke,
@@ -3681,6 +4139,7 @@ new class MantykeSpecies extends Species {}(
   25,
   50,
   PokemonSpeciesFlags.Baby,
+  4,
 );
 new class SnoverSpecies extends Species {}(
   PokemonSpecies.Snover,
@@ -3689,6 +4148,7 @@ new class SnoverSpecies extends Species {}(
   120,
   50,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class AbomasnowSpecies extends Species {}(
   PokemonSpecies.Abomasnow,
@@ -3697,6 +4157,7 @@ new class AbomasnowSpecies extends Species {}(
   60,
   50,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class WeavileSpecies extends Species {}(
   PokemonSpecies.Weavile,
@@ -3705,6 +4166,7 @@ new class WeavileSpecies extends Species {}(
   45,
   35,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class MagnezoneSpecies extends Species {}(
   PokemonSpecies.Magnezone,
@@ -3713,6 +4175,7 @@ new class MagnezoneSpecies extends Species {}(
   30,
   50,
   PokemonSpeciesFlags.None,
+  -1,
 );
 new class LickilickySpecies extends Species {}(
   PokemonSpecies.Lickilicky,
@@ -3721,6 +4184,7 @@ new class LickilickySpecies extends Species {}(
   30,
   50,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class RhyperiorSpecies extends Species {}(
   PokemonSpecies.Rhyperior,
@@ -3729,6 +4193,7 @@ new class RhyperiorSpecies extends Species {}(
   30,
   50,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class TangrowthSpecies extends Species {}(
   PokemonSpecies.Tangrowth,
@@ -3737,6 +4202,7 @@ new class TangrowthSpecies extends Species {}(
   30,
   50,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class ElectivireSpecies extends Species {}(
   PokemonSpecies.Electivire,
@@ -3745,6 +4211,7 @@ new class ElectivireSpecies extends Species {}(
   30,
   50,
   PokemonSpeciesFlags.None,
+  2,
 );
 new class MagmortarSpecies extends Species {}(
   PokemonSpecies.Magmortar,
@@ -3753,6 +4220,7 @@ new class MagmortarSpecies extends Species {}(
   30,
   50,
   PokemonSpeciesFlags.None,
+  2,
 );
 new class TogekissSpecies extends Species {}(
   PokemonSpecies.Togekiss,
@@ -3761,6 +4229,7 @@ new class TogekissSpecies extends Species {}(
   30,
   50,
   PokemonSpeciesFlags.None,
+  1,
 );
 new class YanmegaSpecies extends Species {}(
   PokemonSpecies.Yanmega,
@@ -3769,6 +4238,7 @@ new class YanmegaSpecies extends Species {}(
   30,
   70,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class LeafeonSpecies extends Species {}(
   PokemonSpecies.Leafeon,
@@ -3777,6 +4247,7 @@ new class LeafeonSpecies extends Species {}(
   45,
   35,
   PokemonSpeciesFlags.None,
+  1,
 );
 new class GlaceonSpecies extends Species {}(
   PokemonSpecies.Glaceon,
@@ -3785,6 +4256,7 @@ new class GlaceonSpecies extends Species {}(
   45,
   35,
   PokemonSpeciesFlags.None,
+  1,
 );
 new class GliscorSpecies extends Species {}(
   PokemonSpecies.Gliscor,
@@ -3793,6 +4265,7 @@ new class GliscorSpecies extends Species {}(
   30,
   70,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class MamoswineSpecies extends Species {}(
   PokemonSpecies.Mamoswine,
@@ -3801,6 +4274,7 @@ new class MamoswineSpecies extends Species {}(
   50,
   50,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class PorygonZSpecies extends Species {}(
   PokemonSpecies.PorygonZ,
@@ -3809,6 +4283,7 @@ new class PorygonZSpecies extends Species {}(
   30,
   50,
   PokemonSpeciesFlags.None,
+  -1,
 );
 new class GalladeSpecies extends Species {}(
   PokemonSpecies.Gallade,
@@ -3817,6 +4292,7 @@ new class GalladeSpecies extends Species {}(
   45,
   35,
   PokemonSpeciesFlags.None,
+  0,
 );
 new class ProbopassSpecies extends Species {}(
   PokemonSpecies.Probopass,
@@ -3825,6 +4301,7 @@ new class ProbopassSpecies extends Species {}(
   60,
   70,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class DusknoirSpecies extends Species {}(
   PokemonSpecies.Dusknoir,
@@ -3833,6 +4310,7 @@ new class DusknoirSpecies extends Species {}(
   45,
   35,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class FroslassSpecies extends Species {}(
   PokemonSpecies.Froslass,
@@ -3841,6 +4319,7 @@ new class FroslassSpecies extends Species {}(
   75,
   50,
   PokemonSpeciesFlags.None,
+  8,
 );
 new class RotomSpecies extends Species {}(
   PokemonSpecies.Rotom,
@@ -3849,6 +4328,7 @@ new class RotomSpecies extends Species {}(
   45,
   50,
   PokemonSpeciesFlags.None,
+  -1,
 );
 new class UxieSpecies extends Species {}(
   PokemonSpecies.Uxie,
@@ -3857,6 +4337,7 @@ new class UxieSpecies extends Species {}(
   3,
   140,
   PokemonSpeciesFlags.Legendary,
+  -1,
 );
 new class MespritSpecies extends Species {}(
   PokemonSpecies.Mesprit,
@@ -3865,6 +4346,7 @@ new class MespritSpecies extends Species {}(
   3,
   140,
   PokemonSpeciesFlags.Legendary,
+  -1,
 );
 new class AzelfSpecies extends Species {}(
   PokemonSpecies.Azelf,
@@ -3873,6 +4355,7 @@ new class AzelfSpecies extends Species {}(
   3,
   140,
   PokemonSpeciesFlags.Legendary,
+  -1,
 );
 new class DialgaSpecies extends Species {}(
   PokemonSpecies.Dialga,
@@ -3881,6 +4364,7 @@ new class DialgaSpecies extends Species {}(
   3,
   0,
   PokemonSpeciesFlags.Legendary,
+  -1,
 );
 new class PalkiaSpecies extends Species {}(
   PokemonSpecies.Palkia,
@@ -3889,6 +4373,7 @@ new class PalkiaSpecies extends Species {}(
   3,
   0,
   PokemonSpeciesFlags.Legendary,
+  -1,
 );
 new class HeatranSpecies extends Species {}(
   PokemonSpecies.Heatran,
@@ -3897,6 +4382,7 @@ new class HeatranSpecies extends Species {}(
   3,
   100,
   PokemonSpeciesFlags.Legendary,
+  4,
 );
 new class RegigigasSpecies extends Species {}(
   PokemonSpecies.Regigigas,
@@ -3905,6 +4391,7 @@ new class RegigigasSpecies extends Species {}(
   3,
   0,
   PokemonSpeciesFlags.Legendary,
+  -1,
 );
 new class GiratinaSpecies extends Species {}(
   PokemonSpecies.Giratina,
@@ -3913,6 +4400,7 @@ new class GiratinaSpecies extends Species {}(
   3,
   0,
   PokemonSpeciesFlags.Legendary,
+  -1,
 );
 new class CresseliaSpecies extends Species {}(
   PokemonSpecies.Cresselia,
@@ -3921,6 +4409,7 @@ new class CresseliaSpecies extends Species {}(
   3,
   100,
   PokemonSpeciesFlags.Legendary,
+  8,
 );
 new class PhioneSpecies extends Species {}(
   PokemonSpecies.Phione,
@@ -3929,6 +4418,7 @@ new class PhioneSpecies extends Species {}(
   30,
   70,
   PokemonSpeciesFlags.Mythical,
+  -1,
 );
 new class ManaphySpecies extends Species {}(
   PokemonSpecies.Manaphy,
@@ -3937,6 +4427,7 @@ new class ManaphySpecies extends Species {}(
   3,
   70,
   PokemonSpeciesFlags.Mythical,
+  -1,
 );
 new class DarkraiSpecies extends Species {}(
   PokemonSpecies.Darkrai,
@@ -3945,6 +4436,7 @@ new class DarkraiSpecies extends Species {}(
   3,
   0,
   PokemonSpeciesFlags.Mythical,
+  -1,
 );
 new class ShayminSpecies extends Species {}(
   PokemonSpecies.Shaymin,
@@ -3953,6 +4445,7 @@ new class ShayminSpecies extends Species {}(
   45,
   100,
   PokemonSpeciesFlags.Mythical,
+  -1,
 );
 new class ArceusSpecies extends Species {}(
   PokemonSpecies.Arceus,
@@ -3961,6 +4454,7 @@ new class ArceusSpecies extends Species {}(
   3,
   0,
   PokemonSpeciesFlags.Mythical,
+  -1,
 );
 new class VictiniSpecies extends Species {}(
   PokemonSpecies.Victini,
@@ -3969,6 +4463,7 @@ new class VictiniSpecies extends Species {}(
   3,
   100,
   PokemonSpeciesFlags.Mythical,
+  -1,
 );
 new class SnivySpecies extends Species {}(
   PokemonSpecies.Snivy,
@@ -3977,6 +4472,7 @@ new class SnivySpecies extends Species {}(
   45,
   70,
   PokemonSpeciesFlags.None,
+  1,
 );
 new class ServineSpecies extends Species {}(
   PokemonSpecies.Servine,
@@ -3985,6 +4481,7 @@ new class ServineSpecies extends Species {}(
   45,
   70,
   PokemonSpeciesFlags.None,
+  1,
 );
 new class SerperiorSpecies extends Species {}(
   PokemonSpecies.Serperior,
@@ -3993,6 +4490,7 @@ new class SerperiorSpecies extends Species {}(
   45,
   70,
   PokemonSpeciesFlags.None,
+  1,
 );
 new class TepigSpecies extends Species {}(
   PokemonSpecies.Tepig,
@@ -4001,6 +4499,7 @@ new class TepigSpecies extends Species {}(
   45,
   70,
   PokemonSpeciesFlags.None,
+  1,
 );
 new class PigniteSpecies extends Species {}(
   PokemonSpecies.Pignite,
@@ -4009,6 +4508,7 @@ new class PigniteSpecies extends Species {}(
   45,
   70,
   PokemonSpeciesFlags.None,
+  1,
 );
 new class EmboarSpecies extends Species {}(
   PokemonSpecies.Emboar,
@@ -4017,6 +4517,7 @@ new class EmboarSpecies extends Species {}(
   45,
   70,
   PokemonSpeciesFlags.None,
+  1,
 );
 new class OshawottSpecies extends Species {}(
   PokemonSpecies.Oshawott,
@@ -4025,6 +4526,7 @@ new class OshawottSpecies extends Species {}(
   45,
   70,
   PokemonSpeciesFlags.None,
+  1,
 );
 new class DewottSpecies extends Species {}(
   PokemonSpecies.Dewott,
@@ -4033,6 +4535,7 @@ new class DewottSpecies extends Species {}(
   45,
   70,
   PokemonSpeciesFlags.None,
+  1,
 );
 new class SamurottSpecies extends Species {}(
   PokemonSpecies.Samurott,
@@ -4041,6 +4544,7 @@ new class SamurottSpecies extends Species {}(
   45,
   70,
   PokemonSpeciesFlags.None,
+  1,
 );
 new class PatratSpecies extends Species {}(
   PokemonSpecies.Patrat,
@@ -4049,6 +4553,7 @@ new class PatratSpecies extends Species {}(
   255,
   70,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class WatchogSpecies extends Species {}(
   PokemonSpecies.Watchog,
@@ -4057,6 +4562,7 @@ new class WatchogSpecies extends Species {}(
   255,
   70,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class LillipupSpecies extends Species {}(
   PokemonSpecies.Lillipup,
@@ -4065,6 +4571,7 @@ new class LillipupSpecies extends Species {}(
   255,
   50,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class HerdierSpecies extends Species {}(
   PokemonSpecies.Herdier,
@@ -4073,6 +4580,7 @@ new class HerdierSpecies extends Species {}(
   120,
   50,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class StoutlandSpecies extends Species {}(
   PokemonSpecies.Stoutland,
@@ -4081,6 +4589,7 @@ new class StoutlandSpecies extends Species {}(
   45,
   50,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class PurrloinSpecies extends Species {}(
   PokemonSpecies.Purrloin,
@@ -4089,6 +4598,7 @@ new class PurrloinSpecies extends Species {}(
   255,
   50,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class LiepardSpecies extends Species {}(
   PokemonSpecies.Liepard,
@@ -4097,6 +4607,7 @@ new class LiepardSpecies extends Species {}(
   90,
   50,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class PansageSpecies extends Species {}(
   PokemonSpecies.Pansage,
@@ -4105,6 +4616,7 @@ new class PansageSpecies extends Species {}(
   190,
   70,
   PokemonSpeciesFlags.None,
+  1,
 );
 new class SimisageSpecies extends Species {}(
   PokemonSpecies.Simisage,
@@ -4113,6 +4625,7 @@ new class SimisageSpecies extends Species {}(
   75,
   70,
   PokemonSpeciesFlags.None,
+  1,
 );
 new class PansearSpecies extends Species {}(
   PokemonSpecies.Pansear,
@@ -4121,6 +4634,7 @@ new class PansearSpecies extends Species {}(
   190,
   70,
   PokemonSpeciesFlags.None,
+  1,
 );
 new class SimisearSpecies extends Species {}(
   PokemonSpecies.Simisear,
@@ -4129,6 +4643,7 @@ new class SimisearSpecies extends Species {}(
   75,
   70,
   PokemonSpeciesFlags.None,
+  1,
 );
 new class PanpourSpecies extends Species {}(
   PokemonSpecies.Panpour,
@@ -4137,6 +4652,7 @@ new class PanpourSpecies extends Species {}(
   190,
   70,
   PokemonSpeciesFlags.None,
+  1,
 );
 new class SimipourSpecies extends Species {}(
   PokemonSpecies.Simipour,
@@ -4145,6 +4661,7 @@ new class SimipourSpecies extends Species {}(
   75,
   70,
   PokemonSpeciesFlags.None,
+  1,
 );
 new class MunnaSpecies extends Species {}(
   PokemonSpecies.Munna,
@@ -4153,6 +4670,7 @@ new class MunnaSpecies extends Species {}(
   190,
   50,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class MusharnaSpecies extends Species {}(
   PokemonSpecies.Musharna,
@@ -4161,6 +4679,7 @@ new class MusharnaSpecies extends Species {}(
   75,
   50,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class PidoveSpecies extends Species {}(
   PokemonSpecies.Pidove,
@@ -4169,6 +4688,7 @@ new class PidoveSpecies extends Species {}(
   255,
   50,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class TranquillSpecies extends Species {}(
   PokemonSpecies.Tranquill,
@@ -4177,6 +4697,7 @@ new class TranquillSpecies extends Species {}(
   120,
   50,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class UnfezantSpecies extends Species {}(
   PokemonSpecies.Unfezant,
@@ -4185,6 +4706,7 @@ new class UnfezantSpecies extends Species {}(
   45,
   50,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class BlitzleSpecies extends Species {}(
   PokemonSpecies.Blitzle,
@@ -4193,6 +4715,7 @@ new class BlitzleSpecies extends Species {}(
   190,
   70,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class ZebstrikaSpecies extends Species {}(
   PokemonSpecies.Zebstrika,
@@ -4201,6 +4724,7 @@ new class ZebstrikaSpecies extends Species {}(
   75,
   70,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class RoggenrolaSpecies extends Species {}(
   PokemonSpecies.Roggenrola,
@@ -4209,6 +4733,7 @@ new class RoggenrolaSpecies extends Species {}(
   255,
   50,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class BoldoreSpecies extends Species {}(
   PokemonSpecies.Boldore,
@@ -4217,6 +4742,7 @@ new class BoldoreSpecies extends Species {}(
   120,
   50,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class GigalithSpecies extends Species {}(
   PokemonSpecies.Gigalith,
@@ -4225,6 +4751,7 @@ new class GigalithSpecies extends Species {}(
   45,
   50,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class WoobatSpecies extends Species {}(
   PokemonSpecies.Woobat,
@@ -4233,6 +4760,7 @@ new class WoobatSpecies extends Species {}(
   190,
   50,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class SwoobatSpecies extends Species {}(
   PokemonSpecies.Swoobat,
@@ -4241,6 +4769,7 @@ new class SwoobatSpecies extends Species {}(
   45,
   50,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class DrilburSpecies extends Species {}(
   PokemonSpecies.Drilbur,
@@ -4249,6 +4778,7 @@ new class DrilburSpecies extends Species {}(
   120,
   50,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class ExcadrillSpecies extends Species {}(
   PokemonSpecies.Excadrill,
@@ -4257,6 +4787,7 @@ new class ExcadrillSpecies extends Species {}(
   60,
   50,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class AudinoSpecies extends Species {}(
   PokemonSpecies.Audino,
@@ -4265,6 +4796,7 @@ new class AudinoSpecies extends Species {}(
   255,
   50,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class TimburrSpecies extends Species {}(
   PokemonSpecies.Timburr,
@@ -4273,6 +4805,7 @@ new class TimburrSpecies extends Species {}(
   180,
   70,
   PokemonSpeciesFlags.None,
+  2,
 );
 new class GurdurrSpecies extends Species {}(
   PokemonSpecies.Gurdurr,
@@ -4281,6 +4814,7 @@ new class GurdurrSpecies extends Species {}(
   90,
   50,
   PokemonSpeciesFlags.None,
+  2,
 );
 new class ConkeldurrSpecies extends Species {}(
   PokemonSpecies.Conkeldurr,
@@ -4289,6 +4823,7 @@ new class ConkeldurrSpecies extends Species {}(
   45,
   50,
   PokemonSpeciesFlags.None,
+  2,
 );
 new class TympoleSpecies extends Species {}(
   PokemonSpecies.Tympole,
@@ -4297,6 +4832,7 @@ new class TympoleSpecies extends Species {}(
   255,
   50,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class PalpitoadSpecies extends Species {}(
   PokemonSpecies.Palpitoad,
@@ -4305,6 +4841,7 @@ new class PalpitoadSpecies extends Species {}(
   120,
   50,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class SeismitoadSpecies extends Species {}(
   PokemonSpecies.Seismitoad,
@@ -4313,6 +4850,7 @@ new class SeismitoadSpecies extends Species {}(
   45,
   50,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class ThrohSpecies extends Species {}(
   PokemonSpecies.Throh,
@@ -4321,6 +4859,7 @@ new class ThrohSpecies extends Species {}(
   45,
   50,
   PokemonSpeciesFlags.None,
+  0,
 );
 new class SawkSpecies extends Species {}(
   PokemonSpecies.Sawk,
@@ -4329,6 +4868,7 @@ new class SawkSpecies extends Species {}(
   45,
   50,
   PokemonSpeciesFlags.None,
+  0,
 );
 new class SewaddleSpecies extends Species {}(
   PokemonSpecies.Sewaddle,
@@ -4337,6 +4877,7 @@ new class SewaddleSpecies extends Species {}(
   255,
   70,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class SwadloonSpecies extends Species {}(
   PokemonSpecies.Swadloon,
@@ -4345,6 +4886,7 @@ new class SwadloonSpecies extends Species {}(
   120,
   70,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class LeavannySpecies extends Species {}(
   PokemonSpecies.Leavanny,
@@ -4353,6 +4895,7 @@ new class LeavannySpecies extends Species {}(
   45,
   70,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class VenipedeSpecies extends Species {}(
   PokemonSpecies.Venipede,
@@ -4361,6 +4904,7 @@ new class VenipedeSpecies extends Species {}(
   255,
   50,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class WhirlipedeSpecies extends Species {}(
   PokemonSpecies.Whirlipede,
@@ -4369,6 +4913,7 @@ new class WhirlipedeSpecies extends Species {}(
   120,
   50,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class ScolipedeSpecies extends Species {}(
   PokemonSpecies.Scolipede,
@@ -4377,6 +4922,7 @@ new class ScolipedeSpecies extends Species {}(
   45,
   50,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class CottoneeSpecies extends Species {}(
   PokemonSpecies.Cottonee,
@@ -4385,6 +4931,7 @@ new class CottoneeSpecies extends Species {}(
   190,
   50,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class WhimsicottSpecies extends Species {}(
   PokemonSpecies.Whimsicott,
@@ -4393,6 +4940,7 @@ new class WhimsicottSpecies extends Species {}(
   75,
   50,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class PetililSpecies extends Species {}(
   PokemonSpecies.Petilil,
@@ -4401,6 +4949,7 @@ new class PetililSpecies extends Species {}(
   190,
   50,
   PokemonSpeciesFlags.None,
+  8,
 );
 new class LilligantSpecies extends Species {}(
   PokemonSpecies.Lilligant,
@@ -4409,6 +4958,7 @@ new class LilligantSpecies extends Species {}(
   75,
   50,
   PokemonSpeciesFlags.None,
+  8,
 );
 new class BasculinSpecies extends Species {}(
   PokemonSpecies.Basculin,
@@ -4417,6 +4967,7 @@ new class BasculinSpecies extends Species {}(
   25,
   50,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class SandileSpecies extends Species {}(
   PokemonSpecies.Sandile,
@@ -4425,6 +4976,7 @@ new class SandileSpecies extends Species {}(
   180,
   50,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class KrokorokSpecies extends Species {}(
   PokemonSpecies.Krokorok,
@@ -4433,6 +4985,7 @@ new class KrokorokSpecies extends Species {}(
   90,
   50,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class KrookodileSpecies extends Species {}(
   PokemonSpecies.Krookodile,
@@ -4441,6 +4994,7 @@ new class KrookodileSpecies extends Species {}(
   45,
   50,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class DarumakaSpecies extends Species {}(
   PokemonSpecies.Darumaka,
@@ -4449,6 +5003,7 @@ new class DarumakaSpecies extends Species {}(
   120,
   50,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class DarmanitanSpecies extends Species {}(
   PokemonSpecies.Darmanitan,
@@ -4457,6 +5012,7 @@ new class DarmanitanSpecies extends Species {}(
   60,
   50,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class MaractusSpecies extends Species {}(
   PokemonSpecies.Maractus,
@@ -4465,6 +5021,7 @@ new class MaractusSpecies extends Species {}(
   255,
   50,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class DwebbleSpecies extends Species {}(
   PokemonSpecies.Dwebble,
@@ -4473,6 +5030,7 @@ new class DwebbleSpecies extends Species {}(
   190,
   50,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class CrustleSpecies extends Species {}(
   PokemonSpecies.Crustle,
@@ -4481,6 +5039,7 @@ new class CrustleSpecies extends Species {}(
   75,
   50,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class ScraggySpecies extends Species {}(
   PokemonSpecies.Scraggy,
@@ -4489,6 +5048,7 @@ new class ScraggySpecies extends Species {}(
   180,
   35,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class ScraftySpecies extends Species {}(
   PokemonSpecies.Scrafty,
@@ -4497,6 +5057,7 @@ new class ScraftySpecies extends Species {}(
   90,
   50,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class SigilyphSpecies extends Species {}(
   PokemonSpecies.Sigilyph,
@@ -4505,6 +5066,7 @@ new class SigilyphSpecies extends Species {}(
   45,
   50,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class YamaskSpecies extends Species {}(
   PokemonSpecies.Yamask,
@@ -4513,6 +5075,7 @@ new class YamaskSpecies extends Species {}(
   190,
   50,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class CofagrigusSpecies extends Species {}(
   PokemonSpecies.Cofagrigus,
@@ -4521,6 +5084,7 @@ new class CofagrigusSpecies extends Species {}(
   90,
   50,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class TirtougaSpecies extends Species {}(
   PokemonSpecies.Tirtouga,
@@ -4529,6 +5093,7 @@ new class TirtougaSpecies extends Species {}(
   45,
   50,
   PokemonSpeciesFlags.None,
+  1,
 );
 new class CarracostaSpecies extends Species {}(
   PokemonSpecies.Carracosta,
@@ -4537,6 +5102,7 @@ new class CarracostaSpecies extends Species {}(
   45,
   50,
   PokemonSpeciesFlags.None,
+  1,
 );
 new class ArchenSpecies extends Species {}(
   PokemonSpecies.Archen,
@@ -4545,6 +5111,7 @@ new class ArchenSpecies extends Species {}(
   45,
   50,
   PokemonSpeciesFlags.None,
+  1,
 );
 new class ArcheopsSpecies extends Species {}(
   PokemonSpecies.Archeops,
@@ -4553,6 +5120,7 @@ new class ArcheopsSpecies extends Species {}(
   45,
   50,
   PokemonSpeciesFlags.None,
+  1,
 );
 new class TrubbishSpecies extends Species {}(
   PokemonSpecies.Trubbish,
@@ -4561,6 +5129,7 @@ new class TrubbishSpecies extends Species {}(
   190,
   50,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class GarbodorSpecies extends Species {}(
   PokemonSpecies.Garbodor,
@@ -4569,6 +5138,7 @@ new class GarbodorSpecies extends Species {}(
   60,
   50,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class ZoruaSpecies extends Species {}(
   PokemonSpecies.Zorua,
@@ -4577,6 +5147,7 @@ new class ZoruaSpecies extends Species {}(
   75,
   50,
   PokemonSpeciesFlags.None,
+  1,
 );
 new class ZoroarkSpecies extends Species {}(
   PokemonSpecies.Zoroark,
@@ -4585,6 +5156,7 @@ new class ZoroarkSpecies extends Species {}(
   45,
   50,
   PokemonSpeciesFlags.None,
+  1,
 );
 new class MinccinoSpecies extends Species {}(
   PokemonSpecies.Minccino,
@@ -4593,6 +5165,7 @@ new class MinccinoSpecies extends Species {}(
   255,
   50,
   PokemonSpeciesFlags.None,
+  6,
 );
 new class CinccinoSpecies extends Species {}(
   PokemonSpecies.Cinccino,
@@ -4601,6 +5174,7 @@ new class CinccinoSpecies extends Species {}(
   60,
   50,
   PokemonSpeciesFlags.None,
+  6,
 );
 new class GothitaSpecies extends Species {}(
   PokemonSpecies.Gothita,
@@ -4609,6 +5183,7 @@ new class GothitaSpecies extends Species {}(
   200,
   50,
   PokemonSpeciesFlags.None,
+  6,
 );
 new class GothoritaSpecies extends Species {}(
   PokemonSpecies.Gothorita,
@@ -4617,6 +5192,7 @@ new class GothoritaSpecies extends Species {}(
   100,
   50,
   PokemonSpeciesFlags.None,
+  6,
 );
 new class GothitelleSpecies extends Species {}(
   PokemonSpecies.Gothitelle,
@@ -4625,6 +5201,7 @@ new class GothitelleSpecies extends Species {}(
   50,
   50,
   PokemonSpeciesFlags.None,
+  6,
 );
 new class SolosisSpecies extends Species {}(
   PokemonSpecies.Solosis,
@@ -4633,6 +5210,7 @@ new class SolosisSpecies extends Species {}(
   200,
   50,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class DuosionSpecies extends Species {}(
   PokemonSpecies.Duosion,
@@ -4641,6 +5219,7 @@ new class DuosionSpecies extends Species {}(
   100,
   50,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class ReuniclusSpecies extends Species {}(
   PokemonSpecies.Reuniclus,
@@ -4649,6 +5228,7 @@ new class ReuniclusSpecies extends Species {}(
   50,
   50,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class DucklettSpecies extends Species {}(
   PokemonSpecies.Ducklett,
@@ -4657,6 +5237,7 @@ new class DucklettSpecies extends Species {}(
   190,
   70,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class SwannaSpecies extends Species {}(
   PokemonSpecies.Swanna,
@@ -4665,6 +5246,7 @@ new class SwannaSpecies extends Species {}(
   45,
   70,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class VanilliteSpecies extends Species {}(
   PokemonSpecies.Vanillite,
@@ -4673,6 +5255,7 @@ new class VanilliteSpecies extends Species {}(
   255,
   50,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class VanillishSpecies extends Species {}(
   PokemonSpecies.Vanillish,
@@ -4681,6 +5264,7 @@ new class VanillishSpecies extends Species {}(
   120,
   50,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class VanilluxeSpecies extends Species {}(
   PokemonSpecies.Vanilluxe,
@@ -4689,6 +5273,7 @@ new class VanilluxeSpecies extends Species {}(
   45,
   50,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class DeerlingSpecies extends Species {}(
   PokemonSpecies.Deerling,
@@ -4697,6 +5282,7 @@ new class DeerlingSpecies extends Species {}(
   190,
   70,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class SawsbuckSpecies extends Species {}(
   PokemonSpecies.Sawsbuck,
@@ -4705,6 +5291,7 @@ new class SawsbuckSpecies extends Species {}(
   75,
   70,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class EmolgaSpecies extends Species {}(
   PokemonSpecies.Emolga,
@@ -4713,6 +5300,7 @@ new class EmolgaSpecies extends Species {}(
   200,
   50,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class KarrablastSpecies extends Species {}(
   PokemonSpecies.Karrablast,
@@ -4721,6 +5309,7 @@ new class KarrablastSpecies extends Species {}(
   200,
   50,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class EscavalierSpecies extends Species {}(
   PokemonSpecies.Escavalier,
@@ -4729,6 +5318,7 @@ new class EscavalierSpecies extends Species {}(
   75,
   50,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class FoongusSpecies extends Species {}(
   PokemonSpecies.Foongus,
@@ -4737,6 +5327,7 @@ new class FoongusSpecies extends Species {}(
   190,
   50,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class AmoongussSpecies extends Species {}(
   PokemonSpecies.Amoonguss,
@@ -4745,6 +5336,7 @@ new class AmoongussSpecies extends Species {}(
   75,
   50,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class FrillishSpecies extends Species {}(
   PokemonSpecies.Frillish,
@@ -4753,6 +5345,7 @@ new class FrillishSpecies extends Species {}(
   190,
   50,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class JellicentSpecies extends Species {}(
   PokemonSpecies.Jellicent,
@@ -4761,6 +5354,7 @@ new class JellicentSpecies extends Species {}(
   60,
   50,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class AlomomolaSpecies extends Species {}(
   PokemonSpecies.Alomomola,
@@ -4769,6 +5363,7 @@ new class AlomomolaSpecies extends Species {}(
   75,
   70,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class JoltikSpecies extends Species {}(
   PokemonSpecies.Joltik,
@@ -4777,6 +5372,7 @@ new class JoltikSpecies extends Species {}(
   190,
   50,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class GalvantulaSpecies extends Species {}(
   PokemonSpecies.Galvantula,
@@ -4785,6 +5381,7 @@ new class GalvantulaSpecies extends Species {}(
   75,
   50,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class FerroseedSpecies extends Species {}(
   PokemonSpecies.Ferroseed,
@@ -4793,6 +5390,7 @@ new class FerroseedSpecies extends Species {}(
   255,
   50,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class FerrothornSpecies extends Species {}(
   PokemonSpecies.Ferrothorn,
@@ -4801,6 +5399,7 @@ new class FerrothornSpecies extends Species {}(
   90,
   50,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class KlinkSpecies extends Species {}(
   PokemonSpecies.Klink,
@@ -4809,6 +5408,7 @@ new class KlinkSpecies extends Species {}(
   130,
   50,
   PokemonSpeciesFlags.None,
+  -1,
 );
 new class KlangSpecies extends Species {}(
   PokemonSpecies.Klang,
@@ -4817,6 +5417,7 @@ new class KlangSpecies extends Species {}(
   60,
   50,
   PokemonSpeciesFlags.None,
+  -1,
 );
 new class KlinklangSpecies extends Species {}(
   PokemonSpecies.Klinklang,
@@ -4825,6 +5426,7 @@ new class KlinklangSpecies extends Species {}(
   30,
   50,
   PokemonSpeciesFlags.None,
+  -1,
 );
 new class TynamoSpecies extends Species {}(
   PokemonSpecies.Tynamo,
@@ -4833,6 +5435,7 @@ new class TynamoSpecies extends Species {}(
   190,
   70,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class EelektrikSpecies extends Species {}(
   PokemonSpecies.Eelektrik,
@@ -4841,6 +5444,7 @@ new class EelektrikSpecies extends Species {}(
   60,
   70,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class EelektrossSpecies extends Species {}(
   PokemonSpecies.Eelektross,
@@ -4849,6 +5453,7 @@ new class EelektrossSpecies extends Species {}(
   30,
   70,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class ElgyemSpecies extends Species {}(
   PokemonSpecies.Elgyem,
@@ -4857,6 +5462,7 @@ new class ElgyemSpecies extends Species {}(
   255,
   50,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class BeheeyemSpecies extends Species {}(
   PokemonSpecies.Beheeyem,
@@ -4865,6 +5471,7 @@ new class BeheeyemSpecies extends Species {}(
   90,
   50,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class LitwickSpecies extends Species {}(
   PokemonSpecies.Litwick,
@@ -4873,6 +5480,7 @@ new class LitwickSpecies extends Species {}(
   190,
   50,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class LampentSpecies extends Species {}(
   PokemonSpecies.Lampent,
@@ -4881,6 +5489,7 @@ new class LampentSpecies extends Species {}(
   90,
   50,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class ChandelureSpecies extends Species {}(
   PokemonSpecies.Chandelure,
@@ -4889,6 +5498,7 @@ new class ChandelureSpecies extends Species {}(
   45,
   50,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class AxewSpecies extends Species {}(
   PokemonSpecies.Axew,
@@ -4897,6 +5507,7 @@ new class AxewSpecies extends Species {}(
   75,
   35,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class FraxureSpecies extends Species {}(
   PokemonSpecies.Fraxure,
@@ -4905,6 +5516,7 @@ new class FraxureSpecies extends Species {}(
   60,
   35,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class HaxorusSpecies extends Species {}(
   PokemonSpecies.Haxorus,
@@ -4913,6 +5525,7 @@ new class HaxorusSpecies extends Species {}(
   45,
   35,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class CubchooSpecies extends Species {}(
   PokemonSpecies.Cubchoo,
@@ -4921,6 +5534,7 @@ new class CubchooSpecies extends Species {}(
   120,
   50,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class BearticSpecies extends Species {}(
   PokemonSpecies.Beartic,
@@ -4929,6 +5543,7 @@ new class BearticSpecies extends Species {}(
   60,
   50,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class CryogonalSpecies extends Species {}(
   PokemonSpecies.Cryogonal,
@@ -4937,6 +5552,7 @@ new class CryogonalSpecies extends Species {}(
   25,
   50,
   PokemonSpeciesFlags.None,
+  -1,
 );
 new class ShelmetSpecies extends Species {}(
   PokemonSpecies.Shelmet,
@@ -4945,6 +5561,7 @@ new class ShelmetSpecies extends Species {}(
   200,
   50,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class AccelgorSpecies extends Species {}(
   PokemonSpecies.Accelgor,
@@ -4953,6 +5570,7 @@ new class AccelgorSpecies extends Species {}(
   75,
   50,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class StunfiskSpecies extends Species {}(
   PokemonSpecies.Stunfisk,
@@ -4961,6 +5579,7 @@ new class StunfiskSpecies extends Species {}(
   75,
   70,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class MienfooSpecies extends Species {}(
   PokemonSpecies.Mienfoo,
@@ -4969,6 +5588,7 @@ new class MienfooSpecies extends Species {}(
   180,
   50,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class MienshaoSpecies extends Species {}(
   PokemonSpecies.Mienshao,
@@ -4977,6 +5597,7 @@ new class MienshaoSpecies extends Species {}(
   45,
   50,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class DruddigonSpecies extends Species {}(
   PokemonSpecies.Druddigon,
@@ -4985,6 +5606,7 @@ new class DruddigonSpecies extends Species {}(
   45,
   50,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class GolettSpecies extends Species {}(
   PokemonSpecies.Golett,
@@ -4993,6 +5615,7 @@ new class GolettSpecies extends Species {}(
   190,
   50,
   PokemonSpeciesFlags.None,
+  -1,
 );
 new class GolurkSpecies extends Species {}(
   PokemonSpecies.Golurk,
@@ -5001,6 +5624,7 @@ new class GolurkSpecies extends Species {}(
   90,
   50,
   PokemonSpeciesFlags.None,
+  -1,
 );
 new class PawniardSpecies extends Species {}(
   PokemonSpecies.Pawniard,
@@ -5009,6 +5633,7 @@ new class PawniardSpecies extends Species {}(
   120,
   35,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class BisharpSpecies extends Species {}(
   PokemonSpecies.Bisharp,
@@ -5017,6 +5642,7 @@ new class BisharpSpecies extends Species {}(
   45,
   35,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class BouffalantSpecies extends Species {}(
   PokemonSpecies.Bouffalant,
@@ -5025,6 +5651,7 @@ new class BouffalantSpecies extends Species {}(
   45,
   50,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class RuffletSpecies extends Species {}(
   PokemonSpecies.Rufflet,
@@ -5033,6 +5660,7 @@ new class RuffletSpecies extends Species {}(
   190,
   50,
   PokemonSpeciesFlags.None,
+  0,
 );
 new class BraviarySpecies extends Species {}(
   PokemonSpecies.Braviary,
@@ -5041,6 +5669,7 @@ new class BraviarySpecies extends Species {}(
   60,
   50,
   PokemonSpeciesFlags.None,
+  0,
 );
 new class VullabySpecies extends Species {}(
   PokemonSpecies.Vullaby,
@@ -5049,6 +5678,7 @@ new class VullabySpecies extends Species {}(
   190,
   35,
   PokemonSpeciesFlags.None,
+  8,
 );
 new class MandibuzzSpecies extends Species {}(
   PokemonSpecies.Mandibuzz,
@@ -5057,6 +5687,7 @@ new class MandibuzzSpecies extends Species {}(
   60,
   35,
   PokemonSpeciesFlags.None,
+  8,
 );
 new class HeatmorSpecies extends Species {}(
   PokemonSpecies.Heatmor,
@@ -5065,6 +5696,7 @@ new class HeatmorSpecies extends Species {}(
   90,
   50,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class DurantSpecies extends Species {}(
   PokemonSpecies.Durant,
@@ -5073,6 +5705,7 @@ new class DurantSpecies extends Species {}(
   90,
   50,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class DeinoSpecies extends Species {}(
   PokemonSpecies.Deino,
@@ -5081,6 +5714,7 @@ new class DeinoSpecies extends Species {}(
   45,
   35,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class ZweilousSpecies extends Species {}(
   PokemonSpecies.Zweilous,
@@ -5089,6 +5723,7 @@ new class ZweilousSpecies extends Species {}(
   45,
   35,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class HydreigonSpecies extends Species {}(
   PokemonSpecies.Hydreigon,
@@ -5097,6 +5732,7 @@ new class HydreigonSpecies extends Species {}(
   45,
   35,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class LarvestaSpecies extends Species {}(
   PokemonSpecies.Larvesta,
@@ -5105,6 +5741,7 @@ new class LarvestaSpecies extends Species {}(
   45,
   50,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class VolcaronaSpecies extends Species {}(
   PokemonSpecies.Volcarona,
@@ -5113,6 +5750,7 @@ new class VolcaronaSpecies extends Species {}(
   15,
   50,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class CobalionSpecies extends Species {}(
   PokemonSpecies.Cobalion,
@@ -5121,6 +5759,7 @@ new class CobalionSpecies extends Species {}(
   3,
   35,
   PokemonSpeciesFlags.Legendary,
+  -1,
 );
 new class TerrakionSpecies extends Species {}(
   PokemonSpecies.Terrakion,
@@ -5129,6 +5768,7 @@ new class TerrakionSpecies extends Species {}(
   3,
   35,
   PokemonSpeciesFlags.Legendary,
+  -1,
 );
 new class VirizionSpecies extends Species {}(
   PokemonSpecies.Virizion,
@@ -5137,6 +5777,7 @@ new class VirizionSpecies extends Species {}(
   3,
   35,
   PokemonSpeciesFlags.Legendary,
+  -1,
 );
 new class TornadusSpecies extends Species {}(
   PokemonSpecies.Tornadus,
@@ -5145,6 +5786,7 @@ new class TornadusSpecies extends Species {}(
   3,
   90,
   PokemonSpeciesFlags.Legendary,
+  0,
 );
 new class ThundurusSpecies extends Species {}(
   PokemonSpecies.Thundurus,
@@ -5153,6 +5795,7 @@ new class ThundurusSpecies extends Species {}(
   3,
   90,
   PokemonSpeciesFlags.Legendary,
+  0,
 );
 new class ReshiramSpecies extends Species {}(
   PokemonSpecies.Reshiram,
@@ -5161,6 +5804,7 @@ new class ReshiramSpecies extends Species {}(
   3,
   0,
   PokemonSpeciesFlags.Legendary,
+  -1,
 );
 new class ZekromSpecies extends Species {}(
   PokemonSpecies.Zekrom,
@@ -5169,6 +5813,7 @@ new class ZekromSpecies extends Species {}(
   3,
   0,
   PokemonSpeciesFlags.Legendary,
+  -1,
 );
 new class LandorusSpecies extends Species {}(
   PokemonSpecies.Landorus,
@@ -5177,6 +5822,7 @@ new class LandorusSpecies extends Species {}(
   3,
   90,
   PokemonSpeciesFlags.Legendary,
+  0,
 );
 new class KyuremSpecies extends Species {}(
   PokemonSpecies.Kyurem,
@@ -5185,6 +5831,7 @@ new class KyuremSpecies extends Species {}(
   3,
   0,
   PokemonSpeciesFlags.Legendary,
+  -1,
 );
 new class KeldeoSpecies extends Species {}(
   PokemonSpecies.Keldeo,
@@ -5193,6 +5840,7 @@ new class KeldeoSpecies extends Species {}(
   3,
   35,
   PokemonSpeciesFlags.Mythical,
+  -1,
 );
 new class MeloettaSpecies extends Species {}(
   PokemonSpecies.Meloetta,
@@ -5201,6 +5849,7 @@ new class MeloettaSpecies extends Species {}(
   3,
   100,
   PokemonSpeciesFlags.Mythical,
+  -1,
 );
 new class GenesectSpecies extends Species {}(
   PokemonSpecies.Genesect,
@@ -5209,6 +5858,7 @@ new class GenesectSpecies extends Species {}(
   3,
   0,
   PokemonSpeciesFlags.Mythical,
+  -1,
 );
 new class ChespinSpecies extends Species {}(
   PokemonSpecies.Chespin,
@@ -5217,6 +5867,7 @@ new class ChespinSpecies extends Species {}(
   45,
   70,
   PokemonSpeciesFlags.None,
+  1,
 );
 new class QuilladinSpecies extends Species {}(
   PokemonSpecies.Quilladin,
@@ -5225,6 +5876,7 @@ new class QuilladinSpecies extends Species {}(
   45,
   70,
   PokemonSpeciesFlags.None,
+  1,
 );
 new class ChesnaughtSpecies extends Species {}(
   PokemonSpecies.Chesnaught,
@@ -5233,6 +5885,7 @@ new class ChesnaughtSpecies extends Species {}(
   45,
   70,
   PokemonSpeciesFlags.None,
+  1,
 );
 new class FennekinSpecies extends Species {}(
   PokemonSpecies.Fennekin,
@@ -5241,6 +5894,7 @@ new class FennekinSpecies extends Species {}(
   45,
   70,
   PokemonSpeciesFlags.None,
+  1,
 );
 new class BraixenSpecies extends Species {}(
   PokemonSpecies.Braixen,
@@ -5249,6 +5903,7 @@ new class BraixenSpecies extends Species {}(
   45,
   70,
   PokemonSpeciesFlags.None,
+  1,
 );
 new class DelphoxSpecies extends Species {}(
   PokemonSpecies.Delphox,
@@ -5257,6 +5912,7 @@ new class DelphoxSpecies extends Species {}(
   45,
   70,
   PokemonSpeciesFlags.None,
+  1,
 );
 new class FroakieSpecies extends Species {}(
   PokemonSpecies.Froakie,
@@ -5265,6 +5921,7 @@ new class FroakieSpecies extends Species {}(
   45,
   70,
   PokemonSpeciesFlags.None,
+  1,
 );
 new class FrogadierSpecies extends Species {}(
   PokemonSpecies.Frogadier,
@@ -5273,6 +5930,7 @@ new class FrogadierSpecies extends Species {}(
   45,
   70,
   PokemonSpeciesFlags.None,
+  1,
 );
 new class GreninjaSpecies extends Species {}(
   PokemonSpecies.Greninja,
@@ -5281,6 +5939,7 @@ new class GreninjaSpecies extends Species {}(
   45,
   70,
   PokemonSpeciesFlags.None,
+  1,
 );
 new class BunnelbySpecies extends Species {}(
   PokemonSpecies.Bunnelby,
@@ -5289,6 +5948,7 @@ new class BunnelbySpecies extends Species {}(
   255,
   50,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class DiggersbySpecies extends Species {}(
   PokemonSpecies.Diggersby,
@@ -5297,6 +5957,7 @@ new class DiggersbySpecies extends Species {}(
   127,
   50,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class FletchlingSpecies extends Species {}(
   PokemonSpecies.Fletchling,
@@ -5305,6 +5966,7 @@ new class FletchlingSpecies extends Species {}(
   255,
   50,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class FletchinderSpecies extends Species {}(
   PokemonSpecies.Fletchinder,
@@ -5313,6 +5975,7 @@ new class FletchinderSpecies extends Species {}(
   120,
   50,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class TalonflameSpecies extends Species {}(
   PokemonSpecies.Talonflame,
@@ -5321,6 +5984,7 @@ new class TalonflameSpecies extends Species {}(
   45,
   50,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class ScatterbugSpecies extends Species {}(
   PokemonSpecies.Scatterbug,
@@ -5329,6 +5993,7 @@ new class ScatterbugSpecies extends Species {}(
   255,
   70,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class SpewpaSpecies extends Species {}(
   PokemonSpecies.Spewpa,
@@ -5337,6 +6002,7 @@ new class SpewpaSpecies extends Species {}(
   120,
   70,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class VivillonSpecies extends Species {}(
   PokemonSpecies.Vivillon,
@@ -5345,6 +6011,7 @@ new class VivillonSpecies extends Species {}(
   45,
   70,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class LitleoSpecies extends Species {}(
   PokemonSpecies.Litleo,
@@ -5353,6 +6020,7 @@ new class LitleoSpecies extends Species {}(
   220,
   70,
   PokemonSpeciesFlags.None,
+  7,
 );
 new class PyroarSpecies extends Species {}(
   PokemonSpecies.Pyroar,
@@ -5361,6 +6029,7 @@ new class PyroarSpecies extends Species {}(
   65,
   70,
   PokemonSpeciesFlags.None,
+  7,
 );
 new class FlabebeSpecies extends Species {}(
   PokemonSpecies.Flabebe,
@@ -5369,6 +6038,7 @@ new class FlabebeSpecies extends Species {}(
   225,
   70,
   PokemonSpeciesFlags.None,
+  8,
 );
 new class FloetteSpecies extends Species {}(
   PokemonSpecies.Floette,
@@ -5377,6 +6047,7 @@ new class FloetteSpecies extends Species {}(
   120,
   70,
   PokemonSpeciesFlags.None,
+  8,
 );
 new class FlorgesSpecies extends Species {}(
   PokemonSpecies.Florges,
@@ -5385,6 +6056,7 @@ new class FlorgesSpecies extends Species {}(
   45,
   70,
   PokemonSpeciesFlags.None,
+  8,
 );
 new class SkiddoSpecies extends Species {}(
   PokemonSpecies.Skiddo,
@@ -5393,6 +6065,7 @@ new class SkiddoSpecies extends Species {}(
   200,
   70,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class GogoatSpecies extends Species {}(
   PokemonSpecies.Gogoat,
@@ -5401,6 +6074,7 @@ new class GogoatSpecies extends Species {}(
   45,
   70,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class PanchamSpecies extends Species {}(
   PokemonSpecies.Pancham,
@@ -5409,6 +6083,7 @@ new class PanchamSpecies extends Species {}(
   220,
   50,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class PangoroSpecies extends Species {}(
   PokemonSpecies.Pangoro,
@@ -5417,6 +6092,7 @@ new class PangoroSpecies extends Species {}(
   65,
   50,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class FurfrouSpecies extends Species {}(
   PokemonSpecies.Furfrou,
@@ -5425,6 +6101,7 @@ new class FurfrouSpecies extends Species {}(
   160,
   70,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class EspurrSpecies extends Species {}(
   PokemonSpecies.Espurr,
@@ -5433,6 +6110,7 @@ new class EspurrSpecies extends Species {}(
   190,
   50,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class MeowsticSpecies extends Species {}(
   PokemonSpecies.Meowstic,
@@ -5441,6 +6119,7 @@ new class MeowsticSpecies extends Species {}(
   75,
   50,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class HonedgeSpecies extends Species {}(
   PokemonSpecies.Honedge,
@@ -5449,6 +6128,7 @@ new class HonedgeSpecies extends Species {}(
   180,
   50,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class DoubladeSpecies extends Species {}(
   PokemonSpecies.Doublade,
@@ -5457,6 +6137,7 @@ new class DoubladeSpecies extends Species {}(
   90,
   50,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class AegislashSpecies extends Species {}(
   PokemonSpecies.Aegislash,
@@ -5465,6 +6146,7 @@ new class AegislashSpecies extends Species {}(
   45,
   50,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class SpritzeeSpecies extends Species {}(
   PokemonSpecies.Spritzee,
@@ -5473,6 +6155,7 @@ new class SpritzeeSpecies extends Species {}(
   200,
   50,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class AromatisseSpecies extends Species {}(
   PokemonSpecies.Aromatisse,
@@ -5481,6 +6164,7 @@ new class AromatisseSpecies extends Species {}(
   140,
   50,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class SwirlixSpecies extends Species {}(
   PokemonSpecies.Swirlix,
@@ -5489,6 +6173,7 @@ new class SwirlixSpecies extends Species {}(
   200,
   50,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class SlurpuffSpecies extends Species {}(
   PokemonSpecies.Slurpuff,
@@ -5497,6 +6182,7 @@ new class SlurpuffSpecies extends Species {}(
   140,
   50,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class InkaySpecies extends Species {}(
   PokemonSpecies.Inkay,
@@ -5505,6 +6191,7 @@ new class InkaySpecies extends Species {}(
   190,
   50,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class MalamarSpecies extends Species {}(
   PokemonSpecies.Malamar,
@@ -5513,6 +6200,7 @@ new class MalamarSpecies extends Species {}(
   80,
   50,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class BinacleSpecies extends Species {}(
   PokemonSpecies.Binacle,
@@ -5521,6 +6209,7 @@ new class BinacleSpecies extends Species {}(
   120,
   50,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class BarbaracleSpecies extends Species {}(
   PokemonSpecies.Barbaracle,
@@ -5529,6 +6218,7 @@ new class BarbaracleSpecies extends Species {}(
   45,
   50,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class SkrelpSpecies extends Species {}(
   PokemonSpecies.Skrelp,
@@ -5537,6 +6227,7 @@ new class SkrelpSpecies extends Species {}(
   225,
   50,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class DragalgeSpecies extends Species {}(
   PokemonSpecies.Dragalge,
@@ -5545,6 +6236,7 @@ new class DragalgeSpecies extends Species {}(
   55,
   50,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class ClauncherSpecies extends Species {}(
   PokemonSpecies.Clauncher,
@@ -5553,6 +6245,7 @@ new class ClauncherSpecies extends Species {}(
   225,
   50,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class ClawitzerSpecies extends Species {}(
   PokemonSpecies.Clawitzer,
@@ -5561,6 +6254,7 @@ new class ClawitzerSpecies extends Species {}(
   55,
   50,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class HelioptileSpecies extends Species {}(
   PokemonSpecies.Helioptile,
@@ -5569,6 +6263,7 @@ new class HelioptileSpecies extends Species {}(
   190,
   50,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class HelioliskSpecies extends Species {}(
   PokemonSpecies.Heliolisk,
@@ -5577,6 +6272,7 @@ new class HelioliskSpecies extends Species {}(
   75,
   50,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class TyruntSpecies extends Species {}(
   PokemonSpecies.Tyrunt,
@@ -5585,6 +6281,7 @@ new class TyruntSpecies extends Species {}(
   45,
   50,
   PokemonSpeciesFlags.None,
+  1,
 );
 new class TyrantrumSpecies extends Species {}(
   PokemonSpecies.Tyrantrum,
@@ -5593,6 +6290,7 @@ new class TyrantrumSpecies extends Species {}(
   45,
   50,
   PokemonSpeciesFlags.None,
+  1,
 );
 new class AmauraSpecies extends Species {}(
   PokemonSpecies.Amaura,
@@ -5601,6 +6299,7 @@ new class AmauraSpecies extends Species {}(
   45,
   50,
   PokemonSpeciesFlags.None,
+  1,
 );
 new class AurorusSpecies extends Species {}(
   PokemonSpecies.Aurorus,
@@ -5609,6 +6308,7 @@ new class AurorusSpecies extends Species {}(
   45,
   50,
   PokemonSpeciesFlags.None,
+  1,
 );
 new class SylveonSpecies extends Species {}(
   PokemonSpecies.Sylveon,
@@ -5617,6 +6317,7 @@ new class SylveonSpecies extends Species {}(
   45,
   50,
   PokemonSpeciesFlags.None,
+  1,
 );
 new class HawluchaSpecies extends Species {}(
   PokemonSpecies.Hawlucha,
@@ -5625,6 +6326,7 @@ new class HawluchaSpecies extends Species {}(
   100,
   50,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class DedenneSpecies extends Species {}(
   PokemonSpecies.Dedenne,
@@ -5633,6 +6335,7 @@ new class DedenneSpecies extends Species {}(
   180,
   50,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class CarbinkSpecies extends Species {}(
   PokemonSpecies.Carbink,
@@ -5641,6 +6344,7 @@ new class CarbinkSpecies extends Species {}(
   60,
   50,
   PokemonSpeciesFlags.None,
+  -1,
 );
 new class GoomySpecies extends Species {}(
   PokemonSpecies.Goomy,
@@ -5649,6 +6353,7 @@ new class GoomySpecies extends Species {}(
   45,
   35,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class SliggooSpecies extends Species {}(
   PokemonSpecies.Sliggoo,
@@ -5657,6 +6362,7 @@ new class SliggooSpecies extends Species {}(
   45,
   35,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class GoodraSpecies extends Species {}(
   PokemonSpecies.Goodra,
@@ -5665,6 +6371,7 @@ new class GoodraSpecies extends Species {}(
   45,
   35,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class KlefkiSpecies extends Species {}(
   PokemonSpecies.Klefki,
@@ -5673,6 +6380,7 @@ new class KlefkiSpecies extends Species {}(
   75,
   50,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class PhantumpSpecies extends Species {}(
   PokemonSpecies.Phantump,
@@ -5681,6 +6389,7 @@ new class PhantumpSpecies extends Species {}(
   120,
   50,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class TrevenantSpecies extends Species {}(
   PokemonSpecies.Trevenant,
@@ -5689,6 +6398,7 @@ new class TrevenantSpecies extends Species {}(
   60,
   50,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class PumpkabooSpecies extends Species {}(
   PokemonSpecies.Pumpkaboo,
@@ -5697,6 +6407,7 @@ new class PumpkabooSpecies extends Species {}(
   120,
   50,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class GourgeistSpecies extends Species {}(
   PokemonSpecies.Gourgeist,
@@ -5705,6 +6416,7 @@ new class GourgeistSpecies extends Species {}(
   60,
   50,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class BergmiteSpecies extends Species {}(
   PokemonSpecies.Bergmite,
@@ -5713,6 +6425,7 @@ new class BergmiteSpecies extends Species {}(
   190,
   50,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class AvaluggSpecies extends Species {}(
   PokemonSpecies.Avalugg,
@@ -5721,6 +6434,7 @@ new class AvaluggSpecies extends Species {}(
   55,
   50,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class NoibatSpecies extends Species {}(
   PokemonSpecies.Noibat,
@@ -5729,6 +6443,7 @@ new class NoibatSpecies extends Species {}(
   190,
   50,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class NoivernSpecies extends Species {}(
   PokemonSpecies.Noivern,
@@ -5737,6 +6452,7 @@ new class NoivernSpecies extends Species {}(
   45,
   50,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class XerneasSpecies extends Species {}(
   PokemonSpecies.Xerneas,
@@ -5745,6 +6461,7 @@ new class XerneasSpecies extends Species {}(
   45,
   0,
   PokemonSpeciesFlags.Legendary,
+  -1,
 );
 new class YveltalSpecies extends Species {}(
   PokemonSpecies.Yveltal,
@@ -5753,6 +6470,7 @@ new class YveltalSpecies extends Species {}(
   45,
   0,
   PokemonSpeciesFlags.Legendary,
+  -1,
 );
 new class ZygardeSpecies extends Species {}(
   PokemonSpecies.Zygarde,
@@ -5761,6 +6479,7 @@ new class ZygardeSpecies extends Species {}(
   3,
   0,
   PokemonSpeciesFlags.Legendary,
+  -1,
 );
 new class DiancieSpecies extends Species {}(
   PokemonSpecies.Diancie,
@@ -5769,6 +6488,7 @@ new class DiancieSpecies extends Species {}(
   3,
   50,
   PokemonSpeciesFlags.Mythical,
+  -1,
 );
 new class HoopaSpecies extends Species {}(
   PokemonSpecies.Hoopa,
@@ -5777,6 +6497,7 @@ new class HoopaSpecies extends Species {}(
   3,
   100,
   PokemonSpeciesFlags.Mythical,
+  -1,
 );
 new class VolcanionSpecies extends Species {}(
   PokemonSpecies.Volcanion,
@@ -5785,6 +6506,7 @@ new class VolcanionSpecies extends Species {}(
   3,
   100,
   PokemonSpeciesFlags.Mythical,
+  -1,
 );
 new class RowletSpecies extends Species {}(
   PokemonSpecies.Rowlet,
@@ -5793,6 +6515,7 @@ new class RowletSpecies extends Species {}(
   45,
   50,
   PokemonSpeciesFlags.None,
+  1,
 );
 new class DartrixSpecies extends Species {}(
   PokemonSpecies.Dartrix,
@@ -5801,6 +6524,7 @@ new class DartrixSpecies extends Species {}(
   45,
   50,
   PokemonSpeciesFlags.None,
+  1,
 );
 new class DecidueyeSpecies extends Species {}(
   PokemonSpecies.Decidueye,
@@ -5809,6 +6533,7 @@ new class DecidueyeSpecies extends Species {}(
   45,
   50,
   PokemonSpeciesFlags.None,
+  1,
 );
 new class LittenSpecies extends Species {}(
   PokemonSpecies.Litten,
@@ -5817,6 +6542,7 @@ new class LittenSpecies extends Species {}(
   45,
   50,
   PokemonSpeciesFlags.None,
+  1,
 );
 new class TorracatSpecies extends Species {}(
   PokemonSpecies.Torracat,
@@ -5825,6 +6551,7 @@ new class TorracatSpecies extends Species {}(
   45,
   50,
   PokemonSpeciesFlags.None,
+  1,
 );
 new class IncineroarSpecies extends Species {}(
   PokemonSpecies.Incineroar,
@@ -5833,6 +6560,7 @@ new class IncineroarSpecies extends Species {}(
   45,
   50,
   PokemonSpeciesFlags.None,
+  1,
 );
 new class PopplioSpecies extends Species {}(
   PokemonSpecies.Popplio,
@@ -5841,6 +6569,7 @@ new class PopplioSpecies extends Species {}(
   45,
   50,
   PokemonSpeciesFlags.None,
+  1,
 );
 new class BrionneSpecies extends Species {}(
   PokemonSpecies.Brionne,
@@ -5849,6 +6578,7 @@ new class BrionneSpecies extends Species {}(
   45,
   50,
   PokemonSpeciesFlags.None,
+  1,
 );
 new class PrimarinaSpecies extends Species {}(
   PokemonSpecies.Primarina,
@@ -5857,6 +6587,7 @@ new class PrimarinaSpecies extends Species {}(
   45,
   50,
   PokemonSpeciesFlags.None,
+  1,
 );
 new class PikipekSpecies extends Species {}(
   PokemonSpecies.Pikipek,
@@ -5865,6 +6596,7 @@ new class PikipekSpecies extends Species {}(
   255,
   70,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class TrumbeakSpecies extends Species {}(
   PokemonSpecies.Trumbeak,
@@ -5873,6 +6605,7 @@ new class TrumbeakSpecies extends Species {}(
   120,
   70,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class ToucannonSpecies extends Species {}(
   PokemonSpecies.Toucannon,
@@ -5881,6 +6614,7 @@ new class ToucannonSpecies extends Species {}(
   45,
   70,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class YungoosSpecies extends Species {}(
   PokemonSpecies.Yungoos,
@@ -5889,6 +6623,7 @@ new class YungoosSpecies extends Species {}(
   255,
   70,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class GumshoosSpecies extends Species {}(
   PokemonSpecies.Gumshoos,
@@ -5897,6 +6632,7 @@ new class GumshoosSpecies extends Species {}(
   127,
   70,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class GrubbinSpecies extends Species {}(
   PokemonSpecies.Grubbin,
@@ -5905,6 +6641,7 @@ new class GrubbinSpecies extends Species {}(
   255,
   50,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class CharjabugSpecies extends Species {}(
   PokemonSpecies.Charjabug,
@@ -5913,6 +6650,7 @@ new class CharjabugSpecies extends Species {}(
   120,
   50,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class VikavoltSpecies extends Species {}(
   PokemonSpecies.Vikavolt,
@@ -5921,6 +6659,7 @@ new class VikavoltSpecies extends Species {}(
   45,
   50,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class CrabrawlerSpecies extends Species {}(
   PokemonSpecies.Crabrawler,
@@ -5929,6 +6668,7 @@ new class CrabrawlerSpecies extends Species {}(
   225,
   70,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class CrabominableSpecies extends Species {}(
   PokemonSpecies.Crabominable,
@@ -5937,6 +6677,7 @@ new class CrabominableSpecies extends Species {}(
   60,
   70,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class OricorioSpecies extends Species {}(
   PokemonSpecies.Oricorio,
@@ -5945,6 +6686,7 @@ new class OricorioSpecies extends Species {}(
   45,
   70,
   PokemonSpeciesFlags.None,
+  6,
 );
 new class CutieflySpecies extends Species {}(
   PokemonSpecies.Cutiefly,
@@ -5953,6 +6695,7 @@ new class CutieflySpecies extends Species {}(
   190,
   50,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class RibombeeSpecies extends Species {}(
   PokemonSpecies.Ribombee,
@@ -5961,6 +6704,7 @@ new class RibombeeSpecies extends Species {}(
   75,
   50,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class RockruffSpecies extends Species {}(
   PokemonSpecies.Rockruff,
@@ -5969,6 +6713,7 @@ new class RockruffSpecies extends Species {}(
   190,
   50,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class LycanrocSpecies extends Species {}(
   PokemonSpecies.Lycanroc,
@@ -5977,6 +6722,7 @@ new class LycanrocSpecies extends Species {}(
   90,
   50,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class WishiwashiSpecies extends Species {}(
   PokemonSpecies.Wishiwashi,
@@ -5985,6 +6731,7 @@ new class WishiwashiSpecies extends Species {}(
   60,
   50,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class MareanieSpecies extends Species {}(
   PokemonSpecies.Mareanie,
@@ -5993,6 +6740,7 @@ new class MareanieSpecies extends Species {}(
   190,
   50,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class ToxapexSpecies extends Species {}(
   PokemonSpecies.Toxapex,
@@ -6001,6 +6749,7 @@ new class ToxapexSpecies extends Species {}(
   75,
   50,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class MudbraySpecies extends Species {}(
   PokemonSpecies.Mudbray,
@@ -6009,6 +6758,7 @@ new class MudbraySpecies extends Species {}(
   190,
   50,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class MudsdaleSpecies extends Species {}(
   PokemonSpecies.Mudsdale,
@@ -6017,6 +6767,7 @@ new class MudsdaleSpecies extends Species {}(
   60,
   50,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class DewpiderSpecies extends Species {}(
   PokemonSpecies.Dewpider,
@@ -6025,6 +6776,7 @@ new class DewpiderSpecies extends Species {}(
   200,
   50,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class AraquanidSpecies extends Species {}(
   PokemonSpecies.Araquanid,
@@ -6033,6 +6785,7 @@ new class AraquanidSpecies extends Species {}(
   100,
   50,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class FomantisSpecies extends Species {}(
   PokemonSpecies.Fomantis,
@@ -6041,6 +6794,7 @@ new class FomantisSpecies extends Species {}(
   190,
   50,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class LurantisSpecies extends Species {}(
   PokemonSpecies.Lurantis,
@@ -6049,6 +6803,7 @@ new class LurantisSpecies extends Species {}(
   75,
   50,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class MorelullSpecies extends Species {}(
   PokemonSpecies.Morelull,
@@ -6057,6 +6812,7 @@ new class MorelullSpecies extends Species {}(
   190,
   50,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class ShiinoticSpecies extends Species {}(
   PokemonSpecies.Shiinotic,
@@ -6065,6 +6821,7 @@ new class ShiinoticSpecies extends Species {}(
   75,
   50,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class SalanditSpecies extends Species {}(
   PokemonSpecies.Salandit,
@@ -6073,6 +6830,7 @@ new class SalanditSpecies extends Species {}(
   120,
   50,
   PokemonSpeciesFlags.None,
+  1,
 );
 new class SalazzleSpecies extends Species {}(
   PokemonSpecies.Salazzle,
@@ -6081,6 +6839,7 @@ new class SalazzleSpecies extends Species {}(
   45,
   50,
   PokemonSpeciesFlags.None,
+  8,
 );
 new class StuffulSpecies extends Species {}(
   PokemonSpecies.Stufful,
@@ -6089,6 +6848,7 @@ new class StuffulSpecies extends Species {}(
   140,
   50,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class BewearSpecies extends Species {}(
   PokemonSpecies.Bewear,
@@ -6097,6 +6857,7 @@ new class BewearSpecies extends Species {}(
   70,
   50,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class BounsweetSpecies extends Species {}(
   PokemonSpecies.Bounsweet,
@@ -6105,6 +6866,7 @@ new class BounsweetSpecies extends Species {}(
   235,
   50,
   PokemonSpeciesFlags.None,
+  8,
 );
 new class SteeneeSpecies extends Species {}(
   PokemonSpecies.Steenee,
@@ -6113,6 +6875,7 @@ new class SteeneeSpecies extends Species {}(
   120,
   50,
   PokemonSpeciesFlags.None,
+  8,
 );
 new class TsareenaSpecies extends Species {}(
   PokemonSpecies.Tsareena,
@@ -6121,6 +6884,7 @@ new class TsareenaSpecies extends Species {}(
   45,
   50,
   PokemonSpeciesFlags.None,
+  8,
 );
 new class ComfeySpecies extends Species {}(
   PokemonSpecies.Comfey,
@@ -6129,6 +6893,7 @@ new class ComfeySpecies extends Species {}(
   60,
   50,
   PokemonSpeciesFlags.None,
+  6,
 );
 new class OranguruSpecies extends Species {}(
   PokemonSpecies.Oranguru,
@@ -6137,6 +6902,7 @@ new class OranguruSpecies extends Species {}(
   45,
   50,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class PassimianSpecies extends Species {}(
   PokemonSpecies.Passimian,
@@ -6145,6 +6911,7 @@ new class PassimianSpecies extends Species {}(
   45,
   50,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class WimpodSpecies extends Species {}(
   PokemonSpecies.Wimpod,
@@ -6153,6 +6920,7 @@ new class WimpodSpecies extends Species {}(
   90,
   50,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class GolisopodSpecies extends Species {}(
   PokemonSpecies.Golisopod,
@@ -6161,6 +6929,7 @@ new class GolisopodSpecies extends Species {}(
   45,
   50,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class SandygastSpecies extends Species {}(
   PokemonSpecies.Sandygast,
@@ -6169,6 +6938,7 @@ new class SandygastSpecies extends Species {}(
   140,
   50,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class PalossandSpecies extends Species {}(
   PokemonSpecies.Palossand,
@@ -6177,6 +6947,7 @@ new class PalossandSpecies extends Species {}(
   60,
   50,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class PyukumukuSpecies extends Species {}(
   PokemonSpecies.Pyukumuku,
@@ -6185,6 +6956,7 @@ new class PyukumukuSpecies extends Species {}(
   60,
   50,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class TypeNullSpecies extends Species {}(
   PokemonSpecies.TypeNull,
@@ -6193,6 +6965,7 @@ new class TypeNullSpecies extends Species {}(
   3,
   0,
   PokemonSpeciesFlags.None,
+  -1,
 );
 new class SilvallySpecies extends Species {}(
   PokemonSpecies.Silvally,
@@ -6201,6 +6974,7 @@ new class SilvallySpecies extends Species {}(
   3,
   0,
   PokemonSpeciesFlags.Legendary,
+  -1,
 );
 new class MiniorSpecies extends Species {}(
   PokemonSpecies.Minior,
@@ -6209,6 +6983,7 @@ new class MiniorSpecies extends Species {}(
   30,
   70,
   PokemonSpeciesFlags.None,
+  -1,
 );
 new class KomalaSpecies extends Species {}(
   PokemonSpecies.Komala,
@@ -6217,6 +6992,7 @@ new class KomalaSpecies extends Species {}(
   45,
   70,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class TurtonatorSpecies extends Species {}(
   PokemonSpecies.Turtonator,
@@ -6225,6 +7001,7 @@ new class TurtonatorSpecies extends Species {}(
   70,
   50,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class TogedemaruSpecies extends Species {}(
   PokemonSpecies.Togedemaru,
@@ -6233,6 +7010,7 @@ new class TogedemaruSpecies extends Species {}(
   180,
   50,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class MimikyuSpecies extends Species {}(
   PokemonSpecies.Mimikyu,
@@ -6241,6 +7019,7 @@ new class MimikyuSpecies extends Species {}(
   45,
   50,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class BruxishSpecies extends Species {}(
   PokemonSpecies.Bruxish,
@@ -6249,6 +7028,7 @@ new class BruxishSpecies extends Species {}(
   80,
   70,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class DrampaSpecies extends Species {}(
   PokemonSpecies.Drampa,
@@ -6257,6 +7037,7 @@ new class DrampaSpecies extends Species {}(
   70,
   50,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class DhelmiseSpecies extends Species {}(
   PokemonSpecies.Dhelmise,
@@ -6265,6 +7046,7 @@ new class DhelmiseSpecies extends Species {}(
   25,
   50,
   PokemonSpeciesFlags.None,
+  -1,
 );
 new class JangmoOSpecies extends Species {}(
   PokemonSpecies.JangmoO,
@@ -6273,6 +7055,7 @@ new class JangmoOSpecies extends Species {}(
   45,
   50,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class HakamoOSpecies extends Species {}(
   PokemonSpecies.HakamoO,
@@ -6281,6 +7064,7 @@ new class HakamoOSpecies extends Species {}(
   45,
   50,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class KommoOSpecies extends Species {}(
   PokemonSpecies.KommoO,
@@ -6289,6 +7073,7 @@ new class KommoOSpecies extends Species {}(
   45,
   50,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class TapuKokoSpecies extends Species {}(
   PokemonSpecies.TapuKoko,
@@ -6297,6 +7082,7 @@ new class TapuKokoSpecies extends Species {}(
   3,
   50,
   PokemonSpeciesFlags.Legendary,
+  -1,
 );
 new class TapuLeleSpecies extends Species {}(
   PokemonSpecies.TapuLele,
@@ -6305,6 +7091,7 @@ new class TapuLeleSpecies extends Species {}(
   3,
   50,
   PokemonSpeciesFlags.Legendary,
+  -1,
 );
 new class TapuBuluSpecies extends Species {}(
   PokemonSpecies.TapuBulu,
@@ -6313,6 +7100,7 @@ new class TapuBuluSpecies extends Species {}(
   3,
   50,
   PokemonSpeciesFlags.Legendary,
+  -1,
 );
 new class TapuFiniSpecies extends Species {}(
   PokemonSpecies.TapuFini,
@@ -6321,6 +7109,7 @@ new class TapuFiniSpecies extends Species {}(
   3,
   50,
   PokemonSpeciesFlags.Legendary,
+  -1,
 );
 new class CosmogSpecies extends Species {}(
   PokemonSpecies.Cosmog,
@@ -6329,6 +7118,7 @@ new class CosmogSpecies extends Species {}(
   45,
   0,
   PokemonSpeciesFlags.Legendary,
+  -1,
 );
 new class CosmoemSpecies extends Species {}(
   PokemonSpecies.Cosmoem,
@@ -6337,6 +7127,7 @@ new class CosmoemSpecies extends Species {}(
   45,
   0,
   PokemonSpeciesFlags.Legendary,
+  -1,
 );
 new class SolgaleoSpecies extends Species {}(
   PokemonSpecies.Solgaleo,
@@ -6345,6 +7136,7 @@ new class SolgaleoSpecies extends Species {}(
   45,
   0,
   PokemonSpeciesFlags.Legendary,
+  -1,
 );
 new class LunalaSpecies extends Species {}(
   PokemonSpecies.Lunala,
@@ -6353,6 +7145,7 @@ new class LunalaSpecies extends Species {}(
   45,
   0,
   PokemonSpeciesFlags.Legendary,
+  -1,
 );
 new class NihilegoSpecies extends Species {}(
   PokemonSpecies.Nihilego,
@@ -6361,6 +7154,7 @@ new class NihilegoSpecies extends Species {}(
   45,
   0,
   PokemonSpeciesFlags.None,
+  -1,
 );
 new class BuzzwoleSpecies extends Species {}(
   PokemonSpecies.Buzzwole,
@@ -6369,6 +7163,7 @@ new class BuzzwoleSpecies extends Species {}(
   45,
   0,
   PokemonSpeciesFlags.None,
+  -1,
 );
 new class PheromosaSpecies extends Species {}(
   PokemonSpecies.Pheromosa,
@@ -6377,6 +7172,7 @@ new class PheromosaSpecies extends Species {}(
   45,
   0,
   PokemonSpeciesFlags.None,
+  -1,
 );
 new class XurkitreeSpecies extends Species {}(
   PokemonSpecies.Xurkitree,
@@ -6385,6 +7181,7 @@ new class XurkitreeSpecies extends Species {}(
   45,
   0,
   PokemonSpeciesFlags.None,
+  -1,
 );
 new class CelesteelaSpecies extends Species {}(
   PokemonSpecies.Celesteela,
@@ -6393,6 +7190,7 @@ new class CelesteelaSpecies extends Species {}(
   45,
   0,
   PokemonSpeciesFlags.None,
+  -1,
 );
 new class KartanaSpecies extends Species {}(
   PokemonSpecies.Kartana,
@@ -6401,6 +7199,7 @@ new class KartanaSpecies extends Species {}(
   45,
   0,
   PokemonSpeciesFlags.None,
+  -1,
 );
 new class GuzzlordSpecies extends Species {}(
   PokemonSpecies.Guzzlord,
@@ -6409,6 +7208,7 @@ new class GuzzlordSpecies extends Species {}(
   45,
   0,
   PokemonSpeciesFlags.None,
+  -1,
 );
 new class NecrozmaSpecies extends Species {}(
   PokemonSpecies.Necrozma,
@@ -6417,6 +7217,7 @@ new class NecrozmaSpecies extends Species {}(
   255,
   0,
   PokemonSpeciesFlags.Legendary,
+  -1,
 );
 new class MagearnaSpecies extends Species {}(
   PokemonSpecies.Magearna,
@@ -6425,6 +7226,7 @@ new class MagearnaSpecies extends Species {}(
   3,
   0,
   PokemonSpeciesFlags.Mythical,
+  -1,
 );
 new class MarshadowSpecies extends Species {}(
   PokemonSpecies.Marshadow,
@@ -6433,6 +7235,7 @@ new class MarshadowSpecies extends Species {}(
   3,
   0,
   PokemonSpeciesFlags.Mythical,
+  -1,
 );
 new class PoipoleSpecies extends Species {}(
   PokemonSpecies.Poipole,
@@ -6441,6 +7244,7 @@ new class PoipoleSpecies extends Species {}(
   45,
   0,
   PokemonSpeciesFlags.None,
+  -1,
 );
 new class NaganadelSpecies extends Species {}(
   PokemonSpecies.Naganadel,
@@ -6449,6 +7253,7 @@ new class NaganadelSpecies extends Species {}(
   45,
   0,
   PokemonSpeciesFlags.None,
+  -1,
 );
 new class StakatakaSpecies extends Species {}(
   PokemonSpecies.Stakataka,
@@ -6457,6 +7262,7 @@ new class StakatakaSpecies extends Species {}(
   30,
   0,
   PokemonSpeciesFlags.None,
+  -1,
 );
 new class BlacephalonSpecies extends Species {}(
   PokemonSpecies.Blacephalon,
@@ -6465,6 +7271,7 @@ new class BlacephalonSpecies extends Species {}(
   30,
   0,
   PokemonSpeciesFlags.None,
+  -1,
 );
 new class ZeraoraSpecies extends Species {}(
   PokemonSpecies.Zeraora,
@@ -6473,6 +7280,7 @@ new class ZeraoraSpecies extends Species {}(
   3,
   0,
   PokemonSpeciesFlags.Mythical,
+  -1,
 );
 new class MeltanSpecies extends Species {}(
   PokemonSpecies.Meltan,
@@ -6481,6 +7289,7 @@ new class MeltanSpecies extends Species {}(
   3,
   0,
   PokemonSpeciesFlags.Mythical,
+  -1,
 );
 new class MelmetalSpecies extends Species {}(
   PokemonSpecies.Melmetal,
@@ -6489,6 +7298,7 @@ new class MelmetalSpecies extends Species {}(
   3,
   0,
   PokemonSpeciesFlags.Mythical,
+  -1,
 );
 new class GrookeySpecies extends Species {}(
   PokemonSpecies.Grookey,
@@ -6497,6 +7307,7 @@ new class GrookeySpecies extends Species {}(
   45,
   50,
   PokemonSpeciesFlags.None,
+  1,
 );
 new class ThwackeySpecies extends Species {}(
   PokemonSpecies.Thwackey,
@@ -6505,6 +7316,7 @@ new class ThwackeySpecies extends Species {}(
   45,
   50,
   PokemonSpeciesFlags.None,
+  1,
 );
 new class RillaboomSpecies extends Species {}(
   PokemonSpecies.Rillaboom,
@@ -6513,6 +7325,7 @@ new class RillaboomSpecies extends Species {}(
   45,
   50,
   PokemonSpeciesFlags.None,
+  1,
 );
 new class ScorbunnySpecies extends Species {}(
   PokemonSpecies.Scorbunny,
@@ -6521,6 +7334,7 @@ new class ScorbunnySpecies extends Species {}(
   45,
   50,
   PokemonSpeciesFlags.None,
+  1,
 );
 new class RabootSpecies extends Species {}(
   PokemonSpecies.Raboot,
@@ -6529,6 +7343,7 @@ new class RabootSpecies extends Species {}(
   45,
   50,
   PokemonSpeciesFlags.None,
+  1,
 );
 new class CinderaceSpecies extends Species {}(
   PokemonSpecies.Cinderace,
@@ -6537,6 +7352,7 @@ new class CinderaceSpecies extends Species {}(
   45,
   50,
   PokemonSpeciesFlags.None,
+  1,
 );
 new class SobbleSpecies extends Species {}(
   PokemonSpecies.Sobble,
@@ -6545,6 +7361,7 @@ new class SobbleSpecies extends Species {}(
   45,
   50,
   PokemonSpeciesFlags.None,
+  1,
 );
 new class DrizzileSpecies extends Species {}(
   PokemonSpecies.Drizzile,
@@ -6553,6 +7370,7 @@ new class DrizzileSpecies extends Species {}(
   45,
   50,
   PokemonSpeciesFlags.None,
+  1,
 );
 new class InteleonSpecies extends Species {}(
   PokemonSpecies.Inteleon,
@@ -6561,6 +7379,7 @@ new class InteleonSpecies extends Species {}(
   45,
   50,
   PokemonSpeciesFlags.None,
+  1,
 );
 new class SkwovetSpecies extends Species {}(
   PokemonSpecies.Skwovet,
@@ -6569,6 +7388,7 @@ new class SkwovetSpecies extends Species {}(
   255,
   50,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class GreedentSpecies extends Species {}(
   PokemonSpecies.Greedent,
@@ -6577,6 +7397,7 @@ new class GreedentSpecies extends Species {}(
   90,
   50,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class RookideeSpecies extends Species {}(
   PokemonSpecies.Rookidee,
@@ -6585,6 +7406,7 @@ new class RookideeSpecies extends Species {}(
   255,
   50,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class CorvisquireSpecies extends Species {}(
   PokemonSpecies.Corvisquire,
@@ -6593,6 +7415,7 @@ new class CorvisquireSpecies extends Species {}(
   120,
   50,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class CorviknightSpecies extends Species {}(
   PokemonSpecies.Corviknight,
@@ -6601,6 +7424,7 @@ new class CorviknightSpecies extends Species {}(
   45,
   50,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class BlipbugSpecies extends Species {}(
   PokemonSpecies.Blipbug,
@@ -6609,6 +7433,7 @@ new class BlipbugSpecies extends Species {}(
   255,
   50,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class DottlerSpecies extends Species {}(
   PokemonSpecies.Dottler,
@@ -6617,6 +7442,7 @@ new class DottlerSpecies extends Species {}(
   120,
   50,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class OrbeetleSpecies extends Species {}(
   PokemonSpecies.Orbeetle,
@@ -6625,6 +7451,7 @@ new class OrbeetleSpecies extends Species {}(
   45,
   50,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class NickitSpecies extends Species {}(
   PokemonSpecies.Nickit,
@@ -6633,6 +7460,7 @@ new class NickitSpecies extends Species {}(
   255,
   50,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class ThievulSpecies extends Species {}(
   PokemonSpecies.Thievul,
@@ -6641,6 +7469,7 @@ new class ThievulSpecies extends Species {}(
   127,
   50,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class GossifleurSpecies extends Species {}(
   PokemonSpecies.Gossifleur,
@@ -6649,6 +7478,7 @@ new class GossifleurSpecies extends Species {}(
   190,
   50,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class EldegossSpecies extends Species {}(
   PokemonSpecies.Eldegoss,
@@ -6657,6 +7487,7 @@ new class EldegossSpecies extends Species {}(
   75,
   50,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class WoolooSpecies extends Species {}(
   PokemonSpecies.Wooloo,
@@ -6665,6 +7496,7 @@ new class WoolooSpecies extends Species {}(
   255,
   50,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class DubwoolSpecies extends Species {}(
   PokemonSpecies.Dubwool,
@@ -6673,6 +7505,7 @@ new class DubwoolSpecies extends Species {}(
   127,
   50,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class ChewtleSpecies extends Species {}(
   PokemonSpecies.Chewtle,
@@ -6681,6 +7514,7 @@ new class ChewtleSpecies extends Species {}(
   255,
   50,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class DrednawSpecies extends Species {}(
   PokemonSpecies.Drednaw,
@@ -6689,6 +7523,7 @@ new class DrednawSpecies extends Species {}(
   75,
   50,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class YamperSpecies extends Species {}(
   PokemonSpecies.Yamper,
@@ -6697,6 +7532,7 @@ new class YamperSpecies extends Species {}(
   255,
   50,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class BoltundSpecies extends Species {}(
   PokemonSpecies.Boltund,
@@ -6705,6 +7541,7 @@ new class BoltundSpecies extends Species {}(
   45,
   50,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class RolycolySpecies extends Species {}(
   PokemonSpecies.Rolycoly,
@@ -6713,6 +7550,7 @@ new class RolycolySpecies extends Species {}(
   255,
   50,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class CarkolSpecies extends Species {}(
   PokemonSpecies.Carkol,
@@ -6721,6 +7559,7 @@ new class CarkolSpecies extends Species {}(
   120,
   50,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class CoalossalSpecies extends Species {}(
   PokemonSpecies.Coalossal,
@@ -6729,6 +7568,7 @@ new class CoalossalSpecies extends Species {}(
   45,
   50,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class ApplinSpecies extends Species {}(
   PokemonSpecies.Applin,
@@ -6737,6 +7577,7 @@ new class ApplinSpecies extends Species {}(
   255,
   50,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class FlappleSpecies extends Species {}(
   PokemonSpecies.Flapple,
@@ -6745,6 +7586,7 @@ new class FlappleSpecies extends Species {}(
   45,
   50,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class AppletunSpecies extends Species {}(
   PokemonSpecies.Appletun,
@@ -6753,6 +7595,7 @@ new class AppletunSpecies extends Species {}(
   45,
   50,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class SilicobraSpecies extends Species {}(
   PokemonSpecies.Silicobra,
@@ -6761,6 +7604,7 @@ new class SilicobraSpecies extends Species {}(
   255,
   50,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class SandacondaSpecies extends Species {}(
   PokemonSpecies.Sandaconda,
@@ -6769,6 +7613,7 @@ new class SandacondaSpecies extends Species {}(
   120,
   50,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class CramorantSpecies extends Species {}(
   PokemonSpecies.Cramorant,
@@ -6777,6 +7622,7 @@ new class CramorantSpecies extends Species {}(
   45,
   50,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class ArrokudaSpecies extends Species {}(
   PokemonSpecies.Arrokuda,
@@ -6785,6 +7631,7 @@ new class ArrokudaSpecies extends Species {}(
   255,
   50,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class BarraskewdaSpecies extends Species {}(
   PokemonSpecies.Barraskewda,
@@ -6793,6 +7640,7 @@ new class BarraskewdaSpecies extends Species {}(
   60,
   50,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class ToxelSpecies extends Species {}(
   PokemonSpecies.Toxel,
@@ -6801,6 +7649,7 @@ new class ToxelSpecies extends Species {}(
   75,
   50,
   PokemonSpeciesFlags.Baby,
+  4,
 );
 new class ToxtricitySpecies extends Species {}(
   PokemonSpecies.Toxtricity,
@@ -6809,6 +7658,7 @@ new class ToxtricitySpecies extends Species {}(
   45,
   50,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class SizzlipedeSpecies extends Species {}(
   PokemonSpecies.Sizzlipede,
@@ -6817,6 +7667,7 @@ new class SizzlipedeSpecies extends Species {}(
   190,
   50,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class CentiskorchSpecies extends Species {}(
   PokemonSpecies.Centiskorch,
@@ -6825,6 +7676,7 @@ new class CentiskorchSpecies extends Species {}(
   75,
   50,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class ClobbopusSpecies extends Species {}(
   PokemonSpecies.Clobbopus,
@@ -6833,6 +7685,7 @@ new class ClobbopusSpecies extends Species {}(
   180,
   50,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class GrapploctSpecies extends Species {}(
   PokemonSpecies.Grapploct,
@@ -6841,6 +7694,7 @@ new class GrapploctSpecies extends Species {}(
   45,
   50,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class SinisteaSpecies extends Species {}(
   PokemonSpecies.Sinistea,
@@ -6849,6 +7703,7 @@ new class SinisteaSpecies extends Species {}(
   120,
   50,
   PokemonSpeciesFlags.None,
+  -1,
 );
 new class PolteageistSpecies extends Species {}(
   PokemonSpecies.Polteageist,
@@ -6857,6 +7712,7 @@ new class PolteageistSpecies extends Species {}(
   60,
   50,
   PokemonSpeciesFlags.None,
+  -1,
 );
 new class HatennaSpecies extends Species {}(
   PokemonSpecies.Hatenna,
@@ -6865,6 +7721,7 @@ new class HatennaSpecies extends Species {}(
   235,
   50,
   PokemonSpeciesFlags.None,
+  8,
 );
 new class HattremSpecies extends Species {}(
   PokemonSpecies.Hattrem,
@@ -6873,6 +7730,7 @@ new class HattremSpecies extends Species {}(
   120,
   50,
   PokemonSpeciesFlags.None,
+  8,
 );
 new class HattereneSpecies extends Species {}(
   PokemonSpecies.Hatterene,
@@ -6881,6 +7739,7 @@ new class HattereneSpecies extends Species {}(
   45,
   50,
   PokemonSpeciesFlags.None,
+  8,
 );
 new class ImpidimpSpecies extends Species {}(
   PokemonSpecies.Impidimp,
@@ -6889,6 +7748,7 @@ new class ImpidimpSpecies extends Species {}(
   255,
   50,
   PokemonSpeciesFlags.None,
+  0,
 );
 new class MorgremSpecies extends Species {}(
   PokemonSpecies.Morgrem,
@@ -6897,6 +7757,7 @@ new class MorgremSpecies extends Species {}(
   120,
   50,
   PokemonSpeciesFlags.None,
+  0,
 );
 new class GrimmsnarlSpecies extends Species {}(
   PokemonSpecies.Grimmsnarl,
@@ -6905,6 +7766,7 @@ new class GrimmsnarlSpecies extends Species {}(
   45,
   50,
   PokemonSpeciesFlags.None,
+  0,
 );
 new class ObstagoonSpecies extends Species {}(
   PokemonSpecies.Obstagoon,
@@ -6913,6 +7775,7 @@ new class ObstagoonSpecies extends Species {}(
   45,
   50,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class PerrserkerSpecies extends Species {}(
   PokemonSpecies.Perrserker,
@@ -6921,6 +7784,7 @@ new class PerrserkerSpecies extends Species {}(
   90,
   50,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class CursolaSpecies extends Species {}(
   PokemonSpecies.Cursola,
@@ -6929,6 +7793,7 @@ new class CursolaSpecies extends Species {}(
   30,
   50,
   PokemonSpeciesFlags.None,
+  6,
 );
 new class SirfetchdSpecies extends Species {}(
   PokemonSpecies.Sirfetchd,
@@ -6937,6 +7802,7 @@ new class SirfetchdSpecies extends Species {}(
   45,
   50,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class MrRimeSpecies extends Species {}(
   PokemonSpecies.MrRime,
@@ -6945,6 +7811,7 @@ new class MrRimeSpecies extends Species {}(
   45,
   50,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class RunerigusSpecies extends Species {}(
   PokemonSpecies.Runerigus,
@@ -6953,6 +7820,7 @@ new class RunerigusSpecies extends Species {}(
   90,
   50,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class MilcerySpecies extends Species {}(
   PokemonSpecies.Milcery,
@@ -6961,6 +7829,7 @@ new class MilcerySpecies extends Species {}(
   200,
   50,
   PokemonSpeciesFlags.None,
+  8,
 );
 new class AlcremieSpecies extends Species {}(
   PokemonSpecies.Alcremie,
@@ -6969,6 +7838,7 @@ new class AlcremieSpecies extends Species {}(
   100,
   50,
   PokemonSpeciesFlags.None,
+  8,
 );
 new class FalinksSpecies extends Species {}(
   PokemonSpecies.Falinks,
@@ -6977,6 +7847,7 @@ new class FalinksSpecies extends Species {}(
   45,
   50,
   PokemonSpeciesFlags.None,
+  -1,
 );
 new class PincurchinSpecies extends Species {}(
   PokemonSpecies.Pincurchin,
@@ -6985,6 +7856,7 @@ new class PincurchinSpecies extends Species {}(
   75,
   50,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class SnomSpecies extends Species {}(
   PokemonSpecies.Snom,
@@ -6993,6 +7865,7 @@ new class SnomSpecies extends Species {}(
   190,
   50,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class FrosmothSpecies extends Species {}(
   PokemonSpecies.Frosmoth,
@@ -7001,6 +7874,7 @@ new class FrosmothSpecies extends Species {}(
   75,
   50,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class StonjournerSpecies extends Species {}(
   PokemonSpecies.Stonjourner,
@@ -7009,6 +7883,7 @@ new class StonjournerSpecies extends Species {}(
   60,
   50,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class EiscueSpecies extends Species {}(
   PokemonSpecies.Eiscue,
@@ -7017,6 +7892,7 @@ new class EiscueSpecies extends Species {}(
   60,
   50,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class IndeedeeSpecies extends Species {}(
   PokemonSpecies.Indeedee,
@@ -7025,6 +7901,7 @@ new class IndeedeeSpecies extends Species {}(
   30,
   140,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class MorpekoSpecies extends Species {}(
   PokemonSpecies.Morpeko,
@@ -7033,6 +7910,7 @@ new class MorpekoSpecies extends Species {}(
   180,
   50,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class CufantSpecies extends Species {}(
   PokemonSpecies.Cufant,
@@ -7041,6 +7919,7 @@ new class CufantSpecies extends Species {}(
   190,
   50,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class CopperajahSpecies extends Species {}(
   PokemonSpecies.Copperajah,
@@ -7049,6 +7928,7 @@ new class CopperajahSpecies extends Species {}(
   90,
   50,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class DracozoltSpecies extends Species {}(
   PokemonSpecies.Dracozolt,
@@ -7057,6 +7937,7 @@ new class DracozoltSpecies extends Species {}(
   45,
   50,
   PokemonSpeciesFlags.None,
+  -1,
 );
 new class ArctozoltSpecies extends Species {}(
   PokemonSpecies.Arctozolt,
@@ -7065,6 +7946,7 @@ new class ArctozoltSpecies extends Species {}(
   45,
   50,
   PokemonSpeciesFlags.None,
+  -1,
 );
 new class DracovishSpecies extends Species {}(
   PokemonSpecies.Dracovish,
@@ -7073,6 +7955,7 @@ new class DracovishSpecies extends Species {}(
   45,
   50,
   PokemonSpeciesFlags.None,
+  -1,
 );
 new class ArctovishSpecies extends Species {}(
   PokemonSpecies.Arctovish,
@@ -7081,6 +7964,7 @@ new class ArctovishSpecies extends Species {}(
   45,
   50,
   PokemonSpeciesFlags.None,
+  -1,
 );
 new class DuraludonSpecies extends Species {}(
   PokemonSpecies.Duraludon,
@@ -7089,6 +7973,7 @@ new class DuraludonSpecies extends Species {}(
   45,
   50,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class DreepySpecies extends Species {}(
   PokemonSpecies.Dreepy,
@@ -7097,6 +7982,7 @@ new class DreepySpecies extends Species {}(
   45,
   50,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class DrakloakSpecies extends Species {}(
   PokemonSpecies.Drakloak,
@@ -7105,6 +7991,7 @@ new class DrakloakSpecies extends Species {}(
   45,
   50,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class DragapultSpecies extends Species {}(
   PokemonSpecies.Dragapult,
@@ -7113,6 +8000,7 @@ new class DragapultSpecies extends Species {}(
   45,
   50,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class ZacianSpecies extends Species {}(
   PokemonSpecies.Zacian,
@@ -7121,6 +8009,7 @@ new class ZacianSpecies extends Species {}(
   10,
   0,
   PokemonSpeciesFlags.Legendary,
+  -1,
 );
 new class ZamazentaSpecies extends Species {}(
   PokemonSpecies.Zamazenta,
@@ -7129,6 +8018,7 @@ new class ZamazentaSpecies extends Species {}(
   10,
   0,
   PokemonSpeciesFlags.Legendary,
+  -1,
 );
 new class EternatusSpecies extends Species {}(
   PokemonSpecies.Eternatus,
@@ -7137,6 +8027,7 @@ new class EternatusSpecies extends Species {}(
   255,
   0,
   PokemonSpeciesFlags.Legendary,
+  -1,
 );
 new class KubfuSpecies extends Species {}(
   PokemonSpecies.Kubfu,
@@ -7145,6 +8036,7 @@ new class KubfuSpecies extends Species {}(
   3,
   50,
   PokemonSpeciesFlags.Legendary,
+  1,
 );
 new class UrshifuSpecies extends Species {}(
   PokemonSpecies.Urshifu,
@@ -7153,6 +8045,7 @@ new class UrshifuSpecies extends Species {}(
   3,
   50,
   PokemonSpeciesFlags.Legendary,
+  1,
 );
 new class ZarudeSpecies extends Species {}(
   PokemonSpecies.Zarude,
@@ -7161,6 +8054,7 @@ new class ZarudeSpecies extends Species {}(
   3,
   0,
   PokemonSpeciesFlags.Mythical,
+  -1,
 );
 new class RegielekiSpecies extends Species {}(
   PokemonSpecies.Regieleki,
@@ -7169,6 +8063,7 @@ new class RegielekiSpecies extends Species {}(
   3,
   35,
   PokemonSpeciesFlags.Legendary,
+  -1,
 );
 new class RegidragoSpecies extends Species {}(
   PokemonSpecies.Regidrago,
@@ -7177,6 +8072,7 @@ new class RegidragoSpecies extends Species {}(
   3,
   35,
   PokemonSpeciesFlags.Legendary,
+  -1,
 );
 new class GlastrierSpecies extends Species {}(
   PokemonSpecies.Glastrier,
@@ -7185,6 +8081,7 @@ new class GlastrierSpecies extends Species {}(
   3,
   35,
   PokemonSpeciesFlags.Legendary,
+  -1,
 );
 new class SpectrierSpecies extends Species {}(
   PokemonSpecies.Spectrier,
@@ -7193,6 +8090,7 @@ new class SpectrierSpecies extends Species {}(
   3,
   35,
   PokemonSpeciesFlags.Legendary,
+  -1,
 );
 new class CalyrexSpecies extends Species {}(
   PokemonSpecies.Calyrex,
@@ -7201,6 +8099,7 @@ new class CalyrexSpecies extends Species {}(
   3,
   100,
   PokemonSpeciesFlags.Legendary,
+  -1,
 );
 new class WyrdeerSpecies extends Species {}(
   PokemonSpecies.Wyrdeer,
@@ -7209,6 +8108,7 @@ new class WyrdeerSpecies extends Species {}(
   135,
   null,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class KleavorSpecies extends Species {}(
   PokemonSpecies.Kleavor,
@@ -7217,6 +8117,7 @@ new class KleavorSpecies extends Species {}(
   115,
   null,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class UrsalunaSpecies extends Species {}(
   PokemonSpecies.Ursaluna,
@@ -7225,6 +8126,7 @@ new class UrsalunaSpecies extends Species {}(
   75,
   null,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class BasculegionSpecies extends Species {}(
   PokemonSpecies.Basculegion,
@@ -7233,6 +8135,7 @@ new class BasculegionSpecies extends Species {}(
   135,
   null,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class SneaslerSpecies extends Species {}(
   PokemonSpecies.Sneasler,
@@ -7241,6 +8144,7 @@ new class SneaslerSpecies extends Species {}(
   135,
   null,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class OverqwilSpecies extends Species {}(
   PokemonSpecies.Overqwil,
@@ -7249,6 +8153,7 @@ new class OverqwilSpecies extends Species {}(
   135,
   null,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class EnamorusSpecies extends Species {}(
   PokemonSpecies.Enamorus,
@@ -7257,6 +8162,7 @@ new class EnamorusSpecies extends Species {}(
   3,
   null,
   PokemonSpeciesFlags.Legendary,
+  8,
 );
 new class SprigatitoSpecies extends Species {}(
   PokemonSpecies.Sprigatito,
@@ -7265,6 +8171,7 @@ new class SprigatitoSpecies extends Species {}(
   45,
   50,
   PokemonSpeciesFlags.None,
+  1,
 );
 new class FloragatoSpecies extends Species {}(
   PokemonSpecies.Floragato,
@@ -7273,6 +8180,7 @@ new class FloragatoSpecies extends Species {}(
   45,
   50,
   PokemonSpeciesFlags.None,
+  1,
 );
 new class MeowscaradaSpecies extends Species {}(
   PokemonSpecies.Meowscarada,
@@ -7281,6 +8189,7 @@ new class MeowscaradaSpecies extends Species {}(
   45,
   50,
   PokemonSpeciesFlags.None,
+  1,
 );
 new class FuecocoSpecies extends Species {}(
   PokemonSpecies.Fuecoco,
@@ -7289,6 +8198,7 @@ new class FuecocoSpecies extends Species {}(
   45,
   50,
   PokemonSpeciesFlags.None,
+  1,
 );
 new class CrocalorSpecies extends Species {}(
   PokemonSpecies.Crocalor,
@@ -7297,6 +8207,7 @@ new class CrocalorSpecies extends Species {}(
   45,
   50,
   PokemonSpeciesFlags.None,
+  1,
 );
 new class SkeledirgeSpecies extends Species {}(
   PokemonSpecies.Skeledirge,
@@ -7305,6 +8216,7 @@ new class SkeledirgeSpecies extends Species {}(
   45,
   50,
   PokemonSpeciesFlags.None,
+  1,
 );
 new class QuaxlySpecies extends Species {}(
   PokemonSpecies.Quaxly,
@@ -7313,6 +8225,7 @@ new class QuaxlySpecies extends Species {}(
   45,
   50,
   PokemonSpeciesFlags.None,
+  1,
 );
 new class QuaxwellSpecies extends Species {}(
   PokemonSpecies.Quaxwell,
@@ -7321,6 +8234,7 @@ new class QuaxwellSpecies extends Species {}(
   45,
   50,
   PokemonSpeciesFlags.None,
+  1,
 );
 new class QuaquavalSpecies extends Species {}(
   PokemonSpecies.Quaquaval,
@@ -7329,6 +8243,7 @@ new class QuaquavalSpecies extends Species {}(
   45,
   50,
   PokemonSpeciesFlags.None,
+  1,
 );
 new class LechonkSpecies extends Species {}(
   PokemonSpecies.Lechonk,
@@ -7337,6 +8252,7 @@ new class LechonkSpecies extends Species {}(
   255,
   50,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class OinkologneSpecies extends Species {}(
   PokemonSpecies.Oinkologne,
@@ -7345,6 +8261,7 @@ new class OinkologneSpecies extends Species {}(
   100,
   50,
   PokemonSpeciesFlags.None,
+  0,
 );
 new class TarountulaSpecies extends Species {}(
   PokemonSpecies.Tarountula,
@@ -7353,6 +8270,7 @@ new class TarountulaSpecies extends Species {}(
   255,
   50,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class SpidopsSpecies extends Species {}(
   PokemonSpecies.Spidops,
@@ -7361,6 +8279,7 @@ new class SpidopsSpecies extends Species {}(
   120,
   50,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class NymbleSpecies extends Species {}(
   PokemonSpecies.Nymble,
@@ -7369,6 +8288,7 @@ new class NymbleSpecies extends Species {}(
   190,
   20,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class LokixSpecies extends Species {}(
   PokemonSpecies.Lokix,
@@ -7377,6 +8297,7 @@ new class LokixSpecies extends Species {}(
   30,
   0,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class PawmiSpecies extends Species {}(
   PokemonSpecies.Pawmi,
@@ -7385,6 +8306,7 @@ new class PawmiSpecies extends Species {}(
   190,
   50,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class PawmoSpecies extends Species {}(
   PokemonSpecies.Pawmo,
@@ -7393,6 +8315,7 @@ new class PawmoSpecies extends Species {}(
   80,
   50,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class PawmotSpecies extends Species {}(
   PokemonSpecies.Pawmot,
@@ -7401,6 +8324,7 @@ new class PawmotSpecies extends Species {}(
   45,
   50,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class TandemausSpecies extends Species {}(
   PokemonSpecies.Tandemaus,
@@ -7409,6 +8333,7 @@ new class TandemausSpecies extends Species {}(
   150,
   50,
   PokemonSpeciesFlags.None,
+  -1,
 );
 new class MausholdSpecies extends Species {}(
   PokemonSpecies.Maushold,
@@ -7417,6 +8342,7 @@ new class MausholdSpecies extends Species {}(
   75,
   50,
   PokemonSpeciesFlags.None,
+  -1,
 );
 new class FidoughSpecies extends Species {}(
   PokemonSpecies.Fidough,
@@ -7425,6 +8351,7 @@ new class FidoughSpecies extends Species {}(
   190,
   50,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class DachsbunSpecies extends Species {}(
   PokemonSpecies.Dachsbun,
@@ -7433,6 +8360,7 @@ new class DachsbunSpecies extends Species {}(
   90,
   50,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class SmolivSpecies extends Species {}(
   PokemonSpecies.Smoliv,
@@ -7441,6 +8369,7 @@ new class SmolivSpecies extends Species {}(
   255,
   50,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class DollivSpecies extends Species {}(
   PokemonSpecies.Dolliv,
@@ -7449,6 +8378,7 @@ new class DollivSpecies extends Species {}(
   120,
   50,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class ArbolivaSpecies extends Species {}(
   PokemonSpecies.Arboliva,
@@ -7457,6 +8387,7 @@ new class ArbolivaSpecies extends Species {}(
   45,
   50,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class SquawkabillySpecies extends Species {}(
   PokemonSpecies.Squawkabilly,
@@ -7465,6 +8396,7 @@ new class SquawkabillySpecies extends Species {}(
   190,
   50,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class NacliSpecies extends Species {}(
   PokemonSpecies.Nacli,
@@ -7473,6 +8405,7 @@ new class NacliSpecies extends Species {}(
   255,
   50,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class NaclstackSpecies extends Species {}(
   PokemonSpecies.Naclstack,
@@ -7481,6 +8414,7 @@ new class NaclstackSpecies extends Species {}(
   120,
   50,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class GarganaclSpecies extends Species {}(
   PokemonSpecies.Garganacl,
@@ -7489,6 +8423,7 @@ new class GarganaclSpecies extends Species {}(
   45,
   50,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class CharcadetSpecies extends Species {}(
   PokemonSpecies.Charcadet,
@@ -7497,6 +8432,7 @@ new class CharcadetSpecies extends Species {}(
   90,
   50,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class ArmarougeSpecies extends Species {}(
   PokemonSpecies.Armarouge,
@@ -7505,6 +8441,7 @@ new class ArmarougeSpecies extends Species {}(
   25,
   20,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class CeruledgeSpecies extends Species {}(
   PokemonSpecies.Ceruledge,
@@ -7513,6 +8450,7 @@ new class CeruledgeSpecies extends Species {}(
   25,
   20,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class TadbulbSpecies extends Species {}(
   PokemonSpecies.Tadbulb,
@@ -7521,6 +8459,7 @@ new class TadbulbSpecies extends Species {}(
   190,
   50,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class BelliboltSpecies extends Species {}(
   PokemonSpecies.Bellibolt,
@@ -7529,6 +8468,7 @@ new class BelliboltSpecies extends Species {}(
   50,
   50,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class WattrelSpecies extends Species {}(
   PokemonSpecies.Wattrel,
@@ -7537,6 +8477,7 @@ new class WattrelSpecies extends Species {}(
   180,
   50,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class KilowattrelSpecies extends Species {}(
   PokemonSpecies.Kilowattrel,
@@ -7545,6 +8486,7 @@ new class KilowattrelSpecies extends Species {}(
   90,
   50,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class MaschiffSpecies extends Species {}(
   PokemonSpecies.Maschiff,
@@ -7553,6 +8495,7 @@ new class MaschiffSpecies extends Species {}(
   150,
   50,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class MabosstiffSpecies extends Species {}(
   PokemonSpecies.Mabosstiff,
@@ -7561,6 +8504,7 @@ new class MabosstiffSpecies extends Species {}(
   75,
   50,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class ShroodleSpecies extends Species {}(
   PokemonSpecies.Shroodle,
@@ -7569,6 +8513,7 @@ new class ShroodleSpecies extends Species {}(
   190,
   50,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class GrafaiaiSpecies extends Species {}(
   PokemonSpecies.Grafaiai,
@@ -7577,6 +8522,7 @@ new class GrafaiaiSpecies extends Species {}(
   90,
   50,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class BramblinSpecies extends Species {}(
   PokemonSpecies.Bramblin,
@@ -7585,6 +8531,7 @@ new class BramblinSpecies extends Species {}(
   190,
   50,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class BrambleghastSpecies extends Species {}(
   PokemonSpecies.Brambleghast,
@@ -7593,6 +8540,7 @@ new class BrambleghastSpecies extends Species {}(
   45,
   50,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class ToedscoolSpecies extends Species {}(
   PokemonSpecies.Toedscool,
@@ -7601,6 +8549,7 @@ new class ToedscoolSpecies extends Species {}(
   190,
   50,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class ToedscruelSpecies extends Species {}(
   PokemonSpecies.Toedscruel,
@@ -7609,6 +8558,7 @@ new class ToedscruelSpecies extends Species {}(
   90,
   50,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class KlawfSpecies extends Species {}(
   PokemonSpecies.Klawf,
@@ -7617,6 +8567,7 @@ new class KlawfSpecies extends Species {}(
   120,
   50,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class CapsakidSpecies extends Species {}(
   PokemonSpecies.Capsakid,
@@ -7625,6 +8576,7 @@ new class CapsakidSpecies extends Species {}(
   190,
   50,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class ScovillainSpecies extends Species {}(
   PokemonSpecies.Scovillain,
@@ -7633,6 +8585,7 @@ new class ScovillainSpecies extends Species {}(
   75,
   50,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class RellorSpecies extends Species {}(
   PokemonSpecies.Rellor,
@@ -7641,6 +8594,7 @@ new class RellorSpecies extends Species {}(
   190,
   50,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class RabscaSpecies extends Species {}(
   PokemonSpecies.Rabsca,
@@ -7649,6 +8603,7 @@ new class RabscaSpecies extends Species {}(
   45,
   50,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class FlittleSpecies extends Species {}(
   PokemonSpecies.Flittle,
@@ -7657,6 +8612,7 @@ new class FlittleSpecies extends Species {}(
   120,
   50,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class EspathraSpecies extends Species {}(
   PokemonSpecies.Espathra,
@@ -7665,6 +8621,7 @@ new class EspathraSpecies extends Species {}(
   60,
   50,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class TinkatinkSpecies extends Species {}(
   PokemonSpecies.Tinkatink,
@@ -7673,6 +8630,7 @@ new class TinkatinkSpecies extends Species {}(
   190,
   50,
   PokemonSpeciesFlags.None,
+  8,
 );
 new class TinkatuffSpecies extends Species {}(
   PokemonSpecies.Tinkatuff,
@@ -7681,6 +8639,7 @@ new class TinkatuffSpecies extends Species {}(
   90,
   50,
   PokemonSpeciesFlags.None,
+  8,
 );
 new class TinkatonSpecies extends Species {}(
   PokemonSpecies.Tinkaton,
@@ -7689,6 +8648,7 @@ new class TinkatonSpecies extends Species {}(
   45,
   50,
   PokemonSpeciesFlags.None,
+  8,
 );
 new class WiglettSpecies extends Species {}(
   PokemonSpecies.Wiglett,
@@ -7697,6 +8657,7 @@ new class WiglettSpecies extends Species {}(
   255,
   50,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class WugtrioSpecies extends Species {}(
   PokemonSpecies.Wugtrio,
@@ -7705,6 +8666,7 @@ new class WugtrioSpecies extends Species {}(
   50,
   50,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class BombirdierSpecies extends Species {}(
   PokemonSpecies.Bombirdier,
@@ -7713,6 +8675,7 @@ new class BombirdierSpecies extends Species {}(
   25,
   50,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class FinizenSpecies extends Species {}(
   PokemonSpecies.Finizen,
@@ -7721,6 +8684,7 @@ new class FinizenSpecies extends Species {}(
   200,
   50,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class PalafinSpecies extends Species {}(
   PokemonSpecies.Palafin,
@@ -7729,6 +8693,7 @@ new class PalafinSpecies extends Species {}(
   45,
   50,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class VaroomSpecies extends Species {}(
   PokemonSpecies.Varoom,
@@ -7737,6 +8702,7 @@ new class VaroomSpecies extends Species {}(
   190,
   50,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class RevavroomSpecies extends Species {}(
   PokemonSpecies.Revavroom,
@@ -7745,6 +8711,7 @@ new class RevavroomSpecies extends Species {}(
   75,
   50,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class CyclizarSpecies extends Species {}(
   PokemonSpecies.Cyclizar,
@@ -7753,6 +8720,7 @@ new class CyclizarSpecies extends Species {}(
   190,
   50,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class OrthwormSpecies extends Species {}(
   PokemonSpecies.Orthworm,
@@ -7761,6 +8729,7 @@ new class OrthwormSpecies extends Species {}(
   25,
   50,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class GlimmetSpecies extends Species {}(
   PokemonSpecies.Glimmet,
@@ -7769,6 +8738,7 @@ new class GlimmetSpecies extends Species {}(
   70,
   50,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class GlimmoraSpecies extends Species {}(
   PokemonSpecies.Glimmora,
@@ -7777,6 +8747,7 @@ new class GlimmoraSpecies extends Species {}(
   25,
   50,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class GreavardSpecies extends Species {}(
   PokemonSpecies.Greavard,
@@ -7785,6 +8756,7 @@ new class GreavardSpecies extends Species {}(
   120,
   50,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class HoundstoneSpecies extends Species {}(
   PokemonSpecies.Houndstone,
@@ -7793,6 +8765,7 @@ new class HoundstoneSpecies extends Species {}(
   60,
   50,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class FlamigoSpecies extends Species {}(
   PokemonSpecies.Flamigo,
@@ -7801,6 +8774,7 @@ new class FlamigoSpecies extends Species {}(
   100,
   50,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class CetoddleSpecies extends Species {}(
   PokemonSpecies.Cetoddle,
@@ -7809,6 +8783,7 @@ new class CetoddleSpecies extends Species {}(
   150,
   50,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class CetitanSpecies extends Species {}(
   PokemonSpecies.Cetitan,
@@ -7817,6 +8792,7 @@ new class CetitanSpecies extends Species {}(
   50,
   50,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class VeluzaSpecies extends Species {}(
   PokemonSpecies.Veluza,
@@ -7825,6 +8801,7 @@ new class VeluzaSpecies extends Species {}(
   100,
   50,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class DondozoSpecies extends Species {}(
   PokemonSpecies.Dondozo,
@@ -7833,6 +8810,7 @@ new class DondozoSpecies extends Species {}(
   25,
   50,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class TatsugiriSpecies extends Species {}(
   PokemonSpecies.Tatsugiri,
@@ -7841,6 +8819,7 @@ new class TatsugiriSpecies extends Species {}(
   100,
   50,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class AnnihilapeSpecies extends Species {}(
   PokemonSpecies.Annihilape,
@@ -7849,6 +8828,7 @@ new class AnnihilapeSpecies extends Species {}(
   45,
   50,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class ClodsireSpecies extends Species {}(
   PokemonSpecies.Clodsire,
@@ -7857,6 +8837,7 @@ new class ClodsireSpecies extends Species {}(
   90,
   50,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class FarigirafSpecies extends Species {}(
   PokemonSpecies.Farigiraf,
@@ -7865,6 +8846,7 @@ new class FarigirafSpecies extends Species {}(
   45,
   50,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class DudunsparceSpecies extends Species {}(
   PokemonSpecies.Dudunsparce,
@@ -7873,6 +8855,7 @@ new class DudunsparceSpecies extends Species {}(
   45,
   50,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class KingambitSpecies extends Species {}(
   PokemonSpecies.Kingambit,
@@ -7881,6 +8864,7 @@ new class KingambitSpecies extends Species {}(
   25,
   50,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class GreatTuskSpecies extends Species {}(
   PokemonSpecies.GreatTusk,
@@ -7889,6 +8873,7 @@ new class GreatTuskSpecies extends Species {}(
   30,
   0,
   PokemonSpeciesFlags.None,
+  -1,
 );
 new class ScreamTailSpecies extends Species {}(
   PokemonSpecies.ScreamTail,
@@ -7897,6 +8882,7 @@ new class ScreamTailSpecies extends Species {}(
   50,
   0,
   PokemonSpeciesFlags.None,
+  -1,
 );
 new class BruteBonnetSpecies extends Species {}(
   PokemonSpecies.BruteBonnet,
@@ -7905,6 +8891,7 @@ new class BruteBonnetSpecies extends Species {}(
   50,
   0,
   PokemonSpeciesFlags.None,
+  -1,
 );
 new class FlutterManeSpecies extends Species {}(
   PokemonSpecies.FlutterMane,
@@ -7913,6 +8900,7 @@ new class FlutterManeSpecies extends Species {}(
   30,
   0,
   PokemonSpeciesFlags.None,
+  -1,
 );
 new class SlitherWingSpecies extends Species {}(
   PokemonSpecies.SlitherWing,
@@ -7921,6 +8909,7 @@ new class SlitherWingSpecies extends Species {}(
   30,
   0,
   PokemonSpeciesFlags.None,
+  -1,
 );
 new class SandyShocksSpecies extends Species {}(
   PokemonSpecies.SandyShocks,
@@ -7929,6 +8918,7 @@ new class SandyShocksSpecies extends Species {}(
   30,
   0,
   PokemonSpeciesFlags.None,
+  -1,
 );
 new class IronTreadsSpecies extends Species {}(
   PokemonSpecies.IronTreads,
@@ -7937,6 +8927,7 @@ new class IronTreadsSpecies extends Species {}(
   30,
   0,
   PokemonSpeciesFlags.None,
+  -1,
 );
 new class IronBundleSpecies extends Species {}(
   PokemonSpecies.IronBundle,
@@ -7945,6 +8936,7 @@ new class IronBundleSpecies extends Species {}(
   50,
   0,
   PokemonSpeciesFlags.None,
+  -1,
 );
 new class IronHandsSpecies extends Species {}(
   PokemonSpecies.IronHands,
@@ -7953,6 +8945,7 @@ new class IronHandsSpecies extends Species {}(
   50,
   0,
   PokemonSpeciesFlags.None,
+  -1,
 );
 new class IronJugulisSpecies extends Species {}(
   PokemonSpecies.IronJugulis,
@@ -7961,6 +8954,7 @@ new class IronJugulisSpecies extends Species {}(
   30,
   0,
   PokemonSpeciesFlags.None,
+  -1,
 );
 new class IronMothSpecies extends Species {}(
   PokemonSpecies.IronMoth,
@@ -7969,6 +8963,7 @@ new class IronMothSpecies extends Species {}(
   30,
   0,
   PokemonSpeciesFlags.None,
+  -1,
 );
 new class IronThornsSpecies extends Species {}(
   PokemonSpecies.IronThorns,
@@ -7977,6 +8972,7 @@ new class IronThornsSpecies extends Species {}(
   30,
   0,
   PokemonSpeciesFlags.None,
+  -1,
 );
 new class FrigibaxSpecies extends Species {}(
   PokemonSpecies.Frigibax,
@@ -7985,6 +8981,7 @@ new class FrigibaxSpecies extends Species {}(
   45,
   50,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class ArctibaxSpecies extends Species {}(
   PokemonSpecies.Arctibax,
@@ -7993,6 +8990,7 @@ new class ArctibaxSpecies extends Species {}(
   25,
   50,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class BaxcaliburSpecies extends Species {}(
   PokemonSpecies.Baxcalibur,
@@ -8001,6 +8999,7 @@ new class BaxcaliburSpecies extends Species {}(
   10,
   50,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class GimmighoulSpecies extends Species {}(
   PokemonSpecies.Gimmighoul,
@@ -8009,6 +9008,7 @@ new class GimmighoulSpecies extends Species {}(
   45,
   50,
   PokemonSpeciesFlags.None,
+  -1,
 );
 new class GholdengoSpecies extends Species {}(
   PokemonSpecies.Gholdengo,
@@ -8017,6 +9017,7 @@ new class GholdengoSpecies extends Species {}(
   45,
   50,
   PokemonSpeciesFlags.None,
+  -1,
 );
 new class WoChienSpecies extends Species {}(
   PokemonSpecies.WoChien,
@@ -8025,6 +9026,7 @@ new class WoChienSpecies extends Species {}(
   6,
   0,
   PokemonSpeciesFlags.Legendary,
+  -1,
 );
 new class ChienPaoSpecies extends Species {}(
   PokemonSpecies.ChienPao,
@@ -8033,6 +9035,7 @@ new class ChienPaoSpecies extends Species {}(
   6,
   0,
   PokemonSpeciesFlags.Legendary,
+  -1,
 );
 new class TingLuSpecies extends Species {}(
   PokemonSpecies.TingLu,
@@ -8041,6 +9044,7 @@ new class TingLuSpecies extends Species {}(
   6,
   0,
   PokemonSpeciesFlags.Legendary,
+  -1,
 );
 new class ChiYuSpecies extends Species {}(
   PokemonSpecies.ChiYu,
@@ -8049,6 +9053,7 @@ new class ChiYuSpecies extends Species {}(
   6,
   0,
   PokemonSpeciesFlags.Legendary,
+  -1,
 );
 new class RoaringMoonSpecies extends Species {}(
   PokemonSpecies.RoaringMoon,
@@ -8057,6 +9062,7 @@ new class RoaringMoonSpecies extends Species {}(
   10,
   0,
   PokemonSpeciesFlags.None,
+  -1,
 );
 new class IronValiantSpecies extends Species {}(
   PokemonSpecies.IronValiant,
@@ -8065,6 +9071,7 @@ new class IronValiantSpecies extends Species {}(
   10,
   0,
   PokemonSpeciesFlags.None,
+  -1,
 );
 new class KoraidonSpecies extends Species {}(
   PokemonSpecies.Koraidon,
@@ -8073,6 +9080,7 @@ new class KoraidonSpecies extends Species {}(
   3,
   0,
   PokemonSpeciesFlags.Legendary,
+  -1,
 );
 new class MiraidonSpecies extends Species {}(
   PokemonSpecies.Miraidon,
@@ -8081,6 +9089,7 @@ new class MiraidonSpecies extends Species {}(
   3,
   0,
   PokemonSpeciesFlags.Legendary,
+  -1,
 );
 new class WalkingWakeSpecies extends Species {}(
   PokemonSpecies.WalkingWake,
@@ -8089,6 +9098,7 @@ new class WalkingWakeSpecies extends Species {}(
   5,
   0,
   PokemonSpeciesFlags.None,
+  -1,
 );
 new class IronLeavesSpecies extends Species {}(
   PokemonSpecies.IronLeaves,
@@ -8097,6 +9107,7 @@ new class IronLeavesSpecies extends Species {}(
   5,
   0,
   PokemonSpeciesFlags.None,
+  -1,
 );
 new class DipplinSpecies extends Species {}(
   PokemonSpecies.Dipplin,
@@ -8105,6 +9116,7 @@ new class DipplinSpecies extends Species {}(
   45,
   0,
   PokemonSpeciesFlags.None,
+  -1,
 );
 new class PoltchageistSpecies extends Species {}(
   PokemonSpecies.Poltchageist,
@@ -8113,6 +9125,7 @@ new class PoltchageistSpecies extends Species {}(
   120,
   0,
   PokemonSpeciesFlags.None,
+  -1,
 );
 new class SinistchaSpecies extends Species {}(
   PokemonSpecies.Sinistcha,
@@ -8121,6 +9134,7 @@ new class SinistchaSpecies extends Species {}(
   60,
   0,
   PokemonSpeciesFlags.None,
+  -1,
 );
 new class OkidogiSpecies extends Species {}(
   PokemonSpecies.Okidogi,
@@ -8129,6 +9143,7 @@ new class OkidogiSpecies extends Species {}(
   3,
   0,
   PokemonSpeciesFlags.Legendary,
+  -1,
 );
 new class MunkidoriSpecies extends Species {}(
   PokemonSpecies.Munkidori,
@@ -8137,6 +9152,7 @@ new class MunkidoriSpecies extends Species {}(
   3,
   0,
   PokemonSpeciesFlags.Legendary,
+  -1,
 );
 new class FezandipitiSpecies extends Species {}(
   PokemonSpecies.Fezandipiti,
@@ -8145,6 +9161,7 @@ new class FezandipitiSpecies extends Species {}(
   3,
   0,
   PokemonSpeciesFlags.Legendary,
+  -1,
 );
 new class OgerponSpecies extends Species {}(
   PokemonSpecies.Ogerpon,
@@ -8153,6 +9170,7 @@ new class OgerponSpecies extends Species {}(
   5,
   0,
   PokemonSpeciesFlags.Legendary,
+  -1,
 );
 new class ArchaludonSpecies extends Species {}(
   PokemonSpecies.Archaludon,
@@ -8161,6 +9179,7 @@ new class ArchaludonSpecies extends Species {}(
   10,
   50,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class HydrappleSpecies extends Species {}(
   PokemonSpecies.Hydrapple,
@@ -8169,6 +9188,7 @@ new class HydrappleSpecies extends Species {}(
   10,
   50,
   PokemonSpeciesFlags.None,
+  4,
 );
 new class GougingFireSpecies extends Species {}(
   PokemonSpecies.GougingFire,
@@ -8177,6 +9197,7 @@ new class GougingFireSpecies extends Species {}(
   10,
   0,
   PokemonSpeciesFlags.None,
+  -1,
 );
 new class RagingBoltSpecies extends Species {}(
   PokemonSpecies.RagingBolt,
@@ -8185,6 +9206,7 @@ new class RagingBoltSpecies extends Species {}(
   10,
   0,
   PokemonSpeciesFlags.None,
+  -1,
 );
 new class IronBoulderSpecies extends Species {}(
   PokemonSpecies.IronBoulder,
@@ -8193,6 +9215,7 @@ new class IronBoulderSpecies extends Species {}(
   10,
   0,
   PokemonSpeciesFlags.None,
+  -1,
 );
 new class IronCrownSpecies extends Species {}(
   PokemonSpecies.IronCrown,
@@ -8201,6 +9224,7 @@ new class IronCrownSpecies extends Species {}(
   10,
   0,
   PokemonSpeciesFlags.None,
+  -1,
 );
 new class TerapagosSpecies extends Species {}(
   PokemonSpecies.Terapagos,
@@ -8209,6 +9233,7 @@ new class TerapagosSpecies extends Species {}(
   255,
   50,
   PokemonSpeciesFlags.Legendary,
+  -1,
 );
 new class PecharuntSpecies extends Species {}(
   PokemonSpecies.Pecharunt,
@@ -8217,4 +9242,5 @@ new class PecharuntSpecies extends Species {}(
   3,
   0,
   PokemonSpeciesFlags.Mythical,
+  -1,
 );
