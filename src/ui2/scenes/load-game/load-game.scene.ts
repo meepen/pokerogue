@@ -1,6 +1,6 @@
 import FieldSpritePipeline from "#app/pipelines/field-sprite";
 import { GameScene, InitSceneData } from "#ui/scene";
-import { GameInfo, loadGameInfo } from "../../../game-info/game-info";
+import { GameInfo } from "../../../game-info/game-info";
 import { TextStyle, addTextObject } from "../../text/text";
 import { LoginScene } from "../login-scene/login.scene";
 import { MainMenuScene } from "../main-menu/main-menu.scene";
@@ -27,27 +27,30 @@ export class LoadGameScene extends Phaser.Scene {
     text.y = this.game.canvas.height / 2;
 
     let gameData: GameInfo;
-    loadGameInfo().then((newGameInfo) => {
-      gameData = newGameInfo;
-      return gameData.isLoggedIn();
-    }).then((isLoggedIn) => {
-      let scene: new (...args: unknown[]) => GameScene<unknown> = isLoggedIn ? MainMenuScene : LoginScene;
 
-      this.scene.add(
-        scene.name,
-        scene,
-        true,
-        {
-          gameData,
-          swapData: {},
-          pipelines: new Map<string, Phaser.Renderer.WebGL.WebGLPipeline>(
-            [
-              [FieldSpritePipeline.name, this.addPipeline(FieldSpritePipeline, this.game)],
-            ],
-          ),
-        } as InitSceneData<unknown>,
-      );
-      this.scene.remove(LoadGameScene.name);
-    });
+    GameInfo.create()
+      .then((gameInfo) => {
+        gameData = gameInfo;
+        return gameData.isLoggedIn();
+      })
+      .then((isLoggedIn) => {
+        let scene: new (...args: unknown[]) => GameScene<unknown> = isLoggedIn ? MainMenuScene : LoginScene;
+
+        this.scene.add(
+          scene.name,
+          scene,
+          true,
+          {
+            gameData,
+            swapData: {},
+            pipelines: new Map<string, Phaser.Renderer.WebGL.WebGLPipeline>(
+              [
+                [FieldSpritePipeline.name, this.addPipeline(FieldSpritePipeline, this.game)],
+              ],
+            ),
+          } as InitSceneData<unknown>,
+        );
+        this.scene.remove(LoadGameScene.name);
+      });
   }
 }

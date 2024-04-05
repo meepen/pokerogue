@@ -1,68 +1,21 @@
-import { Generation } from "#gameinfo/species/generation";
-import { AccountInfo, LoginDetails, PokeRogueApi } from "../api/api";
+import { AccountInfoDto } from "#app/api/dto/account-info.dto";
+import { SystemSaveDataDto } from "#app/api/dto/trainer-data.dto";
+import { IPokeRogueApi, LoginDetails } from "#app/api/api";
 import { getSessionToken, setSessionToken } from "./local-cookies";
-import { NamedAPIResourceList, PokemonClient } from "pokenode-ts";
+import { PokeRogueApiRemote } from "#app/api/api-remote";
 
-export abstract class GameInfo {
-  protected readonly pokeApi = new PokemonClient();
-  constructor() {}
-
-  abstract isLoggedIn(): Promise<boolean>;
-  abstract getPlayerCount(): Promise<number>;
-  abstract login(details: LoginDetails): Promise<void>;
-  abstract register(details: LoginDetails): Promise<void>;
-  abstract logOut(): Promise<void>;
-  abstract accountInfo(): Promise<AccountInfo>;
-
-  private allPokemons: Promise<NamedAPIResourceList>;
-  private async getAllPokemon() {
-    return this.pokeApi.listPokemons();
-  }
-
-  private evolutionInfo
-  getEvolutions(generation: Generation) {
-    this.pokeApi.listPokemons()
-  }
-}
-
-class GameInfoLocal extends GameInfo {
-  constructor() {
-    super();
-  }
-
-  override async getPlayerCount() {
-    return -1337;
-  }
-
-  override async isLoggedIn() {
-    return true;
-  }
-
-  override async login(details: LoginDetails) {}
-  override async register(details: LoginDetails) {}
-  override async logOut() {}
-  override async accountInfo() {
-    return {};
-  }
-}
-
-class GameInfoRemote extends GameInfo {
-  private api = new PokeRogueApi(import.meta.env.VITE_API_BASE_URL);
-
-  constructor() {
-    super();
-    this.api.authenticationToken = getSessionToken();
-    this.api.on('authChanged', (token: string | null) => {
+export class GameInfo {
+  constructor(
+    protected api: IPokeRogueApi,
+  ) {
+    api.restoreSession(getSessionToken());
+    api.on('authChanged', (token: string | null) => {
       console.log('authChanged', token);
       setSessionToken(token);
     });
   }
 
-  override getPlayerCount() {
-    return this.api.getPlayerCount();
-  }
-
-  override async isLoggedIn() {
+  async isLoggedIn(): Promise<boolean> {
     try {
       await this.api.retrieveAccountInfo();
       return true;
@@ -73,34 +26,33 @@ class GameInfoRemote extends GameInfo {
     }
   }
 
-  override login(details: LoginDetails) {
-    return this.api.login(details);
+  async getPlayerCount(): Promise<number> {
+    return await this.api.getPlayerCount();
   }
-
-  override register(details: LoginDetails) {
-    return this.api.register(details);
+  async login(details: LoginDetails): Promise<void> {
+    return await this.api.login(details);
   }
-
-  override async logOut() {
-    this.api.authenticationToken = null;
-    setSessionToken(null);
+  async register(details: LoginDetails): Promise<void> {
+    return await this.api.register(details);
   }
-
-  override accountInfo() {
-    return this.api.retrieveAccountInfo();
+  async logOut(): Promise<void> {
+    this.api.restoreSession(null);
+  }
+  async accountInfo(): Promise<AccountInfoDto> {
+    return await this.api.retrieveAccountInfo();
+  }
+  async trainerInfo(): Promise<SystemSaveDataDto> {
+    return await this.api.getTrainerData();
   }
 
   static async create(): Promise<GameInfo> {
-    const game = new GameInfoRemote();
+    let pokeRogueApi: IPokeRogueApi;
+    if (import.meta.env.VITE_BYPASS_LOGIN === '1') {
+      pokeRogueApi = new PokeRogueApiLocal();
+    } else {
+      pokeRogueApi = new PokeRogueApiRemote(import.meta.env.VITE_API_BASE_URL);
+    }
 
-    return game;
+    return new GameInfo(pokeRogueApi);
   }
-} 
-
-export async function loadGameInfo(): Promise<GameInfo> {
-  if (import.meta.env.VITE_BYPASS_LOGIN === '1') {
-    return new GameInfoLocal();
-  }
-
-  return GameInfoRemote.create();
 }
