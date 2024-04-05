@@ -35,4 +35,8 @@ export class PokeRogueApiLocal extends IPokeRogueApi {
   public override async getTrainerData(): Promise<SystemSaveDataDto> {
     throw new Error('Not implemented');
   }
+
+  public override async getSessionData(sessionNumber: number): Promise<any> {
+    throw new Error('Not implemented');
+  }
 }

@@ -1,5 +1,5 @@
 import { AccountInfoDto } from "#app/api/dto/account-info.dto";
-import { SystemSaveDataDto } from "#app/api/dto/trainer-data.dto";
+import { SessionSaveData, SystemSaveDataDto } from "#app/api/dto/trainer-data.dto";
 import { IPokeRogueApi, LoginDetails } from "#app/api/api";
 import { getSessionToken, setSessionToken } from "./local-cookies";
 import { PokeRogueApiRemote } from "#app/api/api-remote";
@@ -7,7 +7,7 @@ import { PokeRogueApiLocal } from "#app/api/api-local";
 
 export class GameInfo {
   constructor(
-    protected api: IPokeRogueApi,
+    private api: IPokeRogueApi,
   ) {
     api.restoreSession(getSessionToken());
     api.on('authChanged', (token: string | null) => {
@@ -42,8 +42,11 @@ export class GameInfo {
   async accountInfo(): Promise<AccountInfoDto> {
     return await this.api.retrieveAccountInfo();
   }
-  async trainerInfo(): Promise<SystemSaveDataDto> {
+  async trainerInfo(): Promise<SystemSaveDataDto | null> {
     return await this.api.getTrainerData();
+  }
+  async sessionData(sessionNumber: number): Promise<SessionSaveData | null> {
+    return await this.api.getSessionData(sessionNumber);
   }
 
   static async create(): Promise<GameInfo> {

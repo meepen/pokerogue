@@ -6,10 +6,21 @@ import { GameScene, InitSceneData } from '../../scene';
 import { PartyPlannerScene } from '../party-planner/party-planner.scene';
 import { Biome } from "../../../game-info/biomes/biome";
 import { splashMessages } from "../../../game-info/data/splash-messages";
+import { SessionSaveData, SystemSaveDataDto } from "#app/api/dto/trainer-data.dto";
+import { GameInfo } from "#gameinfo/game-info";
 
 export class MainMenuScene extends GameScene {
   constructor() {
     super(MainMenuScene.name);
+  }
+
+  private previousSession: SessionSaveData | null = null;
+
+  override async preInitialize(gameInfo: GameInfo) {
+    const accountInfo = await gameInfo.accountInfo();
+    if (accountInfo.lastSessionSlot !== -1) {
+      this.previousSession = await gameInfo.sessionData(accountInfo.lastSessionSlot);
+    }
   }
 
   public init(gameData: InitSceneData): void {
@@ -21,6 +32,12 @@ export class MainMenuScene extends GameScene {
 
     this.addComponent(MenuItemSelectComponent, {
       items: [
+        ...(this.previousSession ? [{
+          text: 'Continue',
+          onSelect: () => {
+            console.log('Continue');
+          },
+        }] : []),
         {
           text: 'New Game',
           onSelect: () => {

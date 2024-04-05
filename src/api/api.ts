@@ -1,5 +1,5 @@
 import EventEmitter from "phaser3-rex-plugins/plugins/utils/eventemitter/EventEmitter";
-import { SystemSaveDataDto } from "./dto/trainer-data.dto";
+import { SessionSaveData, SystemSaveDataDto } from "./dto/trainer-data.dto";
 import { AccountInfoDto } from "#app/api/dto/account-info.dto";
 
 export class ApiError extends Error {
@@ -23,5 +23,6 @@ export abstract class IPokeRogueApi extends EventEmitter {
   abstract register(details: LoginDetails): Promise<void>;
   abstract login(details: LoginDetails): Promise<void>;
   abstract retrieveAccountInfo(): Promise<AccountInfoDto>;
-  abstract getTrainerData(): Promise<SystemSaveDataDto>;
+  abstract getTrainerData(): Promise<SystemSaveDataDto | null>;
+  abstract getSessionData(sessionNumber: number): Promise<SessionSaveData | null>;
 }

@@ -1,6 +1,7 @@
 import { WindowStyle, globalScale } from "./constants";
 import { ISceneComponent } from "./scene-component.interface";
 import { addTextObject } from "#ui/text/text";
+import { GameInfo } from "#gameinfo/game-info";
 
 type ParametersExceptFirst<T> = T extends (first: any, ...rest: infer U) => any ? U : never;
 
@@ -14,7 +15,7 @@ export abstract class IGameScene extends Phaser.Scene {
   /**
    * Called before scene is shown
    */
-  async preInitialize() {}
+  async preInitialize(_gameData: GameInfo) {}
   
   getPipeline<T extends Constructor<Phaser.Renderer.WebGL.WebGLPipeline>>(pipeline: T): InstanceType<T> {
     const instance = this.pipelines.get(pipeline.name);

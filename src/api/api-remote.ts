@@ -1,6 +1,6 @@
 import { ApiError, IPokeRogueApi, LoginDetails } from "#app/api/api";
 import { AccountInfoDto } from "#app/api/dto/account-info.dto";
-import { SystemSaveDataDto } from "#app/api/dto/trainer-data.dto";
+import { SessionSaveData, SystemSaveDataDto } from "#app/api/dto/trainer-data.dto";
 import { getSessionToken } from "#app/utils";
 import { setSessionToken } from "#gameinfo/local-cookies";
 
@@ -15,7 +15,7 @@ export class PokeRogueApiRemote extends IPokeRogueApi {
 
   private _authenticationToken: string | null = null;
   
-  public restoreSession(token: string | null) {
+  public override restoreSession(token: string | null) {
     this.emit('authChanged', token);
     this._authenticationToken = token;
     setSessionToken(token);
@@ -49,7 +49,7 @@ export class PokeRogueApiRemote extends IPokeRogueApi {
    * @returns The player count.
    * @throws ApiError if the request fails.
    */
-  public async getPlayerCount(): Promise<number> {
+  public override async getPlayerCount(): Promise<number> {
     const response = await fetch(new URL('game/playercount', this.baseUrl).toString());
 
     if (response.ok) {
@@ -69,7 +69,7 @@ export class PokeRogueApiRemote extends IPokeRogueApi {
    * @param details The login details.
    * @throws ApiError if the request fails.
    */
-  public async register(details: LoginDetails): Promise<void> {
+  public override async register(details: LoginDetails): Promise<void> {
     const response = await fetch(new URL('account/register', this.baseUrl).toString(), {
       method: 'POST',
       headers: {
@@ -96,7 +96,7 @@ export class PokeRogueApiRemote extends IPokeRogueApi {
    * @returns The authentication token.
    * @throws ApiError if the request fails.
    */
-  public async login(details: LoginDetails): Promise<void> {
+  public override async login(details: LoginDetails): Promise<void> {
     const response = await fetch(new URL('account/login', this.baseUrl).toString(), {
       method: 'POST',
       headers: {
@@ -128,7 +128,7 @@ export class PokeRogueApiRemote extends IPokeRogueApi {
     this.restoreSession(resp['token']);
   }
 
-  public async retrieveAccountInfo(): Promise<AccountInfoDto> {
+  public override async retrieveAccountInfo(): Promise<AccountInfoDto> {
     const response = await fetch(new URL('account/info', this.baseUrl).toString(), this.initAuthenticated());
 
     if (!response.ok) {
@@ -139,7 +139,7 @@ export class PokeRogueApiRemote extends IPokeRogueApi {
     return resp as AccountInfoDto;
   }
 
-  public async getTrainerData(): Promise<SystemSaveDataDto> {
+  public override async getTrainerData(): Promise<SystemSaveDataDto | null> {
     const url = new URL('get', this.baseUrl);
     url.searchParams.append('datatype', '0');
 
@@ -149,7 +149,32 @@ export class PokeRogueApiRemote extends IPokeRogueApi {
       throw new ApiError('Failed to retrieve trainer data', response);
     }
 
-    const resp = await response.json();
-    return resp as SystemSaveDataDto;
+    const resp = await response.text();
+    if (resp === '') {
+      console.warn('No trainer data found');
+      return null;
+    }
+    
+    return JSON.parse(resp) as SystemSaveDataDto;
+  }
+
+  public override async getSessionData(sessionNumber: number): Promise<SessionSaveData | null> {
+    const url = new URL('get', this.baseUrl);
+    url.searchParams.append('datatype', '1');
+    url.searchParams.append('slot', sessionNumber.toString());
+
+    const response = await fetch(url.toString(), this.initAuthenticated());
+
+    if (!response.ok) {
+      throw new ApiError('Failed to retrieve session data', response);
+    }
+
+    const resp = await response.text();
+    if (resp === '') {
+      console.warn('No session data found');
+      return null;
+    }
+
+    return JSON.parse(resp) as SessionSaveData;
   }
 }
