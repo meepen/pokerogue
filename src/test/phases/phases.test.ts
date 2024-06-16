@@ -1,4 +1,4 @@
-import BattleScene from "#app/battle-scene.js";
+import type BattleScene from "#app/battle-scene.js";
 import { LoginPhase, TitlePhase, UnavailablePhase } from "#app/phases.js";
 import { Mode } from "#app/ui/ui.js";
 import {afterEach, beforeAll, beforeEach, describe, expect, it} from "vitest";

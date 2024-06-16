@@ -7,10 +7,11 @@ import { TurnEndPhase, } from "#app/phases";
 import { Moves } from "#enums/moves";
 import { getMovePosition } from "#app/test/utils/gameManagerUtils";
 import { Abilities } from "#enums/abilities";
-import Move, { allMoves } from "#app/data/move.js";
+import type Move from "#app/data/move.js";
+import { allMoves } from "#app/data/move.js";
 import { MoveAbilityBypassAbAttr, WonderSkinAbAttr } from "#app/data/ability.js";
 import { NumberHolder } from "#app/utils.js";
-import Pokemon from "#app/field/pokemon.js";
+import type Pokemon from "#app/field/pokemon.js";
 
 describe("Abilities - Wonder Skin", () => {
   let phaserGame: Phaser.Game;

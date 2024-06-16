@@ -1,6 +1,6 @@
-import BattleScene from "../../battle-scene";
+import type BattleScene from "../../battle-scene";
 import {Setting, SettingType} from "../../system/settings/settings";
-import { Mode } from "../ui";
+import type { Mode } from "../ui";
 import AbstractSettingsUiHandler from "./abstract-settings-ui-handler";
 
 export default class SettingsUiHandler extends AbstractSettingsUiHandler {

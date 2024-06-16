@@ -12,7 +12,7 @@ import { BattlerTagType } from "#enums/battler-tag-type";
 import { Weather, WeatherType } from "#app/data/weather.js";
 import { Type } from "#app/data/type.js";
 import { Biome } from "#enums/biome";
-import { PlayerPokemon } from "#app/field/pokemon.js";
+import type { PlayerPokemon } from "#app/field/pokemon.js";
 
 const TIMEOUT = 20 * 1000;
 

@@ -1,4 +1,4 @@
-import BattleScene from "../battle-scene";
+import type BattleScene from "../battle-scene";
 import { Mode } from "./ui";
 import { TextStyle, addTextObject, getEggTierTextTint } from "./text";
 import MessageUiHandler from "./message-ui-handler";

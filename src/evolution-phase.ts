@@ -1,13 +1,13 @@
 import SoundFade from "phaser3-rex-plugins/plugins/soundfade";
 import { Phase } from "./phase";
-import BattleScene from "./battle-scene";
-import { SpeciesFormEvolution } from "./data/pokemon-evolutions";
-import EvolutionSceneHandler from "./ui/evolution-scene-handler";
+import type BattleScene from "./battle-scene";
+import type { SpeciesFormEvolution } from "./data/pokemon-evolutions";
+import type EvolutionSceneHandler from "./ui/evolution-scene-handler";
 import * as Utils from "./utils";
 import { Mode } from "./ui/ui";
 import { LearnMovePhase } from "./phases";
 import { cos, sin } from "./field/anims";
-import { PlayerPokemon } from "./field/pokemon";
+import type { PlayerPokemon } from "./field/pokemon";
 import { getTypeRgb } from "./data/type";
 import i18next from "i18next";
 

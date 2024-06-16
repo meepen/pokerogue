@@ -1,11 +1,13 @@
 import { addTextObject, TextStyle } from "./text";
-import BattleScene from "#app/battle-scene.js";
+import type BattleScene from "#app/battle-scene.js";
 import { ArenaTagSide } from "#app/data/arena-tag.js";
 import { WeatherType } from "#app/data/weather.js";
 import { TerrainType } from "#app/data/terrain.js";
 import { addWindow, WindowVariant } from "./ui-theme";
-import { ArenaEvent, ArenaEventType, TagAddedEvent, TagRemovedEvent, TerrainChangedEvent, WeatherChangedEvent } from "#app/events/arena.js";
-import { BattleSceneEventType, TurnEndEvent } from "../events/battle-scene";
+import type { ArenaEvent} from "#app/events/arena.js";
+import { ArenaEventType, TagAddedEvent, TagRemovedEvent, TerrainChangedEvent, WeatherChangedEvent } from "#app/events/arena.js";
+import type { TurnEndEvent } from "../events/battle-scene";
+import { BattleSceneEventType } from "../events/battle-scene";
 import { ArenaTagType } from "#enums/arena-tag-type";
 import TimeOfDayWidget from "./time-of-day-widget";
 import * as Utils from "../utils";

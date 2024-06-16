@@ -1,4 +1,4 @@
-import BattleScene from "../battle-scene";
+import type BattleScene from "../battle-scene";
 import { EggHatchPhase } from "../egg-hatch-phase";
 import { Mode } from "./ui";
 import UiHandler from "./ui-handler";

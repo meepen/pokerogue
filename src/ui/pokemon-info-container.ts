@@ -1,10 +1,10 @@
 import { getVariantTint } from "#app/data/variant";
-import BBCodeText from "phaser3-rex-plugins/plugins/bbcodetext";
-import BattleScene from "../battle-scene";
+import type BBCodeText from "phaser3-rex-plugins/plugins/bbcodetext";
+import type BattleScene from "../battle-scene";
 import { Gender, getGenderColor, getGenderSymbol } from "../data/gender";
 import { getNatureName } from "../data/nature";
 import { Type } from "../data/type";
-import Pokemon from "../field/pokemon";
+import type Pokemon from "../field/pokemon";
 import i18next from "../plugins/i18n";
 import { DexAttr } from "../system/game-data";
 import * as Utils from "../utils";

@@ -1,7 +1,8 @@
-import BattleScene from "../battle-scene";
+import type BattleScene from "../battle-scene";
 import i18next from "../plugins/i18n";
-import { Achv, AchvTier, achvs, getAchievementDescription } from "./achv";
-import { PlayerGender } from "#enums/player-gender";
+import type { Achv} from "./achv";
+import { AchvTier, achvs, getAchievementDescription } from "./achv";
+import type { PlayerGender } from "#enums/player-gender";
 import { TrainerType } from "#enums/trainer-type";
 
 export enum VoucherType {

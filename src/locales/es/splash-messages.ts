@@ -1,4 +1,4 @@
-import { SimpleTranslationEntries } from "#app/plugins/i18n";
+import type { SimpleTranslationEntries } from "#app/plugins/i18n";
 
 export const splashMessages: SimpleTranslationEntries = {
   "battlesWon": "¡Batallas ganadas!",

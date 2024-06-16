@@ -1,15 +1,16 @@
-import BattleScene from "../battle-scene";
+import type BattleScene from "../battle-scene";
 import { addTextObject, TextStyle } from "./text";
 import { getTypeDamageMultiplierColor, Type } from "../data/type";
 import { Command } from "./command-ui-handler";
 import { Mode } from "./ui";
 import UiHandler from "./ui-handler";
 import * as Utils from "../utils";
-import { CommandPhase } from "../phases";
+import type { CommandPhase } from "../phases";
 import { MoveCategory } from "#app/data/move.js";
 import i18next from "../plugins/i18n";
 import {Button} from "#enums/buttons";
-import Pokemon, { PokemonMove } from "#app/field/pokemon.js";
+import type { PokemonMove } from "#app/field/pokemon.js";
+import type Pokemon from "#app/field/pokemon.js";
 
 export default class FightUiHandler extends UiHandler {
   private movesContainer: Phaser.GameObjects.Container;

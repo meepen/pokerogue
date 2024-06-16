@@ -1,6 +1,8 @@
-import BattleScene from "../battle-scene";
-import { getPlayerShopModifierTypeOptionsForWave, ModifierTypeOption, TmModifierType } from "../modifier/modifier-type";
-import { getPokeballAtlasKey, PokeballType } from "../data/pokeball";
+import type BattleScene from "../battle-scene";
+import type { ModifierTypeOption} from "../modifier/modifier-type";
+import { getPlayerShopModifierTypeOptionsForWave, TmModifierType } from "../modifier/modifier-type";
+import type { PokeballType } from "../data/pokeball";
+import { getPokeballAtlasKey } from "../data/pokeball";
 import { addTextObject, getModifierTierTextTint, getTextColor, TextStyle } from "./text";
 import AwaitableUiHandler from "./awaitable-ui-handler";
 import { Mode } from "./ui";

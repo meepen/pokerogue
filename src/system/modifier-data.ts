@@ -1,6 +1,7 @@
-import BattleScene from "../battle-scene";
+import type BattleScene from "../battle-scene";
 import { PersistentModifier } from "../modifier/modifier";
-import { GeneratedPersistentModifierType, ModifierTypeGenerator, getModifierTypeFuncById } from "../modifier/modifier-type";
+import type { GeneratedPersistentModifierType} from "../modifier/modifier-type";
+import { ModifierTypeGenerator, getModifierTypeFuncById } from "../modifier/modifier-type";
 
 export default class ModifierData {
   private player: boolean;

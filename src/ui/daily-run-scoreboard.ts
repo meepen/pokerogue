@@ -1,4 +1,4 @@
-import BattleScene from "../battle-scene";
+import type BattleScene from "../battle-scene";
 import { TextStyle, addTextObject } from "./text";
 import { WindowVariant, addWindow } from "./ui-theme";
 import * as Utils from "../utils";

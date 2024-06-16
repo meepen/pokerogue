@@ -1,4 +1,4 @@
-import { MoveTranslationEntries } from "#app/plugins/i18n";
+import type { MoveTranslationEntries } from "#app/plugins/i18n";
 
 /**
  * 본가 게임과 텍스트가 다르거나 번역문을 완전히 확인하지 못한 경우 주석으로 표시

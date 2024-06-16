@@ -1,7 +1,8 @@
-import BattleScene from "../battle-scene";
-import { ModalConfig, ModalUiHandler } from "./modal-ui-handler";
+import type BattleScene from "../battle-scene";
+import type { ModalConfig} from "./modal-ui-handler";
+import { ModalUiHandler } from "./modal-ui-handler";
 import { addTextObject, TextStyle } from "./text";
-import { Mode } from "./ui";
+import type { Mode } from "./ui";
 import { updateUserInfo } from "#app/account";
 
 export default class UnavailableModalUiHandler extends ModalUiHandler {

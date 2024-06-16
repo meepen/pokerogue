@@ -1,7 +1,7 @@
 import SoundFade from "phaser3-rex-plugins/plugins/soundfade";
-import FadeIn from "phaser3-rex-plugins/plugins/audio/fade/FadeIn";
-import FadeOut from "phaser3-rex-plugins/plugins/audio/fade/FadeOut";
-import BattleScene from "../battle-scene";
+import type FadeIn from "phaser3-rex-plugins/plugins/audio/fade/FadeIn";
+import type FadeOut from "phaser3-rex-plugins/plugins/audio/fade/FadeOut";
+import type BattleScene from "../battle-scene";
 import * as Utils from "../utils";
 
 type FadeIn = typeof FadeIn;

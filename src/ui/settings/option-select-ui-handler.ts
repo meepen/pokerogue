@@ -1,4 +1,4 @@
-import BattleScene from "../../battle-scene";
+import type BattleScene from "../../battle-scene";
 import AbstractOptionSelectUiHandler from "../abstact-option-select-ui-handler";
 import { Mode } from "../ui";
 

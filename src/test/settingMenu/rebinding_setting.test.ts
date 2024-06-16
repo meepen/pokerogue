@@ -6,7 +6,7 @@ import {
 } from "#app/configs/inputs/configHandler";
 import {MenuManip} from "#app/test/settingMenu/helpers/menuManip";
 import {InGameManip} from "#app/test/settingMenu/helpers/inGameManip";
-import {InterfaceConfig} from "#app/inputs-controller";
+import type {InterfaceConfig} from "#app/inputs-controller";
 import cfg_keyboard_qwerty from "#app/configs/inputs/cfg_keyboard_qwerty";
 import {SettingKeyboard} from "#app/system/settings/settings-keyboard";
 import { Device } from "#enums/devices";

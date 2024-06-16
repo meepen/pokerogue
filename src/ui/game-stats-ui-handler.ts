@@ -1,11 +1,12 @@
 import Phaser from "phaser";
-import BattleScene from "../battle-scene";
+import type BattleScene from "../battle-scene";
 import { TextStyle, addTextObject } from "./text";
-import { Mode } from "./ui";
+import type { Mode } from "./ui";
 import UiHandler from "./ui-handler";
 import { addWindow } from "./ui-theme";
 import * as Utils from "../utils";
-import { DexAttr, GameData } from "../system/game-data";
+import type { GameData } from "../system/game-data";
+import { DexAttr } from "../system/game-data";
 import { speciesStarters } from "../data/pokemon-species";
 import {Button} from "#enums/buttons";
 import i18next from "../plugins/i18n";

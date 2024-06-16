@@ -1,4 +1,4 @@
-import BattleScene from "../../battle-scene";
+import type BattleScene from "../../battle-scene";
 import {Mode} from "../ui";
 import cfg_keyboard_qwerty from "#app/configs/inputs/cfg_keyboard_qwerty";
 import {
@@ -10,7 +10,7 @@ import {
 } from "#app/system/settings/settings-keyboard";
 import {reverseValueToKeySetting, truncateString} from "#app/utils";
 import AbstractControlSettingsUiHandler from "#app/ui/settings/abstract-control-settings-ui-handler.js";
-import {InterfaceConfig} from "#app/inputs-controller";
+import type {InterfaceConfig} from "#app/inputs-controller";
 import {addTextObject, TextStyle} from "#app/ui/text";
 import {deleteBind} from "#app/configs/inputs/configHandler";
 import {Device} from "#enums/devices";

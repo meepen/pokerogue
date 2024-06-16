@@ -1,21 +1,21 @@
 import { WeatherType } from "./data/weather";
-import { Variant } from "./data/variant";
-import { TempBattleStat } from "./data/temp-battle-stat";
-import { Nature } from "./data/nature";
-import { Type } from "./data/type";
-import { Stat } from "./data/pokemon-stat";
-import { PokeballCounts } from "./battle-scene";
+import type { Variant } from "./data/variant";
+import type { TempBattleStat } from "./data/temp-battle-stat";
+import type { Nature } from "./data/nature";
+import type { Type } from "./data/type";
+import type { Stat } from "./data/pokemon-stat";
+import type { PokeballCounts } from "./battle-scene";
 import { PokeballType } from "./data/pokeball";
-import { Gender } from "./data/gender";
+import type { Gender } from "./data/gender";
 import { StatusEffect } from "./data/status-effect";
-import { modifierTypes } from "./modifier/modifier-type";
+import type { modifierTypes } from "./modifier/modifier-type";
 import { allSpecies } from "./data/pokemon-species"; // eslint-disable-line @typescript-eslint/no-unused-vars
 import { Abilities } from "#enums/abilities";
-import { BerryType } from "#enums/berry-type";
+import type { BerryType } from "#enums/berry-type";
 import { Biome } from "#enums/biome";
-import { Moves } from "#enums/moves";
-import { Species } from "#enums/species";
-import { TimeOfDay } from "#enums/time-of-day";
+import type { Moves } from "#enums/moves";
+import type { Species } from "#enums/species";
+import type { TimeOfDay } from "#enums/time-of-day";
 
 /**
  * Overrides for testing different in game situations

@@ -1,8 +1,8 @@
-import BattleScene from "../battle-scene";
+import type BattleScene from "../battle-scene";
 import { Achv, getAchievementDescription } from "../system/achv";
 import { Voucher } from "../system/voucher";
 import { TextStyle, addTextObject } from "./text";
-import { PlayerGender } from "#enums/player-gender";
+import type { PlayerGender } from "#enums/player-gender";
 
 export default class AchvBar extends Phaser.GameObjects.Container {
   private defaultWidth: number;

@@ -1,5 +1,5 @@
 import { CommandPhase } from "../phases";
-import BattleScene from "../battle-scene";
+import type BattleScene from "../battle-scene";
 import { addTextObject, TextStyle } from "./text";
 import PartyUiHandler, { PartyUiMode } from "./party-ui-handler";
 import { Mode } from "./ui";

@@ -1,5 +1,5 @@
-import { CommandPhase } from "../phases";
-import BattleScene from "../battle-scene";
+import type { CommandPhase } from "../phases";
+import type BattleScene from "../battle-scene";
 import { getPokeballName } from "../data/pokeball";
 import { addTextObject, TextStyle } from "./text";
 import { Command } from "./command-ui-handler";

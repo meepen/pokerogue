@@ -1,6 +1,6 @@
 import {Button} from "#enums/buttons";
 import EventEmitter = Phaser.Events.EventEmitter;
-import BattleScene from "./battle-scene";
+import type BattleScene from "./battle-scene";
 
 const repeatInputDelayMillis = 250;
 

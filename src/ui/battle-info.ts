@@ -1,10 +1,11 @@
-import { EnemyPokemon, default as Pokemon } from "../field/pokemon";
+import type Pokemon from "../field/pokemon";
+import type { EnemyPokemon } from "../field/pokemon";
 import { getLevelTotalExp, getLevelRelExp } from "../data/exp";
 import * as Utils from "../utils";
 import { addTextObject, TextStyle } from "./text";
 import { getGenderSymbol, getGenderColor, Gender } from "../data/gender";
 import { StatusEffect } from "../data/status-effect";
-import BattleScene from "../battle-scene";
+import type BattleScene from "../battle-scene";
 import { Type, getTypeRgb } from "../data/type";
 import { getVariantTint } from "#app/data/variant";
 import { BattleStat } from "#app/data/battle-stat";

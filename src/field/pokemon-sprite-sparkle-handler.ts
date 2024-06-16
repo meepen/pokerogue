@@ -1,4 +1,4 @@
-import BattleScene from "../battle-scene";
+import type BattleScene from "../battle-scene";
 import Pokemon from "./pokemon";
 import * as Utils from "../utils";
 

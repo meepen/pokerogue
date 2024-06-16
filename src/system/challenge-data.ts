@@ -1,4 +1,5 @@
-import { Challenge, copyChallenge } from "#app/data/challenge.js";
+import type { Challenge} from "#app/data/challenge.js";
+import { copyChallenge } from "#app/data/challenge.js";
 
 export default class ChallengeData {
   public id: integer;

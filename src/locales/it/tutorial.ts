@@ -1,4 +1,4 @@
-import { SimpleTranslationEntries } from "#app/plugins/i18n";
+import type { SimpleTranslationEntries } from "#app/plugins/i18n";
 
 export const tutorial: SimpleTranslationEntries = {
   "intro": `Benvenuto in PokéRogue! Questo gioco si concentra sulle battaglie, con elementi roguelite.

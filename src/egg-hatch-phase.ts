@@ -1,11 +1,13 @@
 import SoundFade from "phaser3-rex-plugins/plugins/soundfade";
 import { Phase } from "./phase";
-import BattleScene, { AnySound } from "./battle-scene";
+import type { AnySound } from "./battle-scene";
+import type BattleScene from "./battle-scene";
 import * as Utils from "./utils";
 import { Mode } from "./ui/ui";
-import { EGG_SEED, Egg, GachaType, getLegendaryGachaSpeciesForTimestamp } from "./data/egg";
-import EggHatchSceneHandler from "./ui/egg-hatch-scene-handler";
-import { PlayerPokemon } from "./field/pokemon";
+import type { Egg} from "./data/egg";
+import { EGG_SEED, GachaType, getLegendaryGachaSpeciesForTimestamp } from "./data/egg";
+import type EggHatchSceneHandler from "./ui/egg-hatch-scene-handler";
+import type { PlayerPokemon } from "./field/pokemon";
 import { getPokemonSpecies, speciesStarters } from "./data/pokemon-species";
 import { achvs } from "./system/achv";
 import { pokemonPrevolutions } from "./data/pokemon-evolutions";

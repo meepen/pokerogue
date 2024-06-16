@@ -1,10 +1,10 @@
 import { Mode } from "#app/ui/ui";
 import i18next from "i18next";
-import BattleScene from "../../battle-scene";
+import type BattleScene from "../../battle-scene";
 import { hasTouchscreen } from "../../touch-controls";
 import { updateWindowType } from "../../ui/ui-theme";
 import { CandyUpgradeNotificationChangedEvent } from "../../events/battle-scene";
-import SettingsUiHandler from "#app/ui/settings/settings-ui-handler";
+import type SettingsUiHandler from "#app/ui/settings/settings-ui-handler";
 import { EaseType } from "#enums/ease-type";
 import { MoneyFormat } from "#enums/money-format";
 import { PlayerGender } from "#enums/player-gender";

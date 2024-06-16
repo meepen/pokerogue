@@ -1,9 +1,10 @@
-import BattleScene from "../battle-scene";
-import { ModalConfig, ModalUiHandler } from "./modal-ui-handler";
-import { Mode } from "./ui";
+import type BattleScene from "../battle-scene";
+import type { ModalConfig} from "./modal-ui-handler";
+import { ModalUiHandler } from "./modal-ui-handler";
+import type { Mode } from "./ui";
 import { TextStyle, addTextInputObject, addTextObject } from "./text";
 import { WindowVariant, addWindow } from "./ui-theme";
-import InputText from "phaser3-rex-plugins/plugins/inputtext";
+import type InputText from "phaser3-rex-plugins/plugins/inputtext";
 import * as Utils from "../utils";
 import i18next from "../plugins/i18n";
 import {Button} from "#enums/buttons";

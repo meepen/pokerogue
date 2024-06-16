@@ -1,5 +1,5 @@
-import BattleScene from "../battle-scene";
-import { Mode } from "./ui";
+import type BattleScene from "../battle-scene";
+import type { Mode } from "./ui";
 import UiHandler from "./ui-handler";
 import {Button} from "#enums/buttons";
 

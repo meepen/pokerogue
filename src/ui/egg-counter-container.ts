@@ -1,8 +1,9 @@
-import BattleScene from "#app/battle-scene.js";
+import type BattleScene from "#app/battle-scene.js";
 import { addWindow } from "./ui-theme";
 import { addTextObject, TextStyle } from "./text";
-import { EggCountChangedEvent, EggEventType } from "#app/events/egg.js";
-import EggHatchSceneHandler from "./egg-hatch-scene-handler";
+import type { EggCountChangedEvent} from "#app/events/egg.js";
+import { EggEventType } from "#app/events/egg.js";
+import type EggHatchSceneHandler from "./egg-hatch-scene-handler";
 
 /**
  * A container that displays the count of hatching eggs.

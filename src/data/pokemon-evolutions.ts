@@ -1,6 +1,6 @@
 import { Gender } from "./gender";
 import { PokeballType } from "./pokeball";
-import Pokemon from "../field/pokemon";
+import type Pokemon from "../field/pokemon";
 import { Stat } from "./pokemon-stat";
 import { Type } from "./type";
 import * as Utils from "../utils";

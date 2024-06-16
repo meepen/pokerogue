@@ -1,12 +1,13 @@
-import { Arena } from "../field/arena";
+import type { Arena } from "../field/arena";
 import { Type } from "./type";
 import * as Utils from "../utils";
 import { MoveCategory, allMoves, MoveTarget } from "./move";
 import { getPokemonMessage } from "../messages";
-import Pokemon, { HitResult, PokemonMove } from "../field/pokemon";
+import type Pokemon from "../field/pokemon";
+import { HitResult, PokemonMove } from "../field/pokemon";
 import { MoveEffectPhase, PokemonHealPhase, ShowAbilityPhase, StatChangePhase} from "../phases";
 import { StatusEffect } from "./status-effect";
-import { BattlerIndex } from "../battle";
+import type { BattlerIndex } from "../battle";
 import { BlockNonDirectDamageAbAttr, ProtectStatAbAttr, applyAbAttrs } from "./ability";
 import { BattleStat } from "./battle-stat";
 import { CommonAnim, CommonBattleAnim } from "./battle-anims";

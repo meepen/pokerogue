@@ -1,13 +1,14 @@
-import BattleScene from "../../battle-scene";
+import type BattleScene from "../../battle-scene";
 import { hasTouchscreen, isMobile } from "../../touch-controls";
 import { TextStyle, addTextObject } from "../text";
-import { Mode } from "../ui";
+import type { Mode } from "../ui";
 import UiHandler from "../ui-handler";
 import { addWindow } from "../ui-theme";
 import {Button} from "#enums/buttons";
-import {InputsIcons} from "#app/ui/settings/abstract-control-settings-ui-handler.js";
+import type {InputsIcons} from "#app/ui/settings/abstract-control-settings-ui-handler.js";
 import NavigationMenu, {NavigationManager} from "#app/ui/settings/navigationMenu";
-import { Setting, SettingKeys } from "#app/system/settings/settings";
+import type { Setting} from "#app/system/settings/settings";
+import { SettingKeys } from "#app/system/settings/settings";
 
 
 /**

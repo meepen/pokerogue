@@ -1,8 +1,9 @@
-import BattleScene from "../battle-scene";
-import PokemonSpecies, { getPokemonSpecies, speciesStarters } from "./pokemon-species";
+import type BattleScene from "../battle-scene";
+import type PokemonSpecies from "./pokemon-species";
+import { getPokemonSpecies, speciesStarters } from "./pokemon-species";
 import i18next from "../plugins/i18n";
 import { EggTier } from "#enums/egg-type";
-import { Species } from "#enums/species";
+import type { Species } from "#enums/species";
 
 export const EGG_SEED = 1073741824;
 

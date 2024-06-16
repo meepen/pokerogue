@@ -1,4 +1,4 @@
-import { SimpleTranslationEntries } from "#app/plugins/i18n";
+import type { SimpleTranslationEntries } from "#app/plugins/i18n";
 
 export const biome: SimpleTranslationEntries = {
   "unknownLocation": "Em algum lugar do qual você não se lembra",

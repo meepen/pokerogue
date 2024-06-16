@@ -1,4 +1,4 @@
-import BattleScene from "./battle-scene";
+import type BattleScene from "./battle-scene";
 import AwaitableUiHandler from "./ui/awaitable-ui-handler";
 import { Mode } from "./ui/ui";
 import i18next from "./plugins/i18n";

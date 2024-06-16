@@ -1,7 +1,9 @@
 import { TextStyle, addTextObject } from "../ui/text";
-import Pokemon, { DamageResult, HitResult } from "./pokemon";
+import type { DamageResult} from "./pokemon";
+import type Pokemon from "./pokemon";
+import { HitResult } from "./pokemon";
 import * as Utils from "../utils";
-import { BattlerIndex } from "../battle";
+import type { BattlerIndex } from "../battle";
 
 export default class DamageNumberHandler {
   private damageNumbers: Map<BattlerIndex, Phaser.GameObjects.Text[]>;

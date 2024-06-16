@@ -1,5 +1,5 @@
 import { PokemonFormChangeItemModifier } from "../modifier/modifier";
-import Pokemon from "../field/pokemon";
+import type Pokemon from "../field/pokemon";
 import { SpeciesFormKey } from "./pokemon-species";
 import { StatusEffect } from "./status-effect";
 import { MoveCategory, allMoves } from "./move";

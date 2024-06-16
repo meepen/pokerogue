@@ -1,6 +1,6 @@
-import BattleScene from "../battle-scene";
+import type BattleScene from "../battle-scene";
 import AwaitableUiHandler from "./awaitable-ui-handler";
-import { Mode } from "./ui";
+import type { Mode } from "./ui";
 import * as Utils from "../utils";
 
 export default abstract class MessageUiHandler extends AwaitableUiHandler {

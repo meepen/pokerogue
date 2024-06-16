@@ -2,15 +2,16 @@ import {afterEach, beforeAll, beforeEach, describe, expect, it, vi} from "vitest
 import Phaser from "phaser";
 import GameManager from "#app/test/utils/gameManager";
 import * as overrides from "#app/overrides";
-import {
-  CommandPhase, EnemyCommandPhase, SelectTargetPhase,
+import type {
+  CommandPhase} from "#app/phases";
+import { EnemyCommandPhase, SelectTargetPhase,
   TurnStartPhase
 } from "#app/phases";
 import {Mode} from "#app/ui/ui";
 import {getMovePosition} from "#app/test/utils/gameManagerUtils";
 import {Command} from "#app/ui/command-ui-handler";
 import {Stat} from "#app/data/pokemon-stat";
-import TargetSelectUiHandler from "#app/ui/target-select-ui-handler";
+import type TargetSelectUiHandler from "#app/ui/target-select-ui-handler";
 import { Abilities } from "#enums/abilities";
 import { Moves } from "#enums/moves";
 import { Species } from "#enums/species";

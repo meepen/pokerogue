@@ -2,8 +2,9 @@ import {afterEach, beforeAll, beforeEach, describe, expect, it, vi} from "vitest
 import Phaser from "phaser";
 import GameManager from "#app/test/utils/gameManager";
 import * as overrides from "#app/overrides";
+import type {
+  CommandPhase} from "#app/phases";
 import {
-  CommandPhase,
   EnemyCommandPhase, TurnEndPhase,
 } from "#app/phases";
 import {Mode} from "#app/ui/ui";

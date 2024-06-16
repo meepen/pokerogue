@@ -1,11 +1,11 @@
-import BattleScene from "../battle-scene";
+import type BattleScene from "../battle-scene";
 import { addBBCodeTextObject, addTextObject, getTextColor, TextStyle } from "./text";
 import { Mode } from "./ui";
 import * as Utils from "../utils";
 import MessageUiHandler from "./message-ui-handler";
 import { getStatName, Stat } from "../data/pokemon-stat";
 import { addWindow } from "./ui-theme";
-import BBCodeText from "phaser3-rex-plugins/plugins/bbcodetext";
+import type BBCodeText from "phaser3-rex-plugins/plugins/bbcodetext";
 import {Button} from "#enums/buttons";
 import i18next from "../plugins/i18n";
 

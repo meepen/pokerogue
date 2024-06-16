@@ -1,4 +1,4 @@
-import { AbilityTranslationEntries } from "#app/plugins/i18n.js";
+import type { AbilityTranslationEntries } from "#app/plugins/i18n.js";
 
 /**
  * 본가 게임과 텍스트가 다를 경우 주석으로 표시

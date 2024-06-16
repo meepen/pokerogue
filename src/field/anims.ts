@@ -1,4 +1,4 @@
-import BattleScene from "../battle-scene";
+import type BattleScene from "../battle-scene";
 import { PokeballType } from "../data/pokeball";
 import * as Utils from "../utils";
 

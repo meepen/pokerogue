@@ -1,4 +1,4 @@
-import { PokemonInfoTranslationEntries } from "#app/plugins/i18n";
+import type { PokemonInfoTranslationEntries } from "#app/plugins/i18n";
 
 export const pokemonInfo: PokemonInfoTranslationEntries = {
   Stat: {

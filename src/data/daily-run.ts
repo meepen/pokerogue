@@ -1,10 +1,11 @@
 import { PartyMemberStrength } from "#enums/party-member-strength";
-import { Species } from "#enums/species";
-import BattleScene from "../battle-scene";
+import type { Species } from "#enums/species";
+import type BattleScene from "../battle-scene";
 import { PlayerPokemon } from "../field/pokemon";
-import { Starter } from "../ui/starter-select-ui-handler";
+import type { Starter } from "../ui/starter-select-ui-handler";
 import * as Utils from "../utils";
-import PokemonSpecies, { PokemonSpeciesForm, getPokemonSpecies, getPokemonSpeciesForm, speciesStarters } from "./pokemon-species";
+import type { PokemonSpeciesForm} from "./pokemon-species";
+import PokemonSpecies, { getPokemonSpecies, getPokemonSpeciesForm, speciesStarters } from "./pokemon-species";
 
 export interface DailyRunConfig {
   seed: integer;

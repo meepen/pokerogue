@@ -1,11 +1,12 @@
-import { Modifier } from "typescript";
-import BattleScene from "../battle-scene";
+import type { Modifier } from "typescript";
+import type BattleScene from "../battle-scene";
 import { TurnHeldItemTransferModifier } from "../modifier/modifier";
 import i18next from "../plugins/i18n";
-import * as Utils from "../utils";
+import type * as Utils from "../utils";
 import { PlayerGender } from "#enums/player-gender";
-import { ParseKeys } from "i18next";
-import { Challenge, SingleGenerationChallenge, SingleTypeChallenge } from "#app/data/challenge.js";
+import type { ParseKeys } from "i18next";
+import type { Challenge} from "#app/data/challenge.js";
+import { SingleGenerationChallenge, SingleTypeChallenge } from "#app/data/challenge.js";
 
 export enum AchvTier {
   COMMON,

@@ -1,6 +1,6 @@
-import BattleScene from "../battle-scene";
+import type BattleScene from "../battle-scene";
 import { TextStyle, addTextObject } from "./text";
-import { Mode } from "./ui";
+import type { Mode } from "./ui";
 import UiHandler from "./ui-handler";
 import { addWindow } from "./ui-theme";
 import * as Utils from "../utils";

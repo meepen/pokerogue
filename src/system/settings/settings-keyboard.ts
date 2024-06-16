@@ -1,7 +1,7 @@
 import {Button} from "#enums/buttons";
-import BattleScene from "#app/battle-scene";
+import type BattleScene from "#app/battle-scene";
 import {Mode} from "#app/ui/ui";
-import SettingsKeyboardUiHandler from "#app/ui/settings/settings-keyboard-ui-handler";
+import type SettingsKeyboardUiHandler from "#app/ui/settings/settings-keyboard-ui-handler";
 
 export enum SettingKeyboard {
     // Default_Layout = "DEFAULT_LAYOUT",

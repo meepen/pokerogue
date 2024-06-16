@@ -1,12 +1,12 @@
-import BattleScene from "../battle-scene";
+import type BattleScene from "../battle-scene";
 import { TextStyle, addTextObject } from "./text";
-import { Mode } from "./ui";
+import type { Mode } from "./ui";
 import UiHandler from "./ui-handler";
 import { addWindow } from "./ui-theme";
 import {Button} from "#enums/buttons";
 import i18next from "#app/plugins/i18n.js";
 import { SelectStarterPhase, TitlePhase } from "#app/phases.js";
-import { Challenge } from "#app/data/challenge.js";
+import type { Challenge } from "#app/data/challenge.js";
 
 /**
  * Handles all the UI for choosing optional challenges.

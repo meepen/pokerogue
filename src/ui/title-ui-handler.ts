@@ -1,5 +1,5 @@
-import BattleScene from "../battle-scene";
-import { DailyRunScoreboard } from "./daily-run-scoreboard";
+import type BattleScene from "../battle-scene";
+import type { DailyRunScoreboard } from "./daily-run-scoreboard";
 import OptionSelectUiHandler from "./settings/option-select-ui-handler";
 import { Mode } from "./ui";
 import * as Utils from "../utils";

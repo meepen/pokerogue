@@ -1,6 +1,7 @@
-import { CommandPhase, SelectModifierPhase } from "../phases";
-import BattleScene from "../battle-scene";
-import { PlayerPokemon, PokemonMove } from "../field/pokemon";
+import type { CommandPhase} from "../phases";
+import { SelectModifierPhase } from "../phases";
+import type BattleScene from "../battle-scene";
+import type { PlayerPokemon, PokemonMove } from "../field/pokemon";
 import { addTextObject, TextStyle } from "./text";
 import { Command } from "./command-ui-handler";
 import MessageUiHandler from "./message-ui-handler";

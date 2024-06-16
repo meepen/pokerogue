@@ -51,7 +51,14 @@ export default [
                 "ignoreComments": false // Enforces the rule on lines containing comments
             }],
             "space-before-blocks": ["error", "always"], // Enforces a space before blocks
-            "keyword-spacing": ["error", { "before": true, "after": true }] // Enforces spacing before and after keywords
+            "keyword-spacing": ["error", { "before": true, "after": true }], // Enforces spacing before and after keywords
+            "@typescript-eslint/no-import-type-side-effects": "error", // Disallows the import of modules with side effects
+            // "import/no-cycle": "error", // Disallows circular imports
+            "import/no-named-default": "error", // Disallows the use of importing via import {default as foo} from 'foo'
+            "@typescript-eslint/consistent-type-imports": ["error", {
+                "prefer": "type-imports", // Enforces the use of type imports
+                "fixStyle": "separate-type-imports", // Fixes the import style to use type imports
+            }],
         }
     }
 ]

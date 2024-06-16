@@ -1,4 +1,4 @@
-import { ModifierTypeTranslationEntries } from "#app/plugins/i18n";
+import type { ModifierTypeTranslationEntries } from "#app/plugins/i18n";
 
 export const modifierType: ModifierTypeTranslationEntries = {
   ModifierType: {

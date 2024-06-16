@@ -1,10 +1,11 @@
-import BattleScene from "../battle-scene";
+import type BattleScene from "../battle-scene";
 import { Button } from "#enums/buttons";
 import i18next from "../plugins/i18n";
-import { Voucher, getVoucherTypeIcon, getVoucherTypeName, vouchers } from "../system/voucher";
+import type { Voucher} from "../system/voucher";
+import { getVoucherTypeIcon, getVoucherTypeName, vouchers } from "../system/voucher";
 import MessageUiHandler from "./message-ui-handler";
 import { TextStyle, addTextObject } from "./text";
-import { Mode } from "./ui";
+import type { Mode } from "./ui";
 import { addWindow } from "./ui-theme";
 
 const itemRows = 4;

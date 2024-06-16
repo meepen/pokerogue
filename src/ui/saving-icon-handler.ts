@@ -1,4 +1,4 @@
-import BattleScene from "#app/battle-scene";
+import type BattleScene from "#app/battle-scene";
 import * as Utils from "../utils";
 
 export default class SavingIconHandler extends Phaser.GameObjects.Container {

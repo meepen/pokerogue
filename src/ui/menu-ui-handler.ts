@@ -1,10 +1,11 @@
-import BattleScene, { bypassLogin } from "../battle-scene";
+import type BattleScene from "../battle-scene";
+import { bypassLogin } from "../battle-scene";
 import { TextStyle, addTextObject } from "./text";
 import { Mode } from "./ui";
 import * as Utils from "../utils";
 import { addWindow } from "./ui-theme";
 import MessageUiHandler from "./message-ui-handler";
-import { OptionSelectConfig, OptionSelectItem } from "./abstact-option-select-ui-handler";
+import type { OptionSelectConfig, OptionSelectItem } from "./abstact-option-select-ui-handler";
 import { Tutorial, handleTutorial } from "../tutorial";
 import { updateUserInfo } from "../account";
 import i18next from "../plugins/i18n";

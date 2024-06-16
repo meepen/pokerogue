@@ -1,6 +1,7 @@
 import { PokemonHealPhase, StatChangePhase } from "../phases";
 import { getPokemonMessage } from "../messages";
-import Pokemon, { HitResult } from "../field/pokemon";
+import type Pokemon from "../field/pokemon";
+import { HitResult } from "../field/pokemon";
 import { BattleStat } from "./battle-stat";
 import { getStatusEffectHealText } from "./status-effect";
 import * as Utils from "../utils";
